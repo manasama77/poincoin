@@ -1,0 +1,22 @@
+{
+	"description": "Aplikasi untuk Ikhtiar Kredit Syariah",
+	"name": "manasama77/iks",
+	"type": "project",
+	"homepage": "https://apmwebdev.com",
+	"license": "",
+	"support": {
+		"Adam PM": "+62 8211-4578-976"
+	},
+	"require": {
+		"php": ">=5.4",
+		"chriskacerguis/codeigniter-restserver": "^3.1",
+		"almasaeed2010/adminlte": "~2.4",
+		"select2/select2": "^4.0",
+		"components/jquery": "^3.5",
+		"components/jqueryui": "^1.12"
+	},
+	"suggest": {
+		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
+	},
+	"require-dev": {}
+}

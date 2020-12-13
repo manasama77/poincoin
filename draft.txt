@@ -1,0 +1,153 @@
+#####login
+#####- email
+#####- password min 4
+
+#####admin
+#####- email
+#####- password
+#####- role
+#####    - master admin
+#####    - admin
+#####    - marketing
+#####        - pengajuan
+#####        - customer
+
+pengajuan (marketing)
+- no kredit (otomatis) 122001 (MMYY##)
+- tanggal pengajuan
+- marketing (otomatis dr login)
+- customer (ambil dari list master customer)
+    - data customer di load ulang & diberlakukan update data ketika di save pengajuan
+- jenis barang
+    - elektronik
+    - furniture
+- nama barang
+- spesifikasi barang
+- harga produk (kisaran)
+- lama kredit (6, 8, 10)
+	- 6 = 25%
+	- 8 = 30%
+	- 10 = 35%
+- angsuran perbulan (kisaran)
+^ status #belum aktif
+
+verifikasi pengajuan (admin)
+- pilih no kredit (yang status pengajuan belum aktif)
+
+- no kredit 
+- tanggal pengajuan
+- tanggal verifikasi
+- marketing
+- customer
+- jenis barang
+    - elektronik
+    - furniture
+- nama barang
+- spesifikasi barang
+- @harga produk (kisaran) -> (data fix)
+- @potongan toko
+- @uang muka
+- lama kredit (6, 8, 10)
+- @angsuran perbulan -> (data fix)
+- margin (%)
+
+- harga jual (harga produk + potongan toko - uang muka) (generate)
+    100,000 + 10,000 - 0 = 110,000
+- pokok (harga jual / lama kredit) (generate)
+    110,000 / 6 = 18,333
+- margin ( ((angsuran perbulan * lama kredit) - harga produk) / lama kredit ) (generate)
+    18,333 * 6 = 109.998
+    109.998 - 100.000 = 9.998
+    1.666
+- angsuran perbulan (pokok + margin)
+- jatuh tempo (tanggal verifikasi * lama kredit) (generate)
+^ angsuran ke #0
+^ status #aktif
+
+    @jika status == aktif maka bisa print kartu angsuran
+    ^ print kartu angsuran
+            LOGO
+    - nama konsumen
+    - produk
+    - harga jual
+    - jatuh tempo
+    - angsuran (perbulan)
+    [bulan][bulan][bulan][bulan][bulan]
+    [paraf][paraf][paraf][paraf][paraf]
+
+    [bulan][bulan][bulan][bulan][bulan]
+    [paraf][paraf][paraf][paraf][paraf]
+    *data paraf bisa terisi dari history transaksi
+    marketing:       - no kredit 
+
+
+master customer
+- nama
+- tgl lahir
+- alamat
+- no telp
+- email
+- pekerjaan (dari list pekerjaan)
+- hubungan dengan marketing
+- nama penjamin
+- no telp penjamin
+- sumber pendapatan
+	- gaji tetap
+	- honor
+	- bonus
+	- hasil usaha
+	- hasil alam
+- penghasilan perbulan
+
+- foto ktp
+
+
+#####list pekerjaan
+#####- nama
+
+transaksi
+- input tanggal
+    - add data
+        - pilih no kredit / nama anggota
+        - input jumlah angsuran (angka tidak boleh melebihi sisa angsuran)
+        - jumlah pembayaran (ambil dari angsuran pengajuan.perbulan * input jumlah angsuran)
+        - cara pembayaran (tunai, transfer)
+    - save
+
+laporan
+-> laporan outstanding
+    -> pilih marketing (all / satuan)
+
+    - no kredit
+    - customer
+    - lama kredit
+    - pokok
+    - margin
+    - angsuran perbulan
+    - angsuran ke
+    - sisa kredit
+        - sisa angsuran
+        - pokok 
+        - margin
+        - sisa hutang
+        - tertunggak
+    - status (lunas, belum lunas, tertunggak)
+-> Laporan Pengawasan Angsuran
+
+
+* tambahan module neraca & laporan keuangan
+
+* tambahan module aset
+- modal
+- (outstanding) A   
+
+
+
+
+
+
+----------------------------
+- tanggal jatuh tempo pertama dihitung dari tanggal verifikasi + 7 hari
+- jatuh tempo berikutnya + 30 hari
+- sebelum verifikasi ada menu  persediaan murobahah
+- di tabel tambah saldo rekening (nilai akan berubah ketika uang masuk dan keluar)
