@@ -19,10 +19,10 @@ class DashboardController extends CI_Controller
 		$data['content'] = 'dashboard/index';
 		$data['vitamin'] = 'dashboard/index_vitamin';
 
-		$data['admin_count']     = $this->mcore->count("admins", ['deleted_at' => NULL, 'role' => 'master_admin']);
-		$data['marketing_count'] = $this->mcore->count("admins", ['deleted_at' => NULL, 'role' => 'marketing']);
-		$data['customer_count']  = $this->mcore->count("customers", ['deleted_at' => NULL]);
-		$data['pengajuan_count'] = $this->mcore->count("pengajuan", ['deleted_at' => NULL, 'MONTH(tanggal_pengajuan)' => $cur_month]);
+		$data['admin_count'] = $this->mcore->count("admins", ['deleted_at' => NULL, 'role' => 'master_admin']);
+		$data['user_count']  = $this->mcore->count("users", ['status' => 'aktif']);
+		// $data['customer_count']  = $this->mcore->count("customers", ['deleted_at' => NULL]);
+		// $data['pengajuan_count'] = $this->mcore->count("pengajuan", ['deleted_at' => NULL, 'MONTH(tanggal_pengajuan)' => $cur_month]);
 
 		$this->template->template($data);
 	}

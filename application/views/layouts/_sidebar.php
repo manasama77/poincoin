@@ -7,7 +7,7 @@
 					<i class="fa fa-dashboard"></i> <span>Dashboard</span>
 				</a>
 			</li>
-			<li class="header">Pengajuan</li>
+			<!-- <li class="header">Pengajuan</li>
 			<li class="treeview">
 				<a href="#">
 					<i class="fa fa-archive"></i>
@@ -33,34 +33,7 @@
 						</a>
 					</li>
 				</ul>
-			</li>
-			<li class="header">Barang</li>
-			<li class="">
-				<a href="<?= site_url('barang'); ?>">
-					<i class="fa fa-cubes"></i> <span>Barang Management</span>
-				</a>
-			</li>
-			<li class="">
-				<a href="<?= site_url('vendors'); ?>">
-					<i class="fa fa-tag"></i> <span>Vendor</span>
-				</a>
-			</li>
-			<li class="">
-				<a href="<?= site_url('jenis_barang'); ?>">
-					<i class="fa fa-tag"></i> <span>Jenis Barang</span>
-				</a>
-			</li>
-			<li class="header">Customer</li>
-			<li class="">
-				<a href="<?= site_url('customers'); ?>">
-					<i class="fa fa-users"></i> <span>Customer Management</span>
-				</a>
-			</li>
-			<li class="">
-				<a href="<?= site_url('pekerjaans'); ?>">
-					<i class="fa fa-tags"></i> <span>Pekerjaan</span>
-				</a>
-			</li>
+			</li> -->
 			<li class="header">Setup</li>
 			<li class="">
 				<a href="<?= site_url('admins'); ?>">

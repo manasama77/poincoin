@@ -2,7 +2,7 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 ##############################################################################################################
 # RESERVED ROUTES
-$route['default_controller']   = 'LoginController/index';
+$route['default_controller']   = 'UserLoginController/index';
 $route['404_override']         = 'My404';
 $route['translate_uri_dashes'] = FALSE;
 ##############################################################################################################

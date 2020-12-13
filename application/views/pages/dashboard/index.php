@@ -34,37 +34,13 @@ if ($this->session->flashdata('first_login')) {
 		<div class="col-lg-3 col-xs-6">
 			<div class="small-box bg-primary">
 				<div class="inner">
-					<h3><?= $marketing_count; ?></h3>
-					<p>Marketing</p>
-				</div>
-				<div class="icon">
-					<i class="fa fa-user-secret"></i>
-				</div>
-				<a href="<?= site_url('admin'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-			</div>
-		</div>
-		<div class="col-lg-3 col-xs-6">
-			<div class="small-box bg-green">
-				<div class="inner">
-					<h3><?= $customer_count; ?></h3>
-					<p>Customer</p>
+					<h3><?= $user_count; ?></h3>
+					<p>User</p>
 				</div>
 				<div class="icon">
 					<i class="fa fa-users"></i>
 				</div>
-				<a href="<?= site_url('customers'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-			</div>
-		</div>
-		<div class="col-lg-3 col-xs-6">
-			<div class="small-box bg-yellow">
-				<div class="inner">
-					<h3><?= $pengajuan_count; ?></h3>
-					<p>Pengajuan (Bulan Ini)</p>
-				</div>
-				<div class="icon">
-					<i class="fa fa-archive"></i>
-				</div>
-				<a href="<?= site_url('pengajuan'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+				<a href="<?= site_url('admin'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
 	</div>
