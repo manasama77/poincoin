@@ -11,7 +11,7 @@
  Target Server Version : 100325
  File Encoding         : 65001
 
- Date: 14/12/2020 00:36:40
+ Date: 21/12/2020 00:33:50
 */
 
 SET NAMES utf8mb4;
@@ -45,7 +45,9 @@ INSERT INTO `admins` VALUES (1, 'master', 'manasama', '$2y$10$KtHGXdMg4m4H23pzBi
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `id_referal` int(11) NULL DEFAULT NULL,
@@ -54,7 +56,18 @@ CREATE TABLE `users`  (
   `profit_balance` decimal(15, 2) NULL DEFAULT NULL,
   `bonus_balance` decimal(15, 2) NULL DEFAULT NULL,
   `total_investment` decimal(15, 2) NULL DEFAULT NULL,
+  `cookies` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `remember` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` datetime(0) NULL DEFAULT NULL,
+  `updated_at` datetime(0) NULL DEFAULT NULL,
+  `deleted_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+INSERT INTO `users` VALUES (1, 'adam', 'adam.pm77@gmail.com', 'adam', '$2y$10$rNH1n8oj8MA7KUcPUFPHxOQsw4Ltlo.SDWYLQSn5tSTY3YYb4fzim', NULL, 'aktif', 0.00, 0.00, 0.00, 0.00, NULL, '0', '2020-12-19 21:44:40', '2020-12-21 00:33:31', NULL);
+INSERT INTO `users` VALUES (3, 'joe', 'joe@gmail.com', 'joe', '$2y$10$VQRRRenzKpIJPRPZdjPSIuBn9xFKB93GZK2ftVQpA6lWO67vw3tG2', 1, 'aktif', 0.00, 0.00, 0.00, 0.00, NULL, NULL, '2020-12-20 19:32:25', '2020-12-20 19:32:25', NULL);
 
 SET FOREIGN_KEY_CHECKS = 1;
