@@ -85,7 +85,7 @@ defined('EXIT__AUTO_MIN')      or define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      or define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 
-define('SESS', 'IKSSESS');
-define('COOK', 'IKSCOOK');
-define('UYAH', 'djisamsoe');
+define('SESS', 'BIOROBOSESS');
+define('COOK', 'BIOROBOCOOK');
+define('UYAH', 'limaratusribu');
 define('VERSION_APP', '1.0.0 Alpha');

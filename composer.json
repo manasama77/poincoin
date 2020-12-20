@@ -13,7 +13,8 @@
 		"almasaeed2010/adminlte": "~2.4",
 		"select2/select2": "^4.0",
 		"components/jquery": "^3.5",
-		"components/jqueryui": "^1.12"
+		"components/jqueryui": "^1.12",
+		"fortawesome/font-awesome": "^5.15"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
