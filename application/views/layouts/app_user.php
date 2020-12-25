@@ -11,138 +11,30 @@
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="<?= base_url(); ?>vendor/fortawesome/font-awesome/css/all.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>public/css/main.css">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url(); ?>apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?= base_url(); ?>apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?= base_url(); ?>apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url(); ?>apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?= base_url(); ?>apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?= base_url(); ?>apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url(); ?>apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= base_url(); ?>apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url(); ?>apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?= base_url(); ?>android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url(); ?>favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?= base_url(); ?>favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url(); ?>favicon-16x16.png">
+    <link rel="manifest" href="<?= base_url(); ?>manifest.json">
+    <meta name="msapplication-TileColor" content="#000">
+    <meta name="msapplication-TileImage" content="<?= base_url(); ?>ms-icon-144x144.png">
+    <meta name="theme-color" content="#000">
 
     <title>Dashboard - Bioner</title>
-
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&display=swap');
-
-        html,
-        body {
-            font-family: 'Jura', sans-serif;
-        }
-
-        #background {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -100;
-            -webkit-transform: translateX(-50%) translateY(-50%);
-            transform: translateX(-50%) translateY(-50%);
-            background: url('dist/images/bg1.jpg') no-repeat;
-            background-size: cover;
-        }
-
-        .card-gradient {
-            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ff9900+0,ff670f+100 */
-            background: rgb(255, 153, 0);
-            /* Old browsers */
-            background: -moz-linear-gradient(top, rgba(255, 153, 0, 1) 0%, rgba(255, 103, 15, 1) 100%);
-            /* FF3.6-15 */
-            background: -webkit-linear-gradient(top, rgba(255, 153, 0, 1) 0%, rgba(255, 103, 15, 1) 100%);
-            /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom, rgba(255, 153, 0, 1) 0%, rgba(255, 103, 15, 1) 100%);
-            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9900', endColorstr='#ff670f', GradientType=0);
-            /* IE6-9 */
-
-
-            -webkit-box-shadow: 3px 4px 4px 1px rgba(77, 77, 77, 0.8);
-            box-shadow: 3px 4px 4px 1px rgba(77, 77, 77, 0.8);
-
-
-            border: rgba(0, 0, 0, 0);
-        }
-
-        .bg-faded {
-            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#45484d+0,000000+100;Black+3D+%231 */
-            background: rgb(69, 72, 77);
-            /* Old browsers */
-            background: -moz-linear-gradient(top, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%);
-            /* FF3.6-15 */
-            background: -webkit-linear-gradient(top, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%);
-            /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom, rgba(69, 72, 77, 1) 0%, rgba(0, 0, 0, 1) 100%);
-            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#45484d', endColorstr='#000000', GradientType=0);
-            /* IE6-9 */
-
-            border-top: rgb(255, 255, 255) 1px solid;
-        }
-
-        .btn-special {
-            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#606c88+0,3f4c6b+100;Grey+3D+%232 */
-            background: rgb(96, 108, 136);
-            /* Old browsers */
-            background: -moz-linear-gradient(top, rgba(96, 108, 136, 1) 0%, rgba(63, 76, 107, 1) 100%);
-            /* FF3.6-15 */
-            background: -webkit-linear-gradient(top, rgba(96, 108, 136, 1) 0%, rgba(63, 76, 107, 1) 100%);
-            /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom, rgba(96, 108, 136, 1) 0%, rgba(63, 76, 107, 1) 100%);
-            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#606c88', endColorstr='#3f4c6b', GradientType=0);
-            /* IE6-9 */
-
-
-            border: #fff 1px solid;
-        }
-
-        .modal-special {
-            background: rgba(0, 0, 0, 0.9) !important;
-        }
-
-        .flataja {
-            border-radius: 0% !important;
-        }
-
-        .fa-gradient {
-            /* filter: drop-shadow(5px 4px 1px #0a0b37); */
-
-            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#eeeeee+0,eeeeee+100;Grey+Flat */
-            background: rgb(0, 0, 0);
-
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .bg-dark {
-            background-color: #020419 !important;
-        }
-
-        .bg-dark-1 {
-            background-color: #6a3506 !important;
-        }
-
-        .bg-pastel {
-            /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f9fcf7+0,f5f9f0+100;L+Green+3D */
-            background: rgb(249, 252, 247);
-            /* Old browsers */
-            background: -moz-linear-gradient(top, rgba(249, 252, 247, 1) 0%, rgba(245, 249, 240, 1) 100%);
-            /* FF3.6-15 */
-            background: -webkit-linear-gradient(top, rgba(249, 252, 247, 1) 0%, rgba(245, 249, 240, 1) 100%);
-            /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(to bottom, rgba(249, 252, 247, 1) 0%, rgba(245, 249, 240, 1) 100%);
-            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9fcf7', endColorstr='#f5f9f0', GradientType=0);
-            /* IE6-9 */
-        }
-
-        .f-news {
-            font-family: 'Mukta', sans-serif;
-        }
-
-        .pointer {
-            cursor: pointer;
-        }
-    </style>
 </head>
 
-<body class="text-white bg-pastel">
+<body class="bg-pastel">
 
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
@@ -164,8 +56,9 @@
                     <a data-fancybox="pp" href="<?= base_url(); ?>public/img/avatars/avatar_default.png" style="margin-right: 10px;">
                         <img src="<?= base_url(); ?>public/img/avatars/avatar_default.png" alt="PP" class="img-circle" style="width: 30px;">
                     </a>
-                    <a data-fancybox="gallery" href="https://www.kaspersky.com/content/en-global/images/repository/isc/2020/9910/a-guide-to-qr-codes-and-how-to-scan-qr-codes-2.png">
-                        <img src="https://www.kaspersky.com/content/en-global/images/repository/isc/2020/9910/a-guide-to-qr-codes-and-how-to-scan-qr-codes-2.png" class="img-fluid" alt="QR CODE" style="max-width: 30px;">
+                    <div id="myQR" class="img-fluid" style="display: none;"></div>
+                    <a id="afancy" data-fancybox="gallery" class="myQR" href="">
+                        <img id="imgfancy" src="" class="img-fluid " alt="QR CODE" style="max-width: 30px;">
                     </a>
                     <span style="font-weight: bold; margin-left: 10px;"> <?= $this->session->userdata(SESS . 'nama'); ?></span>
                 </div>
@@ -190,28 +83,33 @@
         <div class="card-body p-2">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="p-1 text-center">
+                    <a href="<?= site_url(); ?>dashboard_user">
+                        <img src="<?= base_url(); ?>public/img/home.png" alt="dashboard" class="img-fluid img-thumbnail" style="width: 80px;">
+                    </a>
+                </div>
+                <div class="p-1 text-center">
                     <a href="<?= site_url(); ?>stacking">
-                        <img src="<?= base_url(); ?>public/img/bioner_stacking.png" alt="bc" class="img-fluid" style="width: 100px;">
+                        <img src="<?= base_url(); ?>public/img/bioner_stacking.png" alt="bc" class="img-fluid" style="width: 80px;">
                     </a>
                 </div>
                 <div class="p-1 text-center">
                     <a href="<?= site_url(); ?>bioner_trading">
-                        <img src="<?= base_url(); ?>public/img/bioner_trading.png" alt="bt" class="img-fluid" style="width: 100px;">
+                        <img src="<?= base_url(); ?>public/img/bioner_trading.png" alt="bt" class="img-fluid" style="width: 80px;">
                     </a>
                 </div>
                 <div class="p-1 text-center">
                     <a href="<?= site_url(); ?>bioner_mining">
-                        <img src="<?= base_url(); ?>public/img/bioner_mining.png" alt="bm" class="img-fluid" style="width: 100px;">
+                        <img src="<?= base_url(); ?>public/img/bioner_mining.png" alt="bm" class="img-fluid" style="width: 80px;">
                     </a>
                 </div>
                 <div class="p-1 text-center">
                     <a href="<?= site_url(); ?>bioner_marketplace">
-                        <img src="<?= base_url(); ?>public/img/bioner_marketplace.png" alt="bc" class="img-fluid" style="width: 100px;">
+                        <img src="<?= base_url(); ?>public/img/bioner_marketplace.png" alt="bc" class="img-fluid" style="width: 80px;">
                     </a>
                 </div>
                 <div class="p-1 text-center">
                     <a href="<?= site_url(); ?>bioner_exchange">
-                        <img src="<?= base_url(); ?>public/img/bioner_exchange.png" alt="bc" class="img-fluid" style="width: 100px;">
+                        <img src="<?= base_url(); ?>public/img/bioner_exchange.png" alt="bc" class="img-fluid" style="width: 80px;">
                     </a>
                 </div>
             </div>
@@ -250,6 +148,21 @@
     </script>
     </script>
     <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script src="<?= base_url(); ?>public/js/jquery.qrcode.min.js"></script>
+    <script src="<?= base_url(); ?>public/js/sweetalert2.all.min.js"></script>
+    <script src="<?= base_url(); ?>public/js/jquery.blockUI.js"></script>
+    <script>
+        $('#myQR').qrcode({
+            text: "<?= $this->session->userdata(SESS . 'username'); ?>",
+        }).hide();
+
+        let canvasQR = document.getElementById('myQR').firstChild;
+        let imgQR = new Image();
+        imgQR.src = canvasQR.toDataURL();
+
+        $('#afancy').attr('href', imgQR.src);
+        $('#imgfancy').attr('src', imgQR.src);
+    </script>
 
     <?php $this->load->view('users/' . $vitamin); ?>
 

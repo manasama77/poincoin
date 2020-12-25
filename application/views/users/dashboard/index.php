@@ -1,3 +1,5 @@
+<h1 class="text-dark text-center pt-3 pb-2">Dashboard</h1>
+
 <div class="row justify-content-center">
 
     <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
@@ -6,10 +8,10 @@
                 <div class="d-flex justify-content-between">
                     <div class="p-2">
                         <i class="fas fa-users fa-gradient fa-2x"></i><br />
-                        <b style="color: #000;">Total Refferal</b>
+                        <b class="title-special-card">Total Refferal</b>
                     </div>
                     <div class="p-2" style="margin-top: 10px;">
-                        <h3 class="font-weight-bold"><?= $count_referal->num_rows(); ?> <small>Member</small></h3>
+                        <p class="font-weight-bold value-special-card"><?= $count_referal->num_rows(); ?> <small>Member</small></p>
                     </div>
                 </div>
             </div>
@@ -22,10 +24,10 @@
                 <div class="d-flex justify-content-between">
                     <div class="p-2">
                         <i class="fas fa-chart-bar fa-gradient fa-2x"></i><br />
-                        <b style="color: #000;">Profit Balance</b>
+                        <b class="title-special-card">Profit Balance</b>
                     </div>
                     <div class="p-2" style="margin-top: 10px;">
-                        <h3 class="font-weight-bold">0.14 <small>B</small></h3>
+                        <p class="font-weight-bold value-special-card">0.14 <small>B</small></p>
                     </div>
                 </div>
             </div>
@@ -38,10 +40,10 @@
                 <div class="d-flex justify-content-between">
                     <div class="p-2">
                         <i class="fas fa-hand-holding-usd fa-gradient fa-2x"></i><br />
-                        <b style="color: #000;">Bonus Balance</b>
+                        <b class="title-special-card">Bonus Balance</b>
                     </div>
                     <div class="p-2" style="margin-top: 10px;">
-                        <h3 class="font-weight-bold">59.40 <small>B</small></h3>
+                        <p class="font-weight-bold value-special-card">59.40 <small>B</small></p>
                     </div>
                 </div>
             </div>
@@ -54,10 +56,10 @@
                 <div class="d-flex justify-content-between">
                     <div class="p-2">
                         <i class="fas fa-wallet fa-gradient fa-2x"></i><br />
-                        <b style="color: #000;">Cash Balance</b>
+                        <b class="title-special-card">Cash Balance</b>
                     </div>
                     <div class="p-2" style="margin-top: 10px;">
-                        <h3 class="font-weight-bold">59.40 <small>B</small></h3>
+                        <p class="font-weight-bold value-special-card">59.40 <small>B</small></p>
                     </div>
                 </div>
             </div>
@@ -70,10 +72,10 @@
                 <div class="d-flex justify-content-between">
                     <div class="p-2">
                         <i class="fas fa-coins fa-gradient fa-2x"></i><br />
-                        <b style="color: #000;">Total Investment</b>
+                        <b class="title-special-card">Total Investment</b>
                     </div>
                     <div class="p-2" style="margin-top: 10px;">
-                        <h3 class="font-weight-bold">59.40 <small>B</small></h3>
+                        <p class="font-weight-bold value-special-card">59.40 <small>B</small></p>
                     </div>
                 </div>
             </div>
