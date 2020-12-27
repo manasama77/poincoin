@@ -22,9 +22,10 @@ class StackingController extends CI_Controller
 
         $arr_stacking = $this->mcore->get('bioner_stacking', '*', ['id_user' => $id_user], 'id', 'desc');
 
-        $data['arr_stacking']     = $arr_stacking;
-        $data['bioner_profit']    = $this->M_stacking->count_bioner_profit($id_user)->row()->current_profit;
-        $data['total_investment'] = $this->M_stacking->count_total_investment($id_user)->row()->total_investment;
+        $data['arr_stacking']       = $arr_stacking;
+        $data['count_arr_stacking'] = $arr_stacking->num_rows();
+        $data['bioner_profit']      = $this->M_stacking->count_bioner_profit($id_user)->row()->profit;
+        $data['total_investment']   = $this->M_stacking->count_total_investment($id_user)->row()->total_investment;
 
         $this->template->template($data);
     }
@@ -39,10 +40,8 @@ class StackingController extends CI_Controller
         if ($total_investment > 0 && $total_transfer > 0) {
             $kode              = $this->_generate_kode_bioner_stacking($id_user);
             $profit_perhari_b  = ($total_investment * 0.5) / 100;
-            $profit_perhari_rp = ($total_transfer * 0.5) / 100;
-            $current_profit    = 0;
+            $profit_perhari_rp = ($total_investment * 10000 * 0.5) / 100;
             $status            = 'menunggu_transfer';
-            // $jumlah_stack      = $this->mcore->count('bioner_stacking', ['id_user' => $id_user]);
 
             $data_stacking = [
                 'kode'              => $kode,
@@ -51,8 +50,8 @@ class StackingController extends CI_Controller
                 'total_transfer'    => $total_transfer,
                 'profit_perhari_b'  => $profit_perhari_b,
                 'profit_perhari_rp' => $profit_perhari_rp,
-                'current_profit'    => $current_profit,
                 'status'            => $status,
+                'bukti_transfer'    => NULL,
                 'created_at'        => date('Y-m-d'),
                 'updated_at'        => date('Y-m-d'),
                 'deleted_at'        => NULL,
@@ -106,6 +105,60 @@ class StackingController extends CI_Controller
         $unik = $arr_unik->num_rows() + 1;
         $kode = $id_user . "." . date('d') . "" . date("m") . "" . date("y") . "" . $unik;
         return $kode;
+    }
+
+    public function stacking_upload_bukti_transfer()
+    {
+        $id_bioner_stacking   = $this->input->post('id_bioner_stacking');
+
+        $config['upload_path']      = './public/img/bukti_transfer/';
+        $config['allowed_types']    = 'gif|jpg|png|jpeg';
+        $config['overwrite']        = FALSE;
+        $config['file_ext_tolower'] = TRUE;
+        $config['file_name']        = date('Y-m-d_H_i_s');
+
+        $this->load->library('upload', $config);
+
+        $code = 500;
+        $msg = '';
+        if ($this->upload->do_upload('bukti_transfer')) {
+            $gambar_name = $this->upload->data('file_name');
+
+            $data_upload = ['status' => 'menunggu_verifikasi', 'bukti_transfer' => $gambar_name];
+            $where_upload = ['kode' => $id_bioner_stacking];
+            $exec = $this->mcore->update('bioner_stacking', $data_upload, $where_upload);
+
+            if ($exec) {
+                $code = 200;
+                $msg = 'Upload Berhasil';
+            } else {
+                $code = 501;
+                $msg = 'Upload Gagal';
+            }
+        } else {
+            $msg = $this->upload->display_errors();
+        }
+
+        echo json_encode(['code' => $code, 'msg' => $msg]);
+    }
+
+    public function withdraw()
+    {
+        $id_user = $this->session->userdata(SESS . 'id');
+
+        $data['title']   = 'Bioner Stacking';
+        $data['content'] = 'stacking_withdraw/index';
+        $data['vitamin'] = 'stacking_withdraw/index_vitamin';
+
+        $arr_stacking = $this->mcore->get('bioner_stacking', '*', ['id_user' => $id_user], 'id', 'desc');
+
+        $data['arr_stacking']       = $arr_stacking;
+        $data['count_arr_stacking'] = $arr_stacking->num_rows();
+        $data['bioner_profit']      = $this->M_stacking->count_bioner_profit($id_user)->row()->profit;
+        $data['total_investment']   = $this->M_stacking->count_total_investment($id_user)->row()->total_investment;
+        $data['arr_rekening']       = $this->M_stacking->get_user_rekeing();
+
+        $this->template->template($data);
     }
 }
         

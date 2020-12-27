@@ -1,4 +1,4 @@
-<h1 class="text-dark text-center pt-3 pb-2">Bione Stacking</h1>
+<h1 class="text-dark text-center pt-3 pb-2">Bione Stacking - Withdraw</h1>
 
 <div class="row justify-content-center">
 
@@ -38,11 +38,11 @@
     <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
         <div class="card card-gradient mt-2 mb-2">
             <div class="card-body p-2 text-center">
-                <a href="<?= site_url(); ?>stacking_withdraw">
+                <a href="<?= site_url(); ?>stacking">
                     <div class="d-flex justify-content-center">
                         <div class="p-1">
                             <i class="fas fa-money-bill-wave-alt fa-gradient fa-2x"></i><br />
-                            <b class="title-special-card">Withdraw</b>
+                            <b class="title-special-card">List Bioner Stacking</b>
                         </div>
                     </div>
                 </a>
@@ -56,60 +56,55 @@
     <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
         <div class="card text-white">
             <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
-                <span style="font-size: 25px;"><i class="fas fa-table"></i> List Bioner Stacking</span>
+                <span style="font-size: 25px;"><i class="fas fa-money-bill-wave-alt"></i> Withdraw</span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <div class="table-responsive">
-                    <table class="table table-bordered" style="font-size: 0.9em; width: 100%;">
-                        <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th class="text-right">Total<br>Investment</th>
-                                <th class="text-right">Profit<br>Perhari</th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Created</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if ($arr_stacking->num_rows() > 0) {
-                            ?>
-                                <?php
-                                foreach ($arr_stacking->result() as $key) {
-                                ?>
-                                    <tr>
-                                        <td class="text-center"><?= $key->kode; ?></td>
-                                        <td class="text-right"><?= number_format($key->total_investment, 0); ?> B</td>
-                                        <td class="text-right"><?= number_format($key->profit_perhari_b, 2); ?> B</td>
-                                        <td class="text-center">
-                                            <?php
-                                            if ($key->status == "aktif") {
-                                                echo '<span class="badge badge-success flataja">Aktif</span>';
-                                            } elseif ($key->status == "menunggu_transfer") {
-                                                echo '<span class="badge badge-warning flataja">Menunggu Transfer</span><br><button type="button" class="btn btn-info btn-sm flataja" onclick="konfirmasiTransfer(\'' . $key->kode . '\', \'' . number_format($key->total_transfer, 0) . '\')">Konfirmasi Transfer</button>';
-                                            } elseif ($key->status == "menunggu_verifikasi") {
-                                                echo '<span class="badge badge-info flataja">Menunggu Verifikasi</span>';
-                                            } elseif ($key->status == "tidak_aktif") {
-                                                echo '<span class="badge badge-danger flataja">Tidak Aktif</span>';
-                                            }
-                                            ?>
-                                        </td>
-                                        <td class="text-center">
-                                            <?php
-                                            $created_obj = new DateTime();
-                                            $created_obj->createFromFormat('Y-m-d H:i:s', $key->created_at);
-                                            echo $created_obj->format('d-M-Y');
-                                            ?>
-                                        </td>
-                                    </tr>
-                                <?php
-                                }
-                                ?>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
+                    <form id="form_withdraw">
+                        <div class="form-group row justify-content-center">
+                            <label for="withdraw_b" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Withdraw Amount (B)</label>
+                            <div class="col-sm-12 col-md-12 col-lg-6 input-group">
+                                <input type="text" class="form-control text-right" id="withdraw_b" name="withdraw_b" placeholder="Total Investment" value="0" readonly required />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">B</span>
+                                </div>
+                                <div class="input-group-append">
+                                    <button type="button" class="btn btn-info" id="upValue">
+                                        <i class="fas fa-arrow-up"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-info" id="downValue">
+                                        <i class="fas fa-arrow-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center">
+                            <label for="withdraw_rp" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Withdraw Amount (Rp)</label>
+                            <div class="col-sm-12 col-md-12 col-lg-6 input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon2">Rp.</span>
+                                </div>
+                                <input type="text" class="form-control" id="withdraw_rp" name="withdraw_rp" value="0" readonly required>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center">
+                            <label for="id_rekening" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Rekening</label>
+                            <div class="col-sm-12 col-md-12 col-lg-6 input-group">
+                                <select class="form-control" id="id_rekening" name="id_rekening" required>
+                                    <option></option>
+                                    <?php
+                                    foreach ($arr_rekening->result() as $key) {
+                                        echo '<option value="' . $key->id . '">
+                                        ' . $key->no_rekening . ' - 
+                                        ' . $key->nama_bank . ' - 
+                                        ' . $key->atas_nama . ' - 
+                                        </option>';
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

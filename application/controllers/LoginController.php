@@ -12,6 +12,7 @@ class LoginController extends CI_Controller
 
 	public function index()
 	{
+		echo password_hash(UYAH . 'admin123)', PASSWORD_BCRYPT);
 		$cookies = get_cookie(COOK);
 
 		if ($cookies != NULL) {
@@ -77,7 +78,7 @@ class LoginController extends CI_Controller
 	public function username_check($str)
 	{
 		$where = [
-			'username'      => $str,
+			'username'   => $str,
 			'deleted_at' => NULL
 		];
 		$arr = $this->mcore->get('admins', '*', $where);
@@ -92,11 +93,11 @@ class LoginController extends CI_Controller
 
 	public function password_check($str)
 	{
-		$username    = $this->input->post('username');
-		$password = $str . UYAH;
+		$username = $this->input->post('username');
+		$password = UYAH . $str;
 
 		$where = [
-			'username'      => $username,
+			'username'   => $username,
 			'deleted_at' => NULL
 		];
 		$arr = $this->mcore->get('admins', '*', $where);

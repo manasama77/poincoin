@@ -15,6 +15,7 @@ $route['signup_user/(:any)'] = 'UserLoginController/signup/$1';
 $route['auth_user']          = 'UserLoginController/auth';
 $route['register_user']      = 'UserLoginController/signup';
 $route['logout_user']        = 'UserLoginController/logout';
+$route['profile']            = 'UserLoginController/profile';
 ##############################################################################################################
 
 ##############################################################################################################
@@ -26,8 +27,10 @@ $route['dashboard_user']   = 'DashboardUserController/index';
 ##############################################################################################################
 # BIONER STACKING USER
 ##############################################################################################################
-$route['stacking']     = 'StackingController/index';
-$route['stacking_add'] = 'StackingController/add';
+$route['stacking']                       = 'StackingController/index';
+$route['stacking_add']                   = 'StackingController/add';
+$route['stacking_upload_bukti_transfer'] = 'StackingController/stacking_upload_bukti_transfer';
+$route['stacking_withdraw']              = 'StackingController/withdraw';
 ##############################################################################################################
 
 ##############################################################################################################
@@ -49,61 +52,9 @@ $route['dashboard'] = 'DashboardController/index';
 
 
 ##############################################################################################################
-# PENGAJUAN
-$route['pengajuan']             = 'PengajuanController/index';
-$route['pengajuan/create']      = 'PengajuanController/create';
-$route['pengajuan/store']       = 'PengajuanController/store';
-$route['pengajuan/edit/(:num)'] = 'PengajuanController/edit/$1';
-$route['pengajuan/update']      = 'PengajuanController/update';
-$route['pengajuan/destroy']     = 'PengajuanController/destroy';
-$route['pengajuan/show_barang'] = 'PengajuanController/show_barang';
-$route['datatables/pengajuan']  = 'PengajuanController/datatables';
-
-# VERIFIKASI PENGAJUAN
-$route['verifikasi_pengajuan']            = 'VerifikasiPengajuanController/index';
-$route['datatables/verifikasi_pengajuan'] = 'VerifikasiPengajuanController/datatables';
-##############################################################################################################
-
-##############################################################################################################
-# BARANG
-$route['barang']                                    = 'BarangController/index';
-$route['barang/show']                               = 'BarangController/show';
-$route['barang/store']                              = 'BarangController/store';
-$route['barang/update']                             = 'BarangController/update';
-$route['barang/destroy']                            = 'BarangController/destroy';
-$route['barang/get_list_barang_by_id_jenis_barang'] = 'BarangController/get_list_barang_by_id_jenis_barang';
-$route['datatables/barang']                         = 'BarangController/datatables';
-
-# VENDOR
-$route['vendors']         = 'VendorController/index';
-$route['vendors/show']    = 'VendorController/show';
-$route['vendors/store']   = 'VendorController/store';
-$route['vendors/update']  = 'VendorController/update';
-$route['vendors/destroy'] = 'VendorController/destroy';
-
-# JENIS BARANG
-$route['jenis_barang']         = 'JenisBarangController/index';
-$route['jenis_barang/show']    = 'JenisBarangController/show';
-$route['jenis_barang/store']   = 'JenisBarangController/store';
-$route['jenis_barang/update']  = 'JenisBarangController/update';
-$route['jenis_barang/destroy'] = 'JenisBarangController/destroy';
-##############################################################################################################
-
-##############################################################################################################
-# CUSTOMERS
-$route['customers']             = 'CustomersController/index';
-$route['customers/add']         = 'CustomersController/add';
-$route['customers/store']       = 'CustomersController/store';
-$route['customers/edit/(:num)'] = 'CustomersController/edit/$1';
-$route['customers/update']      = 'CustomersController/update';
-$route['customers/destroy']     = 'CustomersController/destroy';
-$route['datatables/customers']  = 'CustomersController/datatables';
-
-# PEKERJAANS
-$route['pekerjaans']         = 'PekerjaansController/index';
-$route['pekerjaans/store']   = 'PekerjaansController/store';
-$route['pekerjaans/update']  = 'PekerjaansController/update';
-$route['pekerjaans/destroy'] = 'PekerjaansController/destroy';
+# BIONER STACKING ADMIN
+$route['admin/bioner_stacking/index']               = 'StackingAdminController/index';
+$route['admin/bioner_stacking/verifikasi_transfer'] = 'StackingAdminController/verifikasi_transfer';
 ##############################################################################################################
 
 ##############################################################################################################
@@ -115,5 +66,6 @@ $route['datatables/admins'] = 'AdminsController/datatables';
 
 
 # UTILITY
-$route['init']   = 'InitController/init_admins';
+$route['init']                       = 'InitController/init_admins';
+$route['distribusi_bioner_stacking'] = 'InitController/distribusi_bioner_stacking';
 ##############################################################################################################

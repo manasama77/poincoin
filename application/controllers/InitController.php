@@ -5,6 +5,12 @@ class InitController extends CI_Controller
 {
     private $table = 'admins';
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('M_stacking');
+    }
+
     public function init_admins()
     {
 
@@ -205,6 +211,11 @@ class InitController extends CI_Controller
         array_push($data, $object);
 
         $exec = $this->mcore->store_batch('customers', $data);
+    }
+
+    public function distribusi_bioner_stacking()
+    {
+        $exec = $this->M_stacking->distribusi_bioner_stacking();
     }
 }
 

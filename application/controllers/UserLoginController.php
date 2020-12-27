@@ -9,6 +9,8 @@ class UserLoginController extends CI_Controller
     {
         parent::__construct();
         $this->load->helper(['cookie', 'string']);
+        $this->load->library('TemplateUser', NULL, 'template');
+        $this->load->model('M_stacking');
     }
 
     public function index()
@@ -173,20 +175,25 @@ class UserLoginController extends CI_Controller
                 'password'         => $password,
                 'id_referal'       => ($id_referal != "") ? $id_referal : NULL,
                 'status'           => 'aktif',
-                'cash_balance'     => 0,
-                'profit_balance'   => 0,
-                'bonus_balance'    => 0,
-                'total_investment' => 0,
                 'created_at'       => date('Y-m-d H:i:s'),
                 'updated_at'       => date('Y-m-d H:i:s'),
                 'deleted_at'       => NULL,
             ];
             $arr = $this->mcore->store('users', $object);
+            $last_id = $this->db->insert_id();
 
             if (!$arr) {
                 $this->session->set_flashdata('signup_error', 'Proses Sign Up Gagal, tidak terhubung dengan server silahkan coba kembali');
                 redirect('signup');
             } else {
+                $data = [
+                    'id_user'          => $last_id,
+                    'profit'           => 0,
+                    'total_investment' => 0,
+                    'created_at'       => date('Y-m-d H:i:s'),
+                    'updated_at'       => date('Y-m-d H:i:s'),
+                ];
+                $this->mcore->store('users_bioner_stacking', $data);
                 $this->session->set_flashdata('signup_success', 'Proses Signup Berhasil, silahkan Login');
                 redirect('/');
             }
@@ -251,11 +258,29 @@ class UserLoginController extends CI_Controller
         $arr = $this->mcore->get('users', 'id', ['username' => $username]);
 
         $id_referal = NULL;
-        if ($arr) {
+        if ($arr->num_rows() == 1) {
             $id_referal = $arr->row()->id;
         }
 
         return $id_referal;
+    }
+
+    public function profile()
+    {
+        $id_user = $this->session->userdata(SESS . 'id');
+
+        $data['title']   = 'Bioner Stacking';
+        $data['content'] = 'stacking/index';
+        $data['vitamin'] = 'stacking/index_vitamin';
+
+        $arr_stacking = $this->mcore->get('bioner_stacking', '*', ['id_user' => $id_user], 'id', 'desc');
+
+        $data['arr_stacking']       = $arr_stacking;
+        $data['count_arr_stacking'] = $arr_stacking->num_rows();
+        $data['bioner_profit']      = $this->M_stacking->count_bioner_profit($id_user)->row()->profit;
+        $data['total_investment']   = $this->M_stacking->count_total_investment($id_user)->row()->total_investment;
+
+        $this->template->template($data);
     }
 }
         

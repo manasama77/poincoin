@@ -17,5 +17,9 @@
 		.swal2-popup {
 			font-size: 1.2rem !important;
 		}
+
+		.flataja {
+			border-radius: 0% !important;
+		}
 	</style>
 </head>

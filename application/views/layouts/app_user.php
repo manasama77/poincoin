@@ -41,6 +41,9 @@
             <div class="bg-dark">
                 <ul class="list-group flataja">
                     <li class="list-group-item bg-dark flataja p-2 pr-3 text-right">
+                        <a href="<?= site_url(); ?>profile" class="text-white font-weight-bold">Profile</a>
+                    </li>
+                    <li class="list-group-item bg-dark flataja p-2 pr-3 text-right">
                         <a href="<?= site_url(); ?>change_password" class="text-white font-weight-bold">Change Password</a>
                     </li>
                     <li class="list-group-item bg-dark flataja p-2 pr-3 text-right">
