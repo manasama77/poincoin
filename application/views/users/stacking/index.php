@@ -3,7 +3,7 @@
 <div class="row justify-content-center">
 
     <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
-        <div class="card card-gradient mt-2 mb-2 pointer" onclick="showModalListReferal(<?= $this->session->userdata(SESS . 'id'); ?>);">
+        <div class="card card-gradient mt-2 mb-2">
             <div class="card-body p-2 text-center">
                 <div class="d-flex justify-content-between">
                     <div class="p-1">
@@ -36,16 +36,14 @@
 
 
     <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
-        <div class="card card-gradient mt-2 mb-2">
+        <div class="card card-gradient mt-2 mb-2 pointer" onclick="window.open('<?= site_url(); ?>stacking_withdraw', '_self')">
             <div class="card-body p-2 text-center">
-                <a href="<?= site_url(); ?>stacking_withdraw">
-                    <div class="d-flex justify-content-center">
-                        <div class="p-1">
-                            <i class="fas fa-money-bill-wave-alt fa-gradient fa-2x"></i><br />
-                            <b class="title-special-card">Withdraw</b>
-                        </div>
+                <div class="d-flex justify-content-center">
+                    <div class="p-1">
+                        <i class="fas fa-money-bill-wave-alt fa-gradient fa-2x"></i><br />
+                        <b class="title-special-card">Withdraw</b>
                     </div>
-                </a>
+                </div>
             </div>
         </div>
     </div>
@@ -60,14 +58,14 @@
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <div class="table-responsive">
-                    <table class="table table-bordered" style="font-size: 0.9em; width: 100%;">
+                    <table class="table table-bordered w-100">
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th class="text-right">Total<br>Investment</th>
-                                <th class="text-right">Profit<br>Perhari</th>
+                                <th class="text-right">Investment</th>
+                                <th class="text-right" style="min-width: 100px;">Profit Per Day</th>
                                 <th class="text-center">Status</th>
-                                <th class="text-center">Created</th>
+                                <th class="text-center" style="min-width: 120px;">Created</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -106,6 +104,8 @@
                                 }
                                 ?>
                             <?php
+                            } else {
+                                echo '<tr><td colspan="5" class="text-center">Kamu tidak memiliki data investment Bioner Stacking</td></tr>';
                             }
                             ?>
                         </tbody>

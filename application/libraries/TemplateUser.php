@@ -91,8 +91,8 @@ class TemplateUser
 	public function reset_session($id, $nama, $email, $username)
 	{
 		$this->ci->session->set_userdata(SESS . 'id', $id);
-		$this->ci->session->set_userdata(SESS . 'role', $nama);
-		$this->ci->session->set_userdata(SESS . 'role', $email);
+		$this->ci->session->set_userdata(SESS . 'nama', $nama);
+		$this->ci->session->set_userdata(SESS . 'email', $email);
 		$this->ci->session->set_userdata(SESS . 'username', $username);
 	}
 }

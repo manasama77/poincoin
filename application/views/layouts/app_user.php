@@ -44,7 +44,7 @@
                         <a href="<?= site_url(); ?>profile" class="text-white font-weight-bold">Profile</a>
                     </li>
                     <li class="list-group-item bg-dark flataja p-2 pr-3 text-right">
-                        <a href="<?= site_url(); ?>change_password" class="text-white font-weight-bold">Change Password</a>
+                        <a href="<?= site_url(); ?>change_password_user" class="text-white font-weight-bold">Change Password</a>
                     </li>
                     <li class="list-group-item bg-dark flataja p-2 pr-3 text-right">
                         <a href="<?= site_url(); ?>logout_user" class="text-white font-weight-bold">Logout</a>
@@ -74,6 +74,15 @@
         </nav>
     </div>
 
+    <nav class="navbar fixed-bottom navbar-light bg-dark text-white pt-0 pb-0 justify-content-between">
+        <div>
+            <i class="fas fa-copyright"></i> <?= YEAR_APP; ?> Bioner
+        </div>
+        <div>
+            Version <?= VERSION_APP; ?>
+        </div>
+    </nav>
+
     <!-- <nav class="navbar fixed-bottom text-dark bg-faded">
         <ul class="nav navbar-nav navbar-logo mx-auto">
             <li class="nav-item">
@@ -96,22 +105,26 @@
                     </a>
                 </div>
                 <div class="p-1 text-center">
-                    <a href="<?= site_url(); ?>bioner_trading">
+                    <!-- <a href="<?= site_url(); ?>bioner_trading"> -->
+                    <a href="javascript:;" onclick="comingSoon('Bioner Trading');">
                         <img src="<?= base_url(); ?>public/img/bioner_trading.png" alt="bt" class="img-fluid" style="width: 80px;">
                     </a>
                 </div>
                 <div class="p-1 text-center">
-                    <a href="<?= site_url(); ?>bioner_mining">
+                    <!-- <a href="<?= site_url(); ?>bioner_mining"> -->
+                    <a href="javascript:;" onclick="comingSoon('Bioner Mining');">
                         <img src="<?= base_url(); ?>public/img/bioner_mining.png" alt="bm" class="img-fluid" style="width: 80px;">
                     </a>
                 </div>
                 <div class="p-1 text-center">
-                    <a href="<?= site_url(); ?>bioner_marketplace">
+                    <!-- <a href="<?= site_url(); ?>bioner_marketplace"> -->
+                    <a href="javascript:;" onclick="comingSoon('Bioner Marketplace');">
                         <img src="<?= base_url(); ?>public/img/bioner_marketplace.png" alt="bc" class="img-fluid" style="width: 80px;">
                     </a>
                 </div>
                 <div class="p-1 text-center">
-                    <a href="<?= site_url(); ?>bioner_exchange">
+                    <!-- <a href="<?= site_url(); ?>bioner_exchange"> -->
+                    <a href="javascript:;" onclick="comingSoon('Bioner Exchange');">
                         <img src="<?= base_url(); ?>public/img/bioner_exchange.png" alt="bc" class="img-fluid" style="width: 80px;">
                     </a>
                 </div>
@@ -134,7 +147,7 @@
         <?php $this->load->view('users/' . $content); ?>
 
         <div class="row">
-            <div class="col-12 p-2 mb-1"></div>
+            <div class="col-12 p-2 mb-2">&nbsp;</div>
         </div>
 
     </div>
@@ -165,6 +178,21 @@
 
         $('#afancy').attr('href', imgQR.src);
         $('#imgfancy').attr('src', imgQR.src);
+        $('[data-toggle="tooltip"]').tooltip();
+
+        $('.pointer').hover(function() {
+            $('.pointer').toggleClass('active');
+        });
+
+        function comingSoon(jenisComingSoon) {
+            Swal.fire({
+                position: 'top-end',
+                icon: 'info',
+                title: `${jenisComingSoon} Akan Segera Hadir`,
+                showConfirmButton: false,
+                timer: 3000,
+            });
+        }
     </script>
 
     <?php $this->load->view('users/' . $vitamin); ?>

@@ -23,8 +23,13 @@
 						</a>
 					</li>
 					<li>
-						<a href="<?= site_url(); ?>admin/bioner_stacking/verifikasi_transfer">
-							<i class="fa fa-circle-o"></i> List Verifikasi Transfer
+						<a href="<?= site_url(); ?>admin/bioner_stacking_withdraw/pending">
+							<i class="fa fa-circle-o"></i> List Withdraw Pending
+						</a>
+					</li>
+					<li>
+						<a href="<?= site_url(); ?>admin/bioner_stacking_withdraw/success">
+							<i class="fa fa-circle-o"></i> List Withdraw Success
 						</a>
 					</li>
 				</ul>

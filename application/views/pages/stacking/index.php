@@ -60,7 +60,13 @@
 											<td class="text-center" style="width: 170px !important;">
 												<div class="btn-group">
 													<?php
-													if ($key->status == "menunggu_verifikasi") {
+													if ($key->status == "menunggu_transfer") {
+													?>
+														<button type="button" class="btn btn-primary btn-xs" onclick="verifikasiTransfer('<?= $key->id; ?>', '<?= $key->kode; ?>')">
+															<i class="fa fa-check fa-fw"></i> Verifikasi
+														</button>
+													<?php
+													} elseif ($key->status == "menunggu_verifikasi") {
 													?>
 														<a href="<?= base_url('public/img/bukti_transfer/' . $key->bukti_transfer); ?>" class="btn btn-info btn-xs" target="_blank"><i class="fa fa-picture-o"></i></a>
 														<button type="button" class="btn btn-primary btn-xs" onclick="verifikasiTransfer('<?= $key->id; ?>', '<?= $key->kode; ?>')">
@@ -69,7 +75,7 @@
 													<?php
 													}
 													?>
-													<button type="button" class="btn btn-danger btn-xs" onclick="deleteData('<?= $key->id; ?>', '<?= $key->id; ?>')" disabled>
+													<button type="button" class="btn btn-danger btn-xs" onclick="deleteData('<?= $key->id; ?>', '<?= $key->id; ?>')">
 														<i class="fa fa-trash fa-fw"></i> Delete
 													</button>
 												</div>

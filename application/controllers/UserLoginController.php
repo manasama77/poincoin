@@ -10,6 +10,7 @@ class UserLoginController extends CI_Controller
         parent::__construct();
         $this->load->helper(['cookie', 'string']);
         $this->load->library('TemplateUser', NULL, 'template');
+        $this->load->model('M_users');
         $this->load->model('M_stacking');
     }
 
@@ -269,16 +270,97 @@ class UserLoginController extends CI_Controller
     {
         $id_user = $this->session->userdata(SESS . 'id');
 
-        $data['title']   = 'Bioner Stacking';
-        $data['content'] = 'stacking/index';
-        $data['vitamin'] = 'stacking/index_vitamin';
+        $data['title']   = 'Profile';
+        $data['content'] = 'profile/index';
+        $data['vitamin'] = 'profile/index_vitamin';
 
-        $arr_stacking = $this->mcore->get('bioner_stacking', '*', ['id_user' => $id_user], 'id', 'desc');
+        $arr_users = $this->mcore->get('users', '*', ['id' => $id_user]);
+        $arr_banks = $this->mcore->get('param_banks', '*', NULL, 'nama_bank', 'asc');
+        $arr_user_banks = $this->M_users->get_user_bank_data();
 
-        $data['arr_stacking']       = $arr_stacking;
-        $data['count_arr_stacking'] = $arr_stacking->num_rows();
-        $data['bioner_profit']      = $this->M_stacking->count_bioner_profit($id_user)->row()->profit;
-        $data['total_investment']   = $this->M_stacking->count_total_investment($id_user)->row()->total_investment;
+        $data['arr_users']       = $arr_users;
+        $data['arr_banks']       = $arr_banks;
+        $data['arr_user_banks']       = $arr_user_banks;
+
+        $this->template->template($data);
+    }
+
+    public function store_rekening()
+    {
+        $id_user = $this->session->userdata(SESS . 'id');
+        $id_bank = $this->input->post('id_bank');
+        $no_rekening = $this->input->post('no_rekening');
+        $atas_nama = $this->input->post('atas_nama');
+
+        $data = [
+            'id_user' => $id_user,
+            'no_rekening' => $no_rekening,
+            'id_bank' => $id_bank,
+            'atas_nama' => $atas_nama,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'deleted_at' => NULL,
+        ];
+
+        $exec = $this->mcore->store('user_banks', $data);
+
+        $code = 500;
+        if ($exec) {
+            $code = 200;
+        }
+
+        echo json_encode(['code' => $code]);
+    }
+
+    public function update_rekening()
+    {
+        $id_user_banks = $this->input->post('id_user_banks_edit');
+        $id_bank = $this->input->post('id_bank_edit');
+        $no_rekening = $this->input->post('no_rekening_edit');
+        $atas_nama = $this->input->post('atas_nama_edit');
+
+        $data = [
+            'no_rekening' => $no_rekening,
+            'id_bank' => $id_bank,
+            'atas_nama' => $atas_nama,
+            'updated_at' => date('Y-m-d H:i:s'),
+        ];
+
+        $where = ['id' => $id_user_banks];
+
+        $exec = $this->mcore->update('user_banks', $data, $where);
+
+        $code = 500;
+        if ($exec) {
+            $code = 200;
+        }
+
+        echo json_encode(['code' => $code]);
+    }
+
+    public function destroy_rekening()
+    {
+        $id_user_banks = $this->input->post('id');
+
+        $data = ['deleted_at' => date('Y-m-d H:i:s')];
+        $where = ['id' => $id_user_banks];
+        $exec = $this->mcore->update('user_banks', $data, $where);
+
+        $code = 500;
+        if ($exec) {
+            $code = 200;
+        }
+
+        echo json_encode(['code' => $code]);
+    }
+
+    public function change_password()
+    {
+        $id_user = $this->session->userdata(SESS . 'id');
+
+        $data['title']   = 'Change Password';
+        $data['content'] = 'change_password/index';
+        $data['vitamin'] = 'change_password/index_vitamin';
 
         $this->template->template($data);
     }

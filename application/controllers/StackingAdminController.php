@@ -33,19 +33,54 @@ class StackingAdminController extends CI_Controller
 
         if ($exec) {
             $where_x                    = ['id' => $id];
-            $arr                        = $this->mcore->get('bioner_stacking', 'id_user, total_investment', $where_x);
+            $arr                        = $this->mcore->get('bioner_stacking', 'id_user, kode, total_investment', $where_x);
 
             $id_user                    = $arr->row()->id_user;
+            $kode                    = $arr->row()->kode;
             $total_investment           = $arr->row()->total_investment;
             $exec_users_bioner_stacking = $this->M_stacking->update_total_investment($id_user, $total_investment);
 
+            $arr_user = $this->mcore->get('users', '*', ['id' => $id_user, 'deleted_at' => NULL]);
+
             if ($exec_users_bioner_stacking) {
+                if ($arr_user->num_rows() == 1) {
+                    $username = $arr_user->row()->username;
+                    $id_referal = $arr_user->row()->id_referal;
+
+                    if ($id_referal != NULL) {
+                        $where_stack = "id_user = '" . $id_user . "' AND deleted_at IS NULL AND status = 'aktif'";
+                        $count_stack = $this->mcore->count('bioner_stacking', $where_stack);
+
+                        if ($count_stack == 1) {
+                            $nominal_b_bonus = ($total_investment * 10) / 100;
+                            $nominal_rp_bonus = $nominal_b_bonus * 10000;
+                            $data_referral = [
+                                'id_user' => $id_referal,
+                                'id_bioner_stacking' => NULL,
+                                'type' => 'bonus',
+                                'nominal_b' => $nominal_b_bonus,
+                                'nominal_rp' => $nominal_rp_bonus,
+                                'kode' => $kode,
+                                'keterangan' => 'Bonus Referral sebesar ' . $nominal_b_bonus . ' Bioner dari user ' . $username,
+                                'created_at' => date('Y-m-d H:i:s'),
+                            ];
+                            $exec_referral = $this->mcore->store('bioner_stacking_logs', $data_referral);
+
+                            if ($exec_referral) {
+                                $exec_referral_bioner_stacking = $this->M_stacking->update_profit($id_referal, $nominal_b_bonus);
+                            }
+                        }
+                    }
+                }
+
                 $data_logs = [
                     'id_user' => $id_user,
                     'id_bioner_stacking' => $id,
                     'type' => 'investment',
                     'nominal_b' => $total_investment,
-                    'nominal_rp' => $total_investment * 15000,
+                    'nominal_rp' => $total_investment * 10000,
+                    'kode' => $kode,
+                    'keterangan' => 'Investment sebesar ' . $total_investment . ' Bioner',
                     'created_at' => date('Y-m-d H:i:s'),
                 ];
                 $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
@@ -61,6 +96,147 @@ class StackingAdminController extends CI_Controller
         }
 
         echo json_encode(['code' => $code]);
+    }
+
+    public function delete_stacking()
+    {
+        $id = $this->input->post('id');
+        $code = 500;
+
+        $arr_bioner_stacking = $this->mcore->get('bioner_stacking', 'id_user, kode, total_investment', ['id' => $id]);
+
+        if ($arr_bioner_stacking->num_rows() == 1) {
+            $id_user = $arr_bioner_stacking->row()->id_user;
+            $kode = $arr_bioner_stacking->row()->kode;
+            $total_investment = $arr_bioner_stacking->row()->total_investment;
+
+            $data_bioner_stacking = ['deleted_at' => date('Y-m-d H:i:s')];
+            $where_bioner_stacking = ['id' => $id];
+            $exec_bioner_stacking = $this->mcore->update('bioner_stacking', $data_bioner_stacking, $where_bioner_stacking);
+
+            if ($exec_bioner_stacking) {
+                $exec_total_investment = $this->M_stacking->reduce_total_investment($id_user, $total_investment);
+
+                if ($exec_total_investment) {
+                    $data_logs = [
+                        'id_user' => $id_user,
+                        'id_bioner_stacking' => $id,
+                        'type' => 'delete investment',
+                        'nominal_b' => $total_investment,
+                        'nominal_rp' => $total_investment * 10000,
+                        'kode' => $kode,
+                        'keterangan' => 'Investment Dibatalkan',
+                        'created_at' => date('Y-m-d H:i:s'),
+                    ];
+
+                    $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
+
+                    if ($exec_logs) {
+                        $code = 200;
+                    }
+                }
+            }
+        }
+
+        echo json_encode(['code' => $code]);
+    }
+
+    public function withdraw_pending()
+    {
+        $data['title']   = 'List Bioner Stacking Withdraw - Pending';
+        $data['content'] = 'stacking_withdraw_pending/index';
+        $data['vitamin'] = 'stacking_withdraw_pending/index_vitamin';
+
+        $data['arr_stacking'] = $this->M_stacking->list_bioner_stacking_withdraw('pending');
+
+        $this->template->template($data);
+    }
+
+    public function withdraw_verifikasi()
+    {
+        $this->db->trans_begin();
+
+        $id = $this->input->post('id');
+        $code = 500;
+
+        $data_withdraw = [
+            'status' => 'success',
+            'updated_at' => date('Y-m-d H:i:s'),
+        ];
+
+        $where_withdraw = ['id' => $id];
+
+        $exec = $this->mcore->update('user_bioner_stacking_withdraw', $data_withdraw, $where_withdraw);
+
+        if ($exec) {
+            $code = 200;
+            $this->db->trans_commit();
+        } else {
+            $this->db->trans_rollback();
+        }
+
+        echo json_encode(['code' => $code]);
+    }
+
+    public function withdraw_delete()
+    {
+        $this->db->trans_begin();
+
+        $id = $this->input->post('id');
+        $code = 500;
+        $arr_withdraw = $this->mcore->get('user_bioner_stacking_withdraw', '*', ['id' => $id, 'status' => 'pending', 'deleted_at' => NULL]);
+
+        if ($arr_withdraw->num_rows() == 1) {
+            $id_user = $arr_withdraw->row()->id_user;
+            $withdraw_b = $arr_withdraw->row()->withdraw_b;
+            $withdraw_rp = $arr_withdraw->row()->withdraw_rp;
+            $kode_withdraw = $arr_withdraw->row()->kode_withdraw;
+
+            $data_withdraw = ['deleted_at' => date('Y-m-d H:i:s')];
+            $where_withdraw = ['id' => $id];
+            $exec_withdraw = $this->mcore->update('user_bioner_stacking_withdraw', $data_withdraw, $where_withdraw);
+
+            if ($exec_withdraw) {
+                $exec_reduce_profit = $this->M_stacking->update_profit($id_user, $withdraw_b);
+                if ($exec_reduce_profit) {
+                    $data_logs = [
+                        'id_user' => $id_user,
+                        'id_bioner_stacking' => NULL,
+                        'type' => 'return withdraw',
+                        'nominal_b' => $withdraw_b,
+                        'nominal_rp' => $withdraw_rp,
+                        'kode' => $kode_withdraw,
+                        'keterangan' => 'Return Withdraw sebesar ' . $withdraw_b . ' Bioner to Profit - By Admin',
+                        'created_at' => date('Y-m-d H:i:s'),
+                    ];
+                    $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
+
+                    if ($exec_logs) {
+                        $code = 200;
+                        $this->db->trans_commit();
+                    } else {
+                        $this->db->trans_rollback();
+                    }
+                } else {
+                    $this->db->trans_rollback();
+                }
+            } else {
+                $this->db->trans_rollback();
+            }
+        }
+
+        echo json_encode(['code' => $code]);
+    }
+
+    public function withdraw_success()
+    {
+        $data['title']   = 'List Bioner Stacking Withdraw - Success';
+        $data['content'] = 'stacking_withdraw_success/index';
+        $data['vitamin'] = 'stacking_withdraw_success/index_vitamin';
+
+        $data['arr_stacking'] = $this->M_stacking->list_bioner_stacking_withdraw('success');
+
+        $this->template->template($data);
     }
 }
         

@@ -1,223 +1,160 @@
-<h1 class="text-dark text-center pt-3 pb-2">Bione Stacking</h1>
+<h1 class="text-dark text-center pt-3 pb-2"><?= $title; ?></h1>
 
-<div class="row justify-content-center">
-
-    <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
-        <div class="card card-gradient mt-2 mb-2 pointer" onclick="showModalListReferal(<?= $this->session->userdata(SESS . 'id'); ?>);">
-            <div class="card-body p-2 text-center">
-                <div class="d-flex justify-content-between">
-                    <div class="p-1">
-                        <i class="fas fa-hand-holding-usd fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">Bioner Profit</b>
-                    </div>
-                    <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($bioner_profit, 2); ?> <small>B</small></p>
-                    </div>
-                </div>
+<div class="row">
+    <div class="col-sm-12 col-md-6 offset-md-3 mt-2">
+        <div class="card text-white">
+            <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
+                <span style="font-size: 25px;"><i class="fas fa-table"></i> User Profile</span>
+            </div>
+            <div class="card-body bg-grey-1 text-dark p-2 w-100">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th style="width: 150px;">Nama</th>
+                            <th class="text-center">:</th>
+                            <td><?= $arr_users->row()->nama; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Username</th>
+                            <th class="text-center">:</th>
+                            <td><?= $arr_users->row()->username; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Created At</th>
+                            <th class="text-center">:</th>
+                            <td><?= $arr_users->row()->created_at; ?></td>
+                        </tr>
+                        <tr>
+                            <th>Last Login</th>
+                            <th class="text-center">:</th>
+                            <td><?= $arr_users->row()->updated_at; ?></td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="3">
+                                <a href="<?= site_url(); ?>change_password_user" class="btn btn-primary btn-block">
+                                    <i class="fas fa-key"></i> Change Password
+                                </a>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
             </div>
         </div>
     </div>
-
-    <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
-        <div class="card card-gradient mt-2 mb-2">
-            <div class="card-body p-2 text-center">
-                <div class="d-flex justify-content-between">
-                    <div class="p-1">
-                        <i class="fas fa-coins fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">Total Investment</b>
-                    </div>
-                    <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>B</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
-        <div class="card card-gradient mt-2 mb-2">
-            <div class="card-body p-2 text-center">
-                <a href="<?= site_url(); ?>stacking_withdraw">
-                    <div class="d-flex justify-content-center">
-                        <div class="p-1">
-                            <i class="fas fa-money-bill-wave-alt fa-gradient fa-2x"></i><br />
-                            <b class="title-special-card">Withdraw</b>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-
 </div>
 
 <div class="row">
-    <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
+    <div class="col-sm-12 col-md-6 offset-md-3 mt-2">
         <div class="card text-white">
             <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
-                <span style="font-size: 25px;"><i class="fas fa-table"></i> List Bioner Stacking</span>
+                <span style="font-size: 25px;"><i class="fas fa-table"></i> User Rekening</span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
-                <div class="table-responsive">
-                    <table class="table table-bordered" style="font-size: 0.9em; width: 100%;">
-                        <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th class="text-right">Total<br>Investment</th>
-                                <th class="text-right">Profit<br>Perhari</th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Created</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Bank</th>
+                            <th>No Rekening</th>
+                            <th>Atas Nama</th>
+                            <th><i class="fas fa-cogs"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        if ($arr_user_banks->num_rows() == 0) {
+                            echo '<tr><th class="text-center" colspan="5">- Kamu belum memiliki No Rekening Terdaftar -</th></tr>';
+                        } else {
+                            $no = 1;
+                            foreach ($arr_user_banks->result() as $key) {
+                        ?>
+                                <tr>
+                                    <td><?= $no; ?></td>
+                                    <td><?= $key->nama_bank; ?></td>
+                                    <td><?= $key->no_rekening; ?></td>
+                                    <td><?= $key->atas_nama; ?></td>
+                                    <td>
+                                        <button type="button" class="btn btn-info btn-sm" onclick="editData('<?= $key->id; ?>', '<?= $key->id_bank; ?>', '<?= $key->no_rekening; ?>', '<?= $key->atas_nama; ?>');">
+                                            <i class="fas fa-pencil-alt"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteData('<?= $key->id; ?>', '<?= $key->id_bank; ?>', '<?= $key->no_rekening; ?>', '<?= $key->atas_nama; ?>');">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                        <?php
+                                $no++;
+                            }
+                        }
+                        ?>
+                    </tbody>
+                </table>
+                <hr>
+                <h1 class="text-center">Tambah Rekening</h1>
+                <form id="form_tambah_rekening">
+                    <div class="form-group">
+                        <label for="id_bank">Bank</label>
+                        <select class="form-control" id="id_bank" name="id_bank" required>
                             <?php
-                            if ($arr_stacking->num_rows() > 0) {
-                            ?>
-                                <?php
-                                foreach ($arr_stacking->result() as $key) {
-                                ?>
-                                    <tr>
-                                        <td class="text-center"><?= $key->kode; ?></td>
-                                        <td class="text-right"><?= number_format($key->total_investment, 0); ?> B</td>
-                                        <td class="text-right"><?= number_format($key->profit_perhari_b, 2); ?> B</td>
-                                        <td class="text-center">
-                                            <?php
-                                            if ($key->status == "aktif") {
-                                                echo '<span class="badge badge-success flataja">Aktif</span>';
-                                            } elseif ($key->status == "menunggu_transfer") {
-                                                echo '<span class="badge badge-warning flataja">Menunggu Transfer</span><br><button type="button" class="btn btn-info btn-sm flataja" onclick="konfirmasiTransfer(\'' . $key->kode . '\', \'' . number_format($key->total_transfer, 0) . '\')">Konfirmasi Transfer</button>';
-                                            } elseif ($key->status == "menunggu_verifikasi") {
-                                                echo '<span class="badge badge-info flataja">Menunggu Verifikasi</span>';
-                                            } elseif ($key->status == "tidak_aktif") {
-                                                echo '<span class="badge badge-danger flataja">Tidak Aktif</span>';
-                                            }
-                                            ?>
-                                        </td>
-                                        <td class="text-center">
-                                            <?php
-                                            $created_obj = new DateTime();
-                                            $created_obj->createFromFormat('Y-m-d H:i:s', $key->created_at);
-                                            echo $created_obj->format('d-M-Y');
-                                            ?>
-                                        </td>
-                                    </tr>
-                                <?php
-                                }
-                                ?>
-                            <?php
+                            foreach ($arr_banks->result() as $key) {
+                                echo '<option value="' . $key->id . '">' . $key->nama_bank . ' (' . $key->kode_bank . ')</option>';
                             }
                             ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
-        <div class="card text-white">
-            <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
-                <span style="font-size: 25px;"><i class="fas fa-plus"></i> Add New Pack</span>
-            </div>
-            <div class="card-body bg-grey-1 text-dark p-2 w-100">
-                <form id="form_new_stack">
-
-                    <div class="form-group row justify-content-center">
-                        <label for="total_investment" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Total Investment</label>
-                        <div class="col-sm-12 col-md-12 col-lg-6 input-group">
-                            <input type="text" class="form-control text-right" id="total_investment" name="total_investment" placeholder="Total Investment" value="0" readonly required />
-                            <div class="input-group-append">
-                                <span class="input-group-text">B</span>
-                            </div>
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-info" id="upValue">
-                                    <i class="fas fa-arrow-up"></i>
-                                </button>
-                                <button type="button" class="btn btn-info" id="downValue">
-                                    <i class="fas fa-arrow-down"></i>
-                                </button>
-                            </div>
-                        </div>
+                        </select>
                     </div>
-
-                    <div class="form-group row justify-content-center">
-                        <label for="total_transfer" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Total Transfer</label>
-                        <div class="col-sm-12 col-md-12 col-lg-6 input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2">Rp.</span>
-                            </div>
-                            <input type="text" class="form-control" id="total_transfer" name="total_transfer" placeholder="Total Transfer" value="0" readonly required />
-                        </div>
+                    <div class="form-group">
+                        <label for="no_rekening">No Rekening</label>
+                        <input type="number" class="form-control" id="no_rekening" name="no_rekening" placeholder="No Rekening" required />
                     </div>
-
-                    <div class="form-group row justify-content-center">
-                        <label for="profit_per_day" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Profit Per Day</label>
-                        <div class="col-sm-12 col-md-12 col-lg-6 input-group">
-                            <input type="text" class="form-control text-right" id="profit_per_day" name="profit_per_day" placeholder="Profit Per Day" value="0" readonly required />
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">B</span>
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <label for="atas_nama">Atas Nama</label>
+                        <input type="text" class="form-control" id="atas_nama" name="atas_nama" placeholder="Atas Nama" required />
                     </div>
-
-
-                    <div class="alert alert-info" role="alert">
-                        <ul>
-                            <li>Jika kamu belum pernah melakukan pembukaan Bioner Stacking, maka akan dikenakan biaya awal pembukaan Bioner Stacking adalah sebesar <mark>Rp.100,000</mark></li>
-                            <li>Minimal Investment adalah <mark>100 Bioner</mark> atau <mark>Rp.1,500,000</mark></li>
-                            <li>Nilai Investment berlaku kelipatan <mark>100 Bioner</mark> atau <mark>Rp.1,500,000</mark></li>
-                            <li>Setiap hari pada pukul <mark>00:00</mark> Setiap Stack akan di compund sebesar <mark>0.5%</mark></li>
-                        </ul>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Tambah Rekening</button>
                     </div>
-
-
-                    <div class="form-group row">
-                        <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block font-weight-bold">Add New Stack</button>
-                        </div>
-                    </div>
-
                 </form>
             </div>
         </div>
     </div>
 </div>
 
-<form id="form_bukti_transfer" enctype="multipart/form-data">
-    <div class="modal fade" id="modal_bukti_transfer" tabindex="-1" role="dialog" aria-labelledby="modal_bukti_transfer_label" aria-hidden="true">
+<form id="form_edit_rekening">
+    <div class="modal fade" id="modal_edit_rekening" tabindex="-1" role="dialog" aria-labelledby="modal_edit_rekening_label" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Upload Bukti Transfer</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Rekening</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="id_bioner_stacking">Kode Bioner Stacking</label>
-                        <input type="text" class="form-control" id="id_bioner_stacking" name="id_bioner_stacking" readonly required>
+                        <label for="id_bank_edit">Bank</label>
+                        <select class="form-control" id="id_bank_edit" name="id_bank_edit" required>
+                            <?php
+                            foreach ($arr_banks->result() as $key) {
+                                echo '<option value="' . $key->id . '">' . $key->nama_bank . ' (' . $key->kode_bank . ')</option>';
+                            }
+                            ?>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <label for="total_transfer_in_rp">Total Transfer</label>
-                        <div class="input-group">
-                            <div class="form-group-prepend">
-                                <div class="input-group-text">Rp.</div>
-                            </div>
-                            <input type="text" class="form-control" id="total_transfer_in_rp" name="total_transfer_in_rp" readonly required>
-                        </div>
+                        <label for="no_rekening_edit">No Rekening</label>
+                        <input type="number" class="form-control" id="no_rekening_edit" name="no_rekening_edit" placeholder="No Rekening" required />
                     </div>
                     <div class="form-group">
-                        <label for="bukti_transfer">Bukti Transfer</label>
-                        <input type="file" class="form-control" id="bukti_transfer" name="bukti_transfer" accept="image/*" required>
+                        <label for="atas_nama_edit">Atas Nama</label>
+                        <input type="text" class="form-control" id="atas_nama_edit" name="atas_nama_edit" placeholder="Atas Nama" required />
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <input type="hidden" class="form-control" id="id_user_banks_edit" name="id_user_banks_edit">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" id="btn_upload_bukti_transfer" class="btn btn-primary">Upload</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>

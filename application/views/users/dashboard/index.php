@@ -4,14 +4,14 @@
     <div class="col-sm-12 col-md-6 offset-md-3 mt-2">
         <div class="card text-white">
             <div class="card-header bg-dark font-weight-bold f-news text-center p-2" style="padding-top: 4px !important;">
-                <span style="font-size: 25px;"><i class="fas fa-users"></i> Referal</span>
+                <span style="font-size: 25px;"><i class="fas fa-users"></i> Referral</span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-0 w-100">
                 <ul class="list-group list-group-flush">
                     <?php
                     if ($count_referal->num_rows() == 0) {
                     ?>
-                        <li class="list-group-item d-flex bg-grey-1 text-dark justify-content-between align-items-center">Kamu belum memiliki referal</li>
+                        <li class="list-group-item d-flex bg-grey-1 text-dark justify-content-between align-items-center">Kamu belum memiliki referral</li>
                     <?php
                     } else {
                     ?>
@@ -35,6 +35,19 @@
                     }
                     ?>
                 </ul>
+            </div>
+            <div class="card-footer bg-dark font-weight-bold f-news text-center p-2">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Referral Link:</span>
+                    </div>
+                    <input type="text" class="ml-2 form-control-plaintext text-white" id="link_referral" value="<?= site_url(); ?>signup_user/<?= $this->session->userdata(SESS . 'username'); ?>" readonly>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-secondary" onclick="copyClipboard()">
+                            <i class="fas fa-clipboard"></i> Copy
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -73,6 +86,19 @@
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, natus!
                     </li>
                 </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-10 offset-md-1 mt-2">
+        <div class="card text-white">
+            <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
+                <span style="font-size: 25px;">WHITE PAPER BIONER</span>
+            </div>
+            <div class="card-body bg-grey-1 text-dark p-0 w-100">
+                <iframe src="https://drive.google.com/file/d/1ZsG9VDYa1VMRLv0L3jJV-91RTs_0lVsc/preview" width="100%" height="480"></iframe>
             </div>
         </div>
     </div>

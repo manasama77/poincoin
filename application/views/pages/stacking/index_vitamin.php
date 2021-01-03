@@ -83,7 +83,7 @@
 		}).then(function(result) {
 			if (result.isConfirmed) {
 				$.ajax({
-					url: `<?= site_url(); ?>barang/destroy`,
+					url: `<?= site_url(); ?>admin/bioner_stacking/delete_stacking`,
 					method: 'post',
 					data: {
 						id: id
@@ -102,6 +102,10 @@
 							timer: 1500
 						});
 					}
+				}).always(function(res) {
+					$.unblockUI();
+				}).fail(function(res) {
+					console.log(res);
 				}).done(function(res) {
 					if (res.code == 200) {
 						Swal.fire({
@@ -122,7 +126,6 @@
 							timer: 1500
 						});
 					}
-					$.unblockUI();
 
 				});
 			}

@@ -92,3 +92,4 @@ define('NO_REKENING_ADMIN', '0123456789');
 define('ATAS_NAMA_NO_REKENING_ADMIN', 'John Doe');
 define('NAMA_BANK_ADMIN', 'BCA');
 define('VERSION_APP', '1.0.0 Alpha');
+define('YEAR_APP', '2021');

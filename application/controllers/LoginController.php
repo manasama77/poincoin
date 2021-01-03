@@ -12,7 +12,7 @@ class LoginController extends CI_Controller
 
 	public function index()
 	{
-		echo password_hash(UYAH . 'admin123)', PASSWORD_BCRYPT);
+		// echo password_hash(UYAH . 'admin123)', PASSWORD_BCRYPT);
 		$cookies = get_cookie(COOK);
 
 		if ($cookies != NULL) {

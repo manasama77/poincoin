@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="<?= base_url(); ?>public/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>public/css/login.css">
     <link rel="stylesheet" href="<?= base_url(); ?>vendor/fortawesome/font-awesome/css/all.min.css">
+
     <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url(); ?>apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="<?= base_url(); ?>apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="<?= base_url(); ?>apple-icon-72x72.png">
@@ -84,8 +85,8 @@
                                 </div>
 
                                 <div class="custom-control custom-checkbox mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                    <label class="custom-control-label text-white" for="customCheck1">Remember
+                                    <input type="checkbox" class="custom-control-input" id="remember" name="remember" value="on">
+                                    <label class="custom-control-label text-white" for="remember">Remember
                                         password</label>
                                 </div>
                                 <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase text-white btn-flat">Sign in</button>

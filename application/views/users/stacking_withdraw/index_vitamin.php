@@ -1,22 +1,13 @@
 <script>
-    let form_new_stack = $('#form_new_stack'),
-        total_investment = $('#total_investment'),
-        total_transfer = $('#total_transfer'),
-        profit_per_day = $('#profit_per_day'),
+    let form_withdraw = $('#form_withdraw'),
+        withdraw_b = $('#withdraw_b'),
         upValue = $('#upValue'),
         downValue = $('#downValue'),
-        form_bukti_transfer = $('#form_bukti_transfer'),
-        modal_bukti_transfer = $('#modal_bukti_transfer'),
-        id_bioner_stacking = $('#id_bioner_stacking'),
-        total_transfer_in_rp = $('#total_transfer_in_rp'),
-        bukti_transfer = $('#bukti_transfer'),
-        btn_upload_bukti_transfer = $('#btn_upload_bukti_transfer'),
-        totalInvestment = 0,
-        totalTransfer = 0,
-        totalTransferAlt = 0,
-        totalTransferAltRp = 0,
-        profitPerDay = 0,
-        textnya = 0;
+        withdraw_rp = $('#withdraw_rp'),
+        id_rekening = $('#id_rekening'),
+        max_withdraw = parseFloat(<?= $bioner_profit; ?>),
+        withdraw_b_value = 0,
+        withdraw_amount = 0;
 
     $('document').ready(function() {
         upValue.on('click', function() {
@@ -26,27 +17,21 @@
             getTotalTransfer("down");
         });
 
-        form_new_stack.on('submit', function(e) {
+        form_withdraw.on('submit', function(e) {
             e.preventDefault();
 
-            if (total_transfer.val() == 0 || total_transfer.val() < 0) {
+            if (withdraw_b.val() == 0) {
                 Swal.fire({
                     icon: 'warning',
                     title: 'Oops...',
-                    text: 'Nominal Transfer nol, silahkan isi nominal transfer',
+                    text: 'Nominal Withdraw nol, silahkan isi Withdraw (B)',
                     timer: 3000,
                 });
             } else {
-                if (<?= $count_arr_stacking; ?> == 0) {
-                    xtransfer = parseInt(replaceComma(total_transfer.val())) - 100000;
-                    textnya = `Kamu akan melakukan investment sebesar Rp.${xtransfer} & Biaya pembukaan awal sebesar Rp.100,000 ?`
-                } else {
-                    textnya = `Kamu akan melakukan investment sebesar Rp.${total_transfer.val()} ?`
-                }
 
                 Swal.fire({
                     title: 'Apakah kamu yakin?',
-                    text: textnya,
+                    html: `Kamu akan melakukan penarikan sebesar<br><b>Rp.${withdraw_rp.val()}</b><br>Ke No Rekening<br><b>${id_rekening.find(':selected').text()}</b>`,
                     icon: 'question',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -56,12 +41,13 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: '<?= site_url(); ?>stacking_add',
+                            url: '<?= site_url(); ?>stacking_withdraw_process',
                             method: 'post',
                             dataType: 'json',
                             data: {
-                                total_investment: total_investment.val(),
-                                total_transfer: total_transfer.val()
+                                withdraw_b: withdraw_b.val(),
+                                withdraw_rp: replaceComma(withdraw_rp.val()),
+                                id_rekening: id_rekening.val(),
                             },
                             beforeSend: function() {
                                 $.blockUI();
@@ -75,124 +61,55 @@
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'Proses Add New Bioner Stacking Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
+                                    text: 'Proses Withdraw Bioner Stacking Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
                                     timer: 3000,
                                 });
                             } else if (res.code == 200) {
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Success...',
-                                    html: `Proses Add New Bioner Stacking Berhasil.<br>Silahkan lakukan transfer sejumlah <b>${total_transfer.val()}</b> ke no rekening admin dinomor <br> <b><?= NO_REKENING_ADMIN; ?><br>a/n <?= ATAS_NAMA_NO_REKENING_ADMIN; ?><br>Bank <?= NAMA_BANK_ADMIN; ?><b>`,
+                                    html: `Proses Withdraw Bioner Stacking Berhasil.<br>Silahkan tunggu admin melakukan process transfer.`,
                                 }).then(function(result) {
                                     window.location.reload();
                                 });
                             }
                         });
                     }
-                })
+                });
             }
         });
-
-        form_bukti_transfer.on('submit', function(e) {
-            e.preventDefault();
-
-            let isiData = $(this)[0];
-            let formData = new FormData(isiData);
-
-            $.ajax({
-                url: '<?= site_url(); ?>stacking_upload_bukti_transfer',
-                method: 'post',
-                contentType: false,
-                processData: false,
-                dataType: 'json',
-                data: formData,
-                beforeSend: function() {
-                    btn_upload_bukti_transfer.attr('disabled', true);
-                    $.blockUI();
-                }
-            }).always(function(res) {
-                $.unblockUI();
-                btn_upload_bukti_transfer.attr('disabled', false);
-            }).fail(function(res) {
-                console.log(res);
-            }).done(function(res) {
-                if (res.code == 500) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Proses upload bukti transfer gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
-                        timer: 3000,
-                    });
-                } else {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Success...',
-                        html: `Proses upload bukti transfer Berhasil.`,
-                    }).then(function(result) {
-                        window.location.reload();
-                    });
-                }
-            });
-        });
-
 
     });
 
     function getTotalTransfer(tipe) {
 
         if (tipe == "up") {
-            totalInvestment = parseInt(totalInvestment) + 100;
-            totalTransfer = parseInt(totalTransfer) + 1500000;
+            withdraw_b_value = parseFloat(withdraw_b.val());
+            withdraw_b_value = withdraw_b_value + 0.5;
 
-            if (totalInvestment == 100 && <?= $count_arr_stacking; ?> == 0) {
-                totalTransferAlt = parseInt(1500000);
-                totalTransferAltRp = numberWithCommas(totalTransferAlt);
-                totalTransfer = parseInt(1500000) + 100000;
-            } else if (totalInvestment == 0) {
-                totalTransferAlt = 0;
-                totalTransferRp = 0;
-                totalTransfer = 0;
-            } else {
-                totalTransferAlt = parseInt(totalTransfer);
-                totalTransferRp = numberWithCommas(totalTransferAlt);
+            if (withdraw_b_value > max_withdraw) {
+                withdraw_b_value = max_withdraw;
             }
+
+            withdraw_amount = parseInt(withdraw_b_value * 10000);
+
+            withdraw_b.val(withdraw_b_value);
+            withdraw_rp.val(numberWithCommas(withdraw_amount));
 
         } else {
-            totalInvestment = parseInt(totalInvestment) - 100;
-            totalTransfer = parseInt(totalTransfer) - 1500000;
+            withdraw_b_value = parseFloat(withdraw_b.val());
+            withdraw_b_value = withdraw_b_value - 0.5;
 
-            if (totalInvestment == 100 && <?= $count_arr_stacking; ?> == 0) {
-                totalTransferAlt = parseInt(1500000);
-                totalTransferAltRp = numberWithCommas(totalTransferAlt);
-                totalTransfer = parseInt(1500000) + 100000;
-            } else if (totalInvestment == 0) {
-                totalTransferAlt = 0;
-                totalTransferRp = 0;
-                totalTransfer = 0;
+            if (withdraw_b_value < 0) {
+                withdraw_b_value = 0;
             }
+
+            withdraw_amount = parseInt(withdraw_b_value * 10000);
+
+            withdraw_b.val(withdraw_b_value);
+            withdraw_rp.val(numberWithCommas(withdraw_amount));
         }
 
-        profitPerDay = parseFloat(totalInvestment * 0.5 / 100);
-
-        if (totalInvestment < 0) {
-            totalInvestment = 0;
-        }
-
-        if (totalTransfer < 0) {
-            totalTransfer = 0;
-        }
-
-        if (totalTransferAlt < 0) {
-            totalTransfer = 0;
-        }
-
-        if (profitPerDay < 0) {
-            profitPerDay = 0;
-        }
-
-        total_investment.val(numberWithCommas(totalInvestment));
-        total_transfer.val(numberWithCommas(totalTransfer));
-        profit_per_day.val(numberWithCommas(profitPerDay));
     }
 
     function numberWithCommas(x) {
@@ -203,10 +120,52 @@
         return x.replace(/\,/g, '');
     }
 
-    function konfirmasiTransfer(kode, total_transfer_x) {
-        id_bioner_stacking.val('').val(kode);
-        total_transfer_in_rp.val('').val(numberWithCommas(total_transfer_x));
-        modal_bukti_transfer.modal('show');
-
+    function deleteData(id, amount_b) {
+        Swal.fire({
+            title: 'Apakah kamu yakin?',
+            text: `Batalkan Withdraw sebesar ${amount_b} Bioner`,
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Saya Yakin!',
+            cancelButtonText: 'Tidak jadi!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: '<?= site_url(); ?>stacking_withdraw_delete',
+                    method: 'post',
+                    dataType: 'json',
+                    data: {
+                        id: id,
+                        amount_b: amount_b
+                    },
+                    beforeSend: function() {
+                        $.blockUI();
+                    }
+                }).always(function() {
+                    $.unblockUI();
+                }).fail(function(res) {
+                    console.log(res);
+                }).done(function(res) {
+                    if (res.code == 500) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Proses Batalkan Withdraw Bioner Stacking Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
+                            timer: 3000,
+                        });
+                    } else if (res.code == 200) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success...',
+                            html: `Proses Batalkan Withdraw Bioner Stacking Berhasil.`,
+                        }).then(function(result) {
+                            window.location.reload();
+                        });
+                    }
+                });
+            }
+        });
     }
 </script>

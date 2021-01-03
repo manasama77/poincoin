@@ -39,7 +39,7 @@
             } else {
                 if (<?= $count_arr_stacking; ?> == 0) {
                     xtransfer = parseInt(replaceComma(total_transfer.val())) - 100000;
-                    textnya = `Kamu akan melakukan investment sebesar Rp.${xtransfer} & Biaya pembukaan awal sebesar Rp.100,000 ?`
+                    textnya = `Kamu akan melakukan investment sebesar Rp.${numberWithCommas(xtransfer)} & Biaya pembukaan awal sebesar Rp.100,000 ?`
                 } else {
                     textnya = `Kamu akan melakukan investment sebesar Rp.${total_transfer.val()} ?`
                 }

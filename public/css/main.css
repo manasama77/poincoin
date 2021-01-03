@@ -33,12 +33,25 @@ body {
     /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9900', endColorstr='#ff670f', GradientType=0);
     /* IE6-9 */
-
-
     -webkit-box-shadow: 3px 4px 4px 1px rgba(77, 77, 77, 0.8);
     box-shadow: 3px 4px 4px 1px rgba(77, 77, 77, 0.8);
+    border: rgba(0, 0, 0, 0);
+}
 
-
+.card-gradient.active {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ff9900+0,ff670f+100 */
+    background: rgb(20, 4, 25);
+    /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(2, 4, 25, 1) 0%, rgba(6, 15, 112, 1) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(2, 4, 25, 1) 0%, rgba(6, 15, 112, 1) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(2, 4, 25, 1) 0%, rgba(6, 15, 112, 1) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff9900', endColorstr='#ff670f', GradientType=0);
+    /* IE6-9 */
+    -webkit-box-shadow: 3px 4px 4px 1px rgba(77, 77, 77, 0.8);
+    box-shadow: 3px 4px 4px 1px rgba(77, 77, 77, 0.8);
     border: rgba(0, 0, 0, 0);
 }
 
