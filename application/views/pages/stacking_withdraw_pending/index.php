@@ -40,7 +40,16 @@
 											<td class="text-right"><?= number_format($key->withdraw_b, 2); ?></td>
 											<td class="text-right"><?= number_format($key->withdraw_rp, 0); ?></td>
 											<td class="text-center">
-												<?= $key->nama_bank; ?> - <?= $key->no_rekening; ?> - <?= $key->atas_nama; ?>
+												<?php
+												$rekening = "";
+												if ($key->id_user_bank != NULL) {
+													$rekening = "TF BANK<br>" . $key->nama_bank . " - " . $key->no_rekening . " - " . $key->atas_nama;
+												} elseif ($key->id_user_wallet != NULL) {
+													$rekening = "TF DOGE WALLET<br>" . $key->no_wallet;
+												}
+
+												echo $rekening;
+												?>
 											</td>
 											<td class="text-center"><?= $key->created_at; ?></td>
 											<td class="text-center" style="width: 170px !important;">

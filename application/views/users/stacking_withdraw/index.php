@@ -1,4 +1,4 @@
-<h1 class="text-dark text-center pt-3 pb-2">Bione Stacking - Withdraw</h1>
+<h1 class="text-dark text-center pt-3 pb-2">Bioner Stacking - Withdraw</h1>
 
 <div class="row justify-content-center">
 
@@ -70,6 +70,7 @@
                                     Amount
                                     <small class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Bioner">Rp</small>
                                 </th>
+                                <th class="text-center">Rekening</th>
                                 <th class="text-center" style="min-width: 120px;">Tanggal</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center">
@@ -87,31 +88,40 @@
                                     $btn = '';
                                     if ($key->status == "pending") {
                                         $bg_color = "secondary";
-                                        $btn = '<button type="button" class="btn btn-danger btn-sm" onclick="deleteData(\'' . $key->id . '\', \'' . $key->withdraw_b . '\')">
-                                <i class="fas fa-trash"></i>
-                                </button>';
+                                        $btn = '
+                                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteData(\'' . $key->id . '\', \'' . $key->withdraw_b . '\')">
+                                          <i class="fas fa-trash"></i>
+                                        </button>';
                                     } elseif ($key->status == "success") {
                                         $bg_color = "success";
                                     } else {
                                         $bg_color = "danger";
                                     }
 
+                                    $rekening = "";
+                                    if ($key->id_user_bank != NULL) {
+                                        $rekening = $key->nama_bank . " " . $key->no_rekening . " " . $key->atas_nama;
+                                    } elseif ($key->id_user_wallet != NULL) {
+                                        $rekening = $key->no_wallet;
+                                    }
+
                                     echo '
-                                <tr>
-                                <td class="text-center">' . $no . '</td>
-                                <td class="text-right">' . number_format($key->withdraw_b, 2) . '</td>
-                                <td class="text-right">' . number_format($key->withdraw_rp, 0) . '</td>
-                                <td class="text-center">' . $key->created_at . '</td>
-                                <td class="text-center">
-                                <span class="badge badge-' . $bg_color . '">
-                                ' . $key->status . '
-                                </span>
-                                </td>
-                                <td class="text-center">
-                                ' . $btn . '
-                                </td>
-                                </tr>
-                                ';
+                                    <tr>
+                                    <td class="text-center">' . $no . '</td>
+                                    <td class="text-right">' . number_format($key->withdraw_b, 2) . '</td>
+                                    <td class="text-right">' . number_format($key->withdraw_rp, 0) . '</td>
+                                    <td class="text-center">' . $rekening . '</td>
+                                    <td class="text-center">' . $key->created_at . '</td>
+                                    <td class="text-center">
+                                    <span class="badge badge-' . $bg_color . '">
+                                    ' . $key->status . '
+                                    </span>
+                                    </td>
+                                    <td class="text-center">
+                                    ' . $btn . '
+                                    </td>
+                                    </tr>
+                                    ';
                                     $no++;
                                 }
                             }
@@ -160,23 +170,51 @@
                         </div>
                     </div>
                     <div class="form-group row justify-content-center">
-                        <label for="id_rekening" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Rekening</label>
+                        <label for="id_jenis" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Jenis Rekening</label>
                         <div class="col-sm-12 col-md-12 col-lg-6">
-                            <select class="form-control" id="id_rekening" name="id_rekening" required>
-                                <option></option>
-                                <?php
-                                foreach ($arr_rekening->result() as $key) {
-                                    echo '<option value="' . $key->id . '">
+                            <select class="form-control" id="id_jenis" name="id_jenis" onchange="cekJenis();" required>
+                                <option value=""></option>
+                                <option value="bank">Bank</option>
+                                <option value="doge">Doge Wallet</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="form_bank" style="display: none;">
+                        <div class="form-group row justify-content-center">
+                            <label for="id_rekening" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Rekening</label>
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                <select class="form-control" id="id_rekening" name="id_rekening" required>
+                                    <option></option>
+                                    <?php
+                                    foreach ($arr_rekening->result() as $key) {
+                                        echo '<option value="' . $key->id . '">
                                         ' . $key->no_rekening . ' - 
                                         ' . $key->nama_bank . ' - 
                                         ' . $key->atas_nama . '
                                         </option>';
-                                }
-                                ?>
-                            </select>
+                                    }
+                                    ?>
+                                </select>
+                            </div>
                         </div>
+                        <button type="submit" class="btn btn-primary btn-block">Withdraw</button>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block">Withdraw</button>
+                    <div id="form_doge" style="display: none;">
+                        <div class="form-group row justify-content-center">
+                            <label for="id_wallet" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Wallet</label>
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                <select class="form-control" id="id_wallet" name="id_wallet" required>
+                                    <option></option>
+                                    <?php
+                                    foreach ($arr_wallet->result() as $key) {
+                                        echo '<option value="' . $key->id . '">' . $key->no_wallet . '</option>';
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Withdraw</button>
+                    </div>
                 </form>
             </div>
         </div>

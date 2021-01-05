@@ -1,4 +1,4 @@
-<h1 class="text-dark text-center pt-3 pb-2">Bione Stacking</h1>
+<h1 class="text-dark text-center pt-3 pb-2">Bioner Stacking</h1>
 
 <div class="row justify-content-center">
 

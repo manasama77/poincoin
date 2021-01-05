@@ -19,8 +19,11 @@ $route['logout_user']        = 'UserLoginController/logout';
 $route['change_password_user']            = 'UserLoginController/change_password';
 $route['profile']            = 'UserLoginController/profile';
 $route['store_rekening']            = 'UserLoginController/store_rekening';
+$route['store_wallet']            = 'UserLoginController/store_wallet';
 $route['update_rekening']            = 'UserLoginController/update_rekening';
+$route['update_wallet']            = 'UserLoginController/update_wallet';
 $route['destroy_rekening']            = 'UserLoginController/destroy_rekening';
+$route['destroy_wallet']            = 'UserLoginController/destroy_wallet';
 ##############################################################################################################
 
 ##############################################################################################################

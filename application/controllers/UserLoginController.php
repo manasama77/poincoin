@@ -277,10 +277,12 @@ class UserLoginController extends CI_Controller
         $arr_users = $this->mcore->get('users', '*', ['id' => $id_user]);
         $arr_banks = $this->mcore->get('param_banks', '*', NULL, 'nama_bank', 'asc');
         $arr_user_banks = $this->M_users->get_user_bank_data();
+        $arr_user_wallets = $this->mcore->get('user_wallets', '*', ['id_user' => $id_user, 'deleted_at' => NULL]);
 
         $data['arr_users']       = $arr_users;
         $data['arr_banks']       = $arr_banks;
         $data['arr_user_banks']       = $arr_user_banks;
+        $data['arr_user_wallets']       = $arr_user_wallets;
 
         $this->template->template($data);
     }
@@ -303,6 +305,29 @@ class UserLoginController extends CI_Controller
         ];
 
         $exec = $this->mcore->store('user_banks', $data);
+
+        $code = 500;
+        if ($exec) {
+            $code = 200;
+        }
+
+        echo json_encode(['code' => $code]);
+    }
+
+    public function store_wallet()
+    {
+        $id_user = $this->session->userdata(SESS . 'id');
+        $no_wallet = $this->input->post('no_wallet');
+
+        $data = [
+            'id_user' => $id_user,
+            'no_wallet' => $no_wallet,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s'),
+            'deleted_at' => NULL,
+        ];
+
+        $exec = $this->mcore->store('user_wallets', $data);
 
         $code = 500;
         if ($exec) {
@@ -338,6 +363,28 @@ class UserLoginController extends CI_Controller
         echo json_encode(['code' => $code]);
     }
 
+    public function update_wallet()
+    {
+        $id_wallet_edit = $this->input->post('id_wallet_edit');
+        $no_wallet = $this->input->post('no_wallet_edit');
+
+        $data = [
+            'no_wallet' => $no_wallet,
+            'updated_at' => date('Y-m-d H:i:s'),
+        ];
+
+        $where = ['id' => $id_wallet_edit];
+
+        $exec = $this->mcore->update('user_wallets', $data, $where);
+
+        $code = 500;
+        if ($exec) {
+            $code = 200;
+        }
+
+        echo json_encode(['code' => $code]);
+    }
+
     public function destroy_rekening()
     {
         $id_user_banks = $this->input->post('id');
@@ -345,6 +392,22 @@ class UserLoginController extends CI_Controller
         $data = ['deleted_at' => date('Y-m-d H:i:s')];
         $where = ['id' => $id_user_banks];
         $exec = $this->mcore->update('user_banks', $data, $where);
+
+        $code = 500;
+        if ($exec) {
+            $code = 200;
+        }
+
+        echo json_encode(['code' => $code]);
+    }
+
+    public function destroy_wallet()
+    {
+        $id = $this->input->post('id');
+
+        $data = ['deleted_at' => date('Y-m-d H:i:s')];
+        $where = ['id' => $id];
+        $exec = $this->mcore->update('user_wallets', $data, $where);
 
         $code = 500;
         if ($exec) {

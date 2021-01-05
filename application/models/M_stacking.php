@@ -34,6 +34,7 @@ class M_stacking extends CI_Model
             'user_bioner_stacking_withdraw.id',
             'user_bioner_stacking_withdraw.id_user',
             'user_bioner_stacking_withdraw.id_user_bank',
+            'user_bioner_stacking_withdraw.id_user_wallet',
             'user_bioner_stacking_withdraw.kode_withdraw',
             'user_bioner_stacking_withdraw.withdraw_b',
             'user_bioner_stacking_withdraw.withdraw_rp',
@@ -43,10 +44,12 @@ class M_stacking extends CI_Model
             'user_banks.no_rekening',
             'user_banks.atas_nama',
             'param_banks.nama_bank',
+            'user_wallets.no_wallet',
             'users.nama',
         ]);
         $this->db->join('user_banks', 'user_banks.id = user_bioner_stacking_withdraw.id_user_bank', 'left');
         $this->db->join('param_banks', 'param_banks.id = user_banks.id_bank', 'left');
+        $this->db->join('user_wallets', 'user_wallets.id = user_bioner_stacking_withdraw.id_user_wallet', 'left');
         $this->db->join('users', 'users.id = user_bioner_stacking_withdraw.id_user', 'left');
         $this->db->where('user_bioner_stacking_withdraw.deleted_at', NULL);
         $this->db->where('users.deleted_at', NULL);
@@ -178,6 +181,32 @@ class M_stacking extends CI_Model
                 $exec_users = $this->db->update('users');
             }
         }
+    }
+
+    public function get_user_withdraw($id_user)
+    {
+        $this->db->select([
+            'user_bioner_stacking_withdraw.id',
+            'user_bioner_stacking_withdraw.id_user',
+            'user_bioner_stacking_withdraw.id_user_bank',
+            'user_bioner_stacking_withdraw.id_user_wallet',
+            'user_bioner_stacking_withdraw.kode_withdraw',
+            'user_bioner_stacking_withdraw.withdraw_b',
+            'user_bioner_stacking_withdraw.withdraw_rp',
+            'user_bioner_stacking_withdraw.status',
+            'user_bioner_stacking_withdraw.created_at',
+            'param_banks.nama_bank',
+            'user_banks.no_rekening',
+            'user_banks.atas_nama',
+            'user_wallets.no_wallet',
+        ]);
+        $this->db->join('user_banks', 'user_banks.id = user_bioner_stacking_withdraw.id_user_bank', 'left');
+        $this->db->join('param_banks', 'param_banks.id = user_banks.id_bank', 'left');
+        $this->db->join('user_wallets', 'user_wallets.id = user_bioner_stacking_withdraw.id_user_wallet', 'left');
+        $this->db->where('user_bioner_stacking_withdraw.id_user', $id_user);
+        $this->db->where('user_bioner_stacking_withdraw.deleted_at', NULL);
+        $this->db->order_by('user_bioner_stacking_withdraw.id', 'DESC');
+        return $this->db->get('user_bioner_stacking_withdraw');
     }
 }
                         

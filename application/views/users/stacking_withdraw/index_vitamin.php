@@ -4,7 +4,11 @@
         upValue = $('#upValue'),
         downValue = $('#downValue'),
         withdraw_rp = $('#withdraw_rp'),
+        id_jenis = $('#id_jenis'),
+        form_bank = $('#form_bank'),
         id_rekening = $('#id_rekening'),
+        form_doge = $('#form_doge'),
+        id_wallet = $('#id_wallet'),
         max_withdraw = parseFloat(<?= $bioner_profit; ?>),
         withdraw_b_value = 0,
         withdraw_amount = 0;
@@ -29,9 +33,16 @@
                 });
             } else {
 
+                var vText = ``;
+                if (id_jenis.val() == "bank") {
+                    vText = `Kamu akan melakukan penarikan sebesar<br><b>Rp.${withdraw_rp.val()}</b><br>Ke No Rekening<br><b>${id_rekening.find(':selected').text()}</b>`;
+                } else if (id_jenis.val() == "doge") {
+                    vText = `Kamu akan melakukan penarikan sebesar<br><b>Rp.${withdraw_rp.val()}</b><br>Ke No Doge Wallet<br><b>${id_wallet.find(':selected').text()}</b>`;
+                }
+
                 Swal.fire({
                     title: 'Apakah kamu yakin?',
-                    html: `Kamu akan melakukan penarikan sebesar<br><b>Rp.${withdraw_rp.val()}</b><br>Ke No Rekening<br><b>${id_rekening.find(':selected').text()}</b>`,
+                    html: vText,
                     icon: 'question',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -47,7 +58,9 @@
                             data: {
                                 withdraw_b: withdraw_b.val(),
                                 withdraw_rp: replaceComma(withdraw_rp.val()),
+                                id_jenis: id_jenis.val(),
                                 id_rekening: id_rekening.val(),
+                                id_wallet: id_wallet.val(),
                             },
                             beforeSend: function() {
                                 $.blockUI();
@@ -167,5 +180,24 @@
                 });
             }
         });
+    }
+
+    function cekJenis() {
+        if (id_jenis.val() == 'bank') {
+            form_bank.show();
+            form_doge.hide();
+
+            id_rekening.attr('required', true);
+            id_wallet.attr('required', false);
+        } else if (id_jenis.val() == 'doge') {
+            form_bank.hide();
+            form_doge.show();
+
+            id_rekening.attr('required', false);
+            id_wallet.attr('required', true);
+        } else {
+            form_bank.hide();
+            form_doge.hide();
+        }
     }
 </script>

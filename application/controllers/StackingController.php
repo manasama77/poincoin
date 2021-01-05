@@ -136,12 +136,12 @@ class StackingController extends CI_Controller
     {
         $id_user = $this->session->userdata(SESS . 'id');
 
-        $data['title']   = 'Bioner Stacking';
+        $data['title']   = 'Bioner Stacking Withdraw';
         $data['content'] = 'stacking_withdraw/index';
         $data['vitamin'] = 'stacking_withdraw/index_vitamin';
 
         $arr_stacking = $this->mcore->get('bioner_stacking', '*', ['id_user' => $id_user, 'deleted_at' => NULL], 'id', 'desc');
-        $arr_withdraw = $this->mcore->get('user_bioner_stacking_withdraw', '*', ['id_user' => $id_user, 'deleted_at' => NULL], 'id', 'desc');
+        $arr_withdraw = $this->M_stacking->get_user_withdraw($id_user);
 
         $data['arr_stacking']       = $arr_stacking;
         $data['arr_withdraw']       = $arr_withdraw;
@@ -149,6 +149,7 @@ class StackingController extends CI_Controller
         $data['bioner_profit']      = $this->M_stacking->count_bioner_profit($id_user)->row()->profit;
         $data['total_investment']   = $this->M_stacking->count_total_investment($id_user)->row()->total_investment;
         $data['arr_rekening']       = $this->M_stacking->get_user_rekeing();
+        $data['arr_wallet']       = $this->mcore->get('user_wallets', '*', ['id_user' => $id_user, 'deleted_at' => NULL]);
 
         $this->template->template($data);
     }
@@ -159,13 +160,22 @@ class StackingController extends CI_Controller
         $id_user = $this->session->userdata(SESS . 'id');
         $withdraw_b = $this->input->post('withdraw_b');
         $withdraw_rp = $this->input->post('withdraw_rp');
+        $id_jenis = $this->input->post('id_jenis');
         $id_rekening = $this->input->post('id_rekening');
+        $id_wallet = $this->input->post('id_wallet');
         $kode_withdraw = $this->_generate_kode_bioner_stacking_withdraw($id_user);
         $code = 500;
+
+        if ($id_jenis == "bank") {
+            $id_wallet = NULL;
+        } elseif ($id_jenis == "doge") {
+            $id_rekening = NULL;
+        }
 
         $data_withdraw = [
             'id_user' => $id_user,
             'id_user_bank' => $id_rekening,
+            'id_user_wallet' => $id_wallet,
             'kode_withdraw' => $kode_withdraw,
             'withdraw_b' => $withdraw_b,
             'withdraw_rp' => $withdraw_rp,
