@@ -82,7 +82,7 @@
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Success...',
-                                    html: `Proses Add New Bioner Stacking Berhasil.<br>Silahkan lakukan transfer sejumlah <b>${total_transfer.val()}</b> ke no rekening admin dinomor <br> <b><?= NO_REKENING_ADMIN; ?><br>a/n <?= ATAS_NAMA_NO_REKENING_ADMIN; ?><br>Bank <?= NAMA_BANK_ADMIN; ?><b>`,
+                                    html: `Proses Add New Bioner Stacking Berhasil.<br>Silahkan lakukan transfer sejumlah <b>${total_transfer.val()}</b> ke no rekening dinomor <br> <b><?= NO_REKENING_ADMIN; ?><br>a/n <?= ATAS_NAMA_NO_REKENING_ADMIN; ?><br>Bank <?= NAMA_BANK_ADMIN; ?><b>`,
                                 }).then(function(result) {
                                     window.location.reload();
                                 });

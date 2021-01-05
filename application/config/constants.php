@@ -88,8 +88,8 @@ defined('EXIT__AUTO_MAX')      or define('EXIT__AUTO_MAX', 125); // highest auto
 define('SESS', 'BIOROBOSESS');
 define('COOK', 'BIOROBOCOOK');
 define('UYAH', 'limaratusribu');
-define('NO_REKENING_ADMIN', '0123456789');
-define('ATAS_NAMA_NO_REKENING_ADMIN', 'John Doe');
+define('NO_REKENING_ADMIN', '5735355900');
+define('ATAS_NAMA_NO_REKENING_ADMIN', 'An. Pt. Chemiko Multi Lestari');
 define('NAMA_BANK_ADMIN', 'BCA');
 define('VERSION_APP', '1.0.0 Alpha');
 define('YEAR_APP', '2021');
