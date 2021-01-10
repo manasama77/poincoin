@@ -196,6 +196,7 @@ class UserLoginController extends CI_Controller
             $no_hp   = trim($this->input->post('no_hp'));
             $password   = password_hash(trim($this->input->post('password')) . UYAH, PASSWORD_BCRYPT);
             $id_referal = $this->get_id_referal($this->input->post('id_referal'));
+            $pin   = trim($this->input->post('pin'));
 
             $object = [
                 'nama'             => $nama,
@@ -204,6 +205,7 @@ class UserLoginController extends CI_Controller
                 'password'         => $password,
                 'id_referal'       => ($id_referal != "") ? $id_referal : NULL,
                 'status'           => 'aktif',
+                'pin'           => $pin,
                 'created_at'       => date('Y-m-d H:i:s'),
                 'updated_at'       => date('Y-m-d H:i:s'),
                 'deleted_at'       => NULL,
