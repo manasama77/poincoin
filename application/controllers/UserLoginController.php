@@ -24,10 +24,11 @@ class UserLoginController extends CI_Controller
             if ($check_cookies->num_rows() == 1) {
                 $id       = $check_cookies->row()->id;
                 $nama     = $check_cookies->row()->nama;
+                $no_hp = $check_cookies->row()->no_hp;
                 $email    = $check_cookies->row()->email;
-                $username = $check_cookies->row()->username;
+                $pin    = $check_cookies->row()->email;
 
-                $this->_set_session($id, $nama, $username, $email);
+                $this->_set_session($id, $nama, $no_hp, $email, $pin);
                 $this->session->set_flashdata('first_login', 'Login Berhasil, pastikan kamu menjaga Password Kamu');
                 redirect(site_url() . 'dashboard_user');
             } else {
@@ -36,16 +37,16 @@ class UserLoginController extends CI_Controller
                 redirect(site_url());
             }
         } else {
-            $this->form_validation->set_rules('username', 'Username', 'callback_username_check');
+            $this->form_validation->set_rules('email', 'Email', 'callback_email_check');
             $this->form_validation->set_rules('password', 'Password', 'callback_password_check');
 
             if ($this->form_validation->run() === FALSE) {
                 $this->load->view('login_user');
             } else {
-                $username = $this->input->post('username');
+                $email = $this->input->post('email');
 
                 $where = [
-                    'username'   => $username,
+                    'email'   => $email,
                     'status'     => 'aktif',
                     'deleted_at' => NULL
                 ];
@@ -55,9 +56,10 @@ class UserLoginController extends CI_Controller
 
                     $id       = $arr->row()->id;
                     $nama     = $arr->row()->nama;
+                    $no_hp = $arr->row()->no_hp;
                     $email    = $arr->row()->email;
-                    $username = $arr->row()->username;
-                    $this->_set_session($id, $nama, $username, $email);
+                    $pin    = $arr->row()->pin;
+                    $this->_set_session($id, $nama, $no_hp, $email, $pin);
 
                     $remember = $this->input->post('remember');
                     if ($remember == 'on') {
@@ -79,37 +81,35 @@ class UserLoginController extends CI_Controller
                     redirect(site_url('dashboard_user'));
                 } else {
                     delete_cookie(COOK);
-                    $this->session->set_flashdata('unknown', 'Username tidak ditemukan');
+                    $this->session->set_flashdata('unknown', 'Email tidak ditemukan');
                     redirect(site_url());
                 }
             }
         }
     }
 
-    public function username_check($str)
+    public function email_check($str)
     {
-        $where = [
-            'username'   => $str,
-            'status'     => 'aktif',
-            'deleted_at' => NULL,
-        ];
-        $arr = $this->mcore->get('users', '*', $where);
+        $email = strtolower(trim($str));
 
-        if ($arr->num_rows() == 1) {
+        $where = ['email' => $email, 'deleted_at' => NULL, 'status' => 'aktif'];
+        $count = $this->mcore->count('users', $where);
+
+        if ($count == 1) {
             return TRUE;
+        } else {
+            $this->form_validation->set_message('email_check', 'Email Salah atau tidak terdaftar, silahkan cek kembali');
+            return FALSE;
         }
-
-        $this->form_validation->set_message('username_check', 'Username tidak ditemukan, silahkan cek kembali');
-        return FALSE;
     }
 
     public function password_check($str)
     {
-        $username    = $this->input->post('username');
+        $email    = $this->input->post('email');
         $password = $str . UYAH;
 
         $where = [
-            'username'   => $username,
+            'email'   => $email,
             'status'     => 'aktif',
             'deleted_at' => NULL
         ];
@@ -126,16 +126,17 @@ class UserLoginController extends CI_Controller
             return FALSE;
         }
 
-        $this->form_validation->set_message('password_check', 'Username tidak ditemukan, silahkan cek kembali');
+        $this->form_validation->set_message('password_check', 'Email tidak ditemukan, silahkan cek kembali');
         return FALSE;
     }
 
-    public function _set_session($id, $nama, $username, $email)
+    public function _set_session($id, $nama, $no_hp, $email, $pin)
     {
         $this->session->set_userdata(SESS . 'id', $id);
         $this->session->set_userdata(SESS . 'nama', $nama);
         $this->session->set_userdata(SESS . 'email', $email);
-        $this->session->set_userdata(SESS . 'username', $username);
+        $this->session->set_userdata(SESS . 'no_hp', $no_hp);
+        $this->session->set_userdata(SESS . 'pin', $pin);
     }
 
     public function logout()
@@ -144,35 +145,62 @@ class UserLoginController extends CI_Controller
         $this->session->unset_userdata(SESS . 'id');
         $this->session->unset_userdata(SESS . 'nama');
         $this->session->unset_userdata(SESS . 'email');
-        $this->session->unset_userdata(SESS . 'username');
+        $this->session->unset_userdata(SESS . 'no_hp');
+        $this->session->unset_userdata(SESS . 'pin');
         $this->session->set_flashdata('logout', 'Logout Berhasil');
         redirect(site_url());
     }
 
     public function signup()
     {
-        $this->form_validation->set_rules('nama', 'Nama', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'callback_email_reg_check');
-        $this->form_validation->set_rules('username', 'Username', 'callback_username_reg_check');
-        $this->form_validation->set_rules('password', 'Password', 'required');
-        $this->form_validation->set_rules('re_password', 'Password Confirmation', 'required|matches[password]', [
-            'matches' => 'Password & Password Confirmation tidak sama, silahkan cek kembali'
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+        $this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]|valid_email|trim', [
+            'requird' => '{field} wajib diisi',
+            'is_unique' => '{field} telah terdaftar, jika kamu lupa password silahkan Whatsapp Admin dinomor <mark><a href="https://wa.me/' . WA_ADMIN . '" target="_blank">+6281219869989</a></mark>',
+            'valid_email' => 'Format email salah, silahkan cek kembali',
+        ]);
+        $this->form_validation->set_rules('no_hp', 'No Handphone', 'required|min_length[8]|max_length[20]|trim', [
+            'requird' => '{field} wajib diisi',
+            'min_length' => '{field} minimal {param} karakter',
+            'max_length' => '{field} maksimal {param} karakter',
+        ]);
+        $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]|max_length[100]|trim', [
+            'requird' => '{field} wajib diisi',
+            'min_length' => '{field} minimal {param} karakter',
+            'max_length' => '{field} maksimal {param} karakter',
+        ]);
+        $this->form_validation->set_rules('re_password', 'Password Confirmation', 'required|matches[password]|min_length[6]|max_length[255]|trim', [
+            'matches' => 'Password & Password Confirmation tidak sama, silahkan cek kembali',
+            'requird' => '{field} wajib diisi',
+            'min_length' => '{field} minimal {param} karakter',
+            'max_length' => '{field} maksimal {param} karakter',
+        ]);
+        $this->form_validation->set_rules('pin', 'PIN Transaksi', 'required|trim|numeric|exact_length[6]', [
+            'requird' => '{field} wajib diisi',
+            'exact_length' => '{field} harus {param} karakter',
+            'numeric' => '{field} hanya bisa diisi dengan angka',
+        ]);
+        $this->form_validation->set_rules('re_pin', 'PIN Transaksi Confirmation', 'required|matches[pin]|trim|numeric|exact_length[6]', [
+            'matches' => 'PIN & PIN Transaksi Confirmation tidak sama, silahkan cek kembali',
+            'requird' => '{field} wajib diisi',
+            'exact_length' => '{field} harus {param} karakter',
+            'numeric' => '{field} hanya bisa diisi dengan angka',
         ]);
         $this->form_validation->set_rules('id_referal', 'Referal', 'callback_referal_reg_check');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('signup_user');
         } else {
-            $nama       = $this->input->post('nama');
-            $email      = $this->input->post('email');
-            $username   = $this->input->post('username');
-            $password   = password_hash($this->input->post('password') . UYAH, PASSWORD_BCRYPT);
+            $nama       = trim($this->input->post('nama'));
+            $email      = strtolower(trim($this->input->post('email')));
+            $no_hp   = trim($this->input->post('no_hp'));
+            $password   = password_hash(trim($this->input->post('password')) . UYAH, PASSWORD_BCRYPT);
             $id_referal = $this->get_id_referal($this->input->post('id_referal'));
 
             $object = [
                 'nama'             => $nama,
                 'email'            => $email,
-                'username'         => $username,
+                'no_hp'         => $no_hp,
                 'password'         => $password,
                 'id_referal'       => ($id_referal != "") ? $id_referal : NULL,
                 'status'           => 'aktif',
@@ -184,7 +212,7 @@ class UserLoginController extends CI_Controller
             $last_id = $this->db->insert_id();
 
             if (!$arr) {
-                $this->session->set_flashdata('signup_error', 'Proses Sign Up Gagal, tidak terhubung dengan server silahkan coba kembali');
+                $this->session->set_flashdata('signup_error', 'Proses Sign Up Gagal, tidak terhubung dengan server silahkan cek koneksi kamu');
                 redirect('signup');
             } else {
                 $data = [
@@ -195,51 +223,27 @@ class UserLoginController extends CI_Controller
                     'updated_at'       => date('Y-m-d H:i:s'),
                 ];
                 $this->mcore->store('users_bioner_stacking', $data);
+
+                $data = [
+                    'id_user'          => $last_id,
+                    'balance_saldo'           => 0,
+                    'trigger_ask' => 'tidak',
+                    'created_at'       => date('Y-m-d H:i:s'),
+                    'updated_at'       => date('Y-m-d H:i:s'),
+                ];
+                $this->mcore->store('users_bioner_trade', $data);
                 $this->session->set_flashdata('signup_success', 'Proses Signup Berhasil, silahkan Login');
+                $this->signup_email($last_id, urlencode($email));
                 redirect('/');
             }
         }
-    }
-
-    public function email_reg_check($str)
-    {
-        $where = [
-            'email'      => $str,
-            'status'     => 'aktif',
-            'deleted_at' => NULL,
-        ];
-        $arr = $this->mcore->get('users', '*', $where);
-
-        if ($arr->num_rows() > 0) {
-            $this->form_validation->set_message('email_reg_check', 'Email telah terdaftar, silahkan gunakan email lain');
-            return FALSE;
-        }
-
-        return TRUE;
-    }
-
-    public function username_reg_check($str)
-    {
-        $where = [
-            'username'   => $str,
-            'status'     => 'aktif',
-            'deleted_at' => NULL,
-        ];
-        $arr = $this->mcore->get('users', '*', $where);
-
-        if ($arr->num_rows() > 0) {
-            $this->form_validation->set_message('username_reg_check', 'Username telah terdaftar, silahkan gunakan username lain');
-            return FALSE;
-        }
-
-        return TRUE;
     }
 
     public function referal_reg_check($str)
     {
         if ($str != '') {
             $where = [
-                'username'   => $str,
+                'id'   => strtolower(trim($str)),
                 'status'     => 'aktif',
                 'deleted_at' => NULL,
             ];
@@ -250,13 +254,12 @@ class UserLoginController extends CI_Controller
                 return FALSE;
             }
         }
-
         return TRUE;
     }
 
-    public function get_id_referal($username)
+    public function get_id_referal($id)
     {
-        $arr = $this->mcore->get('users', 'id', ['username' => $username]);
+        $arr = $this->mcore->get('users', '*', ['id' => $id]);
 
         $id_referal = NULL;
         if ($arr->num_rows() == 1) {
@@ -426,6 +429,30 @@ class UserLoginController extends CI_Controller
         $data['vitamin'] = 'change_password/index_vitamin';
 
         $this->template->template($data);
+    }
+
+    public function signup_email($id, $email)
+    {
+        $email = urldecode($email);
+        $data['arr'] = $this->mcore->get('users', '*', ['id' => $id]);
+
+        if ($data['arr']->num_rows() == 1) {
+            $template_email = $this->load->view('email_signup', $data, TRUE);
+            $this->email->from('system@bioner.online', 'System Bioner');
+            $this->email->to($email);
+            $this->email->subject('Bioner Signup Detail');
+            $this->email->message($template_email);
+            $this->email->set_mailtype('html');
+            $this->email->send();
+            $log_email = $this->email->print_debugger();
+
+            $data_log_email = [
+                'id_user' => $id,
+                'log' => $log_email,
+                'created_at' => date('Y-m-d H:i:s'),
+            ];
+            $this->mcore->store('log_email_signup', $data_log_email);
+        }
     }
 }
         

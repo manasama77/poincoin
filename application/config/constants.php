@@ -93,3 +93,5 @@ define('ATAS_NAMA_NO_REKENING_ADMIN', 'An. Pt. Chemiko Multi Lestari');
 define('NAMA_BANK_ADMIN', 'BCA');
 define('VERSION_APP', '1.0.0 Alpha');
 define('YEAR_APP', '2021');
+define('PROFIT_PER_DAY_TRADE', 3000);
+define('WA_ADMIN', '6281219869989');

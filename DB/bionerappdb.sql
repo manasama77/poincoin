@@ -11,7 +11,7 @@
  Target Server Version : 100416
  File Encoding         : 65001
 
- Date: 05/01/2021 21:52:00
+ Date: 11/01/2021 03:53:51
 */
 
 SET NAMES utf8mb4;
@@ -22,7 +22,7 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- ----------------------------
 DROP TABLE IF EXISTS `admins`;
 CREATE TABLE `admins`  (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `nama` varchar(191) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `username` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `password` varchar(191) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
@@ -38,69 +38,114 @@ CREATE TABLE `admins`  (
 -- ----------------------------
 -- Records of admins
 -- ----------------------------
-INSERT INTO `admins` VALUES (1, 'master', 'admin', '$2y$10$p.QWC7tMC7xxhS2.tWwMH.ajI8Shd.9VinnL6i3C43.TYddog03Wi', 'master_admin', '2020-10-15 23:05:48', '2020-10-15 23:05:48', NULL, 'EwmkR5XUqjReWHYiKfj21rMTN6iB3bvzqcrTOv4bxDZNSYoCxGgDp9QPW8IKFLpg', '0');
+INSERT INTO `admins` VALUES (1, 'master', 'admin', '$2y$10$p.QWC7tMC7xxhS2.tWwMH.ajI8Shd.9VinnL6i3C43.TYddog03Wi', 'master_admin', '2020-10-15 23:05:48', '2020-10-15 23:05:48', NULL, '7trdRmWpWhN4QQ5hiLONk7jgRajndD1fBf26orxJtqSeinl5goZOYPUGP8es9ZbK', '0');
 
 -- ----------------------------
 -- Table structure for bioner_stacking
 -- ----------------------------
 DROP TABLE IF EXISTS `bioner_stacking`;
 CREATE TABLE `bioner_stacking`  (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `kode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'ID_USER.DDMMYY.##',
-  `id_user` int NULL DEFAULT NULL,
-  `total_investment` decimal(15, 2) NULL DEFAULT NULL,
-  `total_transfer` decimal(15, 2) NULL DEFAULT NULL,
+  `id_user` int UNSIGNED NULL DEFAULT NULL,
+  `total_investment` decimal(15, 4) UNSIGNED NULL DEFAULT NULL,
+  `total_transfer` decimal(15, 4) UNSIGNED NULL DEFAULT NULL,
   `profit_perhari_b` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `profit_perhari_rp` decimal(15, 2) NULL DEFAULT NULL,
+  `profit_perhari_rp` decimal(15, 4) UNSIGNED NULL DEFAULT NULL,
   `status` enum('aktif','menunggu_transfer','menunggu_verifikasi','tidak_aktif') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `bukti_transfer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `created_at` datetime(0) NULL DEFAULT NULL,
   `updated_at` datetime(0) NULL DEFAULT NULL,
   `deleted_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of bioner_stacking
 -- ----------------------------
-INSERT INTO `bioner_stacking` VALUES (1, '1.0501211', 1, 100.00, 1600000.00, '0.5', 5000.00, 'aktif', NULL, '2021-01-05 20:00:22', '2021-01-05 20:02:42', NULL);
 
 -- ----------------------------
 -- Table structure for bioner_stacking_logs
 -- ----------------------------
 DROP TABLE IF EXISTS `bioner_stacking_logs`;
 CREATE TABLE `bioner_stacking_logs`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_user` int NULL DEFAULT NULL,
-  `id_bioner_stacking` int NULL DEFAULT NULL,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_user` int UNSIGNED NULL DEFAULT NULL,
+  `id_bioner_stacking` int UNSIGNED NULL DEFAULT NULL,
   `type` enum('investment','profit','withdraw','bonus','delete investment','return withdraw') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `nominal_b` decimal(15, 2) NULL DEFAULT NULL,
-  `nominal_rp` decimal(15, 2) NULL DEFAULT NULL,
+  `nominal_b` decimal(15, 4) UNSIGNED NULL DEFAULT NULL,
+  `nominal_rp` decimal(15, 4) UNSIGNED NULL DEFAULT NULL,
   `kode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'kode withdraw / kode investment',
   `keterangan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `created_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of bioner_stacking_logs
 -- ----------------------------
-INSERT INTO `bioner_stacking_logs` VALUES (1, 1, 1, 'investment', 100.00, 1000000.00, '1.0501211', 'Investment sebesar 100.00 Bioner', '2021-01-05 20:00:47');
-INSERT INTO `bioner_stacking_logs` VALUES (2, 1, 1, 'profit', 0.50, 5000.00, '1.0501211', 'Distribusi Profit Sebesar 0.5 Bioner', '2021-01-05 20:01:43');
-INSERT INTO `bioner_stacking_logs` VALUES (3, 1, 1, 'profit', 0.50, 5000.00, '1.0501211', 'Distribusi Profit Sebesar 0.5 Bioner', '2021-01-05 20:02:42');
-INSERT INTO `bioner_stacking_logs` VALUES (4, 1, NULL, 'withdraw', 0.50, 5000.00, 'W1.0501211', 'Withdraw sebesar 0.5 Bioner', '2021-01-05 21:33:26');
-INSERT INTO `bioner_stacking_logs` VALUES (5, 1, NULL, 'withdraw', 0.50, 5000.00, 'W1.0501212', 'Withdraw sebesar 0.5 Bioner', '2021-01-05 21:33:38');
-INSERT INTO `bioner_stacking_logs` VALUES (6, 1, NULL, 'return withdraw', 0.50, 5000.00, 'W1.0501212', 'Return Withdraw sebesar 0.50 Bioner to Profit - By Admin', '2021-01-05 21:35:32');
-INSERT INTO `bioner_stacking_logs` VALUES (7, 1, NULL, 'return withdraw', 0.50, 5000.00, 'W1.0501211', 'Return Withdraw sebesar 0.50 Bioner to Profit - By Admin', '2021-01-05 21:35:40');
-INSERT INTO `bioner_stacking_logs` VALUES (8, 1, NULL, 'withdraw', 0.50, 5000.00, 'W1.0501213', 'Withdraw sebesar 0.5 Bioner', '2021-01-05 21:36:30');
-INSERT INTO `bioner_stacking_logs` VALUES (9, 1, NULL, 'withdraw', 0.50, 5000.00, 'W1.0501214', 'Withdraw sebesar 0.5 Bioner', '2021-01-05 21:36:39');
+
+-- ----------------------------
+-- Table structure for bioner_trade
+-- ----------------------------
+DROP TABLE IF EXISTS `bioner_trade`;
+CREATE TABLE `bioner_trade`  (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `kode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `id_user` int UNSIGNED NULL DEFAULT NULL,
+  `status` enum('pending','aktif','tidak aktif','menunggu verifikasi') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `bukti_transfer` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` datetime(0) NULL DEFAULT NULL,
+  `updated_at` datetime(0) NULL DEFAULT NULL,
+  `deleted_at` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of bioner_trade
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for bioner_trade_logs
+-- ----------------------------
+DROP TABLE IF EXISTS `bioner_trade_logs`;
+CREATE TABLE `bioner_trade_logs`  (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_user` int UNSIGNED NULL DEFAULT NULL,
+  `id_bioner_trade` int UNSIGNED NULL DEFAULT NULL,
+  `type` enum('investment','profit','withdraw','delete investment','return withdraw') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `kode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `keterangan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of bioner_trade_logs
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for log_email_signup
+-- ----------------------------
+DROP TABLE IF EXISTS `log_email_signup`;
+CREATE TABLE `log_email_signup`  (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_user` int UNSIGNED NULL DEFAULT NULL,
+  `log` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL,
+  `created_at` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of log_email_signup
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for param_banks
 -- ----------------------------
 DROP TABLE IF EXISTS `param_banks`;
 CREATE TABLE `param_banks`  (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `nama_bank` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `kode_bank` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
@@ -192,12 +237,11 @@ CREATE TABLE `user_banks`  (
   `updated_at` datetime(0) NULL DEFAULT NULL,
   `deleted_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of user_banks
 -- ----------------------------
-INSERT INTO `user_banks` VALUES (1, 1, '123', 63, 'aa', '2021-01-05 19:47:12', '2021-01-05 19:47:12', NULL);
 
 -- ----------------------------
 -- Table structure for user_bioner_stacking_withdraw
@@ -207,24 +251,43 @@ CREATE TABLE `user_bioner_stacking_withdraw`  (
   `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `id_user` int UNSIGNED NULL DEFAULT NULL,
   `id_user_bank` int UNSIGNED NULL DEFAULT NULL,
-  `id_user_wallet` int NULL DEFAULT NULL,
+  `id_user_wallet` int UNSIGNED NULL DEFAULT NULL,
   `kode_withdraw` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT 'W.ID_USER.DDMMYY.##',
-  `withdraw_b` decimal(15, 2) UNSIGNED NULL DEFAULT NULL,
-  `withdraw_rp` decimal(15, 2) UNSIGNED NULL DEFAULT NULL,
+  `kode_invest` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `withdraw_b` decimal(15, 4) UNSIGNED NULL DEFAULT NULL,
+  `withdraw_rp` decimal(15, 4) UNSIGNED NULL DEFAULT NULL,
   `status` enum('pending','success','reject') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `created_at` datetime(0) NULL DEFAULT NULL,
   `updated_at` datetime(0) NULL DEFAULT NULL,
   `deleted_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_bioner_stacking_withdraw
 -- ----------------------------
-INSERT INTO `user_bioner_stacking_withdraw` VALUES (1, 1, 1, 1, 'W1.0501211', 0.50, 5000.00, 'pending', '2021-01-05 21:33:26', '2021-01-05 21:33:26', '2021-01-05 21:35:40');
-INSERT INTO `user_bioner_stacking_withdraw` VALUES (2, 1, NULL, NULL, 'W1.0501212', 0.50, 5000.00, 'pending', '2021-01-05 21:33:38', '2021-01-05 21:33:38', '2021-01-05 21:35:32');
-INSERT INTO `user_bioner_stacking_withdraw` VALUES (3, 1, 1, NULL, 'W1.0501213', 0.50, 5000.00, 'success', '2021-01-05 21:36:30', '2021-01-05 21:47:20', NULL);
-INSERT INTO `user_bioner_stacking_withdraw` VALUES (4, 1, NULL, 1, 'W1.0501214', 0.50, 5000.00, 'pending', '2021-01-05 21:36:39', '2021-01-05 21:36:39', NULL);
+
+-- ----------------------------
+-- Table structure for user_bioner_trade_withdraw
+-- ----------------------------
+DROP TABLE IF EXISTS `user_bioner_trade_withdraw`;
+CREATE TABLE `user_bioner_trade_withdraw`  (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_user` int UNSIGNED NULL DEFAULT NULL,
+  `id_user_bank` int UNSIGNED NULL DEFAULT NULL,
+  `kode_withdraw` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `kode_invest` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `withdraw_rp` decimal(15, 4) UNSIGNED NULL DEFAULT NULL,
+  `status` enum('pending','success','reject') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `created_at` datetime(0) NULL DEFAULT NULL,
+  `updated_at` datetime(0) NULL DEFAULT NULL,
+  `deleted_at` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of user_bioner_trade_withdraw
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for user_wallets
@@ -238,24 +301,24 @@ CREATE TABLE `user_wallets`  (
   `updated_at` datetime(0) NULL DEFAULT NULL,
   `deleted_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of user_wallets
 -- ----------------------------
-INSERT INTO `user_wallets` VALUES (1, 1, '12345', '2021-01-05 19:49:31', '2021-01-05 20:00:11', NULL);
 
 -- ----------------------------
 -- Table structure for users
 -- ----------------------------
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users`  (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
   `nama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `username` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `no_hp` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
-  `id_referal` int NULL DEFAULT NULL,
+  `pin` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `id_referal` int UNSIGNED NULL DEFAULT NULL,
   `status` enum('aktif','tidak_aktif') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `cookies` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `remember` enum('0','1') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
@@ -263,31 +326,48 @@ CREATE TABLE `users`  (
   `updated_at` datetime(0) NULL DEFAULT NULL,
   `deleted_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (1, 'adam', 'adam.pm77@gmail.com', 'adam', '$2y$10$DceRNzrpuYxJJIbi7Njvie7zRTW/PjBYhnyTQo38.aOHl6giPa7aC', NULL, 'aktif', NULL, '0', '2021-01-05 19:19:34', '2021-01-05 20:02:42', NULL);
 
 -- ----------------------------
 -- Table structure for users_bioner_stacking
 -- ----------------------------
 DROP TABLE IF EXISTS `users_bioner_stacking`;
 CREATE TABLE `users_bioner_stacking`  (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `id_user` int NULL DEFAULT NULL,
-  `profit` decimal(15, 2) UNSIGNED NULL DEFAULT NULL,
-  `total_investment` decimal(15, 2) UNSIGNED NULL DEFAULT NULL,
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_user` int UNSIGNED NULL DEFAULT NULL,
+  `profit` decimal(15, 4) UNSIGNED NULL DEFAULT NULL,
+  `total_investment` decimal(15, 4) UNSIGNED NULL DEFAULT NULL,
   `created_at` datetime(0) NULL DEFAULT NULL,
   `updated_at` datetime(0) NULL DEFAULT NULL,
   `deleted_at` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of users_bioner_stacking
 -- ----------------------------
-INSERT INTO `users_bioner_stacking` VALUES (1, 1, 0.00, 100.00, '2021-01-05 19:19:34', '2021-01-05 21:36:39', NULL);
+
+-- ----------------------------
+-- Table structure for users_bioner_trade
+-- ----------------------------
+DROP TABLE IF EXISTS `users_bioner_trade`;
+CREATE TABLE `users_bioner_trade`  (
+  `id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_user` int UNSIGNED NULL DEFAULT NULL,
+  `balance_saldo` decimal(15, 4) UNSIGNED NULL DEFAULT NULL,
+  `trigger_ask` enum('ya','tidak') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT 'tidak',
+  `created_at` datetime(0) NULL DEFAULT NULL,
+  `updated_at` datetime(0) NULL DEFAULT NULL,
+  `deleted_at` datetime(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of users_bioner_trade
+-- ----------------------------
 
 SET FOREIGN_KEY_CHECKS = 1;

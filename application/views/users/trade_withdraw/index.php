@@ -1,4 +1,4 @@
-<h1 class="text-dark text-center pt-3 pb-2">Bioner Stacking - Withdraw</h1>
+<h1 class="text-dark text-center pt-3 pb-2">Bioner Trade - Withdraw</h1>
 
 <div class="row justify-content-center">
 
@@ -8,10 +8,10 @@
                 <div class="d-flex justify-content-between">
                     <div class="p-1">
                         <i class="fas fa-hand-holding-usd fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">Bioner Profit</b>
+                        <b class="title-special-card">Total Hak Investment</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($bioner_profit, 4); ?> <small>B</small></p>
+                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>Lot</small></p>
                     </div>
                 </div>
             </div>
@@ -24,10 +24,10 @@
                 <div class="d-flex justify-content-between">
                     <div class="p-1">
                         <i class="fas fa-coins fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">Total Investment</b>
+                        <b class="title-special-card">Balance Saldo</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>B</small></p>
+                        <p class="font-weight-bold value-special-card"><small>Rp.</small><?= number_format($balance_saldo, 0); ?></p>
                     </div>
                 </div>
             </div>
@@ -36,12 +36,12 @@
 
 
     <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
-        <div class="card card-gradient mt-2 mb-2 pointer" onclick="window.open('<?= site_url(); ?>stacking', '_self')">
+        <div class="card card-gradient mt-2 mb-2 pointer" onclick="window.open('<?= site_url(); ?>trade', '_self')">
             <div class="card-body p-2 text-center">
                 <div class="d-flex justify-content-center">
                     <div class="p-1">
                         <i class="fas fa-money-bill-wave-alt fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">List Bioner Stacking</b>
+                        <b class="title-special-card">List Bioner Trade</b>
                     </div>
                 </div>
             </div>
@@ -64,10 +64,6 @@
                                 <th class="text-center">#</th>
                                 <th class="text-right" style="min-width: 120px;">
                                     Amount
-                                    <small class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Bioner">B</small>
-                                </th>
-                                <th class="text-right" style="min-width: 120px;">
-                                    Amount
                                     <small class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Bioner">Rp</small>
                                 </th>
                                 <th class="text-center">Rekening</th>
@@ -81,7 +77,7 @@
                         <tbody>
                             <?php
                             if ($arr_withdraw->num_rows() == 0) {
-                                echo '<tr><td colspan="7" class="text-center">Kamu belum memiliki history withdraw</td></tr>';
+                                echo '<tr><td colspan="6" class="text-center">Kamu belum memiliki history withdraw</td></tr>';
                             } else {
                                 $no = 1;
                                 foreach ($arr_withdraw->result() as $key) {
@@ -89,7 +85,7 @@
                                     if ($key->status == "pending") {
                                         $bg_color = "secondary";
                                         $btn = '
-                                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteData(\'' . $key->id . '\', \'' . $key->withdraw_b . '\')">
+                                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteData(\'' . $key->id . '\', \'' . $key->withdraw_rp . '\')">
                                           <i class="fas fa-trash"></i>
                                         </button>';
                                     } elseif ($key->status == "success") {
@@ -100,9 +96,6 @@
 
                                     $rekening = "";
                                     if ($key->id_user_bank != NULL) {
-                                        $rekening = $key->nama_bank . " " . $key->no_rekening . " " . $key->atas_nama;
-                                    } elseif ($key->id_user_wallet != NULL) {
-                                        $rekening = $key->no_wallet;
                                     } elseif ($key->kode_invest != NULL) {
                                         $rekening = 'Investment ' . $key->kode_invest;
                                     }
@@ -110,7 +103,6 @@
                                     echo '
                                     <tr>
                                     <td class="text-center">' . $no . '</td>
-                                    <td class="text-right">' . number_format($key->withdraw_b, 4) . '</td>
                                     <td class="text-right">' . number_format($key->withdraw_rp, 0) . '</td>
                                     <td class="text-center">' . $rekening . '</td>
                                     <td class="text-center">' . $key->created_at . '</td>
@@ -146,45 +138,16 @@
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <form id="form_withdraw" class="form-horizontal">
                     <div class="form-group row justify-content-center">
-                        <label for="withdraw_b" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Withdraw Amount (B)</label>
-                        <div class="col-sm-12 col-md-12 col-lg-6 input-group">
-                            <input type="text" class="form-control text-right" id="withdraw_b" name="withdraw_b" placeholder="Total Investment" value="0" readonly required />
-                            <div class="input-group-append">
-                                <span class="input-group-text">B</span>
-                            </div>
-                            <div class="input-group-append">
-                                <button type="button" class="btn btn-info" id="upValue">
-                                    <i class="fas fa-arrow-up"></i>
-                                </button>
-                                <button type="button" class="btn btn-info" id="downValue">
-                                    <i class="fas fa-arrow-down"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="col-6 offset-3">
-                            <small class="form-text text-muted">Minimal 10 B untuk dapat diinvestkan kembali</small>
-                        </div>
-                    </div>
-                    <div class="form-group row justify-content-center">
-                        <label for="withdraw_rp" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Withdraw Amount (Rp)</label>
-                        <div class="col-sm-12 col-md-12 col-lg-6 input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2">Rp.</span>
-                            </div>
-                            <input type="text" class="form-control" id="withdraw_rp" name="withdraw_rp" value="0" readonly required>
-                        </div>
-                    </div>
-                    <div class="form-group row justify-content-center">
-                        <label for="id_jenis" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Jenis Rekening</label>
+                        <label for="id_jenis" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Jenis Withdraw</label>
                         <div class="col-sm-12 col-md-12 col-lg-6">
                             <select class="form-control" id="id_jenis" name="id_jenis" onchange="cekJenis();" required>
                                 <option value=""></option>
                                 <option value="bank">Bank</option>
-                                <option value="doge">Doge Wallet</option>
-                                <option value="invest">Investment Stacking</option>
+                                <option value="invest">Investment Trade</option>
                             </select>
                         </div>
                     </div>
+
                     <div id="form_bank" style="display: none;">
                         <div class="form-group row justify-content-center">
                             <label for="id_rekening" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Rekening</label>
@@ -203,25 +166,33 @@
                                 </select>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Withdraw</button>
-                    </div>
-                    <div id="form_doge" style="display: none;">
                         <div class="form-group row justify-content-center">
-                            <label for="id_wallet" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Wallet</label>
-                            <div class="col-sm-12 col-md-12 col-lg-6">
-                                <select class="form-control" id="id_wallet" name="id_wallet">
-                                    <option></option>
-                                    <?php
-                                    foreach ($arr_wallet->result() as $key) {
-                                        echo '<option value="' . $key->id . '">' . $key->no_wallet . '</option>';
-                                    }
-                                    ?>
-                                </select>
+                            <label for="withdraw_b" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Withdraw Amount (Rp)</label>
+                            <div class="col-sm-12 col-md-12 col-lg-6 input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">Rp</span>
+                                </div>
+                                <input type="number" class="form-control" id="withdraw_rp" name="withdraw_rp" placeholder="Total Investment" min="10000" max="<?= $balance_saldo; ?>" step="10000" pattern="[0-9]" inputmode="tel" required />
+                            </div>
+                            <div class="col-12">
+                                <small class="form-text text-muted">Minimal Rp.750,000 untuk dapat diinvestkan kembali</small>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Withdraw</button>
                     </div>
                     <div id="form_invest" style="display: none;">
+                        <div class="form-group row justify-content-center">
+                            <label for="withdraw_b" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Hak Investment</label>
+                            <div class="col-sm-12 col-md-12 col-lg-6 input-group">
+                                <input type="number" class="form-control" id="hi" name="hi" placeholder="Hak Investment" min="0" max="<?= floor($balance_saldo / 750000); ?>" step="1" pattern="[0-9]" inputmode="tel" required />
+                                <div class="input-group-append">
+                                    <span class="input-group-text">HI</span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <small class="form-text text-muted">1 HI setara dengan Rp.750,000</small>
+                            </div>
+                        </div>
                         <button type="submit" class="btn btn-primary btn-block">Invest</button>
                     </div>
                 </form>

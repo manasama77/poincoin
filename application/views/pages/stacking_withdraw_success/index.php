@@ -20,7 +20,7 @@
 									<th>User</th>
 									<th class="text-right">Withdraw (B)</th>
 									<th class="text-right">Withdraw (Rp)</th>
-									<th class="text-right">Rekening</th>
+									<th class="text-center">Rekening</th>
 									<th class="text-center">Created</th>
 									<th class="text-center">Updated</th>
 								</tr>
@@ -32,6 +32,11 @@
 									<?php
 									$no = 1;
 									foreach ($arr_stacking->result() as $key) {
+										if ($key->kode_invest != NULL) {
+											$rekening = 'Investment ' . $key->kode_invest;
+										} else {
+											$rekening = $key->nama_bank . ' - ' . $key->no_rekening . ' - ' . $key->atas_nama;
+										}
 									?>
 										<tr>
 											<td><?= $no; ?></td>
@@ -40,7 +45,7 @@
 											<td class="text-right"><?= number_format($key->withdraw_b, 2); ?></td>
 											<td class="text-right"><?= number_format($key->withdraw_rp, 0); ?></td>
 											<td class="text-center">
-												<?= $key->nama_bank; ?> - <?= $key->no_rekening; ?> - <?= $key->atas_nama; ?>
+												<?= $rekening; ?>
 											</td>
 											<td class="text-center"><?= $key->created_at; ?></td>
 											<td class="text-center"><?= $key->updated_at; ?></td>

@@ -1,4 +1,4 @@
-<h1 class="text-dark text-center pt-3 pb-2">Bioner Stacking</h1>
+<h1 class="text-dark text-center pt-3 pb-2"><?= $title; ?></h1>
 
 <div class="row justify-content-center">
 
@@ -8,10 +8,10 @@
                 <div class="d-flex justify-content-between">
                     <div class="p-1">
                         <i class="fas fa-hand-holding-usd fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">Bioner Profit</b>
+                        <b class="title-special-card">Total Hak Investment</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($bioner_profit, 4); ?> <small>B</small></p>
+                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>Lot</small></p>
                     </div>
                 </div>
             </div>
@@ -24,10 +24,10 @@
                 <div class="d-flex justify-content-between">
                     <div class="p-1">
                         <i class="fas fa-coins fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">Total Investment</b>
+                        <b class="title-special-card">Balance Saldo</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>B</small></p>
+                        <p class="font-weight-bold value-special-card"><small>Rp.</small><?= number_format($balance_saldo, 0); ?></p>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
 
 
     <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
-        <div class="card card-gradient mt-2 mb-2 pointer" onclick="window.open('<?= site_url(); ?>stacking_withdraw', '_self')">
+        <div class="card card-gradient mt-2 mb-2 pointer" onclick="window.open('<?= site_url(); ?>trade_withdraw', '_self')">
             <div class="card-body p-2 text-center">
                 <div class="d-flex justify-content-center">
                     <div class="p-1">
@@ -54,7 +54,7 @@
     <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
         <div class="card text-white">
             <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
-                <span style="font-size: 25px;"><i class="fas fa-table"></i> List Bioner Stacking</span>
+                <span style="font-size: 25px;"><i class="fas fa-table"></i> List <?= $title; ?></span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <div class="table-responsive">
@@ -62,30 +62,26 @@
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
-                                <th class="text-right">Investment</th>
-                                <th class="text-right" style="min-width: 100px;">Profit Per Day</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center" style="min-width: 120px;">Created</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            if ($arr_stacking->num_rows() > 0) {
+                            if ($arr_bioner_trade->num_rows() > 0) {
                             ?>
                                 <?php
-                                foreach ($arr_stacking->result() as $key) {
+                                foreach ($arr_bioner_trade->result() as $key) {
                                 ?>
                                     <tr>
                                         <td class="text-center"><?= $key->kode; ?></td>
-                                        <td class="text-right"><?= number_format($key->total_investment, 0); ?> B</td>
-                                        <td class="text-right"><?= number_format($key->profit_perhari_b, 4); ?> B</td>
                                         <td class="text-center">
                                             <?php
                                             if ($key->status == "aktif") {
                                                 echo '<span class="badge badge-success flataja">Aktif</span>';
-                                            } elseif ($key->status == "menunggu_transfer") {
-                                                echo '<span class="badge badge-warning flataja">Menunggu Transfer</span><br><button type="button" class="btn btn-info btn-sm flataja" onclick="konfirmasiTransfer(\'' . $key->kode . '\', \'' . number_format($key->total_transfer, 0) . '\')">Konfirmasi Transfer</button>';
-                                            } elseif ($key->status == "menunggu_verifikasi") {
+                                            } elseif ($key->status == "pending") {
+                                                echo '<span class="badge badge-warning flataja">Pending</span><br><button type="button" class="btn btn-info btn-sm flataja" onclick="konfirmasiTransfer(\'' . $key->kode . '\', \'750000\')">Konfirmasi Transfer</button>';
+                                            } elseif ($key->status == "menunggu verifikasi") {
                                                 echo '<span class="badge badge-info flataja">Menunggu Verifikasi</span>';
                                             } elseif ($key->status == "tidak_aktif") {
                                                 echo '<span class="badge badge-danger flataja">Tidak Aktif</span>';
@@ -105,7 +101,7 @@
                                 ?>
                             <?php
                             } else {
-                                echo '<tr><td colspan="5" class="text-center">Kamu tidak memiliki data investment Bioner Stacking</td></tr>';
+                                echo '<tr><td colspan="3" class="text-center">Kamu tidak memiliki data investment Bioner Trade</td></tr>';
                             }
                             ?>
                         </tbody>
@@ -117,26 +113,26 @@
 </div>
 
 <div class="row">
-    <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
+    <div class="col-sm-12 col-md-8 offset-md-2 mt-3">
         <div class="card text-white">
             <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
-                <span style="font-size: 25px;"><i class="fas fa-plus"></i> Add New Pack</span>
+                <span style="font-size: 25px;"><i class="fas fa-plus"></i> Add New Hak Investment</span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <form id="form_new_stack">
 
                     <div class="form-group row justify-content-center">
-                        <label for="total_investment" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Total Investment</label>
+                        <label for="total_lot" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Total Hak Investment</label>
                         <div class="col-sm-12 col-md-12 col-lg-6 input-group">
-                            <input type="text" class="form-control text-right" id="total_investment" name="total_investment" placeholder="Total Investment" value="0" readonly required />
+                            <input type="text" class="form-control text-right" id="total_lot" name="total_lot" placeholder="Total Hak Investment" value="0" readonly required />
                             <div class="input-group-append">
-                                <span class="input-group-text">B</span>
+                                <span class="input-group-text">Lot</span>
                             </div>
                             <div class="input-group-append">
-                                <button type="button" class="btn btn-info" id="upValue">
+                                <button type="button" class="btn btn-info" id="up_value">
                                     <i class="fas fa-arrow-up"></i>
                                 </button>
-                                <button type="button" class="btn btn-info" id="downValue">
+                                <button type="button" class="btn btn-info" id="down_value">
                                     <i class="fas fa-arrow-down"></i>
                                 </button>
                             </div>
@@ -144,40 +140,61 @@
                     </div>
 
                     <div class="form-group row justify-content-center">
+                        <label for="nilai_investment" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Nilai Investment</label>
+                        <div class="col-sm-12 col-md-12 col-lg-6 input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp.</span>
+                            </div>
+                            <input type="text" class="form-control" id="nilai_investment" name="nilai_investment" placeholder="Nilai Investment" value="0" readonly required />
+                        </div>
+                    </div>
+
+                    <div class="form-group row justify-content-center">
+                        <label for="biaya_sewa" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Biaya Sewa</label>
+                        <div class="col-sm-12 col-md-12 col-lg-6 input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Rp.</span>
+                            </div>
+                            <input type="text" class="form-control" id="biaya_sewa" name="biaya_sewa" placeholder="Biaya Sewa" value="0" readonly required />
+                        </div>
+                    </div>
+
+                    <div class="form-group row justify-content-center">
                         <label for="total_transfer" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Total Transfer</label>
                         <div class="col-sm-12 col-md-12 col-lg-6 input-group">
                             <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2">Rp.</span>
+                                <span class="input-group-text">Rp.</span>
                             </div>
                             <input type="text" class="form-control" id="total_transfer" name="total_transfer" placeholder="Total Transfer" value="0" readonly required />
                         </div>
                     </div>
 
+                    <hr>
+
                     <div class="form-group row justify-content-center">
                         <label for="profit_per_day" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Profit Per Day</label>
                         <div class="col-sm-12 col-md-12 col-lg-6 input-group">
-                            <input type="text" class="form-control text-right" id="profit_per_day" name="profit_per_day" placeholder="Profit Per Day" value="0" readonly required />
-                            <div class="input-group-append">
-                                <span class="input-group-text" id="basic-addon2">B</span>
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2">Rp.</span>
                             </div>
+                            <input type="text" class="form-control text-right" id="profit_per_day" name="profit_per_day" placeholder="Profit Per Day" value="0" readonly required />
                         </div>
                     </div>
 
 
                     <div class="alert alert-info" role="alert">
                         <ul>
-                            <li>Jika kamu belum pernah melakukan pembukaan Bioner Stacking, maka akan dikenakan biaya awal pembukaan Bioner Stacking adalah sebesar <mark>Rp.100,000</mark></li>
-                            <li>Minimal Investment adalah <mark>100 Bioner</mark> atau <mark>Rp.1,500,000</mark></li>
-                            <li>Nilai Investment berlaku kelipatan <mark>100 Bioner</mark> atau <mark>Rp.1,500,000</mark></li>
-                            <li>Setiap hari pada pukul <mark>00:00</mark> Setiap Stack akan di compund sebesar <mark>0.5%</mark></li>
-                            <li>Jika Bioner Profit telah mencapai nilai <mark>10 B</mark>. Nilai tersebut dapat diinvestmentkan pada fitur <mark>Withdraw</mark></li>
+                            <li>Nilai Pembukaan Hak Investment adalah sebesar <mark>Rp.600,000</mark></li>
+                            <li>Biaya Sewa Per Satu Hak Investment adalah Sebesar <mark>Rp.150,000</mark></li>
+                            <li>Profit Per Hari yang akan diberikan per 1 Lot / Hak Investment Sebesar <mark>Rp.3,000</mark></li>
+                            <li>Jadwal pembagian profit akan dilakukan oleh server setiap hari pada pukul <mark>00:00</mark></li>
                         </ul>
                     </div>
 
 
                     <div class="form-group row">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block font-weight-bold">Add New Stack</button>
+                            <button type="submit" class="btn btn-primary btn-block font-weight-bold">Add New Hak Investment</button>
                         </div>
                     </div>
 
@@ -199,8 +216,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="id_bioner_stacking">Kode Bioner Stacking</label>
-                        <input type="text" class="form-control" id="id_bioner_stacking" name="id_bioner_stacking" readonly required>
+                        <label for="id_bioner_trade">Kode Bioner Trade</label>
+                        <input type="text" class="form-control" id="id_bioner_trade" name="id_bioner_trade" readonly required>
                     </div>
                     <div class="form-group">
                         <label for="total_transfer_in_rp">Total Transfer</label>

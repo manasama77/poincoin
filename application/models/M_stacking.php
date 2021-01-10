@@ -36,6 +36,7 @@ class M_stacking extends CI_Model
             'user_bioner_stacking_withdraw.id_user_bank',
             'user_bioner_stacking_withdraw.id_user_wallet',
             'user_bioner_stacking_withdraw.kode_withdraw',
+            'user_bioner_stacking_withdraw.kode_invest',
             'user_bioner_stacking_withdraw.withdraw_b',
             'user_bioner_stacking_withdraw.withdraw_rp',
             'user_bioner_stacking_withdraw.status',
@@ -73,7 +74,8 @@ class M_stacking extends CI_Model
     public function count_today_stack_withdraw()
     {
         $this->db->where_in('status', [
-            'pending'
+            'pending',
+            'success'
         ]);
         $this->db->where('id_user', $this->session->userdata(SESS . 'id'));
         $this->db->where('DATE(created_at)', date('Y-m-d'));
@@ -191,6 +193,7 @@ class M_stacking extends CI_Model
             'user_bioner_stacking_withdraw.id_user_bank',
             'user_bioner_stacking_withdraw.id_user_wallet',
             'user_bioner_stacking_withdraw.kode_withdraw',
+            'user_bioner_stacking_withdraw.kode_invest',
             'user_bioner_stacking_withdraw.withdraw_b',
             'user_bioner_stacking_withdraw.withdraw_rp',
             'user_bioner_stacking_withdraw.status',

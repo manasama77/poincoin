@@ -1,0 +1,22 @@
+halaman awal dashboard
+
+username ganti email DONE
+pendaftaran masukan no hp DONE
+pendaftaran masukan no pin & pin confirmation
+fitur kirim email info registrasi
+buat template email
+
+admin
+tambah list user
+fitur ganti email
+    kirim ulang via email data registrasi / informasi user
+fitur reset password
+    kirim ulang via email data password
+fitur reset PIN
+    kirim ulang via email data pin
+
+tast scheduler untuk distribusi bioner stacking
+tast scheduler untuk distribusi bioner trade
+
+notes ketika withdraw
+Untuk pencairan diluar bank bca dikenakan charge Rp. 10,000

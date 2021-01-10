@@ -13,25 +13,25 @@
     <link rel="stylesheet" href="<?= base_url(); ?>vendor/fortawesome/font-awesome/css/all.min.css">
     <link rel="stylesheet" href="<?= base_url(); ?>public/css/main.css">
 
-    <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url(); ?>apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="<?= base_url(); ?>apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="<?= base_url(); ?>apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url(); ?>apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="<?= base_url(); ?>apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="<?= base_url(); ?>apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url(); ?>apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="<?= base_url(); ?>apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url(); ?>apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="<?= base_url(); ?>android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url(); ?>favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="<?= base_url(); ?>favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url(); ?>favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url(); ?>public/img/public/img/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?= base_url(); ?>public/img/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?= base_url(); ?>public/img/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= base_url(); ?>public/img/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?= base_url(); ?>public/img/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?= base_url(); ?>public/img/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?= base_url(); ?>public/img/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= base_url(); ?>public/img/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url(); ?>public/img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="<?= base_url(); ?>public/img/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url(); ?>public/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?= base_url(); ?>public/img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url(); ?>public/img/favicon-16x16.png">
     <link rel="manifest" href="<?= base_url(); ?>manifest.json">
-    <meta name="msapplication-TileColor" content="#000">
-    <meta name="msapplication-TileImage" content="<?= base_url(); ?>ms-icon-144x144.png">
-    <meta name="theme-color" content="#000">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="<?= base_url(); ?>public/img/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
-    <title>Dashboard - Bioner</title>
+    <title><?= $title; ?></title>
 </head>
 
 <body class="bg-pastel">
@@ -105,8 +105,8 @@
                     </a>
                 </div>
                 <div class="p-1 text-center">
-                    <!-- <a href="<?= site_url(); ?>bioner_trading"> -->
-                    <a href="javascript:;" onclick="comingSoon('Bioner Trading');">
+                    <!-- <a href="<?= site_url(); ?>trade"> -->
+                    <a href="javascript:;" onclick="comingSoon('Bioner Trade');">
                         <img src="<?= base_url(); ?>public/img/bioner_trading.png" alt="bt" class="img-fluid" style="width: 80px;">
                     </a>
                 </div>

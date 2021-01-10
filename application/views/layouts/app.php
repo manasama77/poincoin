@@ -22,7 +22,7 @@ desired effect
 |---------------------------------------------------------|
 -->
 
-<body class="hold-transition skin-black sidebar-collapse sidebar-mini">
+<body class="hold-transition skin-black sidebar-mini">
 	<div class="wrapper">
 
 		<!-- Main Header -->

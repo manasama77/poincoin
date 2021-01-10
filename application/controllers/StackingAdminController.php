@@ -25,75 +25,85 @@ class StackingAdminController extends CI_Controller
 
     public function verifikasi_transfer()
     {
+        $this->db->trans_start();
         $id    = $this->input->post('id');
-        $data  = ['status' => 'aktif', 'updated_at' => date('Y-m-d H:i:s')];
-        $where = ['id' => $id];
-        $exec  = $this->mcore->update('bioner_stacking', $data, $where);
-        $code  = 500;
 
-        if ($exec) {
-            $where_x                    = ['id' => $id];
-            $arr                        = $this->mcore->get('bioner_stacking', 'id_user, kode, total_investment', $where_x);
+        $arr_cek = $this->mcore->get('bioner_stacking', '*', ['id' => $id]);
 
-            $id_user                    = $arr->row()->id_user;
-            $kode                    = $arr->row()->kode;
-            $total_investment           = $arr->row()->total_investment;
-            $exec_users_bioner_stacking = $this->M_stacking->update_total_investment($id_user, $total_investment);
+        if (in_array($arr_cek->row()->status, ['menunggu_transfer', 'menunggu_verifikasi'])) {
 
-            $arr_user = $this->mcore->get('users', '*', ['id' => $id_user, 'deleted_at' => NULL]);
+            $data  = ['status' => 'aktif', 'updated_at' => date('Y-m-d H:i:s')];
+            $where = ['id' => $id];
+            $exec  = $this->mcore->update('bioner_stacking', $data, $where);
+            $code  = 500;
 
-            if ($exec_users_bioner_stacking) {
-                if ($arr_user->num_rows() == 1) {
-                    $username = $arr_user->row()->username;
-                    $id_referal = $arr_user->row()->id_referal;
+            if ($exec) {
+                $where_x                    = ['id' => $id];
+                $arr                        = $this->mcore->get('bioner_stacking', 'id_user, kode, total_investment', $where_x);
 
-                    if ($id_referal != NULL) {
-                        $where_stack = "id_user = '" . $id_user . "' AND deleted_at IS NULL AND status = 'aktif'";
-                        $count_stack = $this->mcore->count('bioner_stacking', $where_stack);
+                $id_user                    = $arr->row()->id_user;
+                $kode                    = $arr->row()->kode;
+                $total_investment           = $arr->row()->total_investment;
+                $exec_users_bioner_stacking = $this->M_stacking->update_total_investment($id_user, $total_investment);
 
-                        if ($count_stack == 1) {
-                            $nominal_b_bonus = ($total_investment * 10) / 100;
-                            $nominal_rp_bonus = $nominal_b_bonus * 10000;
-                            $data_referral = [
-                                'id_user' => $id_referal,
-                                'id_bioner_stacking' => NULL,
-                                'type' => 'bonus',
-                                'nominal_b' => $nominal_b_bonus,
-                                'nominal_rp' => $nominal_rp_bonus,
-                                'kode' => $kode,
-                                'keterangan' => 'Bonus Referral sebesar ' . $nominal_b_bonus . ' Bioner dari user ' . $username,
-                                'created_at' => date('Y-m-d H:i:s'),
-                            ];
-                            $exec_referral = $this->mcore->store('bioner_stacking_logs', $data_referral);
+                $arr_user = $this->mcore->get('users', '*', ['id' => $id_user, 'deleted_at' => NULL]);
 
-                            if ($exec_referral) {
-                                $exec_referral_bioner_stacking = $this->M_stacking->update_profit($id_referal, $nominal_b_bonus);
+                if ($exec_users_bioner_stacking) {
+                    if ($arr_user->num_rows() == 1) {
+                        $username = $arr_user->row()->username;
+                        $id_referal = $arr_user->row()->id_referal;
+
+                        if ($id_referal != NULL) {
+                            $where_stack = "id_user = '" . $id_user . "' AND deleted_at IS NULL AND status = 'aktif'";
+                            $count_stack = $this->mcore->count('bioner_stacking', $where_stack);
+
+                            if ($count_stack == 1) {
+                                $nominal_b_bonus = ($total_investment * 10) / 100;
+                                $nominal_rp_bonus = $nominal_b_bonus * 10000;
+                                $data_referral = [
+                                    'id_user' => $id_referal,
+                                    'id_bioner_stacking' => NULL,
+                                    'type' => 'bonus',
+                                    'nominal_b' => $nominal_b_bonus,
+                                    'nominal_rp' => $nominal_rp_bonus,
+                                    'kode' => $kode,
+                                    'keterangan' => 'Bonus Referral sebesar ' . $nominal_b_bonus . ' Bioner dari user ' . $username,
+                                    'created_at' => date('Y-m-d H:i:s'),
+                                ];
+                                $exec_referral = $this->mcore->store('bioner_stacking_logs', $data_referral);
+
+                                if ($exec_referral) {
+                                    $exec_referral_bioner_stacking = $this->M_stacking->update_profit($id_referal, $nominal_b_bonus);
+                                }
                             }
                         }
                     }
-                }
 
-                $data_logs = [
-                    'id_user' => $id_user,
-                    'id_bioner_stacking' => $id,
-                    'type' => 'investment',
-                    'nominal_b' => $total_investment,
-                    'nominal_rp' => $total_investment * 10000,
-                    'kode' => $kode,
-                    'keterangan' => 'Investment sebesar ' . $total_investment . ' Bioner',
-                    'created_at' => date('Y-m-d H:i:s'),
-                ];
-                $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
+                    $data_logs = [
+                        'id_user' => $id_user,
+                        'id_bioner_stacking' => $id,
+                        'type' => 'investment',
+                        'nominal_b' => $total_investment,
+                        'nominal_rp' => $total_investment * 10000,
+                        'kode' => $kode,
+                        'keterangan' => 'Investment sebesar ' . $total_investment . ' Bioner',
+                        'created_at' => date('Y-m-d H:i:s'),
+                    ];
+                    $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
 
-                if ($exec_logs) {
-                    $code = 200;
+                    if ($exec_logs) {
+                        $code = 200;
+                    } else {
+                        $code = 500;
+                    }
                 } else {
                     $code = 500;
                 }
-            } else {
-                $code = 500;
             }
+        } else {
+            $code = 200;
         }
+        $this->db->trans_complete();
 
         echo json_encode(['code' => $code]);
     }
@@ -132,7 +142,11 @@ class StackingAdminController extends CI_Controller
                     $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
 
                     if ($exec_logs) {
-                        $code = 200;
+                        $exec_total_investment = $this->M_stacking->update_profit($id_user, $total_investment);
+
+                        if ($exec_total_investment) {
+                            $code = 200;
+                        }
                     }
                 }
             }

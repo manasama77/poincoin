@@ -9,6 +9,7 @@ class InitController extends CI_Controller
     {
         parent::__construct();
         $this->load->model('M_stacking');
+        $this->load->model('M_trade');
     }
 
     public function init_admins()
@@ -216,6 +217,11 @@ class InitController extends CI_Controller
     public function distribusi_bioner_stacking()
     {
         $exec = $this->M_stacking->distribusi_bioner_stacking();
+    }
+
+    public function distribusi_bioner_trade()
+    {
+        $exec = $this->M_trade->distribusi_bioner_trade();
     }
 }
 

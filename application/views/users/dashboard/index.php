@@ -41,7 +41,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text">Referral Link:</span>
                     </div>
-                    <input type="text" class="ml-2 form-control-plaintext text-white" id="link_referral" value="<?= site_url(); ?>signup_user/<?= $this->session->userdata(SESS . 'username'); ?>" readonly>
+                    <input type="text" class="ml-2 form-control-plaintext text-white" id="link_referral" value="<?= site_url(); ?>signup_user/<?= $this->session->userdata(SESS . 'id'); ?>" readonly>
                     <div class="input-group-append">
                         <button type="button" class="btn btn-secondary" onclick="copyClipboard()">
                             <i class="fas fa-clipboard"></i> Copy
