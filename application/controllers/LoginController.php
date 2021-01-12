@@ -12,7 +12,6 @@ class LoginController extends CI_Controller
 
 	public function index()
 	{
-		echo password_hash('admin123)' . UYAH, PASSWORD_BCRYPT);
 		$cookies = get_cookie(COOK_ADMIN);
 
 		if ($cookies != NULL) {
