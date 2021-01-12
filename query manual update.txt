@@ -1,0 +1,2 @@
+ALTER TABLE `bionerappdb`.`bioner_trade_logs` 
+ADD COLUMN `nominal_rp` decimal(15, 4) NULL AFTER `kode`;

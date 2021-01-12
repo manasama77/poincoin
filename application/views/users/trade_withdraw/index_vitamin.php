@@ -28,38 +28,37 @@
         form_withdraw.on('submit', function(e) {
             e.preventDefault();
 
-            if (withdraw_rp.val() < 10000) {
+            var vText = ``;
+            var datanya = {
+                id_jenis: id_jenis.val(),
+                id_rekening: id_rekening.val(),
+                withdraw_rp: withdraw_rp.val(),
+                hi: null,
+            }
+
+            var vTextSuccess = `Proses Withdraw Bioner Trade Berhasil.<br>Silahkan tunggu Admin melakukan process transfer.`;
+
+            if (id_jenis.val() == "bank") {
+                vText = `Kamu akan melakukan penarikan sebesar<br><b>Rp.${numberWithCommas(withdraw_rp.val())}</b><br>Ke No Rekening<br><b>${id_rekening.find(':selected').text()}</b>`;
+            } else if (id_jenis.val() == "invest") {
+                vText = `Kamu akan melakukan investment sebanyak<br><b><mark>${hi.val()}</mark></b> Lot<br>Dari balance saldo sebesar<br><b><mark>Rp.${numberWithCommas(hi.val() * 750000)}</mark></b> ?`;
+                datanya = {
+                    id_jenis: id_jenis.val(),
+                    id_rekening: null,
+                    withdraw_rp: null,
+                    hi: hi.val(),
+                }
+                vTextSuccess = `Proses Withdraw Balance Saldo menjadi Investment Berhasil.`;
+            }
+
+            if (id_jenis.val() == "bank" && withdraw_rp.val() < 10000) {
                 Swal.fire({
                     icon: 'warning',
                     title: 'Oops...',
-                    text: 'Nominal Withdraw kurang dari Rp.10,000, silahkan isi Withdraw (Rp)',
+                    text: 'Nominal Withdraw kurang dari Rp.10,000, silahkan isi Withdraw Amount (Rp)',
                     timer: 3000,
                 });
             } else {
-
-                var vText = ``;
-                var datanya = {
-                    id_jenis: id_jenis.val(),
-                    id_rekening: id_rekening.val(),
-                    withdraw_rp: withdraw_rp.val(),
-                    hi: null,
-                }
-
-                var vTextSuccess = `Proses Withdraw Bioner Trade Berhasil.<br>Silahkan tunggu admin melakukan process transfer.`;
-
-                if (id_jenis.val() == "bank") {
-                    vText = `Kamu akan melakukan penarikan sebesar<br><b>Rp.${withdraw_rp.val()}</b><br>Ke No Rekening<br><b>${id_rekening.find(':selected').text()}</b>`;
-                } else if (id_jenis.val() == "invest") {
-                    vText = `Kamu akan melakukan investment dari balance saldo sebesar Rp.${withdraw_rp.val()} ?`;
-                    datanya = {
-                        id_jenis: id_jenis.val(),
-                        id_rekening: null,
-                        withdraw_rp: null,
-                        hi: hi.val(),
-                    }
-                    vTextSuccess = `Proses Withdraw Balance Saldo menjadi Investment Berhasil.`;
-                }
-
                 Swal.fire({
                     title: 'Apakah kamu yakin?',
                     html: vText,
@@ -128,10 +127,10 @@
         return x.replace(/\,/g, '');
     }
 
-    function deleteData(id, amount_b) {
+    function deleteData(id, amount_rp) {
         Swal.fire({
             title: 'Apakah kamu yakin?',
-            text: `Batalkan Withdraw sebesar Rp.${amount_b}`,
+            text: `Batalkan Withdraw sebesar Rp.${numberWithCommas(parseInt(amount_rp))}`,
             icon: 'question',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -146,7 +145,7 @@
                     dataType: 'json',
                     data: {
                         id: id,
-                        amount_b: amount_b
+                        amount_rp: amount_rp
                     },
                     beforeSend: function() {
                         $.blockUI();
@@ -183,9 +182,10 @@
             form_invest.hide();
 
             id_rekening.attr('required', true);
+            withdraw_rp.attr('required', true);
             hi.attr('required', false);
         } else if (id_jenis.val() == 'invest') {
-            if (parseInt(withdraw_rp.val()) < 750000) {
+            if (parseInt(max_withdraw) < 750000) {
                 Swal.fire({
                     icon: 'warning',
                     title: 'Oops...',
@@ -200,11 +200,13 @@
             }
 
             id_rekening.attr('required', false);
+            withdraw_rp.attr('required', false);
             hi.attr('required', true);
         } else {
             form_bank.hide();
             form_invest.hide();
             id_rekening.attr('required', true);
+            withdraw_rp.attr('required', true);
             hi.attr('required', true);
         }
     }

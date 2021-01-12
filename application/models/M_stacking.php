@@ -154,7 +154,7 @@ class M_stacking extends CI_Model
             foreach ($arr_bioner_stacking->result() as $key) {
                 $id               = $key->id;
                 $id_user          = $key->id_user;
-                $kode          = $key->kode;
+                $kode             = $key->kode;
                 $profit_perhari_b = $key->profit_perhari_b;
 
                 $this->db->set('profit', 'profit + ' . $profit_perhari_b, FALSE);
@@ -172,7 +172,7 @@ class M_stacking extends CI_Model
                     'type'               => 'profit',
                     'nominal_b'          => $profit_perhari_b,
                     'nominal_rp'         => $profit_perhari_b * 10000,
-                    'kode'         => $kode,
+                    'kode'               => $kode,
                     'keterangan'         => 'Distribusi Profit Sebesar ' . $profit_perhari_b . ' Bioner',
                     'created_at'         => date('Y-m-d H:i:s'),
                 ]);

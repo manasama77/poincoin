@@ -86,7 +86,9 @@ defined('EXIT__AUTO_MAX')      or define('EXIT__AUTO_MAX', 125); // highest auto
 
 
 define('SESS', 'BIOROBOSESS');
+define('SESS_ADMIN', 'BIOROBOSESSADM');
 define('COOK', 'BIOROBOCOOK');
+define('COOK_ADMIN', 'BIOROBOCOOKADM');
 define('UYAH', 'limaratusribu');
 define('NO_REKENING_ADMIN', '5735355900');
 define('ATAS_NAMA_NO_REKENING_ADMIN', 'An. Pt. Chemiko Multi Lestari');

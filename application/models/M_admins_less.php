@@ -6,9 +6,9 @@ class M_admins_less extends CI_Model
 {
 
 	var $table         = 'admins';
-	var $column_order  = array('id', 'email', 'role');
-	var $column_search = array('email', 'role');
-	var $order         = array('email' => 'asc');
+	var $column_order  = array('id', 'username');
+	var $column_search = array('username');
+	var $order         = array('username' => 'asc');
 
 	public function __construct()
 	{

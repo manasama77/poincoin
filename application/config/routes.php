@@ -10,27 +10,27 @@ $route['translate_uri_dashes'] = FALSE;
 ##############################################################################################################
 # LOGIN USER
 ##############################################################################################################
-$route['login_user']        = 'UserLoginController/index';
-$route['signup_user']        = 'UserLoginController/signup';
-$route['signup_user/(:any)'] = 'UserLoginController/signup/$1';
-$route['auth_user']          = 'UserLoginController/auth';
-$route['register_user']      = 'UserLoginController/signup';
-$route['logout_user']        = 'UserLoginController/logout';
-$route['change_password_user']            = 'UserLoginController/change_password';
-$route['profile']            = 'UserLoginController/profile';
-$route['store_rekening']            = 'UserLoginController/store_rekening';
-$route['store_wallet']            = 'UserLoginController/store_wallet';
-$route['update_rekening']            = 'UserLoginController/update_rekening';
-$route['update_wallet']            = 'UserLoginController/update_wallet';
-$route['destroy_rekening']            = 'UserLoginController/destroy_rekening';
-$route['destroy_wallet']            = 'UserLoginController/destroy_wallet';
-$route['signup_email/(:num)/(:any)']            = 'UserLoginController/signup_email/$1/$2';
+$route['login_user']           = 'UserLoginController/index';
+$route['signup_user']          = 'UserLoginController/signup';
+$route['signup_user/(:any)']  = 'UserLoginController/signup/$1';
+$route['auth_user']            = 'UserLoginController/auth';
+$route['register_user']        = 'UserLoginController/signup';
+$route['logout_user']          = 'UserLoginController/logout';
+$route['change_password_user'] = 'UserLoginController/change_password';
+$route['profile']              = 'UserLoginController/profile';
+$route['store_rekening']       = 'UserLoginController/store_rekening';
+$route['store_wallet']         = 'UserLoginController/store_wallet';
+$route['update_rekening']      = 'UserLoginController/update_rekening';
+$route['update_wallet']        = 'UserLoginController/update_wallet';
+$route['destroy_rekening']     = 'UserLoginController/destroy_rekening';
+$route['destroy_wallet']       = 'UserLoginController/destroy_wallet';
+$route['signup_email/(:num)/(:any)'] = 'UserLoginController/signup_email/$1/$2';
 ##############################################################################################################
 
 ##############################################################################################################
 # DASHBOARD USER
 ##############################################################################################################
-$route['dashboard_user']   = 'DashboardUserController/index';
+$route['dashboard_user'] = 'DashboardUserController/index';
 ##############################################################################################################
 
 ##############################################################################################################
@@ -40,18 +40,19 @@ $route['stacking']                       = 'StackingController/index';
 $route['stacking_add']                   = 'StackingController/add';
 $route['stacking_upload_bukti_transfer'] = 'StackingController/stacking_upload_bukti_transfer';
 $route['stacking_withdraw']              = 'StackingController/withdraw';
-$route['stacking_withdraw_process']              = 'StackingController/withdraw_process';
-$route['stacking_withdraw_delete']              = 'StackingController/withdraw_delete';
+$route['stacking_withdraw_process']      = 'StackingController/withdraw_process';
+$route['stacking_withdraw_delete']       = 'StackingController/withdraw_delete';
 ##############################################################################################################
 
 ##############################################################################################################
 # BIONER TRADE USER
 ##############################################################################################################
-$route['trade'] = 'TradeController/index';
-$route['trade_add'] = 'TradeController/add';
+$route['trade']                       = 'TradeController/index';
+$route['trade_add']                   = 'TradeController/add';
 $route['trade_upload_bukti_transfer'] = 'TradeController/trade_upload_bukti_transfer';
 $route['trade_withdraw']              = 'TradeController/withdraw';
-$route['trade_withdraw_process']              = 'TradeController/withdraw_process';
+$route['trade_withdraw_process']      = 'TradeController/withdraw_process';
+$route['trade_withdraw_delete']       = 'TradeController/withdraw_delete';
 ##############################################################################################################
 
 ##############################################################################################################
@@ -76,22 +77,22 @@ $route['dashboard'] = 'DashboardController/index';
 # BIONER STACKING ADMIN
 $route['admin/bioner_stacking/index']               = 'StackingAdminController/index';
 $route['admin/bioner_stacking/verifikasi_transfer'] = 'StackingAdminController/verifikasi_transfer';
-$route['admin/bioner_stacking/delete_stacking'] = 'StackingAdminController/delete_stacking';
-$route['admin/bioner_stacking_withdraw/pending']               = 'StackingAdminController/withdraw_pending';
-$route['admin/bioner_stacking_withdraw/verifikasi']               = 'StackingAdminController/withdraw_verifikasi';
-$route['admin/bioner_stacking_withdraw/delete']               = 'StackingAdminController/withdraw_delete';
-$route['admin/bioner_stacking_withdraw/success']               = 'StackingAdminController/withdraw_success';
+$route['admin/bioner_stacking/delete_stacking']     = 'StackingAdminController/delete_stacking';
+$route['admin/bioner_stacking_withdraw/pending']    = 'StackingAdminController/withdraw_pending';
+$route['admin/bioner_stacking_withdraw/verifikasi'] = 'StackingAdminController/withdraw_verifikasi';
+$route['admin/bioner_stacking_withdraw/delete']     = 'StackingAdminController/withdraw_delete';
+$route['admin/bioner_stacking_withdraw/success']    = 'StackingAdminController/withdraw_success';
 ##############################################################################################################
 
 ##############################################################################################################
 # BIONER TRADE ADMIN
 $route['admin/bioner_trade/index']               = 'TradeAdminController/index';
 $route['admin/bioner_trade/verifikasi_transfer'] = 'TradeAdminController/verifikasi_transfer';
-$route['admin/bioner_trade/delete_trade'] = 'TradeAdminController/delete_trade';
-$route['admin/bioner_trade_withdraw/pending']               = 'TradeAdminController/withdraw_pending';
-$route['admin/bioner_trade_withdraw/verifikasi']               = 'TradeAdminController/withdraw_verifikasi';
-$route['admin/bioner_trade_withdraw/delete']               = 'TradeAdminController/withdraw_delete';
-$route['admin/bioner_trade_withdraw/success']               = 'TradeAdminController/withdraw_success';
+$route['admin/bioner_trade/delete_trade']        = 'TradeAdminController/delete_trade';
+$route['admin/bioner_trade_withdraw/pending']    = 'TradeAdminController/withdraw_pending';
+$route['admin/bioner_trade_withdraw/verifikasi'] = 'TradeAdminController/withdraw_verifikasi';
+$route['admin/bioner_trade_withdraw/delete']     = 'TradeAdminController/withdraw_delete';
+$route['admin/bioner_trade_withdraw/success']    = 'TradeAdminController/withdraw_success';
 ##############################################################################################################
 
 ##############################################################################################################
@@ -101,9 +102,14 @@ $route['admins/reset']      = 'AdminsController/reset';
 $route['admins/destroy']    = 'AdminsController/destroy';
 $route['datatables/admins'] = 'AdminsController/datatables';
 
+$route['admins/user_management']     = 'AdminsUserController/index';
+$route['admins/user_datatables']     = 'AdminsUserController/datatables';
+$route['admins/user_reset_email']    = 'AdminsUserController/user_reset_email';
+$route['admins/user_reset_password'] = 'AdminsUserController/user_reset_password';
+$route['admins/user_reset_pin']      = 'AdminsUserController/user_reset_pin';
 
 # UTILITY
 $route['init']                       = 'InitController/init_admins';
 $route['distribusi_bioner_stacking'] = 'InitController/distribusi_bioner_stacking';
-$route['distribusi_bioner_trade'] = 'InitController/distribusi_bioner_trade';
+$route['distribusi_bioner_trade']    = 'InitController/distribusi_bioner_trade';
 ##############################################################################################################

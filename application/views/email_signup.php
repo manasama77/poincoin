@@ -42,6 +42,13 @@
                     </td>
                 </tr>
                 <tr>
+                    <th>No Handphone</th>
+                    <th>:</th>
+                    <td>
+                        <?= $arr->row()->password; ?>
+                    </td>
+                </tr>
+                <tr>
                     <th>PIN Transaksi</th>
                     <th>:</th>
                     <td>

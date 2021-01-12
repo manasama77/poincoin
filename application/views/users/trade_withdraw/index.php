@@ -172,7 +172,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp</span>
                                 </div>
-                                <input type="number" class="form-control" id="withdraw_rp" name="withdraw_rp" placeholder="Total Investment" min="10000" max="<?= $balance_saldo; ?>" step="10000" pattern="[0-9]" inputmode="tel" required />
+                                <input type="number" class="form-control" id="withdraw_rp" name="withdraw_rp" placeholder="Withdraw Amount (Rp)" min="10000" max="<?= $balance_saldo; ?>" step="10000" pattern="[0-9]" inputmode="tel" required />
                             </div>
                             <div class="col-12">
                                 <small class="form-text text-muted">Minimal Rp.750,000 untuk dapat diinvestkan kembali</small>

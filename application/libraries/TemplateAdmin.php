@@ -31,7 +31,7 @@ class TemplateAdmin
 
 	public function check_cookies()
 	{
-		$cookies = get_cookie(COOK);
+		$cookies = get_cookie(COOK_ADMIN);
 
 		if ($cookies === NULL) {
 			return FALSE;
@@ -60,9 +60,9 @@ class TemplateAdmin
 
 	public function check_session()
 	{
-		$id       = $this->ci->session->userdata(SESS . 'id');
-		$username = $this->ci->session->userdata(SESS . 'username');
-		$role     = $this->ci->session->userdata(SESS . 'role');
+		$id       = $this->ci->session->userdata(SESS_ADMIN . 'id');
+		$username = $this->ci->session->userdata(SESS_ADMIN . 'username');
+		$role     = $this->ci->session->userdata(SESS_ADMIN . 'role');
 
 		if ($id && $username && $role) {
 			return TRUE;
@@ -88,9 +88,9 @@ class TemplateAdmin
 
 	public function reset_session($id, $username, $role)
 	{
-		$this->ci->session->set_userdata(SESS . 'id', $id);
-		$this->ci->session->set_userdata(SESS . 'username', $username);
-		$this->ci->session->set_userdata(SESS . 'role', $role);
+		$this->ci->session->set_userdata(SESS_ADMIN . 'id', $id);
+		$this->ci->session->set_userdata(SESS_ADMIN . 'username', $username);
+		$this->ci->session->set_userdata(SESS_ADMIN . 'role', $role);
 	}
 }
 

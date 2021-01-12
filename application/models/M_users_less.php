@@ -2,39 +2,24 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_customers_less extends CI_Model
+class M_users_less extends CI_Model
 {
 
-    var $table         = 'customers';
+    var $table         = 'users';
     var $column_order  = array(
-        'customers.id',
-        'customers.no_ktp',
-        'customers.nama',
-        'customers.tgl_lahir',
-        'customers.alamat',
-        'customers.no_telp',
-        'customers.email',
-        'customers.id_pekerjaan',
-        'pekerjaans.nama as nama_pekerjaan',
-        'customers.hubungan',
-        'customers.nama_penjamin',
-        'customers.no_telp_penjamin',
-        'customers.foto_ktp',
+        'users.id',
+        'users.nama',
+        'users.email',
+        'users.no_hp',
     );
     var $column_search = array(
-        'customers.no_ktp',
-        'customers.nama',
-        'customers.tgl_lahir',
-        'customers.alamat',
-        'customers.no_telp',
-        'customers.email',
-        'customers.id_pekerjaan',
-        'pekerjaans.nama',
-        'customers.hubungan',
-        'customers.nama_penjamin',
-        'customers.no_telp_penjamin',
+        'users.nama',
+        'users.email',
+        'users.no_hp',
+        'user_banks.no_rekening',
+        'user_banks.atas_nama',
     );
-    var $order = array('id' => 'desc');
+    var $order = array('users.id' => 'desc');
 
     public function __construct()
     {
@@ -46,19 +31,12 @@ class M_customers_less extends CI_Model
     {
         $this->db->select(
             array(
-                'customers.id',
-                'customers.no_ktp',
-                'customers.nama',
-                'customers.tgl_lahir',
-                'customers.alamat',
-                'customers.no_telp',
-                'customers.email',
-                'customers.id_pekerjaan',
-                'pekerjaans.nama as nama_pekerjaan',
-                'customers.hubungan',
-                'customers.nama_penjamin',
-                'customers.no_telp_penjamin',
-                'customers.foto_ktp',
+                'users.id',
+                'users.nama',
+                'users.email',
+                'users.no_hp',
+                'CONCAT(param_banks.nama_bank, " - ", user_banks.no_rekening, " - ", user_banks.atas_nama) AS no_rekening',
+                'user_wallets.no_wallet',
             )
         );
 
@@ -88,7 +66,9 @@ class M_customers_less extends CI_Model
             $this->db->order_by(key($order), $order[key($order)]);
         }
 
-        $this->db->join('pekerjaans', 'pekerjaans.id = customers.id_pekerjaan', 'left');
+        $this->db->join('user_banks', 'user_banks.id_user = users.id', 'left');
+        $this->db->join('param_banks', 'param_banks.id = user_banks.id_bank', 'left');
+        $this->db->join('user_wallets', 'user_wallets.id_user = users.id', 'left');
         $this->db->where($this->table . '.deleted_at', NULL);
     }
 
@@ -119,4 +99,4 @@ class M_customers_less extends CI_Model
     }
 }
 
-/* End of file M_customers_less.php */
+/* End of file M_users_less.php */

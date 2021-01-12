@@ -30,9 +30,7 @@ class M_trade extends CI_Model
             'user_bioner_trade_withdraw.id',
             'user_bioner_trade_withdraw.id_user',
             'user_bioner_trade_withdraw.id_user_bank',
-            'user_bioner_trade_withdraw.id_user_wallet',
             'user_bioner_trade_withdraw.kode_withdraw',
-            'user_bioner_trade_withdraw.withdraw_b',
             'user_bioner_trade_withdraw.withdraw_rp',
             'user_bioner_trade_withdraw.status',
             'user_bioner_trade_withdraw.created_at',
@@ -40,12 +38,10 @@ class M_trade extends CI_Model
             'user_banks.no_rekening',
             'user_banks.atas_nama',
             'param_banks.nama_bank',
-            'user_wallets.no_wallet',
             'users.nama',
         ]);
         $this->db->join('user_banks', 'user_banks.id = user_bioner_trade_withdraw.id_user_bank', 'left');
         $this->db->join('param_banks', 'param_banks.id = user_banks.id_bank', 'left');
-        $this->db->join('user_wallets', 'user_wallets.id = user_bioner_trade_withdraw.id_user_wallet', 'left');
         $this->db->join('users', 'users.id = user_bioner_trade_withdraw.id_user', 'left');
         $this->db->where('user_bioner_trade_withdraw.deleted_at', NULL);
         $this->db->where('users.deleted_at', NULL);
@@ -85,17 +81,17 @@ class M_trade extends CI_Model
         return $this->db->get('users_bioner_trade');
     }
 
-    public function update_profit($id_user, $total_bonus)
+    public function update_balance_saldo($id_user, $nilai)
     {
-        $this->db->set('profit', 'profit + ' . $total_bonus, FALSE);
+        $this->db->set('balance_saldo', 'balance_saldo + ' . $nilai, FALSE);
         $this->db->set('updated_at', date('Y-m-d H:i:s'));
         $this->db->where('id_user', $id_user);
         return $this->db->update('users_bioner_trade');
     }
 
-    public function reduce_profit($id_user, $total_bonus)
+    public function reduce_balance_saldo($id_user, $nilai)
     {
-        $this->db->set('profit', 'profit - ' . $total_bonus, FALSE);
+        $this->db->set('balance_saldo', 'balance_saldo - ' . $nilai, FALSE);
         $this->db->set('updated_at', date('Y-m-d H:i:s'));
         $this->db->where('id_user', $id_user);
         return $this->db->update('users_bioner_trade');
@@ -124,6 +120,7 @@ class M_trade extends CI_Model
             'user_bioner_trade_withdraw.id_user',
             'user_bioner_trade_withdraw.id_user_bank',
             'user_bioner_trade_withdraw.kode_withdraw',
+            'user_bioner_trade_withdraw.kode_invest',
             'user_bioner_trade_withdraw.withdraw_rp',
             'user_bioner_trade_withdraw.status',
             'user_bioner_trade_withdraw.created_at',

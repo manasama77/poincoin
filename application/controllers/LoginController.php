@@ -12,8 +12,8 @@ class LoginController extends CI_Controller
 
 	public function index()
 	{
-		// echo password_hash(UYAH . 'admin123)', PASSWORD_BCRYPT);
-		$cookies = get_cookie(COOK);
+		echo password_hash('admin123)' . UYAH, PASSWORD_BCRYPT);
+		$cookies = get_cookie(COOK_ADMIN);
 
 		if ($cookies != NULL) {
 			$check_cookies = $this->mcore->get('admins', '*', ['cookies' => $cookies]);
@@ -28,9 +28,9 @@ class LoginController extends CI_Controller
 				$this->session->set_flashdata('first_login', 'Login Berhasil, pastikan kamu menjaga Password Kamu');
 				redirect(site_url() . 'dashboard');
 			} else {
-				delete_cookie(COOK);
+				delete_cookie(COOK_ADMIN);
 				$this->session->set_flashdata('expired', 'Sesi Berakhir');
-				redirect(site_url());
+				redirect(site_url('login'));
 			}
 		} else {
 			$this->form_validation->set_rules('username', 'Username', 'callback_username_check');
@@ -58,7 +58,7 @@ class LoginController extends CI_Controller
 					$remember = $this->input->post('remember');
 					if ($remember == 'on') {
 						$key_cookies = random_string('alnum', 64);
-						set_cookie(COOK, $key_cookies, 3600 * 24 * 30);
+						set_cookie(COOK_ADMIN, $key_cookies, 3600 * 24 * 30);
 						$this->mcore->update('admins', ['cookies' => $key_cookies, 'remember' => '1'], ['id' => $id]);
 					} else {
 						$this->mcore->update('admins', ['remember' => '0'], ['id' => $id]);
@@ -67,9 +67,9 @@ class LoginController extends CI_Controller
 					$this->session->set_flashdata('first_login', 'Login Berhasil, pastikan kamu menjaga Password Kamu');
 					redirect(site_url('dashboard'));
 				} else {
-					delete_cookie(COOK);
+					delete_cookie(COOK_ADMIN);
 					$this->session->set_flashdata('unknown', 'Username tidak ditemukan');
-					redirect(site_url());
+					redirect(site_url('login'));
 				}
 			}
 		}
@@ -94,7 +94,7 @@ class LoginController extends CI_Controller
 	public function password_check($str)
 	{
 		$username = $this->input->post('username');
-		$password = UYAH . $str;
+		$password = $str . UYAH;
 
 		$where = [
 			'username'   => $username,
@@ -119,26 +119,26 @@ class LoginController extends CI_Controller
 
 	public function _set_session($id, $nama, $username, $role)
 	{
-		$this->session->set_userdata(SESS . 'id', $id);
-		$this->session->set_userdata(SESS . 'nama', $nama);
-		$this->session->set_userdata(SESS . 'username', $username);
-		$this->session->set_userdata(SESS . 'role', $role);
+		$this->session->set_userdata(SESS_ADMIN . 'id', $id);
+		$this->session->set_userdata(SESS_ADMIN . 'nama', $nama);
+		$this->session->set_userdata(SESS_ADMIN . 'username', $username);
+		$this->session->set_userdata(SESS_ADMIN . 'role', $role);
 	}
 
 	public function logout()
 	{
 		delete_cookie(COOK);
-		$this->session->unset_userdata(SESS . 'id');
-		$this->session->unset_userdata(SESS . 'nama');
-		$this->session->unset_userdata(SESS . 'username');
-		$this->session->unset_userdata(SESS . 'role');
+		$this->session->unset_userdata(SESS_ADMIN . 'id');
+		$this->session->unset_userdata(SESS_ADMIN . 'nama');
+		$this->session->unset_userdata(SESS_ADMIN . 'username');
+		$this->session->unset_userdata(SESS_ADMIN . 'role');
 		$this->session->set_flashdata('logout', 'Logout Berhasil');
-		redirect(site_url());
+		redirect(site_url('login'));
 	}
 
 	public function change_password()
 	{
-		$id               = $this->session->userdata(SESS . 'id');
+		$id               = $this->session->userdata(SESS_ADMIN . 'id');
 		$current_password = $this->input->post('current_pass') . UYAH;
 		$new_password     = $this->input->post('new_pass');
 

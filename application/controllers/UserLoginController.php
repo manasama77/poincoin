@@ -155,60 +155,61 @@ class UserLoginController extends CI_Controller
     {
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
         $this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]|valid_email|trim', [
-            'requird' => '{field} wajib diisi',
-            'is_unique' => '{field} telah terdaftar, jika kamu lupa password silahkan Whatsapp Admin dinomor <mark><a href="https://wa.me/' . WA_ADMIN . '" target="_blank">+6281219869989</a></mark>',
+            'requird'     => '{field} wajib diisi',
+            'is_unique'   => '{field} telah terdaftar, jika kamu lupa password silahkan Whatsapp Admin dinomor <mark><a href = "https: //wa.me/' . WA_ADMIN . '" target = "_blank">+6281219869989</a></mark>',
             'valid_email' => 'Format email salah, silahkan cek kembali',
         ]);
         $this->form_validation->set_rules('no_hp', 'No Handphone', 'required|min_length[8]|max_length[20]|trim', [
-            'requird' => '{field} wajib diisi',
+            'requird'    => '{field} wajib diisi',
             'min_length' => '{field} minimal {param} karakter',
             'max_length' => '{field} maksimal {param} karakter',
         ]);
         $this->form_validation->set_rules('password', 'Password', 'required|trim|min_length[6]|max_length[100]|trim', [
-            'requird' => '{field} wajib diisi',
+            'requird'    => '{field} wajib diisi',
             'min_length' => '{field} minimal {param} karakter',
             'max_length' => '{field} maksimal {param} karakter',
         ]);
         $this->form_validation->set_rules('re_password', 'Password Confirmation', 'required|matches[password]|min_length[6]|max_length[255]|trim', [
-            'matches' => 'Password & Password Confirmation tidak sama, silahkan cek kembali',
-            'requird' => '{field} wajib diisi',
+            'matches'    => 'Password & Password Confirmation tidak sama, silahkan cek kembali',
+            'requird'    => '{field} wajib diisi',
             'min_length' => '{field} minimal {param} karakter',
             'max_length' => '{field} maksimal {param} karakter',
         ]);
         $this->form_validation->set_rules('pin', 'PIN Transaksi', 'required|trim|numeric|exact_length[6]', [
-            'requird' => '{field} wajib diisi',
+            'requird'      => '{field} wajib diisi',
             'exact_length' => '{field} harus {param} karakter',
-            'numeric' => '{field} hanya bisa diisi dengan angka',
+            'numeric'      => '{field} hanya bisa diisi dengan angka',
         ]);
         $this->form_validation->set_rules('re_pin', 'PIN Transaksi Confirmation', 'required|matches[pin]|trim|numeric|exact_length[6]', [
-            'matches' => 'PIN & PIN Transaksi Confirmation tidak sama, silahkan cek kembali',
-            'requird' => '{field} wajib diisi',
+            'matches'      => 'PIN & PIN Transaksi Confirmation tidak sama, silahkan cek kembali',
+            'requird'      => '{field} wajib diisi',
             'exact_length' => '{field} harus {param} karakter',
-            'numeric' => '{field} hanya bisa diisi dengan angka',
+            'numeric'      => '{field} hanya bisa diisi dengan angka',
         ]);
         $this->form_validation->set_rules('id_referal', 'Referal', 'callback_referal_reg_check');
 
         if ($this->form_validation->run() === FALSE) {
             $this->load->view('signup_user');
         } else {
-            $nama       = trim($this->input->post('nama'));
-            $email      = strtolower(trim($this->input->post('email')));
-            $no_hp   = trim($this->input->post('no_hp'));
-            $password   = password_hash(trim($this->input->post('password')) . UYAH, PASSWORD_BCRYPT);
-            $id_referal = $this->get_id_referal($this->input->post('id_referal'));
-            $pin   = trim($this->input->post('pin'));
+            $nama           = trim($this->input->post('nama'));
+            $email          = strtolower(trim($this->input->post('email')));
+            $no_hp          = trim($this->input->post('no_hp'));
+            $password       = password_hash(trim($this->input->post('password')) . UYAH, PASSWORD_BCRYPT);
+            $password_polos = trim($this->input->post('password'));
+            $id_referal     = $this->get_id_referal($this->input->post('id_referal'));
+            $pin            = trim($this->input->post('pin'));
 
             $object = [
-                'nama'             => $nama,
-                'email'            => $email,
-                'no_hp'         => $no_hp,
-                'password'         => $password,
-                'id_referal'       => ($id_referal != "") ? $id_referal : NULL,
-                'status'           => 'aktif',
-                'pin'           => $pin,
-                'created_at'       => date('Y-m-d H:i:s'),
-                'updated_at'       => date('Y-m-d H:i:s'),
-                'deleted_at'       => NULL,
+                'nama'       => $nama,
+                'email'      => $email,
+                'no_hp'      => $no_hp,
+                'password'   => $password,
+                'id_referal' => ($id_referal != "") ? $id_referal : NULL,
+                'status'     => 'aktif',
+                'pin'        => $pin,
+                'created_at' => date('Y-m-d H:i:s'),
+                'updated_at' => date('Y-m-d H:i:s'),
+                'deleted_at' => NULL,
             ];
             $arr = $this->mcore->store('users', $object);
             $last_id = $this->db->insert_id();
@@ -227,15 +228,15 @@ class UserLoginController extends CI_Controller
                 $this->mcore->store('users_bioner_stacking', $data);
 
                 $data = [
-                    'id_user'          => $last_id,
-                    'balance_saldo'           => 0,
-                    'trigger_ask' => 'tidak',
-                    'created_at'       => date('Y-m-d H:i:s'),
-                    'updated_at'       => date('Y-m-d H:i:s'),
+                    'id_user'       => $last_id,
+                    'balance_saldo' => 0,
+                    'trigger_ask'   => 'tidak',
+                    'created_at'    => date('Y-m-d H:i:s'),
+                    'updated_at'    => date('Y-m-d H:i:s'),
                 ];
                 $this->mcore->store('users_bioner_trade', $data);
                 $this->session->set_flashdata('signup_success', 'Proses Signup Berhasil, silahkan Login');
-                $this->signup_email($last_id, urlencode($email));
+                $this->signup_email($last_id, urlencode($email), $password_polos);
                 redirect('/');
             }
         }
@@ -433,10 +434,11 @@ class UserLoginController extends CI_Controller
         $this->template->template($data);
     }
 
-    public function signup_email($id, $email)
+    public function signup_email($id, $email, $password)
     {
-        $email = urldecode($email);
-        $data['arr'] = $this->mcore->get('users', '*', ['id' => $id]);
+        $email            = urldecode($email);
+        $data['arr']      = $this->mcore->get('users', '*', ['id' => $id]);
+        $data['password'] = $password;
 
         if ($data['arr']->num_rows() == 1) {
             $template_email = $this->load->view('email_signup', $data, TRUE);
@@ -449,9 +451,9 @@ class UserLoginController extends CI_Controller
             $log_email = $this->email->print_debugger();
 
             $data_log_email = [
-                'id_user' => $id,
-                'log' => $log_email,
-                'created_at' => date('Y-m-d H:i:s'),
+                'id_user'    => $id,
+                'log'        => $log_email,
+                'created_at' => date('Y-m-d H: i: s'),
             ];
             $this->mcore->store('log_email_signup', $data_log_email);
         }

@@ -105,8 +105,8 @@
                     </a>
                 </div>
                 <div class="p-1 text-center">
-                    <!-- <a href="<?= site_url(); ?>trade"> -->
-                    <a href="javascript:;" onclick="comingSoon('Bioner Trade');">
+                    <a href="<?= site_url(); ?>trade">
+                        <!-- <a href="javascript:;" onclick="comingSoon('Bioner Trade');"> -->
                         <img src="<?= base_url(); ?>public/img/bioner_trading.png" alt="bt" class="img-fluid" style="width: 80px;">
                     </a>
                 </div>

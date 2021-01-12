@@ -121,7 +121,7 @@ class TradeAdminController extends CI_Controller
         $code = 500;
 
         $data_withdraw = [
-            'status' => 'success',
+            'status'     => 'success',
             'updated_at' => date('Y-m-d H:i:s'),
         ];
 
@@ -143,32 +143,30 @@ class TradeAdminController extends CI_Controller
     {
         $this->db->trans_begin();
 
-        $id = $this->input->post('id');
-        $code = 500;
+        $id           = $this->input->post('id');
+        $code         = 500;
         $arr_withdraw = $this->mcore->get('user_bioner_trade_withdraw', '*', ['id' => $id, 'status' => 'pending', 'deleted_at' => NULL]);
 
         if ($arr_withdraw->num_rows() == 1) {
-            $id_user = $arr_withdraw->row()->id_user;
-            $withdraw_b = $arr_withdraw->row()->withdraw_b;
-            $withdraw_rp = $arr_withdraw->row()->withdraw_rp;
+            $id_user       = $arr_withdraw->row()->id_user;
+            $withdraw_rp   = $arr_withdraw->row()->withdraw_rp;
             $kode_withdraw = $arr_withdraw->row()->kode_withdraw;
 
-            $data_withdraw = ['deleted_at' => date('Y-m-d H:i:s')];
+            $data_withdraw  = ['deleted_at' => date('Y-m-d H:i:s')];
             $where_withdraw = ['id' => $id];
-            $exec_withdraw = $this->mcore->update('user_bioner_trade_withdraw', $data_withdraw, $where_withdraw);
+            $exec_withdraw  = $this->mcore->update('user_bioner_trade_withdraw', $data_withdraw, $where_withdraw);
 
             if ($exec_withdraw) {
-                $exec_reduce_profit = $this->M_trade->update_profit($id_user, $withdraw_b);
-                if ($exec_reduce_profit) {
+                $exec_reduce_balance_saldo = $this->M_trade->update_balance_saldo($id_user, $withdraw_rp);
+                if ($exec_reduce_balance_saldo) {
                     $data_logs = [
-                        'id_user' => $id_user,
+                        'id_user'         => $id_user,
                         'id_bioner_trade' => NULL,
-                        'type' => 'return withdraw',
-                        'nominal_b' => $withdraw_b,
-                        'nominal_rp' => $withdraw_rp,
-                        'kode' => $kode_withdraw,
-                        'keterangan' => 'Return Withdraw sebesar ' . $withdraw_b . ' Bioner to Profit - By Admin',
-                        'created_at' => date('Y-m-d H:i:s'),
+                        'type'            => 'return withdraw',
+                        'nominal_rp'      => $withdraw_rp,
+                        'kode'            => $kode_withdraw,
+                        'keterangan'      => 'Return Withdraw sebesar Rp.' . $withdraw_rp . ' to Balance Saldo - By Admin',
+                        'created_at'      => date('Y-m-d H: i: s'),
                     ];
                     $exec_logs = $this->mcore->store('bioner_trade_logs', $data_logs);
 

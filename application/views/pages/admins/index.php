@@ -15,8 +15,7 @@
 						<table id="datatables" class="table table-bordered small" style="width: 100%;">
 							<thead>
 								<tr>
-									<th>Email</th>
-									<th>Role</th>
+									<th>Username</th>
 									<th class="text-center" style="min-width: 200px;"><i class="fa fa-cogs"></i></th>
 								</tr>
 							</thead>
@@ -25,7 +24,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-4">
+		<div class="col-xs-12 col-sm-12 col-lg-4">
 			<div class="box box-warning">
 				<div class="box-header with-border">
 					<h3 class="box-title">Tambah Admin</h3>
@@ -35,17 +34,17 @@
 					<div class="box-body">
 
 						<div class="form-group">
-							<label for="email" class="col-sm-5 control-label">Email</label>
+							<label for="username" class="col-sm-5 control-label">Username</label>
 							<div class="col-sm-6">
-								<input type="email" class="form-control" id="email" name="email" placeholder="Email" minlength="3" maxlength="100" value="<?= set_value('email'); ?>" required>
-								<?= form_error('email'); ?>
+								<input type="text" class="form-control" id="username" name="username" placeholder="Username" minlength="3" maxlength="100" value="<?= set_value('username'); ?>" required>
+								<?= form_error('username'); ?>
 							</div>
 						</div>
 
 						<div class="form-group">
 							<label for="password" class="col-sm-5 control-label">Password</label>
 							<div class="col-sm-6">
-								<input type="password" class="form-control" id="password" name="password" placeholder="Password" minlength="4" maxlength="100" value="<?= set_value('password'); ?>" required>
+								<input type="password" class="form-control" id="password" name="password" placeholder="Password" minlength="4" maxlength="100" autocomplete="new_password" required>
 								<?= form_error('password'); ?>
 							</div>
 						</div>
@@ -53,21 +52,8 @@
 						<div class="form-group">
 							<label for="verify_password" class="col-sm-5 control-label">Verify Password</label>
 							<div class="col-sm-6">
-								<input type="password" class="form-control" id="verify_password" name="verify_password" placeholder="Verify Password" minlength="4" maxlength="100" required>
+								<input type="password" class="form-control" id="verify_password" name="verify_password" placeholder="Verify Password" minlength="4" maxlength="100" autocomplete="new_password" required>
 								<?= form_error('verify_password'); ?>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="role" class="col-sm-5 control-label">Role</label>
-							<div class="col-sm-6">
-								<select class="form-control" id="role" name="role" required>
-									<option value=""></option>
-									<option value="marketing">Marketing</option>
-									<option value="admin">Admin</option>
-									<option value="master_admin">Master Admin</option>
-								</select>
-								<?= form_error('role'); ?>
 							</div>
 						</div>
 
@@ -91,17 +77,17 @@
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<label for="reset_email_text">Email</label>
-						<input type="email" class="form-control" id="reset_email_text" name="reset_email_text" disabled>
+						<label for="reset_username_text">Username</label>
+						<input type="text" class="form-control" id="reset_username_text" name="reset_username_text" disabled>
 					</div>
 					<div class="form-group">
 						<label for="reset_password">New Password</label>
-						<input type="password" class="form-control" id="reset_password" name="reset_password" required>
+						<input type="password" class="form-control" id="reset_password" name="reset_password" autocomplete="new_password" required>
 					</div>
 				</div>
 				<div class="modal-footer">
 					<input type="hidden" id="reset_id" name="reset_id">
-					<input type="hidden" id="reset_email" name="reset_email">
+					<input type="hidden" id="reset_username" name="reset_username">
 					<button type="submit" id="reset_submit" class="btn btn-primary">Reset</button>
 					<button type="button" class="btn btn-default pull-right" data-dismiss="modal">Close</button>
 				</div>

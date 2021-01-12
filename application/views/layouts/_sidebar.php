@@ -87,6 +87,11 @@
 				</ul>
 			</li> -->
 			<li class="">
+				<a href="<?= site_url('admins/user_management'); ?>">
+					<i class="fa fa-user"></i> <span>User Management</span>
+				</a>
+			</li>
+			<li class="">
 				<a href="<?= site_url('admins'); ?>">
 					<i class="fa fa-user-secret"></i> <span>Admin Management</span>
 				</a>

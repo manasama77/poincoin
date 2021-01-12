@@ -15,34 +15,22 @@
 				"type": "POST"
 			},
 			"columns": [{
-					"data": "email"
-				},
-				{
-					"data": null,
-					"render": function(res) {
-						let nama_role = '';
-						if (res.role == 'master_admin') {
-							nama_role = 'Master Admin';
-						} else if (res.role == 'admin') {
-							nama_role = 'Admin';
-						} else if (res.role == 'marketing') {
-							nama_role = 'Marketing';
-						}
-						return nama_role.toUpperCase();
-					}
+					"data": "username"
 				},
 				{
 					"data": null,
 					"render": function(res) {
 						let vdel = ``;
+						let vres = ``;
 						if (res.id != 1) {
 							vdel = `<button class="btn btn-danger btn-xs" onclick="deleteData('${res.id}');"><i class="fa fa-trash fa-fw"></i> Delete</button>`;
+							vres = `<button class="btn btn-warning btn-xs" onclick="resetPassword('${res.id}', '${res.username}');"><i class="fa fa-key fa-fw"></i> Reset Password</button>`;
 						}
 						html = `
 						<div class="text-center">
 							<div class="btn-group">
 								${vdel}
-								<button class="btn btn-warning btn-xs" onclick="resetPassword('${res.id}', '${res.email}');"><i class="fa fa-key fa-fw"></i> Reset Password</button>
+								${vres}
 							</div>
 						</div>
 						`;
@@ -51,7 +39,7 @@
 				},
 			],
 			"columnDefs": [{
-				"targets": [2],
+				"targets": [1],
 				"orderable": false,
 			}, ],
 		});
@@ -73,14 +61,26 @@
 				}
 			}).done(function(res) {
 				if (res.code == 200) {
-					alert('Reset Akun Berhasil');
+					Swal.fire({
+						position: 'top-end',
+						icon: 'success',
+						title: `Reset Admin Password Berhasil`,
+						showConfirmButton: false,
+						timer: 1500
+					});
 					$('#reset_id').val(null);
-					$('#reset_email').val(null);
-					$('#reset_email_text').val(null);
+					$('#reset_username').val(null);
+					$('#reset_username_text').val(null);
 					$('#modal-reset').modal('hide');
 					table.draw();
 				} else {
-					alert('Reset Akun Gagal');
+					Swal.fire({
+						position: 'top-end',
+						icon: 'error',
+						title: `Reset Admin Password Gagal, silahkan refresh halaman`,
+						showConfirmButton: false,
+						timer: 1500
+					});
 				}
 				$('#reset_submit').attr('disabled', false);
 				$.unblockUI();
@@ -105,15 +105,33 @@
 					},
 					errors: function() {
 						$.unblockUI();
-						alert("[500] Tidak terhubung dengan database");
+						Swal.fire({
+							position: 'top-end',
+							icon: 'error',
+							title: `Tidak terhubung dengan database, silahkan refresh halaman`,
+							showConfirmButton: false,
+							timer: 1500
+						});
 					}
 				})
 				.done(function(res) {
 					if (res.code == 200) {
-						alert('Hapus Akun Berhasil');
+						Swal.fire({
+							position: 'top-end',
+							icon: 'success',
+							title: `Hapus Admin Berhasil, silahkan refresh halaman`,
+							showConfirmButton: false,
+							timer: 1500
+						});
 						table.draw();
 					} else {
-						alert('Hapus Akun Gagal');
+						Swal.fire({
+							position: 'top-end',
+							icon: 'error',
+							title: `Hapus Admin Gagal, silahkan refresh halaman`,
+							showConfirmButton: false,
+							timer: 1500
+						});
 					}
 					$.unblockUI();
 
@@ -121,10 +139,10 @@
 		}
 	}
 
-	function resetPassword(id, email) {
+	function resetPassword(id, username) {
 		$('#reset_id').val(id);
-		$('#reset_email').val(email);
-		$('#reset_email_text').val(email);
+		$('#reset_username').val(username);
+		$('#reset_username_text').val(username);
 		$('#modal-reset').modal('show');
 
 	}
