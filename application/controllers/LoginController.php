@@ -21,9 +21,8 @@ class LoginController extends CI_Controller
 				$id       = $check_cookies->row()->id;
 				$nama     = $check_cookies->row()->nama;
 				$username = $check_cookies->row()->username;
-				$role     = $check_cookies->row()->role;
 
-				$this->_set_session($id, $nama, $username, $role);
+				$this->_set_session($id, $nama, $username);
 				$this->session->set_flashdata('first_login', 'Login Berhasil, pastikan kamu menjaga Password Kamu');
 				redirect(site_url() . 'dashboard');
 			} else {
@@ -51,8 +50,7 @@ class LoginController extends CI_Controller
 					$id       = $arr->row()->id;
 					$nama     = $arr->row()->nama;
 					$username = $arr->row()->username;
-					$role     = $arr->row()->role;
-					$this->_set_session($id, $nama, $username, $role);
+					$this->_set_session($id, $nama, $username);
 
 					$remember = $this->input->post('remember');
 					if ($remember == 'on') {
@@ -116,21 +114,19 @@ class LoginController extends CI_Controller
 		return FALSE;
 	}
 
-	public function _set_session($id, $nama, $username, $role)
+	public function _set_session($id, $nama, $username)
 	{
 		$this->session->set_userdata(SESS_ADMIN . 'id', $id);
 		$this->session->set_userdata(SESS_ADMIN . 'nama', $nama);
 		$this->session->set_userdata(SESS_ADMIN . 'username', $username);
-		$this->session->set_userdata(SESS_ADMIN . 'role', $role);
 	}
 
 	public function logout()
 	{
-		delete_cookie(COOK);
+		delete_cookie(COOK_ADMIN);
 		$this->session->unset_userdata(SESS_ADMIN . 'id');
 		$this->session->unset_userdata(SESS_ADMIN . 'nama');
 		$this->session->unset_userdata(SESS_ADMIN . 'username');
-		$this->session->unset_userdata(SESS_ADMIN . 'role');
 		$this->session->set_flashdata('logout', 'Logout Berhasil');
 		redirect(site_url('login'));
 	}
