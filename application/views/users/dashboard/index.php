@@ -98,7 +98,7 @@
                 <span style="font-size: 25px;">WHITE PAPER BIONER</span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-0 w-100">
-                <iframe src="https://drive.google.com/file/d/1ZsG9VDYa1VMRLv0L3jJV-91RTs_0lVsc/preview" width="100%" height="480"></iframe>
+                <iframe src="https://docs.google.com/viewer?url=https://bioner.online/public/pdf/white_paper_bioner.pdf&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>
             </div>
         </div>
     </div>

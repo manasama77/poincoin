@@ -42,10 +42,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <th>No Handphone</th>
+                    <th>Password</th>
                     <th>:</th>
                     <td>
-                        <?= $arr->row()->password; ?>
+                        <?= $password_polos; ?>
                     </td>
                 </tr>
                 <tr>

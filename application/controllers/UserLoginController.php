@@ -194,8 +194,8 @@ class UserLoginController extends CI_Controller
             $nama           = trim($this->input->post('nama'));
             $email          = strtolower(trim($this->input->post('email')));
             $no_hp          = trim($this->input->post('no_hp'));
-            $password       = password_hash(trim($this->input->post('password')) . UYAH, PASSWORD_BCRYPT);
             $password_polos = trim($this->input->post('password'));
+            $password       = password_hash(trim($this->input->post('password')) . UYAH, PASSWORD_BCRYPT);
             $id_referal     = $this->get_id_referal($this->input->post('id_referal'));
             $pin            = trim($this->input->post('pin'));
 
@@ -434,11 +434,11 @@ class UserLoginController extends CI_Controller
         $this->template->template($data);
     }
 
-    public function signup_email($id, $email, $password)
+    public function signup_email($id, $email, $password_polos)
     {
-        $email            = urldecode($email);
-        $data['arr']      = $this->mcore->get('users', '*', ['id' => $id]);
-        $data['password'] = $password;
+        $email                  = urldecode($email);
+        $data['arr']            = $this->mcore->get('users', '*', ['id' => $id]);
+        $data['password_polos'] = $password_polos;
 
         if ($data['arr']->num_rows() == 1) {
             $template_email = $this->load->view('email_signup', $data, TRUE);
