@@ -102,6 +102,7 @@ $route['admins/reset']      = 'AdminsController/reset';
 $route['admins/destroy']    = 'AdminsController/destroy';
 $route['datatables/admins'] = 'AdminsController/datatables';
 
+# USERS
 $route['admins/user_management']     = 'AdminsUserController/index';
 $route['admins/user_datatables']     = 'AdminsUserController/datatables';
 $route['admins/user_reset_email']    = 'AdminsUserController/user_reset_email';

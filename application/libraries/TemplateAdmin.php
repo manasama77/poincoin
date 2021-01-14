@@ -40,13 +40,12 @@ class TemplateAdmin
 			if ($arr->num_rows() > 0) {
 				$id         = $arr->row()->id;
 				$username   = $arr->row()->username;
-				$role       = $arr->row()->role;
 				$remember   = $arr->row()->remember;
 				$cookies_db = $arr->row()->cookies;
 
 				if ($remember == '1') {
 					if ($cookies == $cookies_db) {
-						$this->reset_session($id, $username, $role);
+						$this->reset_session($id, $username);
 						return TRUE;
 					}
 					return FALSE;
@@ -62,9 +61,8 @@ class TemplateAdmin
 	{
 		$id       = $this->ci->session->userdata(SESS_ADMIN . 'id');
 		$username = $this->ci->session->userdata(SESS_ADMIN . 'username');
-		$role     = $this->ci->session->userdata(SESS_ADMIN . 'role');
 
-		if ($id && $username && $role) {
+		if ($id && $username) {
 			return TRUE;
 		}
 		return FALSE;
@@ -86,11 +84,10 @@ class TemplateAdmin
 		exit;
 	}
 
-	public function reset_session($id, $username, $role)
+	public function reset_session($id, $username)
 	{
 		$this->ci->session->set_userdata(SESS_ADMIN . 'id', $id);
 		$this->ci->session->set_userdata(SESS_ADMIN . 'username', $username);
-		$this->ci->session->set_userdata(SESS_ADMIN . 'role', $role);
 	}
 }
 

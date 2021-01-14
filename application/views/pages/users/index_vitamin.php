@@ -34,31 +34,62 @@
 					"data": "no_wallet",
 				},
 				{
+					"data": "stacking_invest",
+				},
+				{
+					"data": "stacking_profit",
+				},
+				{
+					"data": "trade_hi",
+				},
+				{
+					"data": "trade_saldo",
+				},
+				{
 					"data": null,
 					"render": function(res) {
-						var btnResetEmail = `<button type="button" class="btn btn-primary btn-sm" title="Reset Email" onclick="modalEmail('${res.id}', '${res.email}')">
-							<i class="fa fa-envelope"></i> Reset Email
-						</button>`;
-						var btnResetPassword = `<button type="button" class="btn btn-info btn-sm" title="Reset Password" onclick="modalPassword('${res.id}')">
-							<i class="fa fa-key"></i> Reset Password
-						</button>`;
-						var btnResetPin = `<button type="button" class="btn btn-warning btn-sm" title="Reset PIN" onclick="modalPin('${res.id}')">
-							<i class="fa fa-lock"></i> Reset PIN
-						</button>`;
-						htmlnya = `<div class="btn-group">
-						${btnResetEmail}
-						${btnResetPassword}
-						${btnResetPin}
+						var btnResetEmail = `
+						<li>
+							<a href="#" onclick="modalEmail('${res.id}', '${res.email}')">
+								<i class="fa fa-envelope"></i> Reset Email
+							</a>
+						</li>`;
+
+						var btnResetPassword = `
+						<li>
+							<a href="#" onclick="modalPassword('${res.id}')">
+								<i class="fa fa-key"></i> Reset Password
+							</a>
+						</li>`;
+
+						var btnResetPin = `
+						<li>
+							<a href="#" onclick="modalPin('${res.id}')">
+								<i class="fa fa-lock"></i> Reset PIN
+							</a>
+						</li>`;
+
+						htmlnya = `
+						<div class="dropdown">
+							<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+								Actions
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+								${btnResetEmail}
+								${btnResetPassword}
+								${btnResetPin}
+							</ul>
 						</div>`;
 						return htmlnya;
 					}
 				}
 			],
 			"columnDefs": [{
-				"targets": [6],
+				"targets": [10],
 				"orderable": false,
 				"className": "text-center"
-			}, ],
+			}],
 		});
 
 		$('#form_email').on('submit', function(e) {

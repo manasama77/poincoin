@@ -23,19 +23,24 @@ class AdminsUserController extends CI_Controller
     public function datatables()
     {
         $list = $this->mless->get_datatables();
+        $lq = $this->db->last_query();
         $data = array();
         $no   = $_POST['start'];
         foreach ($list as $field) {
             $no++;
             $row = array();
 
-            $row['id']          = $field->id;
-            $row['nama']        = $field->nama;
-            $row['email']       = $field->email;
-            $row['no_hp']       = $field->no_hp;
-            $row['no_rekening'] = $field->no_rekening;
-            $row['no_wallet']   = $field->no_wallet;
-            $data[]             = $row;
+            $row['id']              = $field->id;
+            $row['nama']            = $field->nama;
+            $row['email']           = $field->email;
+            $row['no_hp']           = $field->no_hp;
+            $row['no_rekening']     = $field->no_rekening;
+            $row['no_wallet']       = $field->no_wallet;
+            $row['stacking_invest'] = number_format($field->stacking_invest, 4);
+            $row['stacking_profit'] = number_format($field->stacking_profit, 4);
+            $row['trade_saldo']     = number_format($field->trade_saldo, 0);
+            $row['trade_hi']        = number_format($field->trade_hi, 0);
+            $data[]                 = $row;
         }
 
         $output = array(
@@ -43,6 +48,7 @@ class AdminsUserController extends CI_Controller
             "recordsTotal"    => $this->mless->count_all(),
             "recordsFiltered" => $this->mless->count_filtered(),
             "data"            => $data,
+            "lq"            => $lq,
         );
 
         echo json_encode($output);

@@ -41,6 +41,7 @@ class StackingController extends CI_Controller
 
         $data['bioner_profit'] = $bioner_profit;
         $data['total_investment'] = $total_investment;
+        $data['arr_logs'] = $this->mcore->get('bioner_stacking_logs', '*', ['id_user' => $id_user], 'id', 'DESC');
 
         $this->template->template($data);
     }

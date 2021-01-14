@@ -32,6 +32,10 @@
 									<th style="width: 100px;">No HP</th>
 									<th style="width: 100px;">No Rekening</th>
 									<th style="width: 100px;">No Wallet</th>
+									<th style="width: 100px;">Stacking Invest</th>
+									<th style="width: 100px;">Stacking Profit</th>
+									<th style="width: 100px;">Trade HI</th>
+									<th style="width: 100px;">Trade Saldo</th>
 									<th class="text-center" style="width: 500px !important;"><i class="fa fa-cogs"></i></th>
 								</tr>
 							</thead>

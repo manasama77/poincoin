@@ -120,6 +120,62 @@
     <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
         <div class="card text-white">
             <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
+                <span style="font-size: 25px;"><i class="fas fa-table"></i> Logs Bioner Stacking</span>
+            </div>
+            <div class="card-body bg-grey-1 text-dark p-2 w-100">
+                <div class="table-responsive">
+                    <table class="table table-bordered w-100">
+                        <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th class="text-center">Kode</th>
+                                <th class="text-left">Tipe</th>
+                                <th class="text-left" style="min-width: 100px;">Keterangan</th>
+                                <th class="text-center" style="min-width: 120px;">Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if ($arr_logs->num_rows() > 0) {
+                            ?>
+                                <?php
+                                $no = 1;
+                                foreach ($arr_logs->result() as $key) {
+                                ?>
+                                    <tr>
+                                        <td class="text-center"><?= $no; ?></td>
+                                        <td class="text-center"><?= $key->kode; ?></td>
+                                        <td class="text-left"><?= strtoupper($key->type) ?></td>
+                                        <td class="text-left"><?= $key->keterangan; ?></td>
+                                        <td class="text-center">
+                                            <?php
+                                            $created_obj = new DateTime();
+                                            $created_obj->createFromFormat('Y-m-d H:i:s', $key->created_at);
+                                            echo $created_obj->format('d-M-Y');
+                                            ?>
+                                        </td>
+                                    </tr>
+                                <?php
+                                    $no++;
+                                }
+                                ?>
+                            <?php
+                            } else {
+                                echo '<tr><td colspan="5" class="text-center">Kamu tidak memiliki data Log</td></tr>';
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
+        <div class="card text-white">
+            <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
                 <span style="font-size: 25px;"><i class="fas fa-plus"></i> Add New Pack</span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
