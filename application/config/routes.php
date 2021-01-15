@@ -113,4 +113,5 @@ $route['admins/user_reset_pin']      = 'AdminsUserController/user_reset_pin';
 $route['init']                       = 'InitController/init_admins';
 $route['distribusi_bioner_stacking'] = 'InitController/distribusi_bioner_stacking';
 $route['distribusi_bioner_trade']    = 'InitController/distribusi_bioner_trade';
+$route['test']                       = 'InitController/test';
 ##############################################################################################################

@@ -223,6 +223,11 @@ class InitController extends CI_Controller
     {
         $exec = $this->M_trade->distribusi_bioner_trade();
     }
+
+    public function test()
+    {
+        $this->mcore->update('tb_test', ['test' => date('Y-m-d H:i:s')]);
+    }
 }
 
 /* End of file InitController.php */
