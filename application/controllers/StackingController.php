@@ -49,7 +49,7 @@ class StackingController extends CI_Controller
     public function add()
     {
         $id_user          = $this->session->userdata(SESS . 'id');
-        $total_investment = $this->input->post('total_investment');
+        $total_investment = str_replace(',', '', $this->input->post('total_investment'));
         $total_transfer   = str_replace(',', '', $this->input->post('total_transfer'));
         $code             = 500;
 
