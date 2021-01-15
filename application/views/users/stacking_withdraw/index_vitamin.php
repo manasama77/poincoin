@@ -14,6 +14,8 @@
         withdraw_amount = 0,
         form_invest = $('#form_invest');
 
+    console.log(max_withdraw);
+
     $('document').ready(function() {
         upValue.on('click', function() {
             getTotalTransfer("up");

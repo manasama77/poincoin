@@ -41,13 +41,14 @@ class TemplateUser
 				$id         = $arr->row()->id;
 				$nama       = $arr->row()->nama;
 				$email      = $arr->row()->email;
-				$no_hp   = $arr->row()->no_hp;
+				$pin        = $arr->row()->pin;
+				$no_hp      = $arr->row()->no_hp;
 				$remember   = $arr->row()->remember;
 				$cookies_db = $arr->row()->cookies;
 
 				if ($remember == '1') {
 					if ($cookies == $cookies_db) {
-						$this->reset_session($id, $nama, $email, $no_hp);
+						$this->reset_session($id, $nama, $email, $no_hp, $pin);
 						return TRUE;
 					}
 					return FALSE;
@@ -65,8 +66,9 @@ class TemplateUser
 		$nama     = $this->ci->session->userdata(SESS . 'nama');
 		$email    = $this->ci->session->userdata(SESS . 'email');
 		$no_hp = $this->ci->session->userdata(SESS . 'no_hp');
+		$pin = $this->ci->session->userdata(SESS . 'pin');
 
-		if ($id && $nama && $email && $no_hp) {
+		if ($id && $nama && $email && $no_hp && $pin) {
 			return TRUE;
 		}
 		return FALSE;
@@ -88,12 +90,13 @@ class TemplateUser
 		exit;
 	}
 
-	public function reset_session($id, $nama, $email, $no_hp)
+	public function reset_session($id, $nama, $email, $no_hp, $pin)
 	{
 		$this->ci->session->set_userdata(SESS . 'id', $id);
 		$this->ci->session->set_userdata(SESS . 'nama', $nama);
 		$this->ci->session->set_userdata(SESS . 'email', $email);
 		$this->ci->session->set_userdata(SESS . 'no_hp', $no_hp);
+		$this->ci->session->set_userdata(SESS . 'pin', $pin);
 	}
 }
 
