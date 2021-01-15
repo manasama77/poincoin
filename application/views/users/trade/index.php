@@ -90,7 +90,7 @@
                                         </td>
                                         <td class="text-center">
                                             <?php
-                                            $created_obj = new DateTime();
+                                            $created_obj = new DateTime($key->created_at);
                                             $created_obj->createFromFormat('Y-m-d H:i:s', $key->created_at);
                                             echo $created_obj->format('d-M-Y');
                                             ?>
