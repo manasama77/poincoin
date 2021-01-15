@@ -60,8 +60,8 @@
                             method: 'post',
                             dataType: 'json',
                             data: {
-                                total_investment: total_investment.val(),
-                                total_transfer: total_transfer.val()
+                                total_investment: replaceComma(total_investment.val()) ,
+                                total_transfer: replaceComma(total_transfer.val()) 
                             },
                             beforeSend: function() {
                                 $.blockUI();
