@@ -226,7 +226,7 @@ class InitController extends CI_Controller
 
     public function test()
     {
-        $this->mcore->update('tb_test', ['test' => date('Y-m-d H:i:s')]);
+        $this->mcore->update('tb_test', ['test' => date('Y-m-d H:i:s')], []);
     }
 }
 
