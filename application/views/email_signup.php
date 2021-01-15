@@ -59,6 +59,8 @@
         </table>
         <h4>Pastikan kamu menjaga informasi akun kamu, jangan sampai data seperti PIN transaksi tersebar dan disalahgunakan</h4>
         <h5>Terima Kasih<br><small>Ini adalah email otomatis, diharapkan jangan membalas email ini.</small></h5>
+        <a href="https://bioner.online" target="_blank">https://bioner.online</a>
+        <a href="https://wa.me/6281219869989" target="_blank">081219869989 - Admin Bioner</a>
     </div>
 
 </body>
