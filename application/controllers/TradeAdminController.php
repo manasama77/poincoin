@@ -74,11 +74,11 @@ class TradeAdminController extends CI_Controller
 
         if ($arr_bioner_trade->num_rows() == 1) {
             $id_user = $arr_bioner_trade->row()->id_user;
-            $kode = $arr_bioner_trade->row()->kode;
+            $kode    = $arr_bioner_trade->row()->kode;
 
-            $data_bioner_trade = ['deleted_at' => date('Y-m-d H:i:s')];
+            $data_bioner_trade  = ['deleted_at' => date('Y-m-d H:i:s')];
             $where_bioner_trade = ['id' => $id];
-            $exec_bioner_trade = $this->mcore->update('bioner_trade', $data_bioner_trade, $where_bioner_trade);
+            $exec_bioner_trade  = $this->mcore->update('bioner_trade', $data_bioner_trade, $where_bioner_trade);
 
             if ($exec_bioner_trade) {
 

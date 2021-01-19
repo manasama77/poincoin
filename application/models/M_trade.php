@@ -20,7 +20,7 @@ class M_trade extends CI_Model
         $this->db->join('users', 'users.id = bioner_trade.id_user', 'left');
         $this->db->where('bioner_trade.deleted_at', NULL);
         $this->db->where('users.deleted_at', NULL);
-        $this->db->order_by('bioner_trade.id', 'ASC');
+        $this->db->order_by('bioner_trade.id', 'DESC');
         return $this->db->get('bioner_trade');
     }
 

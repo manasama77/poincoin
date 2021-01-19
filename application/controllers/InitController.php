@@ -217,11 +217,13 @@ class InitController extends CI_Controller
     public function distribusi_bioner_stacking()
     {
         $exec = $this->M_stacking->distribusi_bioner_stacking();
+        echo $exec->result() . "<br>";
     }
 
     public function distribusi_bioner_trade()
     {
         $exec = $this->M_trade->distribusi_bioner_trade();
+        echo $exec->result() . "<br>";
     }
 
     public function test()

@@ -24,7 +24,7 @@ class M_stacking extends CI_Model
         $this->db->join('users', 'users.id = bioner_stacking.id_user', 'left');
         $this->db->where('bioner_stacking.deleted_at', NULL);
         $this->db->where('users.deleted_at', NULL);
-        $this->db->order_by('bioner_stacking.id', 'ASC');
+        $this->db->order_by('bioner_stacking.id', 'DESC');
         return $this->db->get('bioner_stacking');
     }
 

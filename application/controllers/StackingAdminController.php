@@ -125,21 +125,47 @@ class StackingAdminController extends CI_Controller
         $id   = $this->input->post('id');
         $code = 500;
 
-        $arr_bioner_stacking = $this->mcore->get('bioner_stacking', 'id_user, kode, total_investment', ['id' => $id]);
+        $arr_bioner_stacking = $this->mcore->get('bioner_stacking', 'id_user, kode, total_investment, status', ['id' => $id]);
 
         if ($arr_bioner_stacking->num_rows() == 1) {
             $id_user          = $arr_bioner_stacking->row()->id_user;
             $kode             = $arr_bioner_stacking->row()->kode;
             $total_investment = $arr_bioner_stacking->row()->total_investment;
+            $status           = $arr_bioner_stacking->row()->status;
 
             $data_bioner_stacking  = ['deleted_at' => date('Y-m-d H:i:s')];
             $where_bioner_stacking = ['id' => $id];
             $exec_bioner_stacking  = $this->mcore->update('bioner_stacking', $data_bioner_stacking, $where_bioner_stacking);
 
             if ($exec_bioner_stacking) {
-                $exec_reduce_total_investment = $this->M_stacking->reduce_total_investment($id_user, $total_investment);
+                if ($status != "menunggu_transfer") {
+                    $exec_reduce_total_investment = $this->M_stacking->reduce_total_investment($id_user, $total_investment);
 
-                if ($exec_reduce_total_investment) {
+                    if ($exec_reduce_total_investment) {
+                        $data_logs = [
+                            'id_user'            => $id_user,
+                            'id_bioner_stacking' => $id,
+                            'type'               => 'delete investment',
+                            'nominal_b'          => $total_investment,
+                            'nominal_rp'         => $total_investment * 10000,
+                            'kode'               => $kode,
+                            'keterangan'         => 'Investment Dibatalkan',
+                            'created_at'         => date('Y-m-d H:i:s'),
+                        ];
+                        $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
+
+                        if ($exec_logs) {
+                            $code = 200;
+                            $this->db->trans_commit();
+                        } else {
+                            $code = 500;
+                            $this->db->trans_rollback();
+                        }
+                    } else {
+                        $code = 500;
+                        $this->db->trans_rollback();
+                    }
+                } else {
                     $data_logs = [
                         'id_user'            => $id_user,
                         'id_bioner_stacking' => $id,
@@ -159,9 +185,6 @@ class StackingAdminController extends CI_Controller
                         $code = 500;
                         $this->db->trans_rollback();
                     }
-                } else {
-                    $code = 500;
-                    $this->db->trans_rollback();
                 }
             } else {
                 $code = 500;
