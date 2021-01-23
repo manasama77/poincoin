@@ -227,7 +227,7 @@
                             <li>Nilai Investment berlaku kelipatan <kbd>100 Bioner</kbd> atau <kbd>Rp.1,500,000</kbd></li>
                             <li>Setiap hari pada pukul <kbd>00:00</kbd> Setiap Stack akan di compund sebesar <kbd>0.5%</kbd></li>
                             <li>Jika Bioner Profit telah mencapai nilai <kbd>10 B</kbd>. Nilai tersebut dapat diinvestmentkan pada fitur <kbd>Withdraw</kbd></li>
-                            <li>Untuk melakukan transfer bisa di nomor rekening Bank <kbd><?= NAMA_BANK_ADMIN; ?> <?= NO_REKENING_ADMIN; ?> a/n <?= ATAS_NAMA_NO_REKENING_ADMIN; ?></kbd> atau transfer menggunakan <kbd>Doge Coin</kbd> ke Nomor Wallet <kbd><?= NO_WALLET_ADMIN; ?></kbd></li>
+                            <li>Untuk melakukan transfer bisa di nomor rekening Bank <kbd><?= NAMA_BANK_ADMIN; ?> <?= NO_REKENING_ADMIN; ?> <?= ATAS_NAMA_NO_REKENING_ADMIN; ?></kbd> atau transfer menggunakan <kbd>Doge Coin</kbd> ke Nomor Wallet <kbd><?= NO_WALLET_ADMIN; ?></kbd></li>
                         </ul>
                     </div>
 
