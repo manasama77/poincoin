@@ -96,6 +96,11 @@
 					<i class="fa fa-user-secret"></i> <span>Admin Management</span>
 				</a>
 			</li>
+			<li class="">
+				<a href="<?= site_url('admins/news'); ?>">
+					<i class="fa fa-newspaper-o"></i> <span>News Management</span>
+				</a>
+			</li>
 		</ul>
 	</section>
 </aside>

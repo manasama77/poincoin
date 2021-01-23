@@ -17,6 +17,7 @@ class DashboardUserController extends CI_Controller
         $data['title']   = 'Dashboard';
         $data['content'] = 'dashboard/index';
         $data['vitamin'] = 'dashboard/index_vitamin';
+        $data['arr_news'] = $this->mcore->get('news', '*', ['deleted_at' => NULL, 'status' => 'show'], 'id', 'DESC');
 
         $data['count_referal'] = $this->M_dashboard->count_referal();
 

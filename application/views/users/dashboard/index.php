@@ -61,30 +61,31 @@
             </div>
             <div class="card-body bg-grey-1 text-dark p-0 w-100">
                 <ul class="list-group p-0">
-                    <li class="list-group-item bg-grey-1 text-dark f-news pl-3 pt-0 pb-2 p-0">
-                        <div class="text-left">
-                            <span class="badge badge-primary">
-                                01 Dec 2020
-                            </span>
-                        </div>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, natus!
-                    </li>
-                    <li class="list-group-item bg-grey-1 text-dark f-news pl-3 pt-0 pb-2 p-0">
-                        <div class="text-left">
-                            <span class="badge badge-primary">
-                                01 Dec 2020
-                            </span>
-                        </div>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, natus!
-                    </li>
-                    <li class="list-group-item bg-grey-1 text-dark f-news pl-3 pt-0 pb-2 p-0">
-                        <div class="text-left">
-                            <span class="badge badge-primary">
-                                01 Dec 2020
-                            </span>
-                        </div>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, natus!
-                    </li>
+                    <?php
+                    if ($arr_news->num_rows() > 0) {
+                        foreach ($arr_news->result() as $key) {
+                            $tgl_obj = new Datetime($key->created_at);
+                            $tgl_obj->createFromFormat('Y-m-d H:i:s', $key->created_at);
+                    ?>
+                            <li class="list-group-item bg-grey-1 text-dark f-news pl-3 pt-0 pb-2 p-0">
+                                <div class="text-left">
+                                    <span class="badge badge-primary">
+                                        <?= $tgl_obj->format('d M Y'); ?>
+                                    </span>
+                                </div>
+                                <h4><?= $title; ?></h4>
+                                <h5><small><?= $key->content; ?></small></h5>
+                            </li>
+                        <?php
+                        }
+                    } else {
+                        ?>
+                        <li class="list-group-item bg-grey-1 text-dark f-news pl-3 pt-0 pb-2 p-0">
+                            <h4 class="pt-2 text-center">Tidak ada berita</h4>
+                        </li>
+                    <?php
+                    }
+                    ?>
                 </ul>
             </div>
         </div>

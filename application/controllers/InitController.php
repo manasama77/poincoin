@@ -214,21 +214,31 @@ class InitController extends CI_Controller
         $exec = $this->mcore->store_batch('customers', $data);
     }
 
-    public function distribusi_bioner_stacking()
+    public function distribusi_bioner_stacking($username, $password)
     {
-        $exec = $this->M_stacking->distribusi_bioner_stacking();
-        echo $exec->result() . "<br>";
+        if ($username == "adam" && $password == "adamgantengs") {
+            $exec = $this->M_stacking->distribusi_bioner_stacking();
+        } else {
+            echo "permission rejected";
+        }
     }
 
-    public function distribusi_bioner_trade()
+    public function distribusi_bioner_trade($username, $password)
     {
-        $exec = $this->M_trade->distribusi_bioner_trade();
-        echo $exec->result() . "<br>";
+        if ($username == "adam" && $password == "adamgantengs") {
+            $exec = $this->M_trade->distribusi_bioner_trade();
+        } else {
+            echo "permission rejected";
+        }
     }
 
-    public function test()
+    public function test($username, $password)
     {
-        $this->mcore->store('tb_test', ['test' => date('Y-m-d H:i:s')]);
+        if ($username == "adam" && $password == "adamgantengs") {
+            $this->mcore->store('tb_test', ['test' => date('Y-m-d H:i:s')]);
+        } else {
+            echo "permission rejected";
+        }
     }
 }
 

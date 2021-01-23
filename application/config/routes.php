@@ -24,6 +24,7 @@ $route['update_rekening']      = 'UserLoginController/update_rekening';
 $route['update_wallet']        = 'UserLoginController/update_wallet';
 $route['destroy_rekening']     = 'UserLoginController/destroy_rekening';
 $route['destroy_wallet']       = 'UserLoginController/destroy_wallet';
+
 $route['signup_email/(:num)/(:any)'] = 'UserLoginController/signup_email/$1/$2';
 ##############################################################################################################
 
@@ -54,6 +55,13 @@ $route['trade_withdraw']              = 'TradeController/withdraw';
 $route['trade_withdraw_process']      = 'TradeController/withdraw_process';
 $route['trade_withdraw_delete']       = 'TradeController/withdraw_delete';
 ##############################################################################################################
+
+##############################################################################################################
+# BIONER EXCHANGE USER
+##############################################################################################################
+$route['exchange'] = 'ExchangeController/index';
+##############################################################################################################
+
 
 ##############################################################################################################
 # GRAND LINE #################################################################################################
@@ -95,12 +103,20 @@ $route['admin/bioner_trade_withdraw/delete']     = 'TradeAdminController/withdra
 $route['admin/bioner_trade_withdraw/success']    = 'TradeAdminController/withdraw_success';
 ##############################################################################################################
 
+
 ##############################################################################################################
 # ADMINS
 $route['admins']            = 'AdminsController/index';
 $route['admins/reset']      = 'AdminsController/reset';
 $route['admins/destroy']    = 'AdminsController/destroy';
 $route['datatables/admins'] = 'AdminsController/datatables';
+
+# NEWS
+$route['admins/news']               = 'AdminsNewsController/index';
+$route['admins/news/update']        = 'AdminsNewsController/update';
+$route['admins/news/destroy']       = 'AdminsNewsController/destroy';
+$route['admins/news/change_status'] = 'AdminsNewsController/change_status';
+$route['datatables/news']           = 'AdminsNewsController/datatables';
 
 # USERS
 $route['admins/user_management']     = 'AdminsUserController/index';
@@ -110,8 +126,10 @@ $route['admins/user_reset_password'] = 'AdminsUserController/user_reset_password
 $route['admins/user_reset_pin']      = 'AdminsUserController/user_reset_pin';
 
 # UTILITY
-$route['init']                       = 'InitController/init_admins';
-$route['distribusi_bioner_stacking'] = 'InitController/distribusi_bioner_stacking';
-$route['distribusi_bioner_trade']    = 'InitController/distribusi_bioner_trade';
-$route['test']                       = 'InitController/test';
+$route['init'] = 'InitController/init_admins';
+
+$route['distribusi_bioner_stacking/(:any)/(:any)'] = 'InitController/distribusi_bioner_stacking/$1/$2';
+$route['distribusi_bioner_trade/(:any)/(:any)']    = 'InitController/distribusi_bioner_trade/$1/$2';
+
+$route['test/(:any)/(:any)'] = 'InitController/test/$1/$2';
 ##############################################################################################################
