@@ -20,7 +20,7 @@ class TradeController extends CI_Controller
         $data['content'] = 'trade/index';
         $data['vitamin'] = 'trade/index_vitamin';
 
-        $arr_bioner_trade         = $this->mcore->get('bioner_trade', '*', ['id_user' => $id_user, 'deleted_at' => NULL]);
+        $arr_bioner_trade         = $this->mcore->get('bioner_trade', '*', ['id_user' => $id_user, 'deleted_at' => NULL], 'id', 'DESC');
         $data['total_investment'] = $this->mcore->count('bioner_trade', ['id_user'    => $id_user, 'status'     => 'aktif', 'deleted_at' => NULL]);
 
         $arr_user_bioner_trade = $this->mcore->get('users_bioner_trade', '*', ['id_user' => $id_user, 'deleted_at' => NULL]);

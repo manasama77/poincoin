@@ -149,7 +149,7 @@
                                         <td class="text-left"><?= $key->keterangan; ?></td>
                                         <td class="text-center">
                                             <?php
-                                            $created_obj = new DateTime();
+                                            $created_obj = new DateTime($key->created_at);
                                             $created_obj->createFromFormat('Y-m-d H:i:s', $key->created_at);
                                             echo $created_obj->format('d-M-Y');
                                             ?>
@@ -222,11 +222,12 @@
 
                     <div class="alert alert-info" role="alert">
                         <ul>
-                            <li>Jika kamu belum pernah melakukan pembukaan Bioner Stacking, maka akan dikenakan biaya awal pembukaan Bioner Stacking adalah sebesar <mark>Rp.100,000</mark></li>
-                            <li>Minimal Investment adalah <mark>100 Bioner</mark> atau <mark>Rp.1,500,000</mark></li>
-                            <li>Nilai Investment berlaku kelipatan <mark>100 Bioner</mark> atau <mark>Rp.1,500,000</mark></li>
-                            <li>Setiap hari pada pukul <mark>00:00</mark> Setiap Stack akan di compund sebesar <mark>0.5%</mark></li>
-                            <li>Jika Bioner Profit telah mencapai nilai <mark>10 B</mark>. Nilai tersebut dapat diinvestmentkan pada fitur <mark>Withdraw</mark></li>
+                            <li>Jika kamu belum pernah melakukan pembukaan Bioner Stacking, maka akan dikenakan biaya awal pembukaan Bioner Stacking adalah sebesar <kbd>Rp.100,000</kbd></li>
+                            <li>Minimal Investment adalah <kbd>100 Bioner</kbd> atau <kbd>Rp.1,500,000</kbd></li>
+                            <li>Nilai Investment berlaku kelipatan <kbd>100 Bioner</kbd> atau <kbd>Rp.1,500,000</kbd></li>
+                            <li>Setiap hari pada pukul <kbd>00:00</kbd> Setiap Stack akan di compund sebesar <kbd>0.5%</kbd></li>
+                            <li>Jika Bioner Profit telah mencapai nilai <kbd>10 B</kbd>. Nilai tersebut dapat diinvestmentkan pada fitur <kbd>Withdraw</kbd></li>
+                            <li>Untuk melakukan transfer bisa di nomor rekening Bank <kbd><?= NAMA_BANK_ADMIN; ?> <?= NO_REKENING_ADMIN; ?> a/n <?= ATAS_NAMA_NO_REKENING_ADMIN; ?></kbd> atau transfer menggunakan <kbd>Doge Coin</kbd> ke Nomor Wallet <kbd><?= NO_WALLET_ADMIN; ?></kbd></li>
                         </ul>
                     </div>
 

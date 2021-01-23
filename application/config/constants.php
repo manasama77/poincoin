@@ -91,7 +91,7 @@ define('COOK', 'BIOROBOCOOK');
 define('COOK_ADMIN', 'BIOROBOCOOKADM');
 define('UYAH', 'limaratusribu');
 define('NO_REKENING_ADMIN', '0905433867');
-define('ATAS_NAMA_NO_REKENING_ADMIN', 'An. PT. Rahel karya emas');
+define('ATAS_NAMA_NO_REKENING_ADMIN', 'a/n PT. Rahel karya emas');
 define('NAMA_BANK_ADMIN', 'BNI');
 define('NO_WALLET_ADMIN', 'DB2AYmAL6ucXvmo4hEEr1FBmQ3gB1L35Le');
 define('VERSION_APP', '1.0.0 Alpha');

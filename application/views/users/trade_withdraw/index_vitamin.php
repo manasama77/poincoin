@@ -59,49 +59,83 @@
                     timer: 3000,
                 });
             } else {
-                Swal.fire({
-                    title: 'Apakah kamu yakin?',
-                    html: vText,
-                    icon: 'question',
+
+                // swal
+                Swal.mixin({
+                    confirmButtonText: 'Next &rarr;',
                     showCancelButton: true,
+                    progressSteps: ['1', '2'],
+                    icon: 'question',
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Ya, Saya Yakin!',
-                    cancelButtonText: 'Tidak jadi!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        $.ajax({
-                            url: '<?= site_url(); ?>trade_withdraw_process',
-                            method: 'post',
-                            dataType: 'json',
-                            data: datanya,
-                            beforeSend: function() {
-                                $.blockUI();
+                    cancelButtonText: 'Tidak jadi !'
+                }).queue([{
+                        title: 'Apakah kamu yakin ?',
+                        html: vText,
+                        input: false
+                    },
+                    {
+                        title: 'Masukan Kode PIN Transaksi',
+                        html: `<input type="password" class="swal2-input" id="pin_input" name="pin_input" placeholder="PIN Transaksi" pattern="[0-9]*" inputmode="numeric" minlength="6" maxlength="6" autofill="new-password">`,
+                        preConfirm: () => {
+                            const pin_input = Swal.getPopup().querySelector('#pin_input').value;
+                            if (!pin_input) {
+                                Swal.showValidationMessage(`Silahkan masukan PIN Transaksi`)
+                            } else if (pin_input != <?= $this->session->userdata(SESS . 'pin'); ?>) {
+                                Swal.showValidationMessage(`PIN Transaksi Salah`)
                             }
-                        }).always(function() {
-                            $.unblockUI();
-                        }).fail(function(res) {
-                            console.log(res);
-                        }).done(function(res) {
-                            if (res.code == 500) {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Oops...',
-                                    text: 'Proses Withdraw Bioner Trade Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
-                                    timer: 3000,
-                                });
-                            } else if (res.code == 200) {
-                                Swal.fire({
-                                    icon: 'success',
-                                    title: 'Success...',
-                                    html: vTextSuccess,
-                                }).then(function(result) {
-                                    window.location.reload();
-                                });
+                            return {
+                                pin_input: pin_input
                             }
-                        });
+                        }
+                    },
+                ]).then((result) => {
+                    if (result.value) {
+                        pin_input = result.value[1].pin_input;
+
+                        if (pin_input == <?= $this->session->userdata(SESS . 'pin'); ?>) {
+                            $.ajax({
+                                url: '<?= site_url(); ?>trade_withdraw_process',
+                                method: 'post',
+                                dataType: 'json',
+                                data: datanya,
+                                beforeSend: function() {
+                                    $.blockUI();
+                                }
+                            }).always(function() {
+                                $.unblockUI();
+                            }).fail(function(res) {
+                                console.log(res);
+                            }).done(function(res) {
+                                if (res.code == 500) {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Oops...',
+                                        text: 'Proses Withdraw Bioner Trade Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
+                                        timer: 3000,
+                                    });
+                                } else if (res.code == 200) {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success...',
+                                        html: vTextSuccess,
+                                    }).then(function(result) {
+                                        window.location.reload();
+                                    });
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'PIN Transaksi Salah',
+                                timer: 3000,
+                            });
+                        }
                     }
                 });
+                // end swal
+
             }
         });
 

@@ -138,12 +138,12 @@ class StackingController extends CI_Controller
         $id_user = $this->session->userdata(SESS . 'id');
         $pin = $this->session->userdata(SESS . 'pin');
 
-        $data['title'] = 'Bioner Stacking Withdraw';
+        $data['title']   = 'Bioner Stacking Withdraw';
         $data['content'] = 'stacking_withdraw/index';
         $data['vitamin'] = 'stacking_withdraw/index_vitamin';
 
-        $arr_withdraw = $this->M_stacking->get_user_withdraw($id_user);
-        $arr_bioner_profit = $this->M_stacking->count_bioner_profit($id_user);
+        $arr_withdraw         = $this->M_stacking->get_user_withdraw($id_user);
+        $arr_bioner_profit    = $this->M_stacking->count_bioner_profit($id_user);
         $arr_total_investment = $this->M_stacking->count_total_investment($id_user);
 
         $data['arr_withdraw'] = $arr_withdraw;
@@ -164,7 +164,7 @@ class StackingController extends CI_Controller
         $data['total_investment'] = $total_investment;
 
         $data['arr_rekening'] = $this->M_stacking->get_user_rekeing();
-        $data['arr_wallet'] = $this->mcore->get('user_wallets', '*', ['id_user' => $id_user, 'deleted_at' => NULL]);
+        $data['arr_wallet']   = $this->mcore->get('user_wallets', '*', ['id_user' => $id_user, 'deleted_at' => NULL]);
 
         $this->template->template($data);
     }

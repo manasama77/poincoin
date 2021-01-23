@@ -14,8 +14,6 @@
         withdraw_amount = 0,
         form_invest = $('#form_invest');
 
-    console.log(max_withdraw);
-
     $('document').ready(function() {
         upValue.on('click', function() {
             getTotalTransfer("up");
@@ -62,26 +60,36 @@
                 }
 
                 Swal.mixin({
-                    input: 'number',
                     confirmButtonText: 'Next &rarr;',
                     showCancelButton: true,
                     progressSteps: ['1', '2'],
                     icon: 'question',
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    cancelButtonText: 'Tidak jadi!'
+                    cancelButtonText: 'Tidak jadi !'
                 }).queue([{
-                        title: 'Apakah kamu yakin?',
+                        title: 'Apakah kamu yakin ?',
                         html: vText,
                         input: false
                     },
                     {
                         title: 'Masukan Kode PIN Transaksi',
+                        html: `<input type="password" class="swal2-input" id="pin_input" name="pin_input" placeholder="PIN Transaksi" pattern="[0-9]*" inputmode="numeric" minlength="6" maxlength="6" autofill="new-password">`,
+                        preConfirm: () => {
+                            const pin_input = Swal.getPopup().querySelector('#pin_input').value;
+                            if (!pin_input) {
+                                Swal.showValidationMessage(`Silahkan masukan PIN Transaksi`)
+                            } else if (pin_input != <?= $this->session->userdata(SESS . 'pin'); ?>) {
+                                Swal.showValidationMessage(`PIN Transaksi Salah`)
+                            }
+                            return {
+                                pin_input: pin_input
+                            }
+                        }
                     },
                 ]).then((result) => {
                     if (result.value) {
-                        console.log(result.value);
-                        pin_input = result.value[1];
+                        pin_input = result.value[1].pin_input;
 
                         if (pin_input == <?= $this->session->userdata(SESS . 'pin'); ?>) {
                             $.ajax({
@@ -122,10 +130,8 @@
                                 timer: 3000,
                             });
                         }
-                        // const answers = JSON.stringify(result.value)
                     }
-                })
-
+                });
 
             }
         });
@@ -161,7 +167,6 @@
         }
 
         if (withdraw_b_value < 10 && id_jenis.val() == 'invest') {
-            console.log(withdraw_b_value);
             form_invest.hide();
         } else if (withdraw_b_value >= 10 && id_jenis.val() == 'invest') {
             form_invest.show();

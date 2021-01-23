@@ -184,10 +184,11 @@
 
                     <div class="alert alert-info" role="alert">
                         <ul>
-                            <li>Nilai Pembukaan Hak Investment adalah sebesar <mark>Rp.600,000</mark></li>
-                            <li>Biaya Sewa Per Satu Hak Investment adalah Sebesar <mark>Rp.150,000</mark></li>
-                            <li>Profit Per Hari yang akan diberikan per 1 Lot / Hak Investment Sebesar <mark>Rp.3,000</mark></li>
-                            <li>Jadwal pembagian profit akan dilakukan oleh server setiap hari pada pukul <mark>00:00</mark></li>
+                            <li>Nilai Pembukaan Hak Investment adalah sebesar <kbd>Rp.600,000</kbd></li>
+                            <li>Biaya Sewa Per Satu Hak Investment adalah Sebesar <kbd>Rp.150,000</kbd></li>
+                            <li>Profit Per Hari yang akan diberikan per 1 Lot / Hak Investment Sebesar <kbd>Rp.3,000</kbd></li>
+                            <li>Jadwal pembagian profit akan dilakukan oleh server setiap hari pada pukul <kbd>00:00</kbd></li>
+                            <li>Untuk melakukan transfer bisa di nomor rekening Bank <kbd><?= NAMA_BANK_ADMIN; ?> <?= NO_REKENING_ADMIN; ?> <?= ATAS_NAMA_NO_REKENING_ADMIN; ?></kbd></li>
                         </ul>
                     </div>
 

@@ -1,5 +1,39 @@
 <h1 class="text-dark text-center pt-3 pb-2">Dashboard</h1>
 
+<?php
+if ($count_bank == 0) {
+    echo '
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Kamu belum mendaftarkan No Rekening</strong>
+        <br>
+        <a href="' . site_url('profile') . '" class="btn btn-primary">
+            Daftarkan No Rekening
+        </a>
+        <div class="pull-right">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>';
+}
+
+if ($count_wallet == 0) {
+    echo '
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Kamu belum mendaftarkan No Wallet</strong>
+        <br>
+        <a href="' . site_url('profile') . '" class="btn btn-primary">
+            Daftarkan No Wallet
+        </a>
+        <div class="pull-right">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>';
+}
+?>
+
 <div class="row">
     <div class="col-sm-12 col-md-6 offset-md-3 mt-2">
         <div class="card text-white">
