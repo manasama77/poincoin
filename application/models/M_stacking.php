@@ -12,6 +12,7 @@ class M_stacking extends CI_Model
             'bioner_stacking.kode',
             'bioner_stacking.id_user',
             'users.nama',
+            'users.email',
             'bioner_stacking.total_investment',
             'bioner_stacking.total_transfer',
             'bioner_stacking.profit_perhari_b',

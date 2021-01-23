@@ -6,8 +6,11 @@
 <script>
 	$(document).ready(function() {
 		table = $('#datatables').DataTable({
+			"order": [
+				[0, "DESC"]
+			],
 			"columnDefs": [{
-				"targets": [9],
+				"targets": [10],
 				"orderable": false,
 			}, ],
 		});

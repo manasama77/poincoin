@@ -17,7 +17,8 @@
 								<tr>
 									<th>#</th>
 									<th>Kode</th>
-									<th>User</th>
+									<th>Nama</th>
+									<th>Email</th>
 									<th class="text-right">Investment (B)</th>
 									<th class="text-right">Total Transfer (Rp)</th>
 									<th class="text-right">Profit / Day (B)</th>
@@ -32,13 +33,14 @@
 								if ($arr_stacking->num_rows() > 0) {
 								?>
 									<?php
-									$no = 1;
+									$no = $arr_stacking->num_rows();
 									foreach ($arr_stacking->result() as $key) {
 									?>
 										<tr>
-											<td><?= $no; ?></td>
+											<td><?= $key->id; ?></td>
 											<td><?= $key->kode; ?></td>
 											<td><?= $key->nama; ?></td>
+											<td><?= $key->email; ?></td>
 											<td class="text-right"><?= number_format($key->total_investment, 0); ?></td>
 											<td class="text-right"><?= number_format($key->total_transfer, 0); ?></td>
 											<td class="text-right"><?= number_format($key->profit_perhari_b, 2); ?></td>
@@ -58,31 +60,29 @@
 											</td>
 											<td class="text-center"><?= $key->created_at; ?></td>
 											<td class="text-center" style="width: 170px !important;">
-												<div class="btn-group">
-													<?php
-													if ($key->status == "menunggu_transfer") {
-													?>
-														<button type="button" class="btn btn-primary btn-xs" onclick="verifikasiTransfer('<?= $key->id; ?>', '<?= $key->kode; ?>')">
-															<i class="fa fa-check fa-fw"></i> Verifikasi
-														</button>
-													<?php
-													} elseif ($key->status == "menunggu_verifikasi") {
-													?>
-														<a href="<?= base_url('public/img/bukti_transfer/' . $key->bukti_transfer); ?>" class="btn btn-info btn-xs" target="_blank"><i class="fa fa-picture-o"></i></a>
-														<button type="button" class="btn btn-primary btn-xs" onclick="verifikasiTransfer('<?= $key->id; ?>', '<?= $key->kode; ?>')">
-															<i class="fa fa-check fa-fw"></i> Verifikasi
-														</button>
-													<?php
-													}
-													?>
-													<button type="button" class="btn btn-danger btn-xs" onclick="deleteData('<?= $key->id; ?>', '<?= $key->kode; ?>')">
-														<i class="fa fa-trash fa-fw"></i> Delete
+												<?php
+												if ($key->status == "menunggu_transfer") {
+												?>
+													<button type="button" class="btn btn-primary" onclick="verifikasiTransfer('<?= $key->id; ?>', '<?= $key->kode; ?>')">
+														<i class="fa fa-check fa-fw"></i> Verifikasi
 													</button>
-												</div>
+												<?php
+												} elseif ($key->status == "menunggu_verifikasi") {
+												?>
+													<a href="<?= base_url('public/img/bukti_transfer/' . $key->bukti_transfer); ?>" class="btn btn-info" target="_blank"><i class="fa fa-picture-o"></i></a>
+													<button type="button" class="btn btn-primary" onclick="verifikasiTransfer('<?= $key->id; ?>', '<?= $key->kode; ?>')">
+														<i class="fa fa-check fa-fw"></i> Verifikasi
+													</button>
+												<?php
+												}
+												?>
+												<button type="button" class="btn btn-danger btn-sm" onclick="deleteData('<?= $key->id; ?>', '<?= $key->kode; ?>')">
+													<i class="fa fa-trash fa-fw"></i> Delete
+												</button>
 											</td>
 										</tr>
 									<?php
-										$no++;
+										$no--;
 									}
 									?>
 								<?php
