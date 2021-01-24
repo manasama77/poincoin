@@ -141,11 +141,13 @@
     function getTotalTransfer(tipe) {
         if (tipe == "up") {
             withdraw_b_value = parseFloat(withdraw_b.val());
-            withdraw_b_value = withdraw_b_value + 0.5;
+            withdraw_b_value = withdraw_b_value + 10;
 
             if (withdraw_b_value > max_withdraw) {
                 withdraw_b_value = max_withdraw;
             }
+
+            withdraw_b_value = Math.floor(withdraw_b_value / 10) * 10;
 
             withdraw_amount = parseInt(withdraw_b_value * 10000);
 
@@ -154,11 +156,13 @@
 
         } else {
             withdraw_b_value = parseFloat(withdraw_b.val());
-            withdraw_b_value = withdraw_b_value - 0.5;
+            withdraw_b_value = withdraw_b_value - 10;
 
             if (withdraw_b_value < 0) {
                 withdraw_b_value = 0;
             }
+
+            withdraw_b_value = Math.floor(withdraw_b_value / 10) * 10;
 
             withdraw_amount = parseInt(withdraw_b_value * 10000);
 
