@@ -84,6 +84,9 @@ $route['dashboard'] = 'DashboardController/index';
 ##############################################################################################################
 # BIONER STACKING ADMIN
 $route['admin/bioner_stacking/index']               = 'StackingAdminController/index';
+$route['admin/bioner_stacking/add']                 = 'StackingAdminController/add';
+$route['admin/bioner_stacking/count']               = 'StackingAdminController/count';
+$route['admin/bioner_stacking/store']               = 'StackingAdminController/store';
 $route['admin/bioner_stacking/verifikasi_transfer'] = 'StackingAdminController/verifikasi_transfer';
 $route['admin/bioner_stacking/delete_stacking']     = 'StackingAdminController/delete_stacking';
 $route['admin/bioner_stacking_withdraw/pending']    = 'StackingAdminController/withdraw_pending';

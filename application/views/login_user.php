@@ -75,7 +75,7 @@
 
                             <form class="form-signin mt-3" action="<?= site_url(); ?>" method="post">
                                 <div class="form-label-group">
-                                    <input type="email" id="email" name="email" class="form-control btn-flat" placeholder="Email" inputmode="email" required autofocus>
+                                    <input type="email" id="email" name="email" class="form-control btn-flat" placeholder="Email" inputmode="email" required>
                                     <label for="email">Email</label>
                                 </div>
 

@@ -17,6 +17,11 @@
 				</a>
 				<ul class="treeview-menu">
 					<li>
+						<a href="<?= site_url(); ?>admin/bioner_stacking/add">
+							<i class="fa fa-plus"></i> Add Bioner Stacking
+						</a>
+					</li>
+					<li>
 						<a href="<?= site_url(); ?>admin/bioner_stacking/index">
 							<i class="fa fa-circle-o"></i> List Bioner Stacking
 						</a>

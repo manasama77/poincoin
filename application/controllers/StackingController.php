@@ -20,8 +20,8 @@ class StackingController extends CI_Controller
         $data['content'] = 'stacking/index';
         $data['vitamin'] = 'stacking/index_vitamin';
 
-        $arr_stacking = $this->mcore->get('bioner_stacking', '*', ['id_user' => $id_user, 'deleted_at' => NULL], 'id', 'desc');
-        $arr_bioner_profit = $this->M_stacking->count_bioner_profit($id_user);
+        $arr_stacking         = $this->mcore->get('bioner_stacking', '*', ['id_user' => $id_user, 'deleted_at' => NULL], 'id', 'desc');
+        $arr_bioner_profit    = $this->M_stacking->count_bioner_profit($id_user);
         $arr_total_investment = $this->M_stacking->count_total_investment($id_user);
 
         $data['arr_stacking']       = $arr_stacking;
@@ -39,9 +39,9 @@ class StackingController extends CI_Controller
             $total_investment = 0;
         }
 
-        $data['bioner_profit'] = $bioner_profit;
+        $data['bioner_profit']    = $bioner_profit;
         $data['total_investment'] = $total_investment;
-        $data['arr_logs'] = $this->mcore->get('bioner_stacking_logs', '*', ['id_user' => $id_user], 'id', 'DESC');
+        $data['arr_logs']         = $this->mcore->get('bioner_stacking_logs', '*', ['id_user' => $id_user], 'id', 'DESC');
 
         $this->template->template($data);
     }

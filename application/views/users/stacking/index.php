@@ -124,7 +124,7 @@
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <div class="table-responsive">
-                    <table class="table table-bordered w-100">
+                    <table class="table table-bordered datatables w-100">
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>

@@ -174,6 +174,8 @@ desired effect
 				}
 			});
 		});
+
+		$('.select2').select2();
 	</script>
 
 	<!-- Optionally, you can add Slimscroll and FastClick plugins.

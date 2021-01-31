@@ -72,6 +72,18 @@ class M_stacking extends CI_Model
         return $this->db->get('bioner_stacking');
     }
 
+    public function count_today_stack_from_admin($id_user)
+    {
+        $this->db->where_in('status', [
+            'aktif',
+            'menunggu_transfer',
+            'menunggu_verifikasi',
+        ]);
+        $this->db->where('id_user', $id_user);
+        $this->db->where('DATE(created_at)', date('Y-m-d'));
+        return $this->db->get('bioner_stacking');
+    }
+
     public function count_today_stack_withdraw()
     {
         $this->db->where_in('status', [

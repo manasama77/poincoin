@@ -22,11 +22,11 @@ class UserLoginController extends CI_Controller
             $check_cookies = $this->mcore->get('users', '*', ['cookies' => $cookies]);
 
             if ($check_cookies->num_rows() == 1) {
-                $id       = $check_cookies->row()->id;
-                $nama     = $check_cookies->row()->nama;
+                $id    = $check_cookies->row()->id;
+                $nama  = $check_cookies->row()->nama;
                 $no_hp = $check_cookies->row()->no_hp;
-                $email    = $check_cookies->row()->email;
-                $pin    = $check_cookies->row()->pin;
+                $email = $check_cookies->row()->email;
+                $pin   = $check_cookies->row()->pin;
 
                 $this->_set_session($id, $nama, $no_hp, $email, $pin);
                 $this->session->set_flashdata('first_login', 'Login Berhasil, pastikan kamu menjaga Password Kamu');

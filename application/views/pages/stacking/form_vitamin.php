@@ -16,12 +16,40 @@
         totalTransferAlt = 0,
         totalTransferAltRp = 0,
         profitPerDay = 0,
-        textnya = 0;
+        textnya = 0,
+        count_arr_stacking = 0;
+    $(document).ready(function() {
 
-    $('document').ready(function() {
+        $("#id_user").on('change', function() {
+            let id_user = $(this).find(':selected').val();
 
-        $('.datatables').DataTable({
-            responsive: true
+            $.ajax({
+                url: '<?= site_url(); ?>admin/bioner_stacking/count',
+                method: 'get',
+                dataType: 'json',
+                data: {
+                    id_user: id_user
+                },
+                beforeSend: function(e) {
+                    $.blockUI();
+                    upValue.attr('disabled', true);
+                    downValue.attr('disabled', true);
+                    total_investment.val('');
+                    total_transfer.val('');
+                    profit_per_day.val('');
+                    totalInvestment = 0;
+                    totalTransfer = 0;
+                }
+            }).always(function(e) {
+                $.unblockUI();
+            }).fail(function(e) {
+                console.log(e.responseText);
+            }).done(function(e) {
+                console.log(e);
+                count_arr_stacking = e.count;
+                upValue.attr('disabled', false);
+                downValue.attr('disabled', false);
+            });
         });
 
         upValue.on('click', function() {
@@ -34,7 +62,14 @@
         form_new_stack.on('submit', function(e) {
             e.preventDefault();
 
-            if (total_transfer.val() == 0 || total_transfer.val() < 0) {
+            if ($('#id_user').find(':selected').val().length == 0) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Oops...',
+                    text: 'Silahkan pilih user telebih dahulu',
+                    timer: 3000,
+                });
+            } else if (total_transfer.val() == 0 || total_transfer.val() < 0) {
                 Swal.fire({
                     icon: 'warning',
                     title: 'Oops...',
@@ -42,7 +77,7 @@
                     timer: 3000,
                 });
             } else {
-                if (<?= $count_arr_stacking; ?> == 0) {
+                if (count_arr_stacking == 0) {
                     xtransfer = parseInt(replaceComma(total_transfer.val())) - 100000;
                     textnya = `Kamu akan melakukan investment sebesar Rp.${numberWithCommas(xtransfer)} & Biaya pembukaan awal sebesar Rp.100,000 ?`
                 } else {
@@ -61,10 +96,11 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: '<?= site_url(); ?>stacking_add',
+                            url: '<?= site_url(); ?>admin/bioner_stacking/store',
                             method: 'post',
                             dataType: 'json',
                             data: {
+                                id_user: $('#id_user').find(':selected').val(),
                                 total_investment: total_investment.val(),
                                 total_transfer: total_transfer.val()
                             },
@@ -98,49 +134,6 @@
             }
         });
 
-        form_bukti_transfer.on('submit', function(e) {
-            e.preventDefault();
-
-            let isiData = $(this)[0];
-            let formData = new FormData(isiData);
-
-            $.ajax({
-                url: '<?= site_url(); ?>stacking_upload_bukti_transfer',
-                method: 'post',
-                contentType: false,
-                processData: false,
-                dataType: 'json',
-                data: formData,
-                beforeSend: function() {
-                    btn_upload_bukti_transfer.attr('disabled', true);
-                    $.blockUI();
-                }
-            }).always(function(res) {
-                $.unblockUI();
-                btn_upload_bukti_transfer.attr('disabled', false);
-            }).fail(function(res) {
-                console.log(res);
-            }).done(function(res) {
-                if (res.code == 500) {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Proses upload bukti transfer gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
-                        timer: 3000,
-                    });
-                } else {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Success...',
-                        html: `Proses upload bukti transfer Berhasil.`,
-                    }).then(function(result) {
-                        window.location.reload();
-                    });
-                }
-            });
-        });
-
-
     });
 
     function getTotalTransfer(tipe) {
@@ -149,7 +142,7 @@
             totalInvestment = parseInt(totalInvestment) + 100;
             totalTransfer = parseInt(totalTransfer) + 1500000;
 
-            if (totalInvestment == 100 && <?= $count_arr_stacking; ?> == 0) {
+            if (totalInvestment == 100 && count_arr_stacking == 0) {
                 totalTransferAlt = parseInt(1500000);
                 totalTransferAltRp = numberWithCommas(totalTransferAlt);
                 totalTransfer = parseInt(1500000) + 100000;
@@ -166,7 +159,7 @@
             totalInvestment = parseInt(totalInvestment) - 100;
             totalTransfer = parseInt(totalTransfer) - 1500000;
 
-            if (totalInvestment == 100 && <?= $count_arr_stacking; ?> == 0) {
+            if (totalInvestment == 100 && count_arr_stacking == 0) {
                 totalTransferAlt = parseInt(1500000);
                 totalTransferAltRp = numberWithCommas(totalTransferAlt);
                 totalTransfer = parseInt(1500000) + 100000;
@@ -206,12 +199,5 @@
 
     function replaceComma(x) {
         return x.replace(/\,/g, '');
-    }
-
-    function konfirmasiTransfer(kode, total_transfer_x) {
-        id_bioner_stacking.val('').val(kode);
-        total_transfer_in_rp.val('').val(numberWithCommas(total_transfer_x));
-        modal_bukti_transfer.modal('show');
-
     }
 </script>

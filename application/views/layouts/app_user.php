@@ -11,6 +11,9 @@
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
     <link rel="stylesheet" href="<?= base_url(); ?>vendor/fortawesome/font-awesome/css/all.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/r-2.2.7/sc-2.0.3/sb-1.0.1/datatables.min.css" />
+
     <link rel="stylesheet" href="<?= base_url(); ?>public/css/main.css">
 
     <link rel="apple-touch-icon" sizes="57x57" href="<?= base_url(); ?>public/img/public/img/apple-icon-57x57.png">
@@ -32,6 +35,13 @@
     <meta name="theme-color" content="#ffffff">
 
     <title><?= $title; ?></title>
+
+    <style>
+        .datatables>tbody>tr {
+            background-color: #343a40 !important;
+            color: #fff !important;
+        }
+    </style>
 </head>
 
 <body class="bg-pastel">
@@ -167,6 +177,7 @@
     <script src="<?= base_url(); ?>public/js/jquery.qrcode.min.js"></script>
     <script src="<?= base_url(); ?>public/js/sweetalert2.all.min.js"></script>
     <script src="<?= base_url(); ?>public/js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.23/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/r-2.2.7/sc-2.0.3/sb-1.0.1/datatables.min.js"></script>
     <script>
         $('#myQR').qrcode({
             text: "<?= $this->session->userdata(SESS . 'username'); ?>",

@@ -23,6 +23,61 @@ class StackingAdminController extends CI_Controller
         $this->template->template($data);
     }
 
+    public function count()
+    {
+        $id_user = $this->input->get('id_user');
+        $arr_stacking = $this->mcore->get('bioner_stacking', '*', ['id_user' => $id_user, 'deleted_at' => NULL], 'id', 'desc');
+        $count_arr_stacking = $arr_stacking->num_rows();
+
+        echo json_encode(['count' => $count_arr_stacking]);
+    }
+
+    public function add()
+    {
+        $data['title']   = 'Add Bioner Stacking';
+        $data['content'] = 'stacking/form';
+        $data['vitamin'] = 'stacking/form_vitamin';
+
+        $arr_user = $this->mcore->get('users', '*', ['deleted_at' => NULL], 'id', 'desc');
+        $data['arr_user'] = $arr_user;
+
+        $this->template->template($data);
+    }
+
+    public function store()
+    {
+        $id_user          = $this->input->post('id_user');
+        $total_investment = str_replace(',', '', $this->input->post('total_investment'));
+        $total_transfer   = str_replace(',', '', $this->input->post('total_transfer'));
+        $code             = 500;
+
+        if ($total_investment > 0 && $total_transfer > 0) {
+            $kode              = $this->_generate_kode_bioner_stacking($id_user);
+            $profit_perhari_b  = ($total_investment * 0.5) / 100;
+            $profit_perhari_rp = ($total_investment * 10000 * 0.5) / 100;
+            $status            = 'menunggu_transfer';
+
+            $data_stacking = [
+                'kode'              => $kode,
+                'id_user'           => $id_user,
+                'total_investment'  => $total_investment,
+                'total_transfer'    => $total_transfer,
+                'profit_perhari_b'  => $profit_perhari_b,
+                'profit_perhari_rp' => $profit_perhari_rp,
+                'status'            => $status,
+                'bukti_transfer'    => NULL,
+                'created_at'        => date('Y-m-d H:i:s'),
+                'updated_at'        => date('Y-m-d H:i:s'),
+                'deleted_at'        => NULL,
+            ];
+            $exec = $this->mcore->store('bioner_stacking', $data_stacking);
+
+            $code = 200;
+        }
+
+        echo json_encode(['code' => $code]);
+    }
+
     public function verifikasi_transfer()
     {
         $this->db->trans_begin();
@@ -291,6 +346,15 @@ class StackingAdminController extends CI_Controller
         $data['arr_stacking'] = $this->M_stacking->list_bioner_stacking_withdraw('success');
 
         $this->template->template($data);
+    }
+
+    public function _generate_kode_bioner_stacking($id_user)
+    {
+        # format ID_USER.DDMMYY.##
+        $arr_unik = $this->M_stacking->count_today_stack_from_admin($id_user);
+        $unik = $arr_unik->num_rows() + 1;
+        $kode = "BS" . $id_user . "." . date('d') . "" . date("m") . "" . date("y") . "" . $unik;
+        return $kode;
     }
 }
         
