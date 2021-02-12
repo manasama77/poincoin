@@ -88,11 +88,26 @@ class UserLoginController extends CI_Controller
         }
     }
 
+    public function email_precheck($str)
+    {
+        $email = strtolower(trim($str));
+
+        $where = ['email' => $email, 'deleted_at' => NULL];
+        $count = $this->mcore->count('users', $where);
+
+        if ($count == 0) {
+            return TRUE;
+        } else {
+            $this->form_validation->set_message('email_check', 'Email Salah atau telah terdaftar, silahkan cek kembali');
+            return FALSE;
+        }
+    }
+
     public function email_check($str)
     {
         $email = strtolower(trim($str));
 
-        $where = ['email' => $email, 'deleted_at' => NULL, 'status' => 'aktif'];
+        $where = ['email' => $email, 'deleted_at' => NULL];
         $count = $this->mcore->count('users', $where);
 
         if ($count == 1) {
@@ -154,11 +169,7 @@ class UserLoginController extends CI_Controller
     public function signup()
     {
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email', 'required|is_unique[users.email]|valid_email|trim', [
-            'requird'     => '{field} wajib diisi',
-            'is_unique'   => '{field} telah terdaftar, jika kamu lupa password silahkan Whatsapp Admin dinomor <mark><a href = "https: //wa.me/' . WA_ADMIN . '" target = "_blank">+6281219869989</a></mark>',
-            'valid_email' => 'Format email salah, silahkan cek kembali',
-        ]);
+        $this->form_validation->set_rules('email', 'Email', 'callback_email_precheck');
         $this->form_validation->set_rules('no_hp', 'No Handphone', 'required|min_length[8]|max_length[20]|trim', [
             'requird'    => '{field} wajib diisi',
             'min_length' => '{field} minimal {param} karakter',

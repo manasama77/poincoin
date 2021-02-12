@@ -126,6 +126,36 @@ if ($count_wallet == 0) {
     </div>
 </div>
 
+<!-- <div class="row">
+    <div class="col-sm-12 col-md-12 offset-md-12 mt-2">
+        <div class="card text-white">
+            <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
+                <span style="font-size: 20px;">IDR Markets <small id="update_timestamp"></small></span>
+            </div>
+            <div class="card-body bg-grey-1 text-dark p-2 w-100">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped table-hover" id="table_idr">
+                        <thead class="bg-dark text-white">
+                            <tr>
+                                <th>#</th>
+                                <th style="width: 100px;">Market</th>
+                                <th>Asset Name</th>
+                                <th>Last Price</th>
+                                <th>Buy</th>
+                                <th>Sell</th>
+                                <th>High 24h</th>
+                                <th>Low 24h</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
 <div class="row">
     <div class="col-sm-12 col-md-10 offset-md-1 mt-2">
         <div class="card text-white">

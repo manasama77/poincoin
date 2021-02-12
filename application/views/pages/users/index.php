@@ -119,3 +119,42 @@
 		</div>
 	</div>
 </form>
+
+<form id="form_rekening">
+	<div class="modal fade" id="modal_rekening" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Reset Rekening</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="id_bank_edit">Bank</label>
+						<select class="form-control select2" id="id_bank_edit" name="id_bank_edit" style="width: 100%;" data-placeholder="Bank" required>
+							<option value=""></option>
+							<?php
+							foreach ($arr_bank->result() as $key) {
+								echo '<option value="' . $key->id . '">' . $key->nama_bank . '</option>';
+							}
+							?>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="no_rekening_edit">No Rekening</label>
+						<input type="number" class="form-control" id="no_rekening_edit" name="no_rekening_edit" required>
+					</div>
+					<div class="form-group">
+						<label for="atas_nama_edit">Atas Nama</label>
+						<input type="text" class="form-control" id="atas_nama_edit" name="atas_nama_edit" required>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="hidden" id="id_user_rekening_edit">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" id="btn_save_rekening" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

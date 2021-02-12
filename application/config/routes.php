@@ -12,7 +12,7 @@ $route['translate_uri_dashes'] = FALSE;
 ##############################################################################################################
 $route['login_user']           = 'UserLoginController/index';
 $route['signup_user']          = 'UserLoginController/signup';
-$route['signup_user/(:any)']  = 'UserLoginController/signup/$1';
+$route['signup_user/(:any)']   = 'UserLoginController/signup/$1';
 $route['auth_user']            = 'UserLoginController/auth';
 $route['register_user']        = 'UserLoginController/signup';
 $route['logout_user']          = 'UserLoginController/logout';
@@ -29,9 +29,17 @@ $route['signup_email/(:num)/(:any)'] = 'UserLoginController/signup_email/$1/$2';
 ##############################################################################################################
 
 ##############################################################################################################
+# INDODAX USER
+##############################################################################################################
+$route['indodax_setup'] = 'IndodaxController/setup';
+##############################################################################################################
+
+
+##############################################################################################################
 # DASHBOARD USER
 ##############################################################################################################
 $route['dashboard_user'] = 'DashboardUserController/index';
+$route['get_market_idr'] = 'DashboardUserController/get_market_idr';
 ##############################################################################################################
 
 ##############################################################################################################
@@ -127,12 +135,16 @@ $route['admins/user_datatables']     = 'AdminsUserController/datatables';
 $route['admins/user_reset_email']    = 'AdminsUserController/user_reset_email';
 $route['admins/user_reset_password'] = 'AdminsUserController/user_reset_password';
 $route['admins/user_reset_pin']      = 'AdminsUserController/user_reset_pin';
+$route['admins/user_reset_rekening'] = 'AdminsUserController/user_reset_rekening';
+$route['admins/user_delete']         = 'AdminsUserController/user_delete';
 
 # UTILITY
-$route['init'] = 'InitController/init_admins';
+$route['init']               = 'InitController/init_admins';
+$route['api/get_idr_market'] = 'InitController/get_idr_market';
 
 $route['distribusi_bioner_stacking/(:any)/(:any)'] = 'InitController/distribusi_bioner_stacking/$1/$2';
 $route['distribusi_bioner_trade/(:any)/(:any)']    = 'InitController/distribusi_bioner_trade/$1/$2';
 
-$route['test/(:any)/(:any)'] = 'InitController/test/$1/$2';
+// $route['test/(:any)/(:any)'] = 'InitController/test/$1/$2';
+$route['test'] = 'InitController/test';
 ##############################################################################################################

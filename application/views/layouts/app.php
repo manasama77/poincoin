@@ -175,7 +175,9 @@ desired effect
 			});
 		});
 
-		$('.select2').select2();
+		$('.select2').select2({
+			allowClear: true
+		});
 	</script>
 
 	<!-- Optionally, you can add Slimscroll and FastClick plugins.

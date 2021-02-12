@@ -43,5 +43,29 @@ if ($this->session->flashdata('first_login')) {
 				<a href="<?= site_url('admins/user_management'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 			</div>
 		</div>
+		<div class="col-lg-3 col-xs-6">
+			<div class="small-box bg-primary">
+				<div class="inner">
+					<h3><?= $stacking_count; ?></h3>
+					<p>Stack</p>
+				</div>
+				<div class="icon">
+					<i class="fa fa-dollar"></i>
+				</div>
+				<a href="<?= site_url('admin/bioner_stacking/index'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+			</div>
+		</div>
+		<div class="col-lg-3 col-xs-6">
+			<div class="small-box bg-primary">
+				<div class="inner">
+					<h3><?= $trade_count; ?></h3>
+					<p>Trade</p>
+				</div>
+				<div class="icon">
+					<i class="fa fa-dollar"></i>
+				</div>
+				<a href="<?= site_url('admin/bioner_trade/index'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+			</div>
+		</div>
 	</div>
 </section>

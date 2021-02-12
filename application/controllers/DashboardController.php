@@ -20,7 +20,9 @@ class DashboardController extends CI_Controller
 		$data['vitamin'] = 'dashboard/index_vitamin';
 
 		$data['admin_count'] = $this->mcore->count("admins", ['deleted_at' => NULL, 'role' => 'master_admin']);
-		$data['user_count']  = $this->mcore->count("users", ['status' => 'aktif']);
+		$data['user_count']  = $this->mcore->count("users", ['status' => 'aktif', 'deleted_at' => NULL]);
+		$data['stacking_count']  = $this->mcore->count("bioner_stacking", ['status' => 'aktif', 'deleted_at' => NULL]);
+		$data['trade_count']  = $this->mcore->count("bioner_trade", ['status' => 'aktif', 'deleted_at' => NULL]);
 		// $data['customer_count']  = $this->mcore->count("customers", ['deleted_at' => NULL]);
 		// $data['pengajuan_count'] = $this->mcore->count("pengajuan", ['deleted_at' => NULL, 'MONTH(tanggal_pengajuan)' => $cur_month]);
 

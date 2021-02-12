@@ -69,6 +69,20 @@
 							</a>
 						</li>`;
 
+						var btnResetRekening = `
+						<li>
+							<a href="#" onclick="modalRekening('${res.id}')">
+								<i class="fa fa-book"></i> Reset Rekening
+							</a>
+						</li>`;
+
+						var btnDelete = `
+						<li>
+							<a href="#" onclick="deleteUser('${res.id}')">
+								<i class="fa fa-times"></i> Delete User
+							</a>
+						</li>`;
+
 						htmlnya = `
 						<div class="dropdown">
 							<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -79,6 +93,8 @@
 								${btnResetEmail}
 								${btnResetPassword}
 								${btnResetPin}
+								${btnResetRekening}
+								${btnDelete}
 							</ul>
 						</div>`;
 						return htmlnya;
@@ -244,6 +260,53 @@
 			}
 		});
 
+		$('#form_rekening').on('submit', function(e) {
+			e.preventDefault();
+
+			$.ajax({
+				url: `<?= site_url(); ?>admins/user_reset_rekening`,
+				method: 'post',
+				dataType: 'json',
+				data: {
+					id_user_rekening_edit: $('#id_user_rekening_edit').val(),
+					id_bank_edit: $('#id_bank_edit').val(),
+					no_rekening_edit: $('#no_rekening_edit').val(),
+					atas_nama_edit: $('#atas_nama_edit').val(),
+				},
+				beforeSend: function() {
+					$('#btn_save_rekening').attr('disabled', true);
+					$.blockUI();
+				}
+			}).done(function(res) {
+				if (res.code == 200) {
+					Swal.fire({
+						position: 'top-end',
+						icon: 'success',
+						title: `Reset Rekening Berhasil`,
+						showConfirmButton: false,
+						timer: 1500
+					}).then(function() {
+						$('#id_user_rekening_edit').val(null);
+						$('#id_bank_edit').val(null);
+						$('#no_rekening_edit').val(null);
+						$('#atas_nama_edit').val(null);
+						$('#modal_rekening').modal('hide');
+						table.draw();
+					});
+				} else {
+					Swal.fire({
+						position: 'top-end',
+						icon: 'error',
+						title: `Terjadi kesalahan dengan koneksi, silahkan refresh halaman`,
+						showConfirmButton: false,
+						timer: 1500
+					});
+				}
+				$('#btn_save_rekening').attr('disabled', false);
+				$.unblockUI();
+			});
+		});
+
 	});
 
 	function refreshTable() {
@@ -267,5 +330,56 @@
 		$('#new_pin').val(null);
 		$('#id_pin').val(id);
 		$('#modal_pin').modal('show');
+	}
+
+	function modalRekening(id) {
+		$("#id_bank_edit").val("").trigger('change');
+		$('#no_rekening_edit').val(null);
+		$('#atas_nama_edit').val(null);
+		$('#id_user_rekening_edit').val(id);
+		$('#modal_rekening').modal('show');
+	}
+
+	function deleteUser(id) {
+		Swal.fire({
+			icon: 'question',
+			title: `Delete User`,
+			showConfirmButton: true,
+			showCancelButton: true,
+			timer: 1500
+		}).then(function(e) {
+			if (e.isConfirmed) {
+				$.ajax({
+					url: `<?= site_url(); ?>admins/user_delete`,
+					method: 'post',
+					dataType: 'json',
+					data: {
+						id_user: id
+					},
+					beforeSend: function() {
+						$.blockUI();
+					}
+				}).always(function() {
+					$.unblockUI();
+				}).fail(function(e) {
+					console.log(e);
+				}).done(function(e) {
+					if (e.code == 500) {
+						Swal.fire({
+							icon: 'error',
+							title: 'Oops...',
+							text: 'Proses Delete Gagal, Tidak Terhubung Dengan Database',
+						});
+					} else if (e.code == 200) {
+						Swal.fire({
+							icon: 'success',
+							title: 'Success...',
+							text: 'Delete User Berhasil.',
+						});
+					}
+					table.draw();
+				});
+			}
+		});
 	}
 </script>
