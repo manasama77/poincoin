@@ -9,6 +9,7 @@ class EmailController extends CI_Controller
     {
         $data['arr'] = $this->mcore->get('users', '*', ['id' => '8']);
         $data['password_polos'] = "123";
+        $data['title'] = "BIONER SIGNUP INFORMATION";
         $this->load->view('email_signup', $data, FALSE);
     }
 }

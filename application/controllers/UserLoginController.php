@@ -450,6 +450,7 @@ class UserLoginController extends CI_Controller
         $email                  = urldecode($email);
         $data['arr']            = $this->mcore->get('users', '*', ['id' => $id]);
         $data['password_polos'] = $password_polos;
+        $data['title']          = "BIONER SIGNUP INFORMATION";
 
         if ($data['arr']->num_rows() == 1) {
             $template_email = $this->load->view('email_signup', $data, TRUE);
