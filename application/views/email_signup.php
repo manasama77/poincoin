@@ -7,7 +7,6 @@
         <?= $title; ?>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="<?= base_url(); ?>vendor/fortawesome/font-awesome/css/all.min.css">
 
     <style type="text/css">
         a[x-apple-data-detectors] {
@@ -87,7 +86,7 @@
                                 <tr>
                                     <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; padding-top: 0px; padding-bottom: 10px; width: 35px;">
                                         <a href="https://www.bioner-online.com" target="_blank" style="vertical-align: middle;">
-                                            <i class="fas fa-globe fa-2x"></i>
+                                            <img src="<?= base_url('public/img/globe.png'); ?>" style="width: 30px;">
                                         </a>
                                     </td>
                                     <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; padding-top: 0px; padding-bottom: 10px; vertical-align: middle;  text-align: left;">
@@ -99,7 +98,7 @@
                                 <tr>
                                     <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; padding-top: 0px; padding-bottom: 0px; width: 35px;">
                                         <a href="https://wa.me/6281219869989" target="_blank" style="vertical-align: middle;">
-                                            <i class="fab fa-whatsapp fa-2x"></i>
+                                            <img src="<?= base_url('public/img/whatsapp.png'); ?>" style="width: 30px;">
                                         </a>
                                     </td>
                                     <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; padding-top: 0px; padding-bottom: 0px; vertical-align: middle;  text-align: left;">
