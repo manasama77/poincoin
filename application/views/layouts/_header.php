@@ -15,14 +15,14 @@
 					<li class="dropdown user user-menu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<img src="<?= base_url(); ?>public/img/avatars/avatar_default.png" class="user-image" alt="User Image">
-							<span class="hidden-xs"><?= strtolower($this->session->userdata(SESS . 'username')); ?></span>
+							<span class="hidden-xs"><?= strtolower($this->session->userdata(SESS_ADMIN . 'username')); ?></span>
 						</a>
 						<ul class="dropdown-menu">
 							<li class="user-header">
 								<img src="<?= base_url(); ?>public/img/avatars/avatar_default.png" class="img-circle" alt="User Image">
 								<p>
-									<?= $this->session->userdata(SESS . 'username'); ?>
-									<small><?= ucfirst($this->session->userdata(SESS . 'nama')); ?></small>
+									<?= $this->session->userdata(SESS_ADMIN . 'username'); ?>
+									<small><?= ucfirst($this->session->userdata(SESS_ADMIN . 'nama')); ?></small>
 								</p>
 							</li>
 							<li class="user-footer">

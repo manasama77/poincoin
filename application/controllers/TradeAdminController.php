@@ -23,6 +23,47 @@ class TradeAdminController extends CI_Controller
         $this->template->template($data);
     }
 
+    public function add()
+    {
+        $data['title']   = 'Add Bioner Trade';
+        $data['content'] = 'trade/form';
+        $data['vitamin'] = 'trade/form_vitamin';
+
+        $arr_user = $this->mcore->get('users', '*', ['deleted_at' => NULL], 'id', 'desc');
+        $data['arr_user'] = $arr_user;
+
+        $this->template->template($data);
+    }
+
+    public function store()
+    {
+        $code           = 500;
+        $id_user        = $this->input->post('id_user');
+        $total_lot      = $this->input->post('total_lot');
+        $total_transfer =  $this->input->post('total_transfer');
+
+        for ($i = 0; $i < $total_lot; $i++) {
+            $kode = $this->_generate_kode_bioner_trade($id_user);
+            $data_bioner_trade = [
+                'kode'           => $kode,
+                'id_user'        => $id_user,
+                'status'         => 'pending',
+                'bukti_transfer' => NULL,
+                'created_at'     => date('Y-m-d H:i:s'),
+                'updated_at'     => date('Y-m-d H:i:s'),
+                'deleted_at'     => NULL,
+            ];
+            $exec_bioner_trade = $this->mcore->store('bioner_trade', $data_bioner_trade);
+
+            if ($exec_bioner_trade) {
+                $code = 200;
+            }
+        }
+
+
+        echo json_encode(['code' => $code]);
+    }
+
     public function verifikasi_transfer()
     {
         $id    = $this->input->post('id');
@@ -196,6 +237,15 @@ class TradeAdminController extends CI_Controller
         $data['arr_trade'] = $this->M_trade->list_bioner_trade_withdraw('success');
 
         $this->template->template($data);
+    }
+
+    public function _generate_kode_bioner_trade($id_user)
+    {
+        # format ID_USER.DDMMYY.##
+        $arr_unik = $this->M_trade->count_today_stack();
+        $unik     = $arr_unik->num_rows() + 1;
+        $kode     = "BT" . $id_user . "." . date('d') . "" . date("m") . "" . date("y") . "" . $unik;
+        return $kode;
     }
 }
         

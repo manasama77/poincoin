@@ -50,27 +50,25 @@
 											</td>
 											<td class="text-center"><?= $key->created_at; ?></td>
 											<td class="text-center" style="width: 170px !important;">
-												<div class="btn-group">
-													<?php
-													if ($key->status == "pending") {
-													?>
-														<button type="button" class="btn btn-primary btn-xs" onclick="verifikasiTransfer('<?= $key->id; ?>', '<?= $key->kode; ?>')">
-															<i class="fa fa-check fa-fw"></i> Verifikasi
-														</button>
-													<?php
-													} elseif ($key->status == "menunggu verifikasi") {
-													?>
-														<a href="<?= base_url('public/img/bukti_transfer_trade/' . $key->bukti_transfer); ?>" class="btn btn-info btn-xs" target="_blank"><i class="fa fa-picture-o"></i></a>
-														<button type="button" class="btn btn-primary btn-xs" onclick="verifikasiTransfer('<?= $key->id; ?>', '<?= $key->kode; ?>')">
-															<i class="fa fa-check fa-fw"></i> Verifikasi
-														</button>
-													<?php
-													}
-													?>
-													<button type="button" class="btn btn-danger btn-xs" onclick="deleteData('<?= $key->id; ?>', '<?= $key->kode; ?>')">
-														<i class="fa fa-trash fa-fw"></i> Delete
+												<?php
+												if ($key->status == "pending") {
+												?>
+													<button type="button" class="btn btn-primary" onclick="verifikasiTransfer('<?= $key->id; ?>', '<?= $key->kode; ?>')">
+														<i class="fa fa-check fa-fw"></i> Verifikasi
 													</button>
-												</div>
+												<?php
+												} elseif ($key->status == "menunggu verifikasi") {
+												?>
+													<a href="<?= base_url('public/img/bukti_transfer_trade/' . $key->bukti_transfer); ?>" class="btn btn-info" target="_blank"><i class="fa fa-picture-o"></i></a>
+													<button type="button" class="btn btn-primary" onclick="verifikasiTransfer('<?= $key->id; ?>', '<?= $key->kode; ?>')">
+														<i class="fa fa-check fa-fw"></i> Verifikasi
+													</button>
+												<?php
+												}
+												?>
+												<button type="button" class="btn btn-danger btn-xs" onclick="deleteData('<?= $key->id; ?>', '<?= $key->kode; ?>')">
+													<i class="fa fa-trash fa-fw"></i> Delete
+												</button>
 											</td>
 										</tr>
 									<?php

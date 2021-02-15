@@ -106,6 +106,8 @@ $route['admin/bioner_stacking_withdraw/success']    = 'StackingAdminController/w
 ##############################################################################################################
 # BIONER TRADE ADMIN
 $route['admin/bioner_trade/index']               = 'TradeAdminController/index';
+$route['admin/bioner_trade/add']                 = 'TradeAdminController/add';
+$route['admin/bioner_trade/store']               = 'TradeAdminController/store';
 $route['admin/bioner_trade/verifikasi_transfer'] = 'TradeAdminController/verifikasi_transfer';
 $route['admin/bioner_trade/delete_trade']        = 'TradeAdminController/delete_trade';
 $route['admin/bioner_trade_withdraw/pending']    = 'TradeAdminController/withdraw_pending';
@@ -147,4 +149,5 @@ $route['distribusi_bioner_trade/(:any)/(:any)']    = 'InitController/distribusi_
 
 // $route['test/(:any)/(:any)'] = 'InitController/test/$1/$2';
 $route['test'] = 'InitController/test';
+$route['email_signup_test'] = 'EmailController/signup';
 ##############################################################################################################
