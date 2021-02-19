@@ -216,6 +216,8 @@ class InitController extends CI_Controller
 
     public function distribusi_bioner_stacking($username, $password)
     {
+        ini_set('max_execution_time', 0);
+        ini_set('memory_limit', '2048M');
         if ($username == "adam" && $password == "adamgantengs") {
             $exec = $this->M_stacking->distribusi_bioner_stacking();
         } else {
@@ -225,6 +227,8 @@ class InitController extends CI_Controller
 
     public function distribusi_bioner_trade($username, $password)
     {
+        ini_set('max_execution_time', 0);
+        ini_set('memory_limit', '2048M');
         if ($username == "adam" && $password == "adamgantengs") {
             $exec = $this->M_trade->distribusi_bioner_trade();
         } else {
