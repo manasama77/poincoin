@@ -115,14 +115,14 @@
     <!-- MODAL SNK -->
     <div class="modal fade" id="modal_snk" tabindex="-1" role="dialog" aria-labelledby="modal_snk_title" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
+            <div class="modal-content" style="height: 80%;">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Terms & Conditions</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" style="height: 250px; overflow-y: auto;">
+                <div class="modal-body" style="height: 440px; overflow-y: scroll; max-height: calc(100% - 120px);">
                     <?php $this->load->view('snk'); ?>
                 </div>
                 <div class="modal-footer">
