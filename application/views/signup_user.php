@@ -93,6 +93,14 @@
                                     <input type="text" id="id_referal" name="id_referal" class="form-control btn-flat" placeholder="Referal" value="<?= ($this->uri->segment(2)) ? $this->uri->segment(2) : set_value('id_referal'); ?>" <?= ($this->uri->segment(2)) ? 'readonly' : ''; ?>>
                                     <label for="id_referal">Referal</label>
                                 </div>
+                                <div class="form-label-group">
+                                    <div class="form-check">
+                                        <input type="checkbox" class="form-check-input" id="snk" name="snk" required />
+                                        <label class="form-check-label" for="defaultCheck1" style="color: black;">
+                                            I Agree with <a href="#" onclick="showSNK();">Terms & Conditions with Trading Risk Notice</a>
+                                        </label>
+                                    </div>
+                                </div>
                                 <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase text-white btn-flat">Sign Up</button>
                                 <hr class="my-4">
                                 <a href="<?= site_url(); ?>/" class="btn btn-sm btn-warning btn-block text-uppercase btn-flat" type="submit"><span style="color: red">Already Have Account ?</span> <span style="color: black">Log In</span></a>
@@ -104,6 +112,28 @@
         </div>
     </div>
 
+    <!-- MODAL SNK -->
+    <div class="modal fade" id="modal_snk" tabindex="-1" role="dialog" aria-labelledby="modal_snk_title" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Terms & Conditions</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" style="height: 250px; overflow-y: auto;">
+                    <?php $this->load->view('snk'); ?>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="aggreeSNK();">Agree</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MODAL SNK -->
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="<?= base_url(); ?>vendor/components/jquery/jquery.min.js">
@@ -112,7 +142,23 @@
     </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
     </script>
-    <script src="<?= base_url(); ?>vendor/fontawesome-free-5.15.1-web/js/all.min.js"></script>
+    <script src="<?= base_url(); ?>vendor/fortawesome/font-awesome/js/all.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            //
+        });
+
+        function showSNK() {
+            $('#modal_snk').modal('show');
+
+        }
+
+        function aggreeSNK() {
+            $('#snk').prop('checked', true);
+            $('#modal_snk').modal('hide');
+        }
+    </script>
 </body>
 
 </html>
