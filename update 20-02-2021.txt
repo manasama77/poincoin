@@ -1,0 +1,14 @@
+- penambahan fitur notifikasi email ketika invest baru stacking (done)
+- penambahan fitur notifikasi email ketika invest baru trade
+- penambahan fitur notifikasi email ketika withdraw stacking (done)
+- penambahan fitur notifikasi email ketika withdraw trade
+- penambahan fitur notifikasi email ketika withdraw untuk stack baru (done)
+- penambahan fitur notifikasi email ketika withdraw untuk trade baru
+- penambahan fitur notifikasi email ketika admin reset email user
+- penambahan fitur notifikasi email ketika admin reset password user
+- penambahan fitur notifikasi email ketika admin reset pin user
+- penambahan fitur notifikasi email ketika admin reset rekening user
+- penambahan fitur notifikasi email ketika admin delete user
+- penambahan fitur notifikasi email ketika user setup rekening
+- penambahan fitur notifikasi email ketika user setup wallet
+- penambahan fitur notifikasi email ketika user setup ganti password

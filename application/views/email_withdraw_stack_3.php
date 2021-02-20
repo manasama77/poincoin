@@ -29,7 +29,7 @@
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; border: 1px solid #cccccc;">
                     <tr>
                         <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0;">
-                            <img src="<?= base_url('public/img/email_header_signup.png'); ?>" alt="BIONER HEADER" width="300" height="230" style="display: block;" />
+                            <img src="<?= base_url('public/img/email_header_withdraw.png'); ?>" alt="BIONER HEADER" width="300" height="230" style="display: block;" />
                         </td>
                     </tr>
                     <tr>
@@ -37,44 +37,12 @@
                             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
                                 <tr>
                                     <td style="color: #153643; font-family: Arial, sans-serif; text-align: center;">
-                                        <h1 style="font-size: 24px; margin: 0;">Registrasi Berhasil</h1>
+                                        <h1 style="font-size: 24px; margin: 0;">Withdraw - <?= $kode_withdraw; ?></h1>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 20px 0 30px 0;">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                                            <tr>
-                                                <td style="width: 130px;">Nama</td>
-                                                <td style="width: 10px;">:</td>
-                                                <td><?= $arr->row()->nama; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 130px;">Email</td>
-                                                <td style="width: 10px;">:</td>
-                                                <td><?= $arr->row()->email; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 130px;">No. Handphone</td>
-                                                <td style="width: 10px;">:</td>
-                                                <td><?= $arr->row()->no_hp; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 130px;">Password</td>
-                                                <td style="width: 10px;">:</td>
-                                                <td><?= $password_polos; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 130px;">PIN Transaksi</td>
-                                                <td style="width: 10px;">:</td>
-                                                <td><?= $arr->row()->pin; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3">
-                                                    <h4>Pastikan kamu menjaga informasi akun kamu, jangan sampai data <mark>Password & PIN Transaksi</mark> tersebar dan disalahgunakan</h4>
-                                                    <h4>Terima Kasih<br><small>Ini adalah email otomatis, jangan membalas email ini.</small></h4>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                    <td style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 20px 0 30px 0; text-align:center;">
+                                        <p>Withdraw sebesar <?= $withdraw_b; ?> Bioner Untuk Investment <?= $kode_invest; ?> Berhasil</p>
                                     </td>
                                 </tr>
                             </table>

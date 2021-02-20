@@ -23,6 +23,10 @@
         btn_upload_bukti_transfer = $('#btn_upload_bukti_transfer');
 
     $('document').ready(function() {
+        $('.datatables').DataTable({
+            responsive: true
+        });
+
         up_value.on('click', function() {
             getTotalTransfer("up");
         });
@@ -81,7 +85,7 @@
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Success...',
-                                    html: `Proses Add New Hak Investment Berhasil.<br>Silahkan lakukan transfer sejumlah <b>Rp.${numberWithCommas(valueTotalTransfer)}</b> ke no rekening dinomor <br> <b><?= NO_REKENING_ADMIN; ?><br>a/n <?= ATAS_NAMA_NO_REKENING_ADMIN; ?><br>Bank <?= NAMA_BANK_ADMIN; ?><b>`,
+                                    html: `Proses Add New Hak Investment Berhasil.<br>Silahkan lakukan transfer sejumlah <b>Rp.${numberWithCommas(valueTotalTransfer)}</b> ke no rekening dinomor <br> <b><?= NO_REKENING_ADMIN; ?><br><?= ATAS_NAMA_NO_REKENING_ADMIN; ?><br>Bank <?= NAMA_BANK_ADMIN; ?><b>`,
                                 }).then(function(result) {
                                     window.location.reload();
                                 });

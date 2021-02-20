@@ -54,7 +54,7 @@ class M_trade extends CI_Model
     {
         $this->db->where_in('status', [
             'aktif',
-            'menunggu_transfer',
+            'pending',
             'menunggu_verifikasi',
         ]);
         $this->db->where('id_user', $this->session->userdata(SESS . 'id'));

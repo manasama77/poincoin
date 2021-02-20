@@ -470,6 +470,11 @@ class UserLoginController extends CI_Controller
             $this->mcore->store('log_email_signup', $data_log_email);
         }
     }
+
+    public function no_js()
+    {
+        $this->load->view('no_js');
+    }
 }
         
     /* End of file  UserLoginController.php */

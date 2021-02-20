@@ -29,7 +29,7 @@
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; border: 1px solid #cccccc;">
                     <tr>
                         <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0;">
-                            <img src="<?= base_url('public/img/email_header_signup.png'); ?>" alt="BIONER HEADER" width="300" height="230" style="display: block;" />
+                            <img src="<?= base_url('public/img/email_header_trade.png'); ?>" alt="BIONER HEADER" width="300" height="230" style="display: block;" />
                         </td>
                     </tr>
                     <tr>
@@ -37,41 +37,46 @@
                             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
                                 <tr>
                                     <td style="color: #153643; font-family: Arial, sans-serif; text-align: center;">
-                                        <h1 style="font-size: 24px; margin: 0;">Registrasi Berhasil</h1>
+                                        <h1 style="font-size: 24px; margin: 0;">Add New Trade - <?= $kode; ?></h1>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 20px 0 30px 0;">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                    <td style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 20px 0 30px 0; text-align:center;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; text-align: left">
                                             <tr>
-                                                <td style="width: 130px;">Nama</td>
+                                                <td style="width: 170px;">Total Hak Investment</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= $arr->row()->nama; ?></td>
+                                                <td>1 Lot</td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 130px;">Email</td>
+                                                <td style="width: 170px;">Nilai Investment</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= $arr->row()->email; ?></td>
+                                                <td>Rp.<?= number_format('600000', 0); ?></td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 130px;">No. Handphone</td>
+                                                <td style="width: 170px;">Biaya Sewa</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= $arr->row()->no_hp; ?></td>
+                                                <td>Rp.<?= number_format('150000', 0); ?></td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 130px;">Password</td>
+                                                <td style="width: 170px;">Total Transfer</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= $password_polos; ?></td>
+                                                <td>Rp.<?= number_format('750000', 0); ?></td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 130px;">PIN Transaksi</td>
+                                                <td style="width: 170px;">Profit per Day</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= $arr->row()->pin; ?></td>
+                                                <td>Rp.<?= number_format('3000', 0); ?></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3">
-                                                    <h4>Pastikan kamu menjaga informasi akun kamu, jangan sampai data <mark>Password & PIN Transaksi</mark> tersebar dan disalahgunakan</h4>
-                                                    <h4>Terima Kasih<br><small>Ini adalah email otomatis, jangan membalas email ini.</small></h4>
+                                                    <ul>
+                                                        <li>Nilai Pembukaan Hak Investment adalah sebesar <mark>Rp.600,000</mark></li>
+                                                        <li>Biaya Sewa Per Satu Hak Investment adalah Sebesar <mark>Rp.150,000</mark></li>
+                                                        <li>Profit Per Hari yang akan diberikan per 1 Lot / Hak Investment Sebesar <mark>Rp.3,000</mark></li>
+                                                        <li>Jadwal pembagian profit akan dilakukan oleh server setiap hari pada pukul <mark>00:00</mark></li>
+                                                        <li>Untuk melakukan transfer bisa di nomor rekening Bank <mark><?= NAMA_BANK_ADMIN; ?> <?= NO_REKENING_ADMIN; ?> <?= ATAS_NAMA_NO_REKENING_ADMIN; ?></mark></li>
+                                                    </ul>
                                                 </td>
                                             </tr>
                                         </table>

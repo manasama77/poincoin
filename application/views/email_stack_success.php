@@ -29,7 +29,7 @@
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; border: 1px solid #cccccc;">
                     <tr>
                         <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0;">
-                            <img src="<?= base_url('public/img/email_header_signup.png'); ?>" alt="BIONER HEADER" width="300" height="230" style="display: block;" />
+                            <img src="<?= base_url('public/img/email_header_stacking.png'); ?>" alt="BIONER HEADER" width="300" height="230" style="display: block;" />
                         </td>
                     </tr>
                     <tr>
@@ -37,41 +37,37 @@
                             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
                                 <tr>
                                     <td style="color: #153643; font-family: Arial, sans-serif; text-align: center;">
-                                        <h1 style="font-size: 24px; margin: 0;">Registrasi Berhasil</h1>
+                                        <h1 style="font-size: 24px; margin: 0;">Add New Stack - <?= $kode; ?></h1>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 20px 0 30px 0;">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px;">
+                                    <td style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 20px 0 30px 0; text-align:center;">
+                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; text-align: left">
                                             <tr>
-                                                <td style="width: 130px;">Nama</td>
+                                                <td style="width: 130px;">Total Investment</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= $arr->row()->nama; ?></td>
+                                                <td><?= number_format($total_investment, 4); ?> B</td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 130px;">Email</td>
+                                                <td style="width: 130px;">Total Transfer</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= $arr->row()->email; ?></td>
+                                                <td>Rp.<?= number_format($total_transfer, 0); ?></td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 130px;">No. Handphone</td>
+                                                <td style="width: 130px;">Profit per Day</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= $arr->row()->no_hp; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 130px;">Password</td>
-                                                <td style="width: 10px;">:</td>
-                                                <td><?= $password_polos; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 130px;">PIN Transaksi</td>
-                                                <td style="width: 10px;">:</td>
-                                                <td><?= $arr->row()->pin; ?></td>
+                                                <td><?= number_format($profit_perhari_b, 4); ?> B</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3">
-                                                    <h4>Pastikan kamu menjaga informasi akun kamu, jangan sampai data <mark>Password & PIN Transaksi</mark> tersebar dan disalahgunakan</h4>
-                                                    <h4>Terima Kasih<br><small>Ini adalah email otomatis, jangan membalas email ini.</small></h4>
+                                                    <ul>
+                                                        <li>Jika kamu belum pernah melakukan pembukaan Bioner Stacking, maka akan dikenakan biaya awal pembukaan Bioner Stacking adalah sebesar <mark>Rp.100,000</mark></li>
+                                                        <li>Minimal Investment adalah <mark>100 Bioner</mark> atau <mark>Rp.1,500,000</mark></li>
+                                                        <li>Nilai Investment berlaku kelipatan <mark>100 Bioner</mark> atau <mark>Rp.1,500,000</mark></li>
+                                                        <li>Setiap hari pada pukul <mark>00:00</mark> Setiap Stack akan di compund sebesar <mark>0.5%</mark></li>
+                                                        <li>Jika Bioner Profit telah mencapai nilai <mark>10 B</mark>. Nilai tersebut dapat diinvestmentkan pada fitur <mark>Withdraw</mark></li>
+                                                        <li>Untuk melakukan transfer bisa di nomor rekening Bank<br><mark><?= NAMA_BANK_ADMIN; ?> <?= NO_REKENING_ADMIN; ?> <?= ATAS_NAMA_NO_REKENING_ADMIN; ?></mark><br>atau transfer menggunakan <mark>Doge Coin</mark> ke Nomor Wallet<br><mark><?= NO_WALLET_ADMIN; ?></mark></li>
+                                                    </ul>
                                                 </td>
                                             </tr>
                                         </table>

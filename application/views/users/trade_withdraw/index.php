@@ -58,7 +58,7 @@
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <div class="table-responsive">
-                    <table class="table table-bordered w-100">
+                    <table class="table table-bordered w-100 datatables">
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
@@ -76,12 +76,11 @@
                         </thead>
                         <tbody>
                             <?php
-                            if ($arr_withdraw->num_rows() == 0) {
-                                echo '<tr><td colspan="6" class="text-center">Kamu belum memiliki history withdraw</td></tr>';
-                            } else {
+                            if ($arr_withdraw->num_rows() > 0) {
                                 $no = 1;
                                 foreach ($arr_withdraw->result() as $key) {
                                     $btn = '';
+                                    $tgl_obj = new DateTime($key->created_at);
                                     if ($key->status == "pending") {
                                         $bg_color = "secondary";
                                         $btn = '
@@ -94,9 +93,8 @@
                                         $bg_color = "danger";
                                     }
 
-                                    $rekening = "";
-                                    if ($key->id_user_bank != NULL) {
-                                    } elseif ($key->kode_invest != NULL) {
+                                    $rekening = $no_rekening . " " . $nama_bank . " a/n " . $atas_nama;
+                                    if ($key->kode_invest != NULL) {
                                         $rekening = 'Investment ' . $key->kode_invest;
                                     }
 
@@ -105,7 +103,7 @@
                                     <td class="text-center">' . $no . '</td>
                                     <td class="text-right">' . number_format($key->withdraw_rp, 0) . '</td>
                                     <td class="text-center">' . $rekening . '</td>
-                                    <td class="text-center">' . $key->created_at . '</td>
+                                    <td class="text-center">' . $tgl_obj->format('d-M-Y H:i') . '</td>
                                     <td class="text-center">
                                     <span class="badge badge-' . $bg_color . '">
                                     ' . $key->status . '
@@ -175,7 +173,7 @@
                                 <input type="number" class="form-control" id="withdraw_rp" name="withdraw_rp" placeholder="Withdraw Amount (Rp)" min="10000" max="<?= $balance_saldo; ?>" step="10000" pattern="[0-9]" inputmode="tel" required />
                             </div>
                             <div class="col-12">
-                                <small class="form-text text-muted">Minimal Rp.750,000 untuk dapat diinvestkan kembali</small>
+                                <small class="form-text text-muted">Minimal Withdraw sebesar Rp.10,000</small>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Withdraw</button>

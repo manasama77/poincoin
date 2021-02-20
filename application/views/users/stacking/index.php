@@ -58,10 +58,11 @@
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <div class="table-responsive">
-                    <table class="table table-bordered w-100">
+                    <table class="table table-bordered w-100 datatables">
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
+                                <th class="text-center">Code</th>
                                 <th class="text-right">Investment</th>
                                 <th class="text-right" style="min-width: 100px;">Profit Per Day</th>
                                 <th class="text-center">Status</th>
@@ -73,9 +74,11 @@
                             if ($arr_stacking->num_rows() > 0) {
                             ?>
                                 <?php
+                                $no = 1;
                                 foreach ($arr_stacking->result() as $key) {
                                 ?>
                                     <tr>
+                                        <td class="text-center"><?= $no; ?></td>
                                         <td class="text-center"><?= $key->kode; ?></td>
                                         <td class="text-right"><?= number_format($key->total_investment, 0); ?> B</td>
                                         <td class="text-right"><?= number_format($key->profit_perhari_b, 4); ?> B</td>
@@ -96,16 +99,15 @@
                                             <?php
                                             $created_obj = new DateTime($key->created_at);
                                             $created_obj->createFromFormat('Y-m-d H:i:s', $key->created_at);
-                                            echo $created_obj->format('d-M-Y');
+                                            echo $created_obj->format('d-M-Y H:i');
                                             ?>
                                         </td>
                                     </tr>
                                 <?php
+                                    $no++;
                                 }
                                 ?>
                             <?php
-                            } else {
-                                echo '<tr><td colspan="5" class="text-center">Kamu tidak memiliki data investment Bioner Stacking</td></tr>';
                             }
                             ?>
                         </tbody>
@@ -151,7 +153,7 @@
                                             <?php
                                             $created_obj = new DateTime($key->created_at);
                                             $created_obj->createFromFormat('Y-m-d H:i:s', $key->created_at);
-                                            echo $created_obj->format('d-M-Y');
+                                            echo $created_obj->format('d-M-Y H:i');
                                             ?>
                                         </td>
                                     </tr>
@@ -160,8 +162,6 @@
                                 }
                                 ?>
                             <?php
-                            } else {
-                                echo '<tr><td colspan="5" class="text-center">Kamu tidak memiliki data Log</td></tr>';
                             }
                             ?>
                         </tbody>

@@ -58,10 +58,11 @@
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <div class="table-responsive">
-                    <table class="table table-bordered w-100">
+                    <table class="table table-bordered w-100 datatables">
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
+                                <th class="text-center">Code</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center" style="min-width: 120px;">Created</th>
                             </tr>
@@ -71,9 +72,11 @@
                             if ($arr_bioner_trade->num_rows() > 0) {
                             ?>
                                 <?php
+                                $no = 1;
                                 foreach ($arr_bioner_trade->result() as $key) {
                                 ?>
                                     <tr>
+                                        <td class="text-center"><?= $no; ?></td>
                                         <td class="text-center"><?= $key->kode; ?></td>
                                         <td class="text-center">
                                             <?php
@@ -92,11 +95,12 @@
                                             <?php
                                             $created_obj = new DateTime($key->created_at);
                                             $created_obj->createFromFormat('Y-m-d H:i:s', $key->created_at);
-                                            echo $created_obj->format('d-M-Y');
+                                            echo $created_obj->format('d-M-Y H:i');
                                             ?>
                                         </td>
                                     </tr>
                                 <?php
+                                    $no++;
                                 }
                                 ?>
                             <?php

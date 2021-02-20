@@ -12,6 +12,10 @@
         form_invest = $('#form_invest');
 
     $('document').ready(function() {
+        $('.datatables').DataTable({
+            responsive: true
+        });
+
         withdraw_rp.on('change', function() {
             getTotalTransfer();
         });

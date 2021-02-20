@@ -162,6 +162,10 @@
 
     </div>
 
+    <noscript>
+        <meta http-equiv="refresh" content="1;url=<?= base_url(); ?>no_js">
+    </noscript>
+
 
 
     <!-- Optional JavaScript -->

@@ -5,6 +5,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 $route['default_controller']   = 'UserLoginController/index';
 $route['404_override']         = 'My404';
 $route['translate_uri_dashes'] = FALSE;
+$route['no_js']                = 'UserLoginController/no_js';
+$route['test_email']                = 'TradeController/test_email';
 ##############################################################################################################
 
 ##############################################################################################################

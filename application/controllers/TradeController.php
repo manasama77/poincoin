@@ -10,6 +10,7 @@ class TradeController extends CI_Controller
         parent::__construct();
         $this->load->library('TemplateUser', NULL, 'template');
         $this->load->model('M_trade');
+        $this->load->model('M_users');
     }
 
     public function index()
@@ -34,17 +35,17 @@ class TradeController extends CI_Controller
 
     public function add()
     {
-        $id_user = $this->session->userdata(SESS . 'id');
-        $code = 500;
-        $total_lot = $this->input->post('total_lot');
+        $id_user        = $this->session->userdata(SESS . 'id');
+        $code           = 500;
+        $total_lot      = $this->input->post('total_lot');
         $total_transfer = $this->input->post('total_transfer');
 
         for ($i = 0; $i < $total_lot; $i++) {
             $kode = $this->_generate_kode_bioner_trade($id_user);
             $data_bioner_trade = [
-                'kode' => $kode,
-                'id_user' => $id_user,
-                'status' => 'pending',
+                'kode'       => $kode,
+                'id_user'    => $id_user,
+                'status'     => 'pending',
                 'created_at' => date('Y-m-d H:i:s'),
                 'updated_at' => date('Y-m-d H:i:s'),
                 'deleted_at' => NULL,
@@ -53,6 +54,7 @@ class TradeController extends CI_Controller
 
             if ($exec_bioner_trade) {
                 $code = 200;
+                $this->email_add($kode);
             }
         }
 
@@ -126,10 +128,15 @@ class TradeController extends CI_Controller
 
         $data['balance_saldo']    = $balance_saldo;
         $data['total_investment'] = $arr_total_investment;
+        $arr_rekening     = $this->M_trade->get_user_rekeing();
         $data['arr_rekening']     = $this->M_trade->get_user_rekeing();
 
+        $data['no_rekening'] = $arr_rekening->row()->no_rekening;
+        $data['nama_bank']   = $arr_rekening->row()->nama_bank;
+        $data['atas_nama']   = $arr_rekening->row()->atas_nama;
+
         $arr_user_bioner_trade = $this->mcore->get('users_bioner_trade', '*', ['id_user' => $id_user, 'deleted_at' => NULL]);
-        $data['trigger_ask'] = $arr_user_bioner_trade->row()->trigger_ask;
+        $data['trigger_ask']   = $arr_user_bioner_trade->row()->trigger_ask;
 
         $this->template->template($data);
     }
@@ -211,6 +218,7 @@ class TradeController extends CI_Controller
                                     if ($exec_logs) {
                                         $code = 200;
                                         $this->db->trans_commit();
+                                        $this->email_withdraw_trade_2($kode);
                                     } else {
                                         $code = 500;
                                         $this->db->trans_rollback();
@@ -271,6 +279,7 @@ class TradeController extends CI_Controller
                     if ($exec_logs) {
                         $code = 200;
                         $this->db->trans_commit();
+                        $this->email_withdraw_trade_1($kode_withdraw, $withdraw_rp);
                     } else {
                         $this->db->trans_rollback();
                     }
@@ -342,6 +351,109 @@ class TradeController extends CI_Controller
         $unik     = $arr_unik->num_rows() + 1;
         $kode     = "BTW" . $id_user . "." . date('d') . "" . date("m") . "" . date("y") . "" . $unik;
         return $kode;
+    }
+
+    public function test_email()
+    {
+        $data = [
+            'kode'       => '123',
+            'kode_withdraw'       => '123',
+            'id_user'    => '8',
+            'status'     => 'pending',
+            'created_at' => date('Y-m-d H: i: s'),
+            'updated_at' => date('Y-m-d H: i: s'),
+            'deleted_at' => NULL,
+            'title'      => 'trade',
+        ];
+        $this->load->view('email_trade_success_2', $data, FALSE);
+    }
+
+    public function email_add($kode)
+    {
+        $id            = $this->session->userdata(SESS . 'id');
+        $email         = $this->session->userdata(SESS . 'email');
+        $title         = "BIONER ADD NEW TRADE - " . $kode;
+        $data['title'] = $title;
+        $data['kode']  = $kode;
+
+        $template_email = $this->load->view('email_trade_success', $data, TRUE);
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_trade', $data_log_email);
+    }
+
+    public function email_withdraw_trade_1($kode_withdraw, $withdraw_rp)
+    {
+        $id       = $this->session->userdata(SESS . 'id');
+        $email    = $this->session->userdata(SESS . 'email');
+        $arr_bank = $this->M_users->get_user_bank_data();
+
+        $no_rekening = $arr_bank->row()->no_rekening;
+        $nama_bank   = $arr_bank->row()->nama_bank;
+        $atas_nama   = $arr_bank->row()->atas_nama;
+        $title       = "BIONER WITHDRAW TRADE - " . $kode_withdraw;
+
+        $data['title']         = $title;
+        $data['kode_withdraw'] = $kode_withdraw;
+        $data['withdraw_rp']   = $withdraw_rp;
+        $data['no_rekening']   = $no_rekening;
+        $data['nama_bank']     = $nama_bank;
+        $data['atas_nama']     = $atas_nama;
+        $template_email        = $this->load->view('email_withdraw_trade_1', $data, TRUE);
+
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_withdraw', $data_log_email);
+    }
+
+    public function email_withdraw_trade_2($kode)
+    {
+        $id            = $this->session->userdata(SESS . 'id');
+        $email         = $this->session->userdata(SESS . 'email');
+        $title         = "BIONER ADD NEW TRADE - " . $kode;
+        $data['title'] = $title;
+        $data['kode']  = $kode;
+
+        $template_email = $this->load->view('email_trade_success_2', $data, TRUE);
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_trade', $data_log_email);
     }
 }
         

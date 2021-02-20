@@ -10,6 +10,7 @@ class StackingController extends CI_Controller
         parent::__construct();
         $this->load->library('TemplateUser', NULL, 'template');
         $this->load->model('M_stacking');
+        $this->load->model('M_users');
     }
 
     public function index()
@@ -48,6 +49,7 @@ class StackingController extends CI_Controller
 
     public function add()
     {
+        $data_stacking    = [];
         $id_user          = $this->session->userdata(SESS . 'id');
         $total_investment = str_replace(',', '', $this->input->post('total_investment'));
         $total_transfer   = str_replace(',', '', $this->input->post('total_transfer'));
@@ -76,6 +78,8 @@ class StackingController extends CI_Controller
 
             $code = 200;
         }
+
+        $this->email_add($data_stacking);
 
         echo json_encode(['code' => $code]);
     }
@@ -136,7 +140,7 @@ class StackingController extends CI_Controller
     public function withdraw()
     {
         $id_user = $this->session->userdata(SESS . 'id');
-        $pin = $this->session->userdata(SESS . 'pin');
+        $pin     = $this->session->userdata(SESS . 'pin');
 
         $data['title']   = 'Bioner Stacking Withdraw';
         $data['content'] = 'stacking_withdraw/index';
@@ -172,17 +176,16 @@ class StackingController extends CI_Controller
     public function withdraw_process()
     {
         $this->db->trans_begin();
-        $id_user = $this->session->userdata(SESS . 'id');
-        $withdraw_b = $this->input->post('withdraw_b');
-        $withdraw_rp = $this->input->post('withdraw_rp');
-        $id_jenis = $this->input->post('id_jenis');
-        $id_rekening = $this->input->post('id_rekening');
-        $id_wallet = $this->input->post('id_wallet');
+        $id_user       = $this->session->userdata(SESS . 'id');
+        $withdraw_b    = $this->input->post('withdraw_b');
+        $withdraw_rp   = $this->input->post('withdraw_rp');
+        $id_jenis      = $this->input->post('id_jenis');
+        $id_rekening   = $this->input->post('id_rekening');
+        $id_wallet     = $this->input->post('id_wallet');
         $kode_withdraw = $this->_generate_kode_bioner_stacking_withdraw($id_user);
-        $code = 500;
+        $code          = 500;
 
         if ($id_jenis == "invest") {
-            //
             $total_investment = $withdraw_b;
             $total_transfer   = $withdraw_b * 15000;
 
@@ -210,14 +213,14 @@ class StackingController extends CI_Controller
                 if ($exec) {
                     $id_bioner_stacking = $this->db->insert_id();
                     $data_logs = [
-                        'id_user' => $id_user,
+                        'id_user'            => $id_user,
                         'id_bioner_stacking' => $id_bioner_stacking,
-                        'type' => 'investment',
-                        'nominal_b' => $total_investment,
-                        'nominal_rp' => $total_investment * 15000,
-                        'kode' => $kode,
-                        'keterangan' => 'Investment sebesar ' . $total_investment . ' Bioner dari Profit',
-                        'created_at' => date('Y-m-d H:i:s')
+                        'type'               => 'investment',
+                        'nominal_b'          => $total_investment,
+                        'nominal_rp'         => $total_investment * 15000,
+                        'kode'               => $kode,
+                        'keterangan'         => 'Investment sebesar ' . $total_investment . ' Bioner dari Profit',
+                        'created_at'         => date('Y-m-d H:i:s')
                     ];
                     $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
 
@@ -226,17 +229,17 @@ class StackingController extends CI_Controller
 
                         if ($exec_users_bioner_stacking) {
                             $data_withdraw = [
-                                'id_user' => $id_user,
-                                'id_user_bank' => NULL,
+                                'id_user'        => $id_user,
+                                'id_user_bank'   => NULL,
                                 'id_user_wallet' => NULL,
-                                'kode_withdraw' => $kode_withdraw,
-                                'kode_invest' => $kode,
-                                'withdraw_b' => $withdraw_b,
-                                'withdraw_rp' => $withdraw_rp,
-                                'status' => 'success',
-                                'created_at' => date('Y-m-d H:i:s'),
-                                'updated_at' => date('Y-m-d H:i:s'),
-                                'deleted_at' => NULL,
+                                'kode_withdraw'  => $kode_withdraw,
+                                'kode_invest'    => $kode,
+                                'withdraw_b'     => $withdraw_b,
+                                'withdraw_rp'    => $withdraw_rp,
+                                'status'         => 'success',
+                                'created_at'     => date('Y-m-d H:i:s'),
+                                'updated_at'     => date('Y-m-d H:i:s'),
+                                'deleted_at'     => NULL,
                             ];
 
                             $exec_withdraw = $this->mcore->store('user_bioner_stacking_withdraw', $data_withdraw);
@@ -245,20 +248,21 @@ class StackingController extends CI_Controller
                                 $exec_reduce_profit = $this->M_stacking->reduce_profit($id_user, $withdraw_b);
                                 if ($exec_reduce_profit) {
                                     $data_logs = [
-                                        'id_user' => $id_user,
+                                        'id_user'            => $id_user,
                                         'id_bioner_stacking' => $id_bioner_stacking,
-                                        'type' => 'withdraw',
-                                        'nominal_b' => $withdraw_b,
-                                        'nominal_rp' => $withdraw_rp,
-                                        'kode' => $kode_withdraw,
-                                        'keterangan' => 'Withdraw sebesar ' . $withdraw_b . ' Bioner Untuk Investment ' . $kode,
-                                        'created_at' => date('Y-m-d H:i:s'),
+                                        'type'               => 'withdraw',
+                                        'nominal_b'          => $withdraw_b,
+                                        'nominal_rp'         => $withdraw_rp,
+                                        'kode'               => $kode_withdraw,
+                                        'keterangan'         => 'Withdraw sebesar ' . $withdraw_b . ' Bioner Untuk Investment ' . $kode,
+                                        'created_at'         => date('Y-m-d H:i:s'),
                                     ];
                                     $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
 
                                     if ($exec_logs) {
                                         $code = 200;
                                         $this->db->trans_commit();
+                                        $this->email_withdraw_stack_3($data_withdraw);
                                     } else {
                                         $this->db->trans_rollback();
                                     }
@@ -287,16 +291,16 @@ class StackingController extends CI_Controller
             }
 
             $data_withdraw = [
-                'id_user' => $id_user,
-                'id_user_bank' => $id_rekening,
+                'id_user'        => $id_user,
+                'id_user_bank'   => $id_rekening,
                 'id_user_wallet' => $id_wallet,
-                'kode_withdraw' => $kode_withdraw,
-                'withdraw_b' => $withdraw_b,
-                'withdraw_rp' => $withdraw_rp,
-                'status' => 'pending',
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-                'deleted_at' => NULL,
+                'kode_withdraw'  => $kode_withdraw,
+                'withdraw_b'     => $withdraw_b,
+                'withdraw_rp'    => $withdraw_rp,
+                'status'         => 'pending',
+                'created_at'     => date('Y-m-d H:i:s'),
+                'updated_at'     => date('Y-m-d H:i:s'),
+                'deleted_at'     => NULL,
             ];
 
             $exec_withdraw = $this->mcore->store('user_bioner_stacking_withdraw', $data_withdraw);
@@ -328,6 +332,12 @@ class StackingController extends CI_Controller
                 }
             } else {
                 $this->db->trans_rollback();
+            }
+
+            if ($id_jenis == "bank") {
+                $this->email_withdraw_stack_1($data_withdraw);
+            } elseif ($id_jenis == "doge") {
+                $this->email_withdraw_stack_2($data_withdraw);
             }
         }
 
@@ -384,6 +394,120 @@ class StackingController extends CI_Controller
         }
 
         echo json_encode(['code' => $code]);
+    }
+
+    public function email_add($data)
+    {
+        $id             = $this->session->userdata(SESS . 'id');
+        $email          = $this->session->userdata(SESS . 'email');
+        $template_email = $this->load->view('email_stack_success', $data, TRUE);
+        $title          = "BIONER ADD NEW STACK - " . $data['kode'];
+        $data['title']  = $title;
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H: i: s'),
+        ];
+        $this->mcore->store('log_email_stacking', $data_log_email);
+    }
+
+    public function email_withdraw_stack_1($data)
+    {
+        $id       = $this->session->userdata(SESS . 'id');
+        $email    = $this->session->userdata(SESS . 'email');
+        $arr_bank = $this->M_users->get_user_bank_data();
+
+        $no_rekening = $arr_bank->row()->no_rekening;
+        $nama_bank   = $arr_bank->row()->nama_bank;
+        $atas_nama   = $arr_bank->row()->atas_nama;
+        $title       = "BIONER WITHDRAW STACK - " . $data['kode_withdraw'];
+
+        $data['title']       = $title;
+        $data['no_rekening'] = $no_rekening;
+        $data['nama_bank']   = $nama_bank;
+        $data['atas_nama']   = $atas_nama;
+        $template_email      = $this->load->view('email_withdraw_stack_1', $data, TRUE);
+
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_withdraw', $data_log_email);
+    }
+
+    public function email_withdraw_stack_2($data)
+    {
+        $id       = $this->session->userdata(SESS . 'id');
+        $email    = $this->session->userdata(SESS . 'email');
+        $arr_bank = $this->mcore->get('user_wallets', '*', ['id_user' => $id]);
+
+        $no_wallet         = $arr_bank->row()->no_wallet;
+        $title             = "BIONER WITHDRAW STACK - " . $data['kode_withdraw'];
+        $data['title']     = $title;
+        $data['no_wallet'] = $no_wallet;
+        $template_email    = $this->load->view('email_withdraw_stack_2', $data, TRUE);
+
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_withdraw', $data_log_email);
+    }
+
+    public function email_withdraw_stack_3($data)
+    {
+        $id       = $this->session->userdata(SESS . 'id');
+        $email    = $this->session->userdata(SESS . 'email');
+        $arr_bank = $this->M_users->get_user_bank_data();
+
+        $title          = "BIONER WITHDRAW STACK - " . $data['kode_withdraw'];
+        $data['title']  = $title;
+        $template_email = $this->load->view('email_withdraw_stack_3', $data, TRUE);
+
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_withdraw', $data_log_email);
     }
 }
         

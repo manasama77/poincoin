@@ -15,6 +15,10 @@
         form_invest = $('#form_invest');
 
     $('document').ready(function() {
+        $('.datatables').DataTable({
+            responsive: true
+        });
+
         upValue.on('click', function() {
             getTotalTransfer("up");
         });
