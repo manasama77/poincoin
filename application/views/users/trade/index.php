@@ -104,8 +104,6 @@
                                 }
                                 ?>
                             <?php
-                            } else {
-                                echo '<tr><td colspan="3" class="text-center">Kamu tidak memiliki data investment Bioner Trade</td></tr>';
                             }
                             ?>
                         </tbody>
