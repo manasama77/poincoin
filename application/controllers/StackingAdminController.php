@@ -265,16 +265,14 @@ class StackingAdminController extends CI_Controller
     {
         $this->db->trans_begin();
 
-        $id = $this->input->post('id');
+        $id   = $this->input->post('id');
         $code = 500;
 
         $data_withdraw = [
-            'status' => 'success',
+            'status'     => 'success',
             'updated_at' => date('Y-m-d H:i:s'),
         ];
-
         $where_withdraw = ['id' => $id];
-
         $exec = $this->mcore->update('user_bioner_stacking_withdraw', $data_withdraw, $where_withdraw);
 
         if ($exec) {
@@ -355,6 +353,28 @@ class StackingAdminController extends CI_Controller
         $unik = $arr_unik->num_rows() + 1;
         $kode = "BS" . $id_user . "." . date('d') . "" . date("m") . "" . date("y") . "" . $unik;
         return $kode;
+    }
+
+    public function email_withdraw_verifikasi($id, $email, $kode)
+    {
+        $title               = "BIONER ACCOUNT - WITHDRAW " . $kode . " COMPLETE";
+        $data['title']       = $title;
+        $template_email      = $this->load->view('email_withdraw_verifikasi', $data, TRUE);
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_signup', $data_log_email);
     }
 }
         

@@ -81,21 +81,25 @@ class AdminsUserController extends CI_Controller
 
     public function user_reset_password()
     {
-        $id           = $this->input->post('id');
-        $new_password = password_hash($this->input->post('new_password') . UYAH, PASSWORD_BCRYPT);
-        $code         = 500;
+        $id             = $this->input->post('id');
+        $where          = ['id' => $id];
+        $password_polos = $this->input->post('new_password');
+        $new_password   = password_hash($this->input->post('new_password') . UYAH, PASSWORD_BCRYPT);
+        $code           = 500;
+        $email          = "";
 
         if ($id) {
             $data  = ['password' => $new_password, 'updated_at' => date('Y-m-d H:i:s')];
-            $where = ['id' => $id];
             $exec  = $this->mcore->update('users', $data, $where);
 
             if ($exec) {
-                $code = 200;
+                $code  = 200;
+                $email = $this->mcore->get('users', '*', $where)->row()->email;
+                $this->email_reset_pass($id, $email, $password_polos);
             }
         }
 
-        echo json_encode(['code' => $code]);
+        echo json_encode(['code' => $code, 'email' => $email]);
     }
 
     public function user_reset_pin()
@@ -111,6 +115,8 @@ class AdminsUserController extends CI_Controller
 
             if ($exec) {
                 $code = 200;
+                $email = $this->mcore->get('users', '*', $where)->row()->email;
+                $this->email_reset_pin($id, $email, $new_pin);
             }
         }
 
@@ -131,7 +137,14 @@ class AdminsUserController extends CI_Controller
             $exec  = $this->mcore->update('user_banks', $data, $where);
 
             if ($exec) {
-                $code = 200;
+                $code         = 200;
+                $where        = ['id' => $id_user_rekening_edit];
+                $email        = $this->mcore->get('users', '*', $where)->row()->email;
+                $arr_rekening = $this->mless->get_user_bank_data($id_user_rekening_edit);
+                $no_rekening  = $arr_rekening->row()->no_rekening;
+                $nama_bank    = $arr_rekening->row()->nama_bank;
+                $atas_nama    = $arr_rekening->row()->atas_nama;
+                $this->email_reset_rekening($id_user_rekening_edit, $email, $no_rekening, $nama_bank, $atas_nama);
             }
         }
 
@@ -149,11 +162,106 @@ class AdminsUserController extends CI_Controller
             $exec  = $this->mcore->update('users', $data, $where);
 
             if ($exec) {
-                $code = 200;
+                $code  = 200;
+                $email = $this->mcore->get('users', '*', $where)->row()->email;
+                $this->email_delete_user($id_user, $email);
             }
         }
 
-        echo json_encode(['code' => $code]);
+        echo json_encode(['code' => $code, 'email' => $email]);
+    }
+
+    public function email_reset_pass($id, $email, $password)
+    {
+        $title            = "BIONER ACCOUNT - RESET PASSWORD";
+        $data['title']    = $title;
+        $data['password'] = $password;
+        $template_email   = $this->load->view('email_reset_password', $data, TRUE);
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_signup', $data_log_email);
+    }
+
+    public function email_reset_pin($id, $email, $pin)
+    {
+        $title          = "BIONER ACCOUNT - RESET PIN TRANSACTION";
+        $data['title']  = $title;
+        $data['pin']    = $pin;
+        $template_email = $this->load->view('email_reset_pin', $data, TRUE);
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_signup', $data_log_email);
+    }
+
+    public function email_reset_rekening($id, $email, $no_rekening, $nama_bank, $atas_nama)
+    {
+        $title               = "BIONER ACCOUNT - ACCOUNT NUMBER";
+        $data['title']       = $title;
+        $data['no_rekening'] = $no_rekening;
+        $data['nama_bank']   = $nama_bank;
+        $data['atas_nama']   = $atas_nama;
+        $template_email      = $this->load->view('email_reset_rekening', $data, TRUE);
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_signup', $data_log_email);
+    }
+
+    public function email_delete_user($id, $email)
+    {
+        $title               = "BIONER ACCOUNT - ACCOUNT DELETED";
+        $data['title']       = $title;
+        $template_email      = $this->load->view('email_delete_user', $data, TRUE);
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_signup', $data_log_email);
     }
 }
         

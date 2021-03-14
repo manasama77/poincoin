@@ -400,9 +400,9 @@ class StackingController extends CI_Controller
     {
         $id             = $this->session->userdata(SESS . 'id');
         $email          = $this->session->userdata(SESS . 'email');
-        $template_email = $this->load->view('email_stack_success', $data, TRUE);
         $title          = "BIONER ADD NEW STACK - " . $data['kode'];
         $data['title']  = $title;
+        $template_email = $this->load->view('email_stack_success', $data, TRUE);
 
         $this->email->from('system@bioner.online', 'System Bioner');
         $this->email->to($email);
@@ -415,7 +415,7 @@ class StackingController extends CI_Controller
         $data_log_email = [
             'id_user'    => $id,
             'log'        => $log_email,
-            'created_at' => date('Y-m-d H: i: s'),
+            'created_at' => date('Y-m-d H:i:s'),
         ];
         $this->mcore->store('log_email_stacking', $data_log_email);
     }

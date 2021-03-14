@@ -2,10 +2,10 @@
     let modalReferal = $('#modalReferal');
 
     $('document').ready(function() {
-        initMarketIDR();
-        setInterval(function() {
-            initMarketIDR();
-        }, 5000);
+        // initMarketIDR();
+        // setInterval(function() {
+        //     initMarketIDR();
+        // }, 5000);
     });
 
     function showModalListReferal(id) {

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 20, 2021 at 11:15 AM
+-- Generation Time: Feb 20, 2021 at 04:16 PM
 -- Server version: 10.4.15-MariaDB
 -- PHP Version: 7.2.34
 
@@ -675,7 +675,7 @@ INSERT INTO `bioner_stacking` (`id`, `kode`, `id_user`, `total_investment`, `tot
 (598, 'BS150.1402211', 150, '160.0000', '2400000.0000', '0.8', '8000.0000', 'aktif', NULL, '2021-02-14 14:20:30', '2021-02-20 00:00:06', NULL),
 (599, 'BS151.1402211', 151, '50.0000', '750000.0000', '0.25', '2500.0000', 'aktif', NULL, '2021-02-14 14:31:52', '2021-02-20 00:00:06', NULL),
 (600, 'BS92.1402211', 92, '10.0000', '150000.0000', '0.05', '500.0000', 'aktif', NULL, '2021-02-14 17:49:46', '2021-02-20 00:00:06', NULL),
-(601, 'BS151.1402212', 151, '2000.0000', '30000000.0000', '10', '100000.0000', 'aktif', NULL, '2021-02-14 19:06:28', '2021-02-20 00:00:06', NULL),
+(601, 'BS151.1402212', 151, '2000.0000', '30000000.0000', '10', '100000.0000', 'aktif', NULL, '2021-02-14 19:06:28', '2021-02-20 00:00:06', '2021-02-20 18:27:57'),
 (602, 'BS472.1402211', 472, '200.0000', '3100000.0000', '1', '10000.0000', 'aktif', NULL, '2021-02-14 19:17:59', '2021-02-20 00:00:06', NULL),
 (603, 'BS492.1402211', 492, '100.0000', '1600000.0000', '0.5', '5000.0000', 'aktif', NULL, '2021-02-14 19:28:56', '2021-02-20 00:00:06', NULL),
 (604, 'BS354.1402211', 354, '200.0000', '3100000.0000', '1', '10000.0000', 'aktif', NULL, '2021-02-14 19:50:51', '2021-02-20 00:00:06', NULL),
@@ -742,7 +742,12 @@ INSERT INTO `bioner_stacking` (`id`, `kode`, `id_user`, `total_investment`, `tot
 (665, 'BS219.2002211', 219, '50.0000', '750000.0000', '0.25', '2500.0000', 'aktif', NULL, '2021-02-20 09:02:16', '2021-02-20 09:02:16', NULL),
 (666, 'BS152.2002211', 152, '10.0000', '150000.0000', '0.05', '500.0000', 'aktif', NULL, '2021-02-20 10:34:44', '2021-02-20 10:34:44', NULL),
 (667, 'BS145.2002211', 145, '10.0000', '150000.0000', '0.05', '500.0000', 'aktif', NULL, '2021-02-20 16:47:16', '2021-02-20 16:47:16', NULL),
-(668, 'BS524.2002211', 524, '300.0000', '4600000.0000', '1.5', '15000.0000', 'aktif', NULL, '2021-02-20 16:53:40', '2021-02-20 16:54:29', NULL);
+(668, 'BS524.2002211', 524, '300.0000', '4600000.0000', '1.5', '15000.0000', 'aktif', NULL, '2021-02-20 16:53:40', '2021-02-20 16:54:29', NULL),
+(669, 'BS150.2002212', 150, '2000.0000', '30000000.0000', '10', '100000.0000', 'aktif', NULL, '2021-02-20 18:28:57', '2021-02-20 18:29:16', NULL),
+(670, 'BS8.2002211', 8, '100.0000', '1500000.0000', '0.5', '5000.0000', 'menunggu_transfer', NULL, '2021-02-20 20:03:21', '2021-02-20 20:03:21', '2021-02-20 20:08:31'),
+(671, 'BS8.2002212', 8, '100.0000', '1500000.0000', '0.5', '5000.0000', 'menunggu_transfer', NULL, '2021-02-20 20:03:31', '2021-02-20 20:03:31', '2021-02-20 20:08:22'),
+(672, 'BS8.2002213', 8, '100.0000', '1500000.0000', '0.5', '5000.0000', 'aktif', NULL, '2021-02-20 20:04:01', '2021-02-20 20:08:01', NULL),
+(673, 'BS8.2002214', 8, '100.0000', '1500000.0000', '0.5', '5000.0000', 'menunggu_transfer', NULL, '2021-02-20 20:06:12', '2021-02-20 20:06:12', '2021-02-20 20:07:54');
 
 -- --------------------------------------------------------
 
@@ -16127,7 +16132,21 @@ INSERT INTO `bioner_stacking_logs` (`id`, `id_user`, `id_bioner_stacking`, `type
 (15387, 223, NULL, 'withdraw', '10.0000', '100000.0000', 'BSW223.2002211', 'Withdraw sebesar 10 Bioner', '2021-02-20 17:10:09'),
 (15388, 416, NULL, 'withdraw', '20.0000', '200000.0000', 'BSW416.2002211', 'Withdraw sebesar 20 Bioner', '2021-02-20 17:20:59'),
 (15389, 65, NULL, 'withdraw', '50.0000', '500000.0000', 'BSW65.2002211', 'Withdraw sebesar 50 Bioner', '2021-02-20 17:31:58'),
-(15390, 200, NULL, 'withdraw', '20.0000', '200000.0000', 'BSW200.2002211', 'Withdraw sebesar 20 Bioner', '2021-02-20 17:58:07');
+(15390, 200, NULL, 'withdraw', '20.0000', '200000.0000', 'BSW200.2002211', 'Withdraw sebesar 20 Bioner', '2021-02-20 17:58:07'),
+(15391, 151, 601, 'delete investment', '2000.0000', '20000000.0000', 'BS151.1402212', 'Investment Dibatalkan', '2021-02-20 18:27:57'),
+(15392, 150, 669, 'investment', '2000.0000', '20000000.0000', 'BS150.2002212', 'Investment sebesar 2000.0000 Bioner', '2021-02-20 18:29:16'),
+(15393, 264, NULL, 'withdraw', '10.0000', '100000.0000', 'BSW264.2002211', 'Withdraw sebesar 10 Bioner', '2021-02-20 18:55:25'),
+(15394, 264, NULL, 'withdraw', '10.0000', '100000.0000', 'BSW264.2002212', 'Withdraw sebesar 10 Bioner', '2021-02-20 18:55:48'),
+(15395, 264, NULL, 'withdraw', '10.0000', '100000.0000', 'BSW264.2002213', 'Withdraw sebesar 10 Bioner', '2021-02-20 18:56:00'),
+(15396, 385, NULL, 'withdraw', '10.0000', '100000.0000', 'BSW385.2002211', 'Withdraw sebesar 10 Bioner', '2021-02-20 18:56:56'),
+(15401, 264, NULL, 'return withdraw', '10.0000', '100000.0000', 'BSW264.2002212', 'Return Withdraw sebesar 10.0000 Bioner to Profit - By Admin', '2021-02-20 19:12:25'),
+(15402, 264, NULL, 'return withdraw', '10.0000', '100000.0000', 'BSW264.2002213', 'Return Withdraw sebesar 10.0000 Bioner to Profit - By Admin', '2021-02-20 19:13:14'),
+(15407, 331, NULL, 'withdraw', '40.0000', '400000.0000', 'BSW331.2002211', 'Withdraw sebesar 40 Bioner', '2021-02-20 19:15:47'),
+(15409, 8, 673, 'delete investment', '100.0000', '1000000.0000', 'BS8.2002214', 'Investment Dibatalkan', '2021-02-20 20:07:54'),
+(15410, 8, 672, 'investment', '100.0000', '1000000.0000', 'BS8.2002213', 'Investment sebesar 100.0000 Bioner', '2021-02-20 20:08:01'),
+(15411, 8, 671, 'delete investment', '100.0000', '1000000.0000', 'BS8.2002212', 'Investment Dibatalkan', '2021-02-20 20:08:22'),
+(15412, 8, 670, 'delete investment', '100.0000', '1000000.0000', 'BS8.2002211', 'Investment Dibatalkan', '2021-02-20 20:08:31'),
+(15415, 331, NULL, 'return withdraw', '40.0000', '400000.0000', 'BSW331.2002212', 'Return Withdraw sebesar 40.0000 Bioner to Profit - By Admin', '2021-02-20 22:37:18');
 
 -- --------------------------------------------------------
 
@@ -16254,7 +16273,8 @@ INSERT INTO `bioner_trade` (`id`, `kode`, `id_user`, `status`, `bukti_transfer`,
 (101, 'BT243.1702211', 243, 'aktif', NULL, '2021-02-17 13:09:26', '2021-02-20 00:00:05', NULL),
 (102, 'BT243.1802211', 243, 'aktif', NULL, '2021-02-18 07:24:45', '2021-02-20 00:00:05', NULL),
 (103, 'BT243.1802211', 243, 'aktif', NULL, '2021-02-18 07:24:45', '2021-02-20 00:00:05', NULL),
-(104, 'BT243.2002211', 243, 'aktif', NULL, '2021-02-20 15:41:35', '2021-02-20 15:44:30', NULL);
+(104, 'BT243.2002211', 243, 'aktif', NULL, '2021-02-20 15:41:35', '2021-02-20 15:44:30', NULL),
+(105, 'BT8.2002211', 8, 'aktif', NULL, '2021-02-20 20:09:10', '2021-02-20 20:09:53', NULL);
 
 -- --------------------------------------------------------
 
@@ -18140,7 +18160,8 @@ INSERT INTO `bioner_trade_logs` (`id`, `id_user`, `id_bioner_trade`, `type`, `ko
 (1856, 243, 102, 'profit', 'BT243.1802211', NULL, 'Distribusi Profit Sebesar Rp.3000', '2021-02-20 00:00:05'),
 (1857, 243, 103, 'profit', 'BT243.1802211', NULL, 'Distribusi Profit Sebesar Rp.3000', '2021-02-20 00:00:05'),
 (1858, 243, NULL, 'withdraw', 'BTW243.2002211', '150000.0000', 'Withdraw sebesar Rp.150000', '2021-02-20 15:41:12'),
-(1859, 243, 104, 'investment', 'BT243.2002211', NULL, 'Pembukaan Bioner Trade BT243.2002211 sebanyak 1 Lot', '2021-02-20 15:44:30');
+(1859, 243, 104, 'investment', 'BT243.2002211', NULL, 'Pembukaan Bioner Trade BT243.2002211 sebanyak 1 Lot', '2021-02-20 15:44:30'),
+(1860, 8, 105, 'investment', 'BT8.2002211', NULL, 'Pembukaan Bioner Trade BT8.2002211 sebanyak 1 Lot', '2021-02-20 20:09:53');
 
 -- --------------------------------------------------------
 
@@ -18706,6 +18727,66 @@ INSERT INTO `log_email_signup` (`id`, `id_user`, `log`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `log_email_stacking`
+--
+
+CREATE TABLE `log_email_stacking` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `id_user` int(10) UNSIGNED DEFAULT NULL,
+  `log` text DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `log_email_stacking`
+--
+
+INSERT INTO `log_email_stacking` (`id`, `id_user`, `log`, `created_at`) VALUES
+(1, 8, '<pre>\n\n</pre>', '2021-02-20 20:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `log_email_trade`
+--
+
+CREATE TABLE `log_email_trade` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `id_user` int(10) UNSIGNED DEFAULT NULL,
+  `log` text DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `log_email_trade`
+--
+
+INSERT INTO `log_email_trade` (`id`, `id_user`, `log`, `created_at`) VALUES
+(1, 8, '<pre>\n\n</pre>', '2021-02-20 20:09:10');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `log_email_withdraw`
+--
+
+CREATE TABLE `log_email_withdraw` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `id_user` int(10) UNSIGNED DEFAULT NULL,
+  `log` text DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
+
+--
+-- Dumping data for table `log_email_withdraw`
+--
+
+INSERT INTO `log_email_withdraw` (`id`, `id_user`, `log`, `created_at`) VALUES
+(1, 385, '<pre>\n\n</pre>', '2021-02-20 21:41:19');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `news`
 --
 
@@ -18890,30 +18971,30 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (5, 'Anisah Andeani', 'andeani77@gmail.com', '081289520105', '$2y$10$2yWub//8STua0oH82YqVtucw6hDs5c9lrqCum/9/nfR6HFCQx7UKK', '160414', NULL, 'aktif', 'm2PLUX5bFNKSxI1rbXY4qoE97xGaVsn8eu3wzckVQJ4FZaTdrRg8gPBWytkZoShe', '1', '2021-01-14 18:16:32', '2021-02-20 00:00:06', NULL),
 (6, 'Muhammad Malik Abdul Azis', 'azis12194@gmail.com', '081289361822', '$2y$10$ipcUVPfW16X08SU8wMjWnevZHWMAT4z3sqbq2e8SY5P/4zI3LiaCa', '121945', 5, 'aktif', NULL, '0', '2021-01-14 18:25:06', '2021-02-20 00:00:05', NULL),
 (7, 'Endang', 'endang.bioner@gmail.com', '081315159897', '$2y$10$DJKel3f8I1JLcT9TTSaqrO8cPMWWlBWwLyGdaDSyS2kQBg7Z6OXU.', '040871', 5, 'aktif', '4GrD8HmB0W7a9PZR1pC1GuHUgfiIhbdMAjENOcxpX2IisNawZMyqQ2vhQUVgJPLv', '1', '2021-01-14 18:42:44', '2021-02-20 00:00:05', NULL),
-(8, 'Adam', 'adam.pm77@gmail.com', '082114578976', '$2y$10$8UPDO4reGim2sdfCv3xQpuIHNJp5Mx0eBPglh.yX3LcUif02IchOy', '591990', NULL, 'aktif', 'cCO6i7xJPjZWqkUW0FsCzQcBwlu1gX6Rp4hMDe9qGYrhb2t5AZxLljrFNOvkUTKX', '0', '2021-01-14 20:54:14', '2021-02-20 00:00:06', NULL),
+(8, 'Adam', 'adam.pm77@gmail.com', '082114578976', '$2y$10$8UPDO4reGim2sdfCv3xQpuIHNJp5Mx0eBPglh.yX3LcUif02IchOy', '591990', NULL, 'aktif', 'rnaGjhkfM8mxSJwW62C5MouZ35TZ9dEOsvcDno0EaWBx7pKszPPeJRSFTqA7vikV', '1', '2021-01-14 20:54:14', '2021-02-20 20:03:44', NULL),
 (9, 'Satria Utama', 'satriau20@gmail.com', '089622314346', '$2y$10$5Io693ghnQhRrE4U8Jd0fe4ReE9ZXmBEG5Mszl6r6vgVf37IHMZZm', '141414', 6, 'aktif', 'o2HImyFx2ynJuIEBqtQgzN06PrzpcK87sLbPbfrD5oje43Zdl19AJ91WglahCakS', '0', '2021-01-15 09:24:53', '2021-02-20 00:00:05', NULL),
 (10, 'Abdul malik', 'abdulmalikm.2984@gmail.com', '085899844765', '$2y$10$i52vjAoyJ/OL.L.Wiqvr2OV/jOWgul2uB5uKYjya1E.EyRZHnr2Pa', '171717', NULL, 'aktif', 'TEIH9w7QLwbomJ8Cd8jMvxpI1Q5kYVjpS3K6r0YyXfheBCMiKdn4vPLW5A0qeGqB', '1', '2021-01-15 11:32:41', '2021-02-20 00:00:05', NULL),
-(11, 'Patulloh SE', 'alfathiezpatulloh@gmail.com', '081314659380', '$2y$10$0OoSTvCo7FrjxeMjuMnQueRZg2E1V2zfiP9yyTDKrf0z3mZGlpYzm', '130506', NULL, 'aktif', 'Q46aUL2DRXnByBJ1FIGQUHWkNqusxYYuKp9KVIVa0Eww2fd5X6cAJxvhShj78d7Z', '0', '2021-01-15 20:32:06', '2021-02-20 05:41:23', NULL),
+(11, 'Patulloh SE', 'alfathiezpatulloh@gmail.com', '081314659380', '$2y$10$0OoSTvCo7FrjxeMjuMnQueRZg2E1V2zfiP9yyTDKrf0z3mZGlpYzm', '130506', NULL, 'aktif', 'Q46aUL2DRXnByBJ1FIGQUHWkNqusxYYuKp9KVIVa0Eww2fd5X6cAJxvhShj78d7Z', '0', '2021-01-15 20:32:06', '2021-02-20 21:35:36', NULL),
 (12, 'Indra', 'indradiani142@gmail.com', '081211236896', '$2y$10$EFefBaHKKL5uDl.cMHb8qeMc/9lfF2x5RaV4vCMdHuANs3ajgUaJm', '081176', NULL, 'aktif', 'i719c8Hpo3ZBXhYGxyuz6RpqgqDrX4iI30tDLEAQSmnutFb6sQbNZh2aIHTfPfy4', '0', '2021-01-15 20:56:15', '2021-02-17 14:08:05', NULL),
 (13, 'Nana95', 'jaysnana95@gmail.com', '085694000092', '$2y$10$zk/W62TynMJRtO0lvLsCeeA2vjwk3GRZe4nSvcDDHr2rb0QX2irFG', '170583', NULL, 'aktif', 'ZJH7B8JxWwaXHp4OiIGjmr1vOv1odP2X5q0yjzPbEkILNBM6eofApYch9TuK3VRT', '1', '2021-01-15 21:01:49', '2021-01-16 10:51:27', NULL),
 (15, 'Abdul basit', 'basit010397@gmail.com', '085881153733', '$2y$10$JaZA0.u3jDkSF1Ra1LiszOs5nZcRU6xiA88EAeIAyn0j1EOYOBsJC', '131997', NULL, 'aktif', '9KguAzCABPafhH0wd8xlZmFihmnFP7p8J3vHoKTDcIi20pkz7ONtYtCejvS9GadY', '0', '2021-01-16 08:44:08', '2021-02-20 07:02:00', NULL),
-(16, 'Maulana yusup', 'wariorfcclub1997@gmail.com', '087874360020', '$2y$10$bQguj0dbWHKsCsKvyJx6m.8U7Nh3/38swuFHbq5z4RbZo6HSCa3hK', '884488', NULL, 'aktif', 'uzshFk0ZT2DmR4c8ylBSxwJphZCnkIp9OEjqUr1gfLiKWm5sVyGBA3v8RYHnQXMu', '0', '2021-01-16 08:44:40', '2021-02-20 05:27:33', NULL),
+(16, 'Maulana yusup', 'wariorfcclub1997@gmail.com', '087874360020', '$2y$10$bQguj0dbWHKsCsKvyJx6m.8U7Nh3/38swuFHbq5z4RbZo6HSCa3hK', '884488', NULL, 'aktif', 'uzshFk0ZT2DmR4c8ylBSxwJphZCnkIp9OEjqUr1gfLiKWm5sVyGBA3v8RYHnQXMu', '0', '2021-01-16 08:44:40', '2021-02-20 19:46:48', NULL),
 (17, 'Nelis solihat', 'ghehilzha02@gmail.com', '081563295051', '$2y$10$XVeqB8lvH/snCkJRcMG79uvBNfCl1UqBVQ5aa/5uLhdcJY4kPBjEW', '121212', NULL, 'aktif', 'mSAbwOHORH1rgYFd3UbTl40yJLKauG58KWYulSZhwt1Mq6RkVB0Xnr7PXTGkfj7x', '1', '2021-01-16 08:46:03', '2021-02-20 00:00:05', NULL),
-(18, 'Lia Mariya Ulfa', 'azkachairil36@gmail.com', '082129144806', '$2y$10$py9CoBO1UguMA/WFapv5yuwNbYzX1fMAZQo7Xs.F4ICBVRD9RnJx6', '161616', NULL, 'aktif', 'uCouRb2xt264G4Z9a5cGPrhPerIKb5FUNowTZBqCJse9t1EwkhaVqVkS7D8mvvLX', '0', '2021-01-16 09:42:36', '2021-02-20 07:40:37', NULL),
+(18, 'Lia Mariya Ulfa', 'azkachairil36@gmail.com', '082129144806', '$2y$10$py9CoBO1UguMA/WFapv5yuwNbYzX1fMAZQo7Xs.F4ICBVRD9RnJx6', '161616', NULL, 'aktif', 'oE3oJW0Y44SQgQ7AO3laF2ydqFIWzxXIZxiifLlrmBYKjCrDEJkt8aN5RLmSfVRv', '1', '2021-01-16 09:42:36', '2021-02-20 20:35:02', NULL),
 (19, 'Gusti Ferial Luthviano', 'ferialgusti@gmail.com', '085715303168', '$2y$10$1tMhw2vsps0rxeO5Fw7rI.04B0fQ9rEif3e1xUPu8J6GoZV1MW9uW', '242431', NULL, 'aktif', 'xchm1pTf9rZNjHaMUuATtwoX8EsCcGgivJzI45YEVnA3pbmyo2I0dbkKM6RtjON8', '1', '2021-01-16 10:04:33', '2021-02-20 00:00:05', NULL),
 (20, 'Rian Afrianto', 'rianafrianto495@gmail.com', '083184935877', '$2y$10$qg9hRLz1L5fo9RtI4Fa6mO2ZEnTepVo.c5uc0yhp7XeY471v4fm7e', '180490', NULL, 'aktif', NULL, '0', '2021-01-16 10:05:32', '2021-02-20 00:00:05', NULL),
 (21, 'Yenih Suhernih', 'suherniy555@gmail.com', '085770308148', '$2y$10$uPdW8zjV5GXJJpcAyoRDoO2eK5r9D45BfEE76dEcNEZ3y17e7SFtC', '545455', NULL, 'aktif', 'W4N1goAEzspoRdQLLGBGlCBuYqVsixPD5rruyM76jIfZebtnqUVK8TESJnlwSH5k', '1', '2021-01-16 10:06:31', '2021-02-20 00:00:05', NULL),
-(22, 'Amirullah', 'amirllah142@gmail.com', '085710741273', '$2y$10$TVoiEFAqVXvj/qjtiTFaEuVD8l8pQ9iQQ.8H88LaZi69qDpL8xlpK', '123456', NULL, 'aktif', NULL, '0', '2021-01-16 10:07:44', '2021-02-20 08:37:54', NULL),
+(22, 'Amirullah', 'amirllah142@gmail.com', '085710741273', '$2y$10$TVoiEFAqVXvj/qjtiTFaEuVD8l8pQ9iQQ.8H88LaZi69qDpL8xlpK', '123456', NULL, 'aktif', NULL, '0', '2021-01-16 10:07:44', '2021-02-20 23:00:57', NULL),
 (23, 'Rini budiarsih', 'vanyaqirana@gmail.com', '085715210121', '$2y$10$/mT2fElNR7U5Rp8j6Xqklu40zLnYnk89T/4i9MM9918qVf61xAxAG', '220584', NULL, 'aktif', 'kh80gX76ziIMC8URuuQF4efA12pqfGEZgEa1zQDJ3YSDxUwJBnYFPKyVIcHvLlLZ', '0', '2021-01-16 10:14:22', '2021-02-20 06:04:15', NULL),
 (24, 'daday hidayatullah', 'adjiedodo3@gmail.c', '082213539109', '$2y$10$ywzJZOQUn6Mg8yAeT16K8eDP7TrZAbaISe856K0wdh53Rg1W9qAcG', '080808', NULL, 'aktif', NULL, NULL, '2021-01-16 10:28:18', '2021-01-16 10:28:18', NULL),
 (25, 'daday hidayatullah', 'adjiedodo3@gmail.com', '082213539109', '$2y$10$tlwmk..E3sE2ce7ldQ2cS.idnupCbpD5xn9VTmpkqYWp40hBMCQQK', '080808', NULL, 'aktif', 'aXihx5r6mAKvTPI0yKSqsNAD23Bl6vcGOsz3t42X1UxVeMJm7yIbpPpDTNGgWHgQ', '1', '2021-01-16 10:33:15', '2021-02-20 00:00:05', NULL),
 (26, 'Muhamad abdul aziz', 'apit.scg06@icloud.com', '085880020651', '$2y$10$2eVNBNRj4G5y6SZjrPIUP.J.Xh/fhuIjoeqe4f/vt5IyKiQlouQV.', '051297', NULL, 'aktif', '4eyZB6MoLVzw8EZLaagArmWT1CJvuknPiUj25s0gDq7HcNlRXMdfS0fc6vGmjKRI', '0', '2021-01-16 11:29:15', '2021-02-20 00:00:05', NULL),
-(27, 'Deni Hafiya Utama', 'denihafiya4@gmail.com', '085776122787', '$2y$10$wAaYBw26ESHMJU5YAJ95v.DQjlW7KtTBM8PtSIW0q6esRVbnNgFQW', '100691', NULL, 'aktif', NULL, '0', '2021-01-16 12:27:48', '2021-02-20 00:00:05', NULL),
+(27, 'Deni Hafiya Utama', 'denihafiya4@gmail.com', '085776122787', '$2y$10$wAaYBw26ESHMJU5YAJ95v.DQjlW7KtTBM8PtSIW0q6esRVbnNgFQW', '100691', NULL, 'aktif', NULL, '0', '2021-01-16 12:27:48', '2021-02-20 22:00:52', NULL),
 (28, 'musthofa', 'musthofamus023@gmail.com', '081617867495', '$2y$10$lbS7PMIl07yfRlzcTCg3pOPVXTzdonGnQy1mM7cg1bPezcxZqfuBq', '112233', NULL, 'aktif', 'gdibdfhiwR5P06zEWCmGcstCBnXwxRFXv0lerkKgZo8H8pUN5VqOmToNDucI2JaI', '0', '2021-01-16 12:36:35', '2021-02-20 09:55:53', NULL),
 (29, 'Firda Herlina', 'firda.herlina.fh@gmail.com', '081285942066', '$2y$10$7.SzalEQEeYzfWQHOnjIaeuoXHgdwMMj0p42mIOZgrSx9RatdhPKW', '160997', NULL, 'aktif', 'cB4lvxrs2z6RSfe0OEcePdYLAO5r6YT8XnilzuUgI3mFNx58XuqbW1ZDAMdabH0w', '1', '2021-01-16 14:50:13', '2021-02-20 00:00:06', NULL),
 (30, 'ujiturmuji', 'mujiturmuji4@gmail.com', '081413059658', '$2y$10$Mf/5su5/ECaTMI3LsuZ9EOip0Bb.9CGUJeIj0pfIwjpUcg5b4Z58m', '221982', NULL, 'aktif', '9IXO54MUwM5elLnPG0w2hyDjtZ0mvnkijJNrkco3KdNQbCuEWalms7Vp3ACx8pi9', '1', '2021-01-16 16:37:57', '2021-02-20 00:00:05', NULL),
 (31, 'Teguh Santoso', 'santosoteguh0331@gmail.com', '081318573572', '$2y$10$MOI3ihfwilyPVnTMeboBYuI9RT2CQeaL7LvV2M70amAG5Y7UeyhgK', '241121', NULL, 'aktif', 'A1TN28jJw5NPWrZMSbFjM9x7sEtuQKEAZcgRzq6g3JGk2HSaVOYXid14LIfal57c', '0', '2021-01-16 16:46:56', '2021-02-20 08:05:05', NULL),
-(32, 'Agya01', 'mobilagya458@gmail.com', '089636212525', '$2y$10$lccpo.y2QRu6INKSKiOep.wlKQk6yK40X8VkNHvSMnDjBaSlF69l2', '252525', NULL, 'aktif', '69TDvpN13HRtb36eqftfad24YWjsX820yyx1Z0AOVZw5nEaNBPFWmeGohn7q4KGK', '0', '2021-01-16 17:03:45', '2021-02-20 07:19:05', NULL),
+(32, 'Agya01', 'mobilagya458@gmail.com', '089636212525', '$2y$10$lccpo.y2QRu6INKSKiOep.wlKQk6yK40X8VkNHvSMnDjBaSlF69l2', '252525', NULL, 'aktif', '69TDvpN13HRtb36eqftfad24YWjsX820yyx1Z0AOVZw5nEaNBPFWmeGohn7q4KGK', '0', '2021-01-16 17:03:45', '2021-02-20 22:40:57', NULL),
 (33, 'Elkautsar', 'teguhtegal1984@gmail.com', '081318573572', '$2y$10$hINKZuLyGMmQPtULhhnKKuZuFdazdXx9lHCG9kINpFaQ1R1tfcoYu', '243171', NULL, 'aktif', NULL, '0', '2021-01-16 17:45:00', '2021-01-18 16:44:52', NULL),
 (34, 'LASTUTI', 'tutilastuti3@gmail.com', '081218844834', '$2y$10$OqKXWEnLaD8XBC6ta9npBOllXe3DLKlSQ1n2NWYT0ovyFHyiffHUa', '745678', NULL, 'aktif', 'iTGLOYexN0HWAy4SyB6DIh7AP4RQr95zL7ZrdhjucQvejuMkZzCKIVUq2E0sTR16', '0', '2021-01-16 17:47:19', '2021-02-20 16:27:59', NULL),
 (35, 'Silmi', 'hikmahbioner@gmail.com', '081318573572', '$2y$10$Y9TOqiAoyaPSeuqW7yPnS.xpk2chMFzNp6HlhlX0EdFvqMrbt3Ciy', '114931', NULL, 'aktif', NULL, NULL, '2021-01-16 17:48:50', '2021-01-16 17:48:50', NULL),
@@ -18921,7 +19002,7 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (37, 'm soleh sonhaji', 'msolehhaji471@gmail.com', '081386746587', '$2y$10$uihKMQJ0vRmV58bfUbkP..erqHKGRqh2ZaPsFIda5T.hiygx1tS82', '040798', NULL, 'aktif', 'K6roPl73Uk2uT4qwyzNXfnRHWfpAY0xjio6AF8OmbScGnajVhDreldZv9MpUCkgX', '0', '2021-01-16 17:54:16', '2021-02-20 00:00:06', NULL),
 (38, 'Abimhaikal', 'aayasir0108@gmail.com', '083893684078', '$2y$10$mGyXsbaFoW9UEFGL/3bJhO3ClbR9JQUBMhKq9lofHKi4dQ0wMCedC', '131471', NULL, 'aktif', NULL, '0', '2021-01-16 17:56:01', '2021-02-20 05:59:07', NULL),
 (39, 'Chialhita', 'wohtun@gmail.com', '083185359818', '$2y$10$9JDfXX.aDp.00WV63ycFrOmt0LSs6nFfIiSOSdw40jT.fKi5RG492', '162621', NULL, 'aktif', NULL, '0', '2021-01-16 18:01:57', '2021-02-20 06:10:59', NULL),
-(40, 'Yachya Supriadi', 'yachya841k@gmail.com', '081283790984', '$2y$10$NVHLEbeTT5ysnNmfUaeJwe3raYcaaOZRLItUEjCj0YSaUc55MdyhO', '090180', NULL, 'aktif', 'EhyVIonBVQcSNbLRoa1zpZjztsjkpDiN2wArWYi74vTBXHOv5l90f2L1lFW8TMxd', '0', '2021-01-16 18:03:00', '2021-02-20 17:36:40', NULL),
+(40, 'Yachya Supriadi', 'yachya841k@gmail.com', '081283790984', '$2y$10$NVHLEbeTT5ysnNmfUaeJwe3raYcaaOZRLItUEjCj0YSaUc55MdyhO', '090180', NULL, 'aktif', 'EhyVIonBVQcSNbLRoa1zpZjztsjkpDiN2wArWYi74vTBXHOv5l90f2L1lFW8TMxd', '0', '2021-01-16 18:03:00', '2021-02-20 19:47:27', NULL),
 (41, 'Worohastuti', 'hastutiworo4@gmail.com', '082135147571', '$2y$10$xYXONbP83eI6ydDlM/RX6.yxO36GB9ok7LZzOQeYNgjy0AcHszhJ.', '159111', NULL, 'aktif', NULL, '0', '2021-01-16 18:05:10', '2021-02-20 06:14:09', NULL),
 (42, 'Ninunopianti', 'ninuahmad@gmail.com', '088224626180', '$2y$10$hjNLz3jh9Aw1.Jq/Qb6P4uM5q4s/fypaTiGvPjkzEV4GL47OENAhm', '269411', NULL, 'aktif', 'yI6nwz0kI77L23zwhjtFi1HyHmWKCVeq25U4KkRNWxs5QvSf9oBnguaBcYQ0LY6Z', '0', '2021-01-16 18:09:35', '2021-02-20 02:52:30', NULL),
 (43, 'Nengsih', 'nengsihriki395@gmail.com', '083875961447', '$2y$10$.MDi740F5JK78LwUNllgEOG5/7bZ1KrwG1/6E3maW0afZLmctxWBu', '633951', NULL, 'aktif', 'uIftKwhdUQvXcJ1KWiaYFjmxT1kEc9yZzGMqAZpuRerBOLq7ixnU8EOS5sovgDTD', '0', '2021-01-16 18:12:13', '2021-02-20 00:00:05', NULL),
@@ -18941,15 +19022,15 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (57, 'Heri202', 'muhamadsuheri1202@gmail.com', '081285656584', '$2y$10$hig9TpPkei5JEVvAn2qj9uYtwf4eGfuIS9CU9OzZxoKZcUATSn.9i', '281202', NULL, 'aktif', 'y3FGa7eG0HhaxvWTwgkJ7Ok1Jt3i2Qiy4ouljU4hzHYb56jxCV1qVPunbMXZNdMc', '1', '2021-01-16 19:59:42', '2021-02-20 00:00:05', NULL),
 (58, 'Yadi Mulyadi', 'yadimlyadi2404@gmail.com', '085771520479', '$2y$10$2qeiMpBOi0KVNd/wlHxn4OouKwKWEXeISBMDit8xLu0pfJiu2lWNe', '240479', NULL, 'aktif', 'mkAoQk8ihHv8LDdsom27wgOrTqUcIKqICeXGz6nfbw4E3NZexcYPJtbuSlRV0vSO', '1', '2021-01-16 20:04:23', '2021-02-20 00:00:06', NULL),
 (59, 'Dewi purnama', 'dpurnama826@gmail.com', '081519840585', '$2y$10$mnnjj9PDuVzdTCTIGViX1O7r.EDhhV83JY3LM3b94ezdmiJuZDuCS', '131313', NULL, 'aktif', 'GLWB2xcflzD0T6M6CQmkXU7wErJudqzVMxvrg4hb1Wt81sjPFSyepAgZFI3yiRDH', '1', '2021-01-16 20:49:43', '2021-02-20 00:00:05', NULL),
-(60, 'Encep05', 'encepahmad29@gmail.com', '085217154171', '$2y$10$S4HNC6.1txCRtsywBUkbqu9FE.hrSW4k7KZkik2akVXHK8WPIitw.', '295183', NULL, 'aktif', '5xSftjTPeJXy4UhvVVSkHM4ubEOO8DdqgbBFN0emBQYrEiUo3RIAPwWKaDTrfZGL', '1', '2021-01-16 21:00:30', '2021-02-20 11:32:10', NULL),
+(60, 'Encep05', 'encepahmad29@gmail.com', '085217154171', '$2y$10$S4HNC6.1txCRtsywBUkbqu9FE.hrSW4k7KZkik2akVXHK8WPIitw.', '295183', NULL, 'aktif', '86gtdHMh1jCMRSr15YNeT2AJEyEwlX4UKBIin9lbjiVHQu7Sa3PRy4sOmhguVYkB', '1', '2021-01-16 21:00:30', '2021-02-20 22:05:44', NULL),
 (61, 'Erni Puspita Dewi', 'meisya.280512@gmail.com', '081288789712', '$2y$10$Pp5kGXITbysfSd07/IOcxeP6RmBC3JIYL1P5gOvPbBRm1T1.Vt/Ua', '280512', NULL, 'aktif', '4yfa9EZci8xkOvcqBHnLrWNi920KzUNkPhbIjosAJeMpPVua8wl6uGBRQgLq4ROY', '1', '2021-01-16 21:05:01', '2021-02-20 00:00:06', NULL),
 (62, 'Yusuf Ali Nurbagja', 'abagjayusuf@gmail.com', '082122656625', '$2y$10$xQ2Lm2Mo9xL141bXqYUim.H4iYbQv8h160trXhNXMTaGvPM30ivCC', '141520', NULL, 'aktif', 'lo5QLC8Dw9BlbyZTvHOACet54PAWkXv2bpExfqSLYzq6utMFWaQHoVdiN0jF1n1M', '1', '2021-01-16 21:06:52', '2021-02-20 05:05:32', NULL),
 (63, 'Siti Nurfadilah', '1305fadhma@gmail.com', '081290812095', '$2y$10$BOuxJ.KMIviZVK8Ba/yCr.Dyq190P3/HV/chvaP/pHoN.STNPbcaK', '130511', NULL, 'aktif', 'YkKbzQrCLishlPRMptdvYMmZgKA5XS5rsXkTE6EIBHd2ncaI9JoLfVWwuptycAUu', '0', '2021-01-16 22:10:15', '2021-02-20 00:00:06', NULL),
-(64, 'Euis sri hartini SE', 'cutefathia8@gmail.com', '0895364617796', '$2y$10$8YULGClHsC6GTpFSr9GgJeuNi.RFPCe1maVjKMR7LGU3st7v7SlKm', '130506', NULL, 'aktif', NULL, '0', '2021-01-17 05:39:39', '2021-02-20 05:41:57', NULL),
+(64, 'Euis sri hartini SE', 'cutefathia8@gmail.com', '0895364617796', '$2y$10$8YULGClHsC6GTpFSr9GgJeuNi.RFPCe1maVjKMR7LGU3st7v7SlKm', '130506', NULL, 'aktif', NULL, '0', '2021-01-17 05:39:39', '2021-02-20 21:36:13', NULL),
 (65, 'Isak', 'jodisak7@gmail.com', '081511366485', '$2y$10$MISrtcJSb3.nKSfcbVFHn.dB/T6LubSz6icLPzAkjx/8E7kZZkv5O', '123456', NULL, 'aktif', 'G8qy9WihBkpId8mmLabXcluU9oFgROtrNkAOegnECCGU5VxJh4sQ72afE6yxPc3d', '0', '2021-01-17 09:18:27', '2021-02-20 17:27:09', NULL),
 (66, 'Muhamad Sauqi', 'baswedanmsauqi@gmail.com', '081281020522', '$2y$10$Gn3Lu7ZkytR/lUMZuS3ELuENeZbSWVAd3t.w2P.np67Wg8x5NaMQe', '151778', 34, 'aktif', NULL, '0', '2021-01-17 09:25:27', '2021-01-25 13:58:30', NULL),
 (67, 'Kiki lesmana', 'kikilesmana880@gmail.com', '08567080813', '$2y$10$WkqhVO7hczJLkP/WcnJ9QuLu/LsuwMcen02gpvyf8DgfksUNw9mHi', '201003', NULL, 'aktif', 'omM3zWGQuOqGfHHpdfALk4UJAZwtU6nElmCR5j1a7DT6sKv99xMzBXgBieXubP27', '0', '2021-01-17 09:33:30', '2021-02-20 00:00:06', NULL),
-(68, 'Mohammad deva taufik amansyah', 'devaalamsyah86@gmail.com', '085889314658', '$2y$10$9KKlgltj9yLfzt1fKsYXsu3hgUBXDJodepAxPgV1ySa5jcc4n/BZy', '231123', NULL, 'aktif', NULL, '0', '2021-01-17 09:36:29', '2021-02-20 00:00:05', NULL),
+(68, 'Mohammad deva taufik amansyah', 'devaalamsyah86@gmail.com', '085889314658', '$2y$10$9KKlgltj9yLfzt1fKsYXsu3hgUBXDJodepAxPgV1ySa5jcc4n/BZy', '231123', NULL, 'aktif', NULL, '0', '2021-01-17 09:36:29', '2021-02-20 23:00:11', NULL),
 (69, 'waone79', 'andarakirana07@gmail.com', '085887940006', '$2y$10$DRhjyA4I/7uhBp2woogCY.9wmBXO/fmbXKyY9t7lmS7gxzmsuHKGG', '150879', NULL, 'aktif', 'mlYUWp8FxUJIuC1cwKTXgTSdHwfQy0V92j0BN4nhblO9ayH5FOnuiZVWtcs5R7oD', '0', '2021-01-17 09:37:55', '2021-02-20 06:17:43', NULL),
 (70, 'Dedy wahyudi', 'dedycoank88@gmail.com', '081310045440', '$2y$10$DPEhTUvjNQNwpGuHUP.AV.vtsya5U3OwgRCwK1WX4SCSjrRKBgLR6', '137920', NULL, 'aktif', 'J0fglrNbSCTh9Eiaz8qyAoiBXg87Nms34W2LV3V1mvRQZeIzTLBPZFnQjRl4XMSp', '1', '2021-01-17 09:38:10', '2021-01-17 11:55:28', NULL),
 (71, 'Ridwan', 'ridwanbogor022@gmail.com', '085697924827', '$2y$10$jQQqms43n/P4RML/ocNQvOh9yb63IrT2Cd3Z2tta18qo24cfSY52i', '334455', NULL, 'aktif', 'luaZAQzo1ZJgcyD9SUfvts93iKfbkwNLdCbI83xWO6TFexD0ApwR1V7VRYyqJ7Mi', '0', '2021-01-17 09:48:16', '2021-02-20 00:00:05', NULL),
@@ -18959,12 +19040,12 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (75, 'bawing', 'bawing3003@gmail.com', '085782234445', '$2y$10$f11veQ/4fgtCayh4iu.tm.QQ27EZvc61xTbZuQ4YSAf2Xj0jiFqS.', '769188', NULL, 'aktif', NULL, '0', '2021-01-17 10:31:34', '2021-02-20 07:46:09', NULL),
 (76, 'Mulyadi', 'mulyadi71079@gmail.com', '085778573917', '$2y$10$NY5pdUkfZ8M/K71qHT9oRuaxVHtsGbEqzlzwW2/LeFScjRUlrJ2sy', '222333', NULL, 'aktif', 'aImySYDnwGAW1JFk0yvb6nh4H7lqcluZpLxOK35GwJLEkagfRWC9D3RI9UMiMdt2', '1', '2021-01-17 10:32:36', '2021-02-20 00:00:06', NULL),
 (77, 'Romli s', 'setiawankeisha072@gmail.com', '081563518966', '$2y$10$jeGuAhwuUALm..w9vUghyeNAChGcykw.vjDQhJ0iQ1SOEkk26jHBO', '123456', NULL, 'aktif', NULL, '0', '2021-01-17 10:37:31', '2021-02-20 05:18:28', NULL),
-(78, 'janah15', 'sitinurjanah1115@gmail.com', '085889314658', '$2y$10$b.H0zgNlSJCcYqEoJg/Q/ecn78ZsziExzIqe1IclPgqDX5LZJrPQK', '145422', NULL, 'aktif', NULL, '0', '2021-01-17 10:43:53', '2021-02-20 00:00:06', NULL),
+(78, 'janah15', 'sitinurjanah1115@gmail.com', '085889314658', '$2y$10$b.H0zgNlSJCcYqEoJg/Q/ecn78ZsziExzIqe1IclPgqDX5LZJrPQK', '145422', NULL, 'aktif', NULL, '0', '2021-01-17 10:43:53', '2021-02-20 20:30:01', NULL),
 (79, 'nana85', 'fathan080517@gmail.com', '088213743536', '$2y$10$oL8GKqo5I7A6PXcvR05Se.WviygY1F7vh9V.fNGXsgTvlfpc/TH46', '429176', NULL, 'aktif', 'pOZ6hghDyrpsGAF7RMK08CKwEfQIcBVZtieLbNTWMXnx1ePof2d3aPaQ2UvWFxzY', '1', '2021-01-17 10:47:23', '2021-02-20 10:02:12', NULL),
 (80, 'Elma91', 'elmasuhelma17@gmail.com', '088213743536', '$2y$10$WrYav9EIl59Xs1VxfN2pQ.v7TWp7oFMwnoRQnvn950fKG2XU.c3ce', '163177', NULL, 'aktif', 'a2fJ5jtEM0q6rF8uZIzhe3lvEAQKRqJi4VcAQajNtHNxBmX47IKyBeWDxZd2vpM1', '1', '2021-01-17 10:54:52', '2021-02-20 17:59:31', NULL),
 (81, 'Ajat', 'alfiefthea@gmail.com', '085719590876', '$2y$10$8BQFbtfWT8/eLraTP.VNEu560F1554rTIC1oJH21WIwAk9UO2bntC', '379111', NULL, 'aktif', 'lm9skzlbMf4WH58aNcoRZQkEbxt6IOBJK8NwizDQeGgSnyA910n52uTXULXgZho2', '1', '2021-01-17 10:59:20', '2021-02-20 00:00:05', NULL),
 (82, 'Muhammad Zaini', 'zaini10zaini@gmail.comy', '085216489808', '$2y$10$eAKmjS2KnCHiBTi5aN4Ac.NEUGjWjDAGFnhfV5vFC8iPsPSVvXaMO', '111222', NULL, 'aktif', 'WpeTVgt4KLhQI1HSWGhdiumjUUqiwlQ8ESGsYJHCfj1O0NERxgck2BCr4foazpuM', '1', '2021-01-17 11:10:16', '2021-02-20 17:29:40', NULL),
-(83, 'Asep Wijaya', 'asepwijayagrab84@gmail.com', '082112844534', '$2y$10$ivuDyQ7KjIRCrWBKvVsVIumIYPjplRLhhEDZrR3I7vcmanbB3O7ai', '040709', NULL, 'aktif', 'IlRd71vAqtBJAXdQJGUvuGaZlUeWY3fgNKnYIBOsDFfMhQ4Lhc8m3PyuTCysOSzc', '1', '2021-01-17 11:31:25', '2021-02-20 13:23:42', NULL),
+(83, 'Asep Wijaya', 'asepwijayagrab84@gmail.com', '082112844534', '$2y$10$ivuDyQ7KjIRCrWBKvVsVIumIYPjplRLhhEDZrR3I7vcmanbB3O7ai', '040709', NULL, 'aktif', 'GEg8iKYfnOtjN7YFKd2ir4laupLHusQwBxSyQB0ATx9zUvLcrDpNADokmhkZWXm6', '1', '2021-01-17 11:31:25', '2021-02-20 18:20:22', NULL),
 (84, 'Pardan gina', 'fardangina93@gmail.com', '085156035519', '$2y$10$ko.0eg6VpUt1wp3rCpC1e.ON7SrW/.LfF1crXqYBgaaplANGD42YK', '120398', NULL, 'aktif', '1oiaBurpzJDDZIQBRYj91E2bcfWM3Uh3LOqnF8AHsyE8xiWK7PNwOM4HewpA6PXu', '1', '2021-01-17 11:39:04', '2021-02-20 00:00:05', NULL),
 (85, 'Nur soleh', 'noersoleh93@gmail.com', '081224206493', '$2y$10$cAmYOiyZXu6gi7KOOzB7weXNL91xQqBugp69DvvGGMu3T3A8BqpqC', '040130', NULL, 'aktif', NULL, '0', '2021-01-17 11:50:45', '2021-02-20 00:00:06', NULL),
 (86, 'Dian rusdiana', 'dianrusdiana6485@gmail.com', '081283317481', '$2y$10$BvtOpC.YgZp4nTQ14mOxSuR.7K8FN/BSAq1l8PInhtjeCcMuDN87W', '342627', NULL, 'aktif', 'KDT9XLsm81SPFk3RiNfPy6vVLdlAoIApijpgZWhXtCW0obgv0UfCGJquT75SOuMR', '1', '2021-01-17 12:04:40', '2021-02-20 00:00:05', NULL),
@@ -19011,13 +19092,13 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (127, 'Abidzar Alfatih', 'sucipermana00@gmail.com', '0812-9492-0122', '$2y$10$/jDCTqh0x1KmA3L6oCJJi.Pwj.R9eClGbisCXmFBEhCzWzvZvHSmm', '080791', NULL, 'aktif', 'U02nTpCJfULeGKlXcNQAxae5XGBjHokiEYMqdHNRuP3L6qjOSYKJRObgFDE1Wyu4', '0', '2021-01-18 15:41:14', '2021-02-20 00:00:05', NULL),
 (128, 'Yeyet Nurhayati', 'yeyet.nurhayati288@gmail.com', '085892638092', '$2y$10$xChl371Z2dK1UiQtW5qXEOO.upJWcc8mZAAB6pXgJizauo44b91H.', '706921', NULL, 'aktif', 'TCYZkfUQ7EzWajlbCYos4LqyOFk13En8XG3zKdgNMH76vpRAgIdDye6jcAuitP8c', '0', '2021-01-18 15:42:58', '2021-02-20 00:00:05', NULL),
 (129, 'Sarah34', 'sarahmaesaroh34@gmail.com', '081617555819', '$2y$10$HLO/iHF98unL6.fZllo4vO.LHlRlp7D2u2nudR5DoZ2MvBPca7i5q', '345123', NULL, 'aktif', NULL, '0', '2021-01-18 15:43:35', '2021-02-20 09:01:31', NULL),
-(130, 'Indra Adipura', 'indraadipura99@gmail.com', '08158921012', '$2y$10$r.QYQ0r65byMOYzClb/qW.UclV5dq8zeK4fU6uu0oS0oS4E1LM8Ne', '691975', NULL, 'aktif', 'k3ay2JNS1GKH40cDVSdikhCnIfAw3mjjFpUwfeTuP0zvrWN7CJRQoZ86s5r99xtY', '0', '2021-01-18 15:44:12', '2021-02-20 07:07:01', NULL),
+(130, 'Indra Adipura', 'indraadipura99@gmail.com', '08158921012', '$2y$10$r.QYQ0r65byMOYzClb/qW.UclV5dq8zeK4fU6uu0oS0oS4E1LM8Ne', '691975', NULL, 'aktif', 'k3ay2JNS1GKH40cDVSdikhCnIfAw3mjjFpUwfeTuP0zvrWN7CJRQoZ86s5r99xtY', '0', '2021-01-18 15:44:12', '2021-02-20 19:18:15', NULL),
 (131, 'uus badrusalam', 'linkproperty8@gmail.com', '085715962292', '$2y$10$RcjnMkkC.eoATlMvUvm/8.K2zkggS9B.0Elv4UsdIYXMRdG4KFWAK', '654321', NULL, 'aktif', 'Netfv7JVSG99kOYEnAwobGl1sdWDYvmyVgKurlJX7aIppMFyT6icAmU2nxq2fjP3', '0', '2021-01-18 16:02:58', '2021-02-20 00:00:06', NULL),
 (132, 'Reiza88', 'reiza.bpd@gmail.com', '083873306506', '$2y$10$iy2VWtbjhcv/R0O7kaUtduFJn8AxomFfeu7jBm84tWGc3cAUMsoge', '300115', NULL, 'aktif', 'IHQzK9JGZB2eIYFr7abdA3O9DpTPqmCLuSEBRmgR5cXxun4Zv5CSf0dMhFW18UzE', '0', '2021-01-18 16:11:39', '2021-02-20 12:28:30', NULL),
 (133, 'Encep supriadi', 'asepqoriustadasep@gmail.com', '085890914470', '$2y$10$gb/mkUqGYVzhVA18U5BsYujI.uKf8K1IWIm0NtbqYAOV0BuWuuXuC', '225566', NULL, 'aktif', 'TlONSRPegHwXqQjszZc1uRp8C7yLXAaJIBwdN2V7itSUhskyEGoKjWxbpdQo0vtM', '0', '2021-01-18 16:30:43', '2021-02-20 16:09:28', NULL),
 (134, 'Lina Mariana', 'fauzil.arsyad12@gmail.com', '089601040160', '$2y$10$DFuCN01ho9bOAJeNMgXXz.l/DFY8iYbQCt.HwQxdYE74.70VG6eWq', '321771', NULL, 'aktif', 'v9JYyqaZBeIzWFp2xoOUgVVHXmswrfutM6nhPikcR2k0FYbB5lT3c87NbDnegiRW', '0', '2021-01-18 16:32:31', '2021-02-20 00:00:05', NULL),
 (135, 'Muthia Hanifah', 'muthiahanifah972@gmail.com', '089639153493', '$2y$10$Sm2RgugfXHBPZZTgzJs2we4ciVrdmJv9gSZp1otOd79tlX1Iv2HcO', '745678', NULL, 'aktif', NULL, '0', '2021-01-18 16:47:37', '2021-02-20 00:00:05', NULL),
-(136, 'Filiani', 'komangfiliani99@gmail.com', '087872277199', '$2y$10$FKwmU.zjpPcJqAkYVu2RYeoe5HyjnIv1/GzEoUddHTtS3qGVfgh7S', '691975', NULL, 'aktif', NULL, '0', '2021-01-18 16:48:42', '2021-02-20 07:06:34', NULL),
+(136, 'Filiani', 'komangfiliani99@gmail.com', '087872277199', '$2y$10$FKwmU.zjpPcJqAkYVu2RYeoe5HyjnIv1/GzEoUddHTtS3qGVfgh7S', '691975', NULL, 'aktif', NULL, '0', '2021-01-18 16:48:42', '2021-02-20 19:16:55', NULL),
 (137, 'Firmnsyah', 'miel.firsyach@gmail.com', '085691976900', '$2y$10$miksRdwcodx4h8kDdC5Vbek90TS2oXA3k6PAIS8/MX9UCzW.KAwli', '240588', NULL, 'aktif', '22aI40bh9BvXXOfAndWQK4mILQ7iEyeUxscHqc3xRbmVnYl8GfSFJt5pGdlJC6Ow', '1', '2021-01-18 17:02:22', '2021-02-20 00:00:06', NULL),
 (138, 'Maulana Yusuf', 'yusufjanuzai151@gmail.com', '081297014948', '$2y$10$gAZdpxOXlhFMAg9actuq7enN/n0SRKciIHpHCxrw9j9StE20M6vzq', '091998', NULL, 'aktif', 'NcmAwSwHj5Lpt2sh9v7aJojW1XMFl2PtzngxBLOSmABRWEs6E1T3rqCfOVgukFP4', '1', '2021-01-18 17:17:55', '2021-02-20 00:00:06', NULL),
 (139, 'Rika Rohmatunisa', 'rika82bogor@gmail.com', '081231603914', '$2y$10$AAcoaGGGNguYXP.F.RJ46um6PmwvZtpQunpEedJXt0.B.tYg4kJ8a', '080371', NULL, 'aktif', NULL, '0', '2021-01-18 17:18:47', '2021-02-20 00:00:05', NULL),
@@ -19057,7 +19138,7 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (173, 'Stefanus', 'steveasian07@gmail.com', '089685744276', '$2y$10$09akpiuF.ob06e.5EY1QfO.ebnvS/qOIvTu1iJKigNnt24Htlq/q.', '622229', NULL, 'aktif', 'tj1R4eIbmua3z05U0Kpv5S8AkAXOtdCFcJYnlTDT8qZ7ik9e4y76BKyj6dxsYVUa', '1', '2021-01-19 15:25:28', '2021-02-20 00:00:05', NULL),
 (174, 'Indra', 'igungunawann@gmail.com', '081385542127', '$2y$10$StyEEoIuXPAFBrhVjDnVq.niMrLtK1.2OL6I50VRjfopPAsuWYB6e', '020595', NULL, 'aktif', 'QbiAd7ykw79NoJxIL6BdauZ4Bk3OopvDvp9yXPUlVuREmYqCffxnTKHrVXZ5zsWe', '1', '2021-01-19 15:59:18', '2021-02-20 00:00:05', NULL),
 (175, 'Syaiful Nunajat', 'knight313.smi@gmail.com', '089610022299', '$2y$10$dnefD.DCDckN7IwZZiN28.9yyRowmFTJ9KpGFi/z9wbncfm.qRYkO', '240058', NULL, 'aktif', NULL, '0', '2021-01-19 16:01:49', '2021-01-19 16:02:15', NULL),
-(176, 'Mia kusmiati', 'iwanbeteng73@gmail.com', '087876367896', '$2y$10$uSYCvKeX4p3uP.5t87lhoOH.4CSEcV0mCE8nnOTpD.8VGP/yTB6W6', '050878', NULL, 'aktif', 'vYXoKuiPBLojM0F8JZvwOkyZDHrM9g3dyCpVU0QXRzlE6jPSe7xGckqBlb25AVmN', '0', '2021-01-19 16:03:13', '2021-02-20 00:00:05', NULL),
+(176, 'Mia kusmiati', 'iwanbeteng73@gmail.com', '087876367896', '$2y$10$uSYCvKeX4p3uP.5t87lhoOH.4CSEcV0mCE8nnOTpD.8VGP/yTB6W6', '050878', NULL, 'aktif', 'vYXoKuiPBLojM0F8JZvwOkyZDHrM9g3dyCpVU0QXRzlE6jPSe7xGckqBlb25AVmN', '0', '2021-01-19 16:03:13', '2021-02-20 22:09:14', NULL),
 (177, 'Syaiful Munajat', 'syaifulmunajat88@gmail.com', '089610022299', '$2y$10$MeDVkKAos1X5OU1zl6sFoeSVl7w0t.QLyUCmGqXOdioPtSJSXCjv6', '240058', NULL, 'aktif', 'e0RCyXJwoR5TIDVubUQGfznvtJWnhP2SCdY9pu9BHsd1AHpELxNxGskwOvl3MKgm', '0', '2021-01-19 16:04:32', '2021-02-20 00:00:06', NULL),
 (178, 'Suwarsa madhani', 'achamadhani@gmail.com', '082299022866', '$2y$10$ynpFNsb1rQtwCyDHJBB6Tef56gv6Jizgs47EMs/CZMfcl9q6lnVW2', '081116', NULL, 'aktif', NULL, '0', '2021-01-19 16:05:18', '2021-01-19 16:05:43', NULL),
 (179, 'Fitriawati hidayat', 'hidayatfitriawati@gmail.com', '082297659770', '$2y$10$gek8Aoc4qzANGrk70CYnJ.bRtiLuc96VymSDI3xvCwfXbeTYSU2qW', '081116', NULL, 'aktif', NULL, '0', '2021-01-19 16:11:48', '2021-02-20 10:09:55', NULL),
@@ -19068,7 +19149,7 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (184, 'Iwan', 'iteungteung2@gmail.com', '087876367896', '$2y$10$KhIiO4M.O0jjdfUQSpOzaO9B1aiof8otn9DLxdXBpcL0HYLQst75i', '050878', NULL, 'aktif', NULL, '0', '2021-01-19 16:35:27', '2021-01-19 16:36:36', NULL),
 (185, 'Mojim77', 'mujimsaputra629@gmail.com', '081297793763', '$2y$10$B35V4WxD5CaQjmTzs3Ce3O8cZEjxcVSuvMio9AFD8aoUqK9l1ePfK', '777378', NULL, 'aktif', NULL, '0', '2021-01-19 16:48:24', '2021-01-19 16:48:49', NULL),
 (186, 'CECEP SUNARYA', 'ghisput097405@gmail.com', '082111054413', '$2y$10$Ec9zUIY6qUh9NoFHnmBTg.Hn2b9p7sePOzGgqR/AsoMDgEZmfeiG2', '090574', NULL, 'aktif', 'AhL6ySDGbrXca3d8gsWtJxIomXdjvirhYe7k0puBymM55awulwv4RYCosQUK1OVE', '1', '2021-01-19 16:49:23', '2021-02-15 13:28:05', NULL),
-(187, 'Ida fitria', 'idafitria97@icloud.com', '088224824087', '$2y$10$Muq4KUmN168613WWv6SbYO9TnBLGvVf5juX3Ksjx76dAMMvqr0wtu', '202020', NULL, 'aktif', 'PZfM5C0Y9hVQSEnj47pYGXlyvcwDR2qAMAseliSTOw2hoDVtHOC5smJz8FKIrogm', '1', '2021-01-19 17:10:04', '2021-02-20 00:00:06', NULL),
+(187, 'Ida fitria', 'idafitria97@icloud.com', '088224824087', '$2y$10$Muq4KUmN168613WWv6SbYO9TnBLGvVf5juX3Ksjx76dAMMvqr0wtu', '202020', NULL, 'aktif', 'PZfM5C0Y9hVQSEnj47pYGXlyvcwDR2qAMAseliSTOw2hoDVtHOC5smJz8FKIrogm', '0', '2021-01-19 17:10:04', '2021-02-20 20:50:47', NULL),
 (188, 'nurhasanah30', 'salwad84@gmail.com', '085693647490', '$2y$10$8pNbxs8Y2yjCFWcYFRrllu/DaGNTpiYyOdukp2.i86vugQKTWY0yy', '252525', NULL, 'aktif', 'z14UeycHJ0EOqSiYpt8VlUGCBWYaTAuhIadcEtMov7HdvPDDlixL85ZgxQyVhW2m', '1', '2021-01-19 17:24:53', '2021-02-20 00:00:06', NULL),
 (189, 'Yaya sunarya01', 'yayasunarya0310@gmail.com', '081286282697', '$2y$10$F98URne3xGTqSjncFzjpkO4Br4hwHDw4JXiVmUhNOENuQ0Azt83gK', '123456', NULL, 'aktif', 'iDhzKjlmMMW3iUNcaegnVB8LhOFxSBcArHwfRk2leJqTd3WI9sQRu16oYfXP4yvI', '1', '2021-01-19 17:36:40', '2021-02-20 00:00:06', NULL),
 (190, 'Reno', 'renosalkatiri@gmail.com', '085888480123', '$2y$10$/SZxlqt5.zI9A2YAcibx2OIBnwq7gCH8Fpkh/zpdyX4KYtcsQ9xJm', '111983', NULL, 'aktif', 'GlESkNiMn9VOABdcveaF5OX0uycTI71wQCYZ1eLqTo7wV2K8tGPB65bSr3ZFUxRg', '0', '2021-01-19 17:38:21', '2021-02-20 07:51:29', NULL),
@@ -19079,17 +19160,17 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_referal`, `status`, `cookies`, `remember`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (195, 'Abdulhalim50', 'abdul.halim2693@gmail.com', '0895617675487', '$2y$10$.FVwbyAeazS1Jg/dxXURA.mOzImv9S/1nohLKYEkEhfPejOsin4pq', '203031', NULL, 'aktif', NULL, '0', '2021-01-19 19:15:23', '2021-02-20 08:13:33', NULL),
 (196, 'Azfa', 'ifeh.azfa@gmail.com', '089606657133', '$2y$10$V4oZOINfNoA8VyJNV8eX6.Q/a/5y7ASkVw1rwIeX6FZxf4vHVOH..', '138166', NULL, 'aktif', '1u0zY6DQojeLmJV1dTdFia0b5W6UjreLBE4aOgSGQ7Ry7fG9NoMZvf2tSyJpA9cA', '0', '2021-01-19 19:15:59', '2021-02-20 00:00:06', NULL),
-(197, 'Hilda', 'hildariani45@gmail.com', '089615795915', '$2y$10$ZTLbmu8JeOhmW2.kvIBf/uvEa0/lZwJf0KdSEvBrU3dr21.TMoUyW', '778854', 191, 'aktif', 'AUIxcaiRGow4dd5r0vlWy7ISnMCkMHJA3mVE8PYz69kJKoC6u24tZFK8S1sPj0VF', '0', '2021-01-19 19:18:02', '2021-02-20 00:00:05', NULL),
-(198, 'Trio atmojo', 'yooskateout@gmail.com', '081932462157', '$2y$10$jI52AMwvt.U9jYv23dEDXuhOTBYekRhoSUfebD.zHRKX6FS9MgPyK', '121212', NULL, 'aktif', '21ZXmbFphEZxjQYf8yXum3LKCvADIMIHqbira9SOwkPTjoW4RlsnoiNc2K4zGUO7', '0', '2021-01-19 19:19:23', '2021-02-20 00:00:05', NULL),
+(197, 'Hilda', 'hildariani45@gmail.com', '089615795915', '$2y$10$ZTLbmu8JeOhmW2.kvIBf/uvEa0/lZwJf0KdSEvBrU3dr21.TMoUyW', '778854', 191, 'aktif', 'Pf1yGoeQFRTtza4TxdFfX6H0xk9Orr59UgUmjo8J7RNszBkvSZO1ppP25ELIEm2c', '0', '2021-01-19 19:18:02', '2021-02-20 22:44:26', NULL),
+(198, 'Trio atmojo', 'yooskateout@gmail.com', '081932462157', '$2y$10$jI52AMwvt.U9jYv23dEDXuhOTBYekRhoSUfebD.zHRKX6FS9MgPyK', '121212', NULL, 'aktif', '21ZXmbFphEZxjQYf8yXum3LKCvADIMIHqbira9SOwkPTjoW4RlsnoiNc2K4zGUO7', '0', '2021-01-19 19:19:23', '2021-02-20 19:01:20', NULL),
 (199, 'Nur Syarifah', 'nursyarifahnur@gmail.com', '089615544018', '$2y$10$Bh3NSbAXFQaAqGLO5N3eweMxuq6OzYo5EqAQ6qczpqYEV3ZSBfwdu', '636411', NULL, 'aktif', '0he3ZQeuGiBFOm9JbLxCE02HIkU8DJ3c14fV6WGwZK4kNVYpYn1ti8Xap7REQtm2', '0', '2021-01-19 19:21:06', '2021-02-20 00:00:06', NULL),
 (200, 'Yandi28', 'bhatosayyandi@gmail.com', '085219409514', '$2y$10$HgCyPlh4LoJfiOq8MZ2YkOeMGtxKg4eYR244CWuae7SHCk0SQGwra', '280489', NULL, 'aktif', 'I1CHP3bBxL7TnFkjPLDQUoRKch66uAX5HQDX2Isi5xzb92wGy0AhicgM0vtfzrnS', '1', '2021-01-19 19:33:47', '2021-02-20 00:00:05', NULL),
 (201, 'Amir Syarifuddin Mukhtar', 'dhietkiddrocksf@gmail.com', '08128701984', '$2y$10$fOexK8OV8yCxq9swPDVa4e3FlYm0Mep5XX1w.RpeXxVbSoLp1Unea', '290884', NULL, 'aktif', 'IJXSEj5lCHtxEAiqL6KrzbUKRyl74LyMQ0VkpnWDfZVYBd4nwTJ7ON3GugWPqFcB', '0', '2021-01-19 19:56:50', '2021-02-20 00:00:05', NULL),
 (202, 'Muhamad Rendi', 'rendiarisandi47@gmail.com', '081285975009', '$2y$10$DA2k1YaspG6mBEvZ4FJ4nOoMFp2knSZFrf1PSz6qFYesXeyyoKFN6', '234567', NULL, 'aktif', 'edSGP7BbK6MQsUPaRnAMZ0W97YeupST4LKCI2h3tq5EOFg8mZHCBJrytoNGsbzAX', '0', '2021-01-19 20:22:57', '2021-02-20 04:42:29', NULL),
-(203, 'Rafi', 'rafiabdul446@gmail.com', '085282063937', '$2y$10$tmJoJ0peOUMRyJohAYj2c.xZv8Ptp3T0nb0l9PA3YwJa7wKjjUHRW', '200799', 191, 'aktif', NULL, '0', '2021-01-19 20:26:00', '2021-02-20 00:00:05', NULL),
+(203, 'Rafi', 'rafiabdul446@gmail.com', '085282063937', '$2y$10$tmJoJ0peOUMRyJohAYj2c.xZv8Ptp3T0nb0l9PA3YwJa7wKjjUHRW', '200799', 191, 'aktif', NULL, '0', '2021-01-19 20:26:00', '2021-02-20 20:20:52', NULL),
 (204, 'dulzael123', 'muhamadabdulqodirzaelani@gmail.com', '089614557571', '$2y$10$F4C.KgLAfPFuXspdJ33kzOyxHAtRkEO.6WLN0LS4ua8k9gNbKqSge', '190894', NULL, 'aktif', 'gmePzvQuMtWd3WzICSO5cp3Q0EK6T0ynlFk1bnqY1gtNhZ2MGYBrJfyXaCmPEx8B', '1', '2021-01-19 20:26:21', '2021-02-20 00:00:06', NULL),
 (205, 'Hermawan', 'mawanblues@gmail.com', '08990043900', '$2y$10$UE4z1QU9tPYdOWXVXzKB2e3H/x5ae67Fv47E1aDe8CYa2mx69baGC', '526800', NULL, 'aktif', NULL, '0', '2021-01-19 20:28:43', '2021-02-20 00:41:57', NULL),
-(206, 'bram92', 'bramibrahim64@gmail.com', '085156108224', '$2y$10$4n0hQcuHd.QY4izJwaGUKeb.WzYb.PkNzI24WPlWqKQoJ6qHbMYMO', '160692', NULL, 'aktif', '8VDqQrN4lcNuJz3L9X5mnXJ4PuUkLshYxyZAlQYW1inCj3P0WeIASSZHvdihp6rs', '1', '2021-01-19 20:41:58', '2021-02-20 00:00:05', NULL),
-(207, 'Jery07', 'jerymahmuri07@gmail.com', '089651658666', '$2y$10$Z8yzW7NXhRSHinVLjEVIWuMB7XnAdUtk4Ln.m2ocBIW4a0KtdwL3a', '193444', NULL, 'aktif', 'jiUYq8p7S9uIoyVAFIcvHChKZMW8td6mnuiQxjZDSvw0bDgTcQAmrPr0sWJwazel', '0', '2021-01-19 20:58:16', '2021-02-20 17:06:41', NULL),
+(206, 'bram92', 'bramibrahim64@gmail.com', '085156108224', '$2y$10$4n0hQcuHd.QY4izJwaGUKeb.WzYb.PkNzI24WPlWqKQoJ6qHbMYMO', '160692', NULL, 'aktif', 'RXHtXm8vcWjWDBfUsgilmZaPwJQh5yb2OoTCZKpk7zMGuLUHzVlVp09jgw8Yb6NG', '1', '2021-01-19 20:41:58', '2021-02-20 21:24:07', NULL),
+(207, 'Jery07', 'jerymahmuri07@gmail.com', '089651658666', '$2y$10$Z8yzW7NXhRSHinVLjEVIWuMB7XnAdUtk4Ln.m2ocBIW4a0KtdwL3a', '193444', NULL, 'aktif', 'jiUYq8p7S9uIoyVAFIcvHChKZMW8td6mnuiQxjZDSvw0bDgTcQAmrPr0sWJwazel', '0', '2021-01-19 20:58:16', '2021-02-20 19:19:27', NULL),
 (208, 'Kurniyanah', 'kurniyanah@gmail.com', '081288518042', '$2y$10$KAt7PtuWvCxeC.Osnb0QP.LMQqcwxWbI55P1SzApIul4IzNynarau', '202079', NULL, 'aktif', 'wwSJ6YaRidPSWx7IgDKvjs2mHzW9Ve25oMN43QBTdCchKt0cAfn3pb9IqTvpF0fN', '0', '2021-01-19 21:03:36', '2021-02-20 07:08:55', NULL),
 (209, 'Emab tohir', 'emabtohir75@gimail.com', '089611505749', '$2y$10$/.6Q0pe4cru4kGOIOd.4.Oz02i6C293SDEfw4hZk0g.lmrV5IuT.K', '197578', NULL, 'aktif', 'NLECfjD2hcdzs9clzWPlfGtq70iFpSnBg85VLnhI2kwCg43dOU0Y9akMmZrtya1r', '0', '2021-01-19 21:05:27', '2021-02-20 14:43:27', NULL),
 (210, 'ipung79', 'ipung979@gmail.com', '081288518042', '$2y$10$TlfQBKyTSHlz2S9ElZ8UTe3Q14nYrI/XYfyijeRcbdac048ag07t.', '202079', NULL, 'aktif', '6t5TQWOLARxV8o7P0RYz2DvJSyUvnB1SeM7NVliXAqNpcbOCsc34Z6jdJgfxYwBH', '0', '2021-01-19 21:09:22', '2021-02-20 07:10:07', NULL),
@@ -19101,11 +19182,11 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (216, 'Sumarni', 'sumarnifaza@gmail.com', '081294017817', '$2y$10$FarAMcEvKOY7JP3Yj8keUeFaN0n4nRUIQ/B6oG.xWTdiex/As5MAO', '123456', NULL, 'aktif', 'qBH0RVTZdF1SOFKgk83wS9QYpvzwypXlJeEHPfmrNILyZOtdc1Ej7Rq5MMgzPQb7', '0', '2021-01-19 21:40:04', '2021-02-20 16:48:06', NULL),
 (217, 'Abdul Rohman', 'omen.thea@gmail.com', '08159097075', '$2y$10$kihARMc9kywCTnyZacjDyeNhiLbpj7cGuLM2Tmalf4mjBz9N/HpqW', '997075', NULL, 'aktif', 'XoQBUFL1GcDdjiYhxVtJKCuCg5FBPckiLulYVHz480367TaEvHlOOvAJd2jzE0bG', '0', '2021-01-19 21:41:04', '2021-02-20 05:51:53', NULL),
 (218, 'Andri84', 'bionerbioner50@gmail.com', '081388222626', '$2y$10$6v2PYn9Q1nRfUJNwogWDqu3hlVRMl9JXoNsznU9tHvw1jZr50UrGe', '999999', 49, 'aktif', 'Hk6Njst0qBlJ9YrS5YUglGkqfXpKiZOz8PNFmO5RKAEV1VMUgoCwHodMmy2ahDp0', '1', '2021-01-19 21:45:11', '2021-02-20 00:00:06', NULL),
-(219, 'Muri68', 'jerymahmuri68@gmail.com', '089651658666', '$2y$10$uaWdAkCyPuURfw3lzqlA4OwPoTi3b/WkyyswGh7.kspGgQAMrXxj6', '192333', 49, 'aktif', 'Mr2R4zwIDLguolwU8JNkkBTZysMvfGg15sYXWC2IbPC6cadV8PVK3mKqA0Qic0nn', '0', '2021-01-19 21:57:25', '2021-02-20 17:07:24', NULL),
+(219, 'Muri68', 'jerymahmuri68@gmail.com', '089651658666', '$2y$10$uaWdAkCyPuURfw3lzqlA4OwPoTi3b/WkyyswGh7.kspGgQAMrXxj6', '192333', 49, 'aktif', 'Mr2R4zwIDLguolwU8JNkkBTZysMvfGg15sYXWC2IbPC6cadV8PVK3mKqA0Qic0nn', '0', '2021-01-19 21:57:25', '2021-02-20 19:19:08', NULL),
 (220, 'Tatang70', 'tatangmamay88@gmail.com', '081806478752', '$2y$10$A0nHsGaKCxGUAJFlQGgAb.KOjckcnaFoBVF6YjaMS7K0Yv4j9XlXi', '224466', 49, 'aktif', '53XOdkLaCTM4RYt7l6dxf9sgOwW1mhJ49VluP2hHjPLaKqzIniG8zyetDXWE6sDN', '0', '2021-01-19 22:05:22', '2021-02-20 13:05:40', NULL),
-(221, 'Jihan10', 'zainuddinjay00@gmail.com', '081313404073', '$2y$10$iLhvH86uwO/bo.OIeYApZOQeBiZ5yNLQCoxuAaTYylpktALGghrou', '180685', NULL, 'aktif', 'dpg6LJO6vXjAZHzNMmLi3KX25NcjlDlbuYbwnW5c0enWoSRsBdyQqIatJKkZAsr1', '0', '2021-01-19 22:11:55', '2021-02-20 00:00:05', NULL),
+(221, 'Jihan10', 'zainuddinjay00@gmail.com', '081313404073', '$2y$10$iLhvH86uwO/bo.OIeYApZOQeBiZ5yNLQCoxuAaTYylpktALGghrou', '180685', NULL, 'aktif', 'dpg6LJO6vXjAZHzNMmLi3KX25NcjlDlbuYbwnW5c0enWoSRsBdyQqIatJKkZAsr1', '0', '2021-01-19 22:11:55', '2021-02-20 22:01:23', NULL),
 (222, 'Zainuddin', 'jayrika18gamil.com@gmail.com', '081388000243', '$2y$10$CIQsBA9YNOpU6uppw/fUQewUz2z0VtJ8MwJC61kPD9tiHWCyd8dfS', '180685', NULL, 'aktif', NULL, '0', '2021-01-19 22:20:08', '2021-01-19 22:21:00', NULL),
-(223, 'Caca97', 'annisarahmadhani97@gmail.com', '0095402720809', '$2y$10$6rz.UMK7wfxoYlIe79Zje.OwL4HJN7LMFkqcs0OHK0xe4ehX2rU2u', '190444', 49, 'aktif', 'Q8bj3vdV9UMhS4euJNIjLO6cLr56NkCmkt2XDyD1A1KuRSEoTTtvpil7qE02I5aG', '0', '2021-01-19 22:32:35', '2021-02-20 17:08:50', NULL),
+(223, 'Caca97', 'annisarahmadhani97@gmail.com', '0095402720809', '$2y$10$6rz.UMK7wfxoYlIe79Zje.OwL4HJN7LMFkqcs0OHK0xe4ehX2rU2u', '190444', 49, 'aktif', 'Q8bj3vdV9UMhS4euJNIjLO6cLr56NkCmkt2XDyD1A1KuRSEoTTtvpil7qE02I5aG', '0', '2021-01-19 22:32:35', '2021-02-20 19:20:00', NULL),
 (224, 'Hairil fahmi', 'hairilfahmi27@gmail.com', '087745596204', '$2y$10$zT1ps8DCVUhjaG0qxj5tDOMfYTBVUllv0yfg6zzJBh418AmIqgbEW', '225511', 49, 'aktif', 'RJC8gxsWkCJGb5EN0pRi3NdUPtnaVlmwdxteMG94Q3e7uyKmQWfOUz2qS9EDj6Zq', '0', '2021-01-19 22:38:57', '2021-02-20 00:00:05', NULL),
 (225, 'Hairil fahmi', 'khairilfahmi1950@gmail.com', '087745596204', '$2y$10$iZIjHazvVz5wSW0qB/Ceq.SyFUFTCnnhDYi4ytow7nDf7xEUnHyNe', '225511', 49, 'aktif', 'HZMUhdNKXSzmABXsZJP3OKfrcRgoD8GTMnYpbquPanLE5TG21thtC0micfEewgkO', '0', '2021-01-19 22:42:30', '2021-02-16 16:39:59', NULL),
 (226, 'Lukmanyanti82', 'lukmanstone3@gmail.com', '081383628340', '$2y$10$Qo6FAqcsQUiYFzU/2VmpquJnLB/Sk0IC1C12jGrqRfCByRNbnCs4.', '123456', NULL, 'aktif', '6XKfgJAfxMm1ubi65IlkQYbGnhoQCSC0yvuy1HTRDpMaNetgaplWwUmeK4FO8tvF', '1', '2021-01-19 22:43:16', '2021-02-20 00:00:06', NULL),
@@ -19140,13 +19221,13 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (255, 'Alif Reza Pahlevi', 'alifreza86@gmail.com', '089516659401', '$2y$10$wbfpogEZ3jlpT06ysL6bZur53pRM8n1oc9OqqkFqx9MzoUd915vGi', '280920', 16, 'aktif', 'PTfDc1j2VJybGEMhZt4RGykBXvFwoi7naW7A6aN6RQmwFlihzqLj9rNIeYmvxKld', '1', '2021-01-20 16:55:47', '2021-01-20 16:56:27', NULL),
 (256, 'Elvie Sukrisni', 'elvie.sukrisni@gmail.com', '081315961832', '$2y$10$/lozQ4nPr8TflAnIRQfei.6vv1AJTtPMkQrMQPtAh8HxKmXBfrEvG', '606060', NULL, 'aktif', '8M6VlkWGRetXBaPJqoV7FA5cCHTjdgzJvIZtWbE1arnH2OiAsQ9Dfk4YhN2fdUYn', '1', '2021-01-20 17:04:15', '2021-02-20 00:00:05', NULL),
 (257, 'Hasna2020', 'muhamad.nunu@gmail.com', '081294853735', '$2y$10$IrTXSXTTt27yr5gm2uShz.ES5dMkBcim5YxlYe5NcmhyYxbxxtaa2', '261186', NULL, 'aktif', 'BrqgXs4zs7RD8nVmAoZppeHFcwUWGbluBtflQidyxYZ4URyn8famS1OhTiVOGH9D', '1', '2021-01-20 18:22:01', '2021-02-20 08:32:24', NULL),
-(258, 'Ida', 'idafadilah1984@gmail.com', '081382251856', '$2y$10$DtYUF1NClPdT/HlBeqHTDuM6U1LESFvdBwJvMDq1rAgWr1BqDuLky', '101286', NULL, 'aktif', 'e0ltHEOy4k6JhqzCUsgDM5CFdRn8WrxpXmS792cXRLVvMjvFw8iaYT1VZOGyxbAl', '1', '2021-01-20 18:58:55', '2021-02-20 00:00:05', NULL),
+(258, 'Ida', 'idafadilah1984@gmail.com', '081382251856', '$2y$10$DtYUF1NClPdT/HlBeqHTDuM6U1LESFvdBwJvMDq1rAgWr1BqDuLky', '101286', NULL, 'aktif', 'as43jCmWQXxzUe7NRLnYg20I2kAPMROm9tLCM3VkO719hysrEb5GT0pFiPAKS45J', '1', '2021-01-20 18:58:55', '2021-02-20 20:20:47', NULL),
 (259, 'Jajat sudrajat', 'alyasar140306@gmail.com', '085779129121', '$2y$10$SlEsomYqIX9sshMzKfsz/eIHnf0zKJYvzIeyGToa7uO2CoKZ154Sq', '140306', NULL, 'aktif', '9eNXLAnkyI0Lrp4UKlo2HKvFoGM4hBEr81yRZYm7xztalJfiFv236WVCh5AkUcjS', '0', '2021-01-20 19:02:20', '2021-02-20 16:56:22', NULL),
 (260, 'Solehudin', 'solehudin.15011979@gmail.com', '085821633263', '$2y$10$WAaDMFNpMkuA6VmLqzr4P.qxrlOEMydnpEC5k.u2oTRxCfGN1XGGK', '790115', NULL, 'aktif', NULL, '0', '2021-01-20 19:09:01', '2021-02-20 00:00:05', NULL),
 (261, 'Saropudin', 'saropudinsaropudin34@gmail.com', '081617767125', '$2y$10$VE0OZzMaIDCYnDc9q26JFuG/Duwsr2byWX2wU8k3ECBl7Q5YHk5cC', '840612', NULL, 'aktif', NULL, '0', '2021-01-20 19:27:15', '2021-02-20 10:34:59', NULL),
 (262, 'Fajar Yahya', 'fajaryahya64@gmail.com', '081319974915', '$2y$10$vLfasipOU5fg5M9f0neLaOrykjDhUR.2hKfGu/sYEvkHp8NaecWjy', '141264', NULL, 'aktif', 'n9DF3vUyYygfseHuCTc724RhhFb41JrrdGzOxEoAmxDpMCLjtNNKHvYbqeSVwdlR', '1', '2021-01-20 21:05:01', '2021-02-20 00:00:05', NULL),
 (263, 'atmaja92', 'aimpulaloh04@gmail.com', '0895348001912', '$2y$10$J9OtjP1kTza4QBPQLu0z4.pGnOyWazAkiJss/AJ.3EHs3SX.IBbkm', '252525', NULL, 'aktif', 'jKrUWNwN7TI3xh60iPsEymGJVbcZvMQ7LtRqgeVCSF1no8BpudaHRPr0gAKnlilz', '1', '2021-01-20 21:15:30', '2021-02-20 06:52:57', NULL),
-(264, 'bahar99', 'baharaja732@gmail.com', '085773155083', '$2y$10$scdHZ8hIv4yNjvvya3rxS.D0cPx7hwO9sC9COLDLNQ1e6naQIE8Zi', '123456', NULL, 'aktif', 'laeyLrEAJ0mtuWQzI71JRWqex9wZgPPu3A0OVKbMKNX57tF8IcLonji4Td6MY5B3', '0', '2021-01-20 21:23:16', '2021-02-20 00:00:05', NULL),
+(264, 'bahar99', 'baharaja732@gmail.com', '085773155083', '$2y$10$scdHZ8hIv4yNjvvya3rxS.D0cPx7hwO9sC9COLDLNQ1e6naQIE8Zi', '123456', NULL, 'aktif', 'laeyLrEAJ0mtuWQzI71JRWqex9wZgPPu3A0OVKbMKNX57tF8IcLonji4Td6MY5B3', '0', '2021-01-20 21:23:16', '2021-02-20 18:22:35', NULL),
 (265, 'Abbas89', 'chamay589@gmail.com', '+6289638074458', '$2y$10$ijgLi3/MBs9mLthmARhlc.VzHSGUltq23qduxOl1VNqRkx71GyUBC', '300492', NULL, 'aktif', '9vTlgs8ByDRstMiO4Hklk35KKjhZYhCH6foxfr19Y0Vbp2RPvGUnP3Lw5Zc46EJU', '1', '2021-01-21 06:09:00', '2021-02-20 00:00:06', NULL),
 (266, 'Mami junaedi', 'fahmiansyah07@gmail.com', '082124060428', '$2y$10$1sBxugxDLRqFoALfL1v49uBzvMEDExV5ZC6zpFbK9Jn2ETNHHK/Da', '626458', 16, 'aktif', 'XNvsTx4CAcCLhfiMgSvl0UoM6Zq5SP7mEnIJUHy9fdVrkGHEt6A3kjo7KOw8FWKN', '0', '2021-01-21 08:29:40', '2021-02-20 00:00:05', NULL),
 (267, 'Vahistha anandia', 'anandiavahistha@gmail.com', '081297249581', '$2y$10$Kl1G6VxqJS0HQsSRlft9qen7JAHjOl9VQhkvU.0AXnqUm4QQoJ3Zy', '260996', NULL, 'aktif', 'HjlO3RIDqbMzKYZmBiBnopgX17sdT6Ffx5qfUV6G0Gupr723WSAavkmjxlhsNIYo', '1', '2021-01-21 09:36:02', '2021-01-21 09:36:18', NULL),
@@ -19157,7 +19238,7 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (272, 'Abidin', 'abidin14085@gmail.com', '081991525035', '$2y$10$bPbv6Mu5b80RdWy7tvJb1uwQHXxubaEdfnWIh1KkPYrhzEPxmsxkm', '366366', NULL, 'aktif', 'XodM6rsIOtoVjznf7HBqcAybFk8zJY97IfwgPY9mU0bS6aOxNBgRlFSwTGv4tT5N', '1', '2021-01-21 17:36:27', '2021-02-20 00:00:06', NULL),
 (273, 'Merlan Maulana', 'melmanza5@gmail.com', '085210002445', '$2y$10$Im01MMiU7tLnFqTETTV2C.s2bKcrvE2D83hF4.xC0PJGwv0nv7mAS', '442389', NULL, 'aktif', '8nfqDpmfRxzHpItuAl1OGLIVAebSBMit9350d6QrhUV7WDaMRKxEKojOys46ld2H', '0', '2021-01-21 17:36:33', '2021-02-20 00:00:06', NULL),
 (274, 'ihing', 'ihing.aweng@gmail.com', '082164003941', '$2y$10$M/dbxMhD1OdyyxFcWfDAverSRHxA0M7d2U4t6Mn17SDAwn8Euh/Im', '210121', NULL, 'aktif', NULL, '0', '2021-01-21 17:37:48', '2021-02-20 00:00:06', NULL),
-(275, 'Aan sori', 'aan27sori@gmail.com', '087885243606', '$2y$10$U6jZy1AmsbaDGJdjBwFi4eLcqG2eU1rJbehEFvOC7KKOEpCrqOhhy', '270982', NULL, 'aktif', 'RAlkjOpCUQJDMua6tjyGLE5q42S8dviT7QN49NcJZfm85HebLRfKFop6ePCnnwhZ', '0', '2021-01-21 17:41:10', '2021-02-20 00:00:06', NULL),
+(275, 'Aan sori', 'aan27sori@gmail.com', '087885243606', '$2y$10$U6jZy1AmsbaDGJdjBwFi4eLcqG2eU1rJbehEFvOC7KKOEpCrqOhhy', '270982', NULL, 'aktif', 'RAlkjOpCUQJDMua6tjyGLE5q42S8dviT7QN49NcJZfm85HebLRfKFop6ePCnnwhZ', '0', '2021-01-21 17:41:10', '2021-02-20 18:29:16', NULL),
 (276, 'rahmat', 'kurniawanceria@gmail.com', '+6281288448310', '$2y$10$BQ7x0ant6kyDJFQIyVt9AOqZqKC7VE9A5EVLWbfOjugdI0/vOD4Ry', '061187', NULL, 'aktif', 'LebNfOU6wEQLFYsmAnoNrb5YH0wxqJ4a1GCydk7tXSOtTR2A6mPnxgKI8KjpSV9a', '1', '2021-01-21 17:46:40', '2021-01-25 16:21:19', NULL),
 (277, 'Andika92', 'dikaandika102938@gmail.com', '087730580030', '$2y$10$/Ee/ySzarSHU12wxiretwuqrPdPrs554spI3dOt9m.HTPhRKcUEo6', '290992', NULL, 'aktif', 'hiFqnFk1ea7wlLxSjJ8u3C9DBKADvQRYbyWUfPONNzsdSznVJ82gKQpud6xboXWT', '1', '2021-01-21 19:04:36', '2021-02-20 00:00:06', NULL),
 (278, 'Hujaipah', 'hujaipah04@gmail.com', '085778038706', '$2y$10$fjaw6DrArR05mcxv5xjij.DRflFDygpGLARlbTe.d2nqrMMJSHCXS', '180402', NULL, 'aktif', '6l9PnZjJ2sEyOi5gu3HWYS4eazLqVdQK93ylxvt7v8WuS0piGEfOhPp72DkwDRVz', '1', '2021-01-21 19:08:40', '2021-02-20 00:00:06', NULL),
@@ -19177,7 +19258,7 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (292, 'Agus dermawan', 'agusdrm17@gmail.com', '0895611912002', '$2y$10$DLdyuyGrHLwoNWOUDIWW8OtG/Bhb2lA6y/nlAqnFDaGGmOcilJwSi', '123456', NULL, 'aktif', 'n0dF89ZRGkCs2Sxp5C16TYIz2bzv8eRNk1OfmLwHZ6Xw4E5v4cWUVOSMiJcbQLsB', '0', '2021-01-22 19:07:01', '2021-02-20 02:14:55', NULL),
 (293, 'Jamhuri', 'jamhurinjam27@gmail.com', '089521470662', '$2y$10$k1NbvKFnihyVQ/nr8GwGBOdBbH02dy3oTYKe/38PX2lMhp8ZZ/Pui', '123456', NULL, 'aktif', 'XHK8myLMsejindXkJfWqAREtErlZsSC31RQhoLBpUoZcMOuziFzBxvF5jP6Cy4ON', '0', '2021-01-22 19:11:09', '2021-02-20 03:41:02', NULL),
 (294, 'Asep supriadi', 'asep38830@gmail.com', '083813347030', '$2y$10$6kJ9zUTx8R5fF2M0GBLCyuNqVlWvo1vzUNjKDG7XXbVY6mi.ej3tC', '123456', NULL, 'aktif', 'BXKDTOgaClwtsZ1Jk8K58cT2bSvPwePou3XAsy96iCINDtdv7rxJjuzRq2bVWi6j', '0', '2021-01-22 19:49:07', '2021-02-20 07:17:47', NULL),
-(295, 'Amung', 'amungbioner@gmail.com', '089515583927', '$2y$10$JzRstA1fR3psmLR.hxSZ5u2JnhW93wI7frX0/4qBMdcjsuHNiFOoK', '123456', NULL, 'aktif', 'EM6138dtzpi20h5PXe6caBlUWrZayp2w47jEOZcq9LL3wRob4KbvsVeW1iCtRqIQ', '0', '2021-01-22 19:51:54', '2021-02-20 13:29:01', NULL),
+(295, 'Amung', 'amungbioner@gmail.com', '089515583927', '$2y$10$JzRstA1fR3psmLR.hxSZ5u2JnhW93wI7frX0/4qBMdcjsuHNiFOoK', '123456', NULL, 'aktif', 'EM6138dtzpi20h5PXe6caBlUWrZayp2w47jEOZcq9LL3wRob4KbvsVeW1iCtRqIQ', '0', '2021-01-22 19:51:54', '2021-02-20 20:24:35', NULL),
 (296, 'Hardian', 'hardianian398@gmail.com', '0895321492756', '$2y$10$SbpwpyO3QAK3O6lIqsa3ZuXtHmjpKWJhJrCE/gAJ181imv8tBcxOm', '080580', NULL, 'aktif', NULL, '0', '2021-01-22 20:03:21', '2021-02-20 00:00:05', NULL),
 (297, 'Bioner', 'bioner@gmsil.com', '089636212525', '$2y$10$yzx.p1RRJluKRcevbIolX.gqUmc84ngsre/E.cSJwuexEiXbMCwwG', '123456', NULL, 'aktif', NULL, NULL, '2021-01-22 20:23:27', '2021-01-22 20:23:27', NULL),
 (298, 'Risa', 'risaaprillia995@gmail.com', '089507052014', '$2y$10$Sd64dm6HKqbOAe4TfUjZ9O4miAI.CKtf3fRnevxSkqKOyP/YkJv22', '123456', NULL, 'aktif', NULL, '0', '2021-01-22 20:25:12', '2021-02-20 00:00:05', NULL),
@@ -19189,10 +19270,10 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (304, 'Dadan hamdani', 'dadancamping@gmail.com', '08999554724', '$2y$10$p9vG8L5aI.OBUKfdV9FIQOQrgf5gD2znUL9sMcsm6tQQWLWG1hhvm', '123456', NULL, 'aktif', 'QInvo9ggY3QakEU7jp6FYS0rOnfHkI781pwfyqJeulNjldKhhcCNxROrmds6mieM', '1', '2021-01-22 22:31:48', '2021-02-20 00:00:05', NULL),
 (305, 'iskandar', 'iskandardinata0888@gmail.com', '081283543193', '$2y$10$..fl1CtOD7nAr0g4xcSA7Ou9OPXEGq3blAcVsZ01okiTWP3.RQG/C', '123456', NULL, 'aktif', 'nrag25MwfO1oX47p1KQWR0L9hNACsdh8LwUn3ZcVgQbYitqPDBplCTW3ZBVSjcmx', '1', '2021-01-22 22:43:42', '2021-02-20 00:00:05', NULL),
 (306, 'Muhammad Rizal Ibnu azat', 'rizalzayra01@gmail.com', '085891526766', '$2y$10$aUKijVUVnOeZ/7qWtI5AOOHLE.d3H7yKRrMb5fc4VzAaYnLsyMR22', '112233', NULL, 'aktif', NULL, '0', '2021-01-22 22:45:52', '2021-02-20 00:00:05', NULL),
-(307, 'Jalaludin', 'zaedhan94@gmail.com', '08567546347', '$2y$10$FMqkRaPcGgPgesS2HA3l2eFRkjuf7BQd.k0etnie./bcg/vCbc25.', '123456', NULL, 'aktif', 'Jx3YU4BTdyl6QvFZAkimrtNcV20k61KDClSbPz1HSTugXL3jsuCHnaxWgzMn7Ebe', '0', '2021-01-22 23:00:43', '2021-02-20 03:41:43', NULL),
+(307, 'Jalaludin', 'zaedhan94@gmail.com', '08567546347', '$2y$10$FMqkRaPcGgPgesS2HA3l2eFRkjuf7BQd.k0etnie./bcg/vCbc25.', '123456', NULL, 'aktif', 'lQDM1Bb6FwcIJlFPh0ojnzv4ZLXWjPUgxEqzg0HfcOApsHmmTNsekiJMyrNta79I', '1', '2021-01-22 23:00:43', '2021-02-20 20:00:30', NULL),
 (308, 'Muhamad irfansyah', 'rfnshmuhamad@gmail.com', '0881024712252', '$2y$10$nL.DfvCs9cw.wIPm5bkBtuPpmo2F8fG3t4gFdIX9UY9eYRfCaKmRa', '123456', NULL, 'aktif', 'Puon09m6IIYcRhd6cwNPXsJalrFLmbRM3h7vV7xkSbwjDfOCnTvSWQ5iUoG4yzYp', '1', '2021-01-22 23:28:02', '2021-02-20 00:00:05', NULL),
 (309, 'hm1972', 'rodeobioner@gmail.com', '08421130024', '$2y$10$Zh.5X.jALU8zxPI5p6j8i.Lbj0YuOz5PfLlaX/M5/HAnB86f/F2ee', '834873', NULL, 'aktif', 'qMoQDCH86XheLPEu1wKT5niUVWdINRrAkvZFi4m9yTehJaOs9JZStsDH0jwYbXl4', '1', '2021-01-23 11:53:09', '2021-01-23 12:00:44', NULL),
-(310, 'usmansemangat', 'sumantriusman880@gmail.com', '085210113145', '$2y$10$cDNbxY5adDVxL.tpRRhTduyA6OfJIsclhyIDnn.l8yOBGQ6zF.qu.', '091976', NULL, 'aktif', NULL, '0', '2021-01-23 12:43:49', '2021-02-20 00:00:05', NULL),
+(310, 'usmansemangat', 'sumantriusman880@gmail.com', '085210113145', '$2y$10$cDNbxY5adDVxL.tpRRhTduyA6OfJIsclhyIDnn.l8yOBGQ6zF.qu.', '091976', NULL, 'aktif', NULL, '0', '2021-01-23 12:43:49', '2021-02-20 20:13:02', NULL),
 (311, 'Muhammad sopian', 'sopianmuhammad885@gmail.com', '083898270005', '$2y$10$tbPzsYyFNJpdsJpL1JRIqePCvqhgpdUk210qjmJqqvBbSTIsW7OQS', '159325', NULL, 'aktif', 'JEHzmucVmITk7SOZB2eKa3jKwGtINlhTPUefFnqz3MXRGH8awNVYDvU4MdgRdWqx', '1', '2021-01-23 16:34:12', '2021-02-20 00:00:06', NULL),
 (312, 'endang supriadi', 'supriadiendang0108@gmail.com', '085316916189', '$2y$10$mtq9LXzK5hE8TlOsnq8v5uFhoTH6dJaRLHIdklZjLI52S1uBaK3K6', '738290', NULL, 'aktif', 'iVc433aYAN2R1YzyHg85dGMI01zifZoGnSveesOxlWm664BrZH9bKKgFq09EpbtC', '0', '2021-01-23 17:10:04', '2021-02-20 06:10:12', NULL),
 (313, 'Irwan Gunawan', 'irwangunawan395@gmail.com', '089528409643', '$2y$10$iZEYz8OB1FgnyF95zMmww..6VWK.4.YAnbOcnYf9vBYhZsxgZFDsm', '150989', NULL, 'aktif', 'vvro0M1PrONO8HzRCJlkHQbqsmS43fY6ahLnS75VewjMwYbX4gFfyT9iI12tWq6C', '0', '2021-01-23 17:35:39', '2021-02-20 00:00:06', NULL),
@@ -19213,10 +19294,10 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (328, 'yeni nuraeni', 'yeninuraeni742@gmail.com', '085727161678', '$2y$10$SgJOUWatEByy9xuYBl82buxgVU/R5hX.kgvBvwrjE8utqgezGvgku', '445566', 18, 'aktif', 'y804FftjIw1CrhXeKygMkNSSWe2qZdLKx9JEi36slZGm1loGntUuaVqkHNfsbDLJ', '1', '2021-01-24 15:45:52', '2021-02-20 00:00:05', NULL),
 (329, 'Indra', 'indrasuwandra@gmail.com', '087874612061', '$2y$10$IEY3/kwRuUUFJ28QPbfwzuAJ7u2ZclQgIgrrLA2XV1Y3UF1C3BWYG', '002610', NULL, 'aktif', NULL, '0', '2021-01-24 18:01:17', '2021-01-31 12:31:43', NULL),
 (330, 'Syukron mamun', 'mamunsyukron800@gmail.com', '085715130000', '$2y$10$KakX6gBEAixrdfVDmMBylu87sdbcfCHu47/FcpdmB8wH6N3bP7uJK', '100410', NULL, 'aktif', 'o5pfwOZSh37EKBjAQ0Iboz24vS6LKgFD8urhRpJ1axcGCXtiEsLHBYul730trXMg', '1', '2021-01-24 18:04:37', '2021-02-20 00:00:05', NULL),
-(331, 'M iskandar', 'ismetmiskandar397@gmail.com', '089601081774', '$2y$10$PkdEg090vRhK9C3tmr/6h.1b0F3XC4egTgKcsbrZiduju7ntMDOVK', '792013', NULL, 'aktif', NULL, '0', '2021-01-24 18:27:31', '2021-02-20 00:00:05', NULL),
+(331, 'M iskandar', 'ismetmiskandar397@gmail.com', '089601081774', '$2y$10$PkdEg090vRhK9C3tmr/6h.1b0F3XC4egTgKcsbrZiduju7ntMDOVK', '792013', NULL, 'aktif', NULL, '0', '2021-01-24 18:27:31', '2021-02-20 22:46:10', NULL),
 (332, 'Johan', 'apriansyahn167@gmail.com', '081284716690', '$2y$10$OocbDrTQX5i5tbcGHKrj..zr2aluQPw0OJQkXpWXlnx3uBFYiBI3a', '975141', NULL, 'aktif', NULL, '0', '2021-01-24 18:45:45', '2021-02-20 18:10:02', NULL),
 (333, 'Suryadi', 'suryadi.aples@gmail.com', '081212944314', '$2y$10$BWPSyBIylpdaF259yLDDAuEiYmXKxaaSmBDcwc/gLv6dJ4ZINl2iS', '272677', NULL, 'aktif', NULL, '0', '2021-01-24 19:17:52', '2021-02-20 00:00:05', NULL),
-(334, 'Ratih', 'ratihkusumaningsih819@gmail.com', '085810338522', '$2y$10$raw0ixNSk.yG7PP55ncsk.Q/DxC.i8I9R9yeQKKFhO63.7w7jOoIW', '120920', NULL, 'aktif', 'avOWHfo7vBrC2g4i851u6xcK5RnYk32qksd3YfHeSQd1EZjPXRZM07rtVzMlpFXm', '0', '2021-01-24 19:18:25', '2021-02-20 16:42:55', NULL),
+(334, 'Ratih', 'ratihkusumaningsih819@gmail.com', '085810338522', '$2y$10$raw0ixNSk.yG7PP55ncsk.Q/DxC.i8I9R9yeQKKFhO63.7w7jOoIW', '120920', NULL, 'aktif', 'avOWHfo7vBrC2g4i851u6xcK5RnYk32qksd3YfHeSQd1EZjPXRZM07rtVzMlpFXm', '0', '2021-01-24 19:18:25', '2021-02-20 19:35:13', NULL),
 (335, 'ermaningsih', 'denymoellya79@gmail.com', '085780470243', '$2y$10$JGErzRgwExX/EjrkcgEbaeO68DKCFHyDTEzmkwLgfedOH.1VMhyua', '797372', NULL, 'aktif', NULL, '0', '2021-01-24 19:22:18', '2021-02-20 00:00:05', NULL),
 (336, 'M.fathur ilham', 'imamwijaya62@gmail.com', '085695299772', '$2y$10$b9lCWVXXxyRfTxR9jJ9bA.gb6Vf4Y1zNNYVqyBzi7t74FXeb5kdZS', '121215', 16, 'aktif', '1GM9dD25d2cPZFniu7sY7UguiVcZfLse00etOv9kSnjfWkSHlFlj6HpAbK8DArMJ', '1', '2021-01-24 21:18:34', '2021-01-24 21:21:31', NULL),
 (337, 'Abie Lukie', 'junaedilucky03@gmail.com', '85691197759', '$2y$10$oAmTzZX5sLe4ITtoIVTp7OCxawCZCynIHL2Nc1DuY4kgBL5DxHacO', '110503', NULL, 'aktif', 'gFaNNK8yUPa9OLtHbKq7esJxEZeBGRrYxyg2l6dZvczf4iop7HmBAwJjCnATRC0X', '1', '2021-01-24 21:25:20', '2021-01-24 21:25:41', NULL),
@@ -19228,15 +19309,15 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (343, 'Juhana', 'juhanajuhana837@gmail.com', '08561360161', '$2y$10$ELSBmO9KFNrUgNRx1SAdiubk.ECI0CejnSQw94YEX7STMwb8WI9z2', '613601', NULL, 'aktif', 'dVrbO21XJRTzS5jtxBwfg3456FvRFoUaTpAlZNmdoLGa8vNInHQGYq7SA76Cizfr', '1', '2021-01-25 11:22:23', '2021-02-20 00:00:06', NULL),
 (344, 'royani', 'royani_aminullah@yahoo.com', '0895347341827', '$2y$10$.L9NHTvpFhu1exfksbTXrexNp6HmXOBkfiBboaMn8iA7SL/mg1bwm', '211020', NULL, 'aktif', NULL, '0', '2021-01-25 11:49:28', '2021-01-25 11:49:51', NULL),
 (345, 'Heryanto', 'insanbakti783@gmail.com', '085710278373', '$2y$10$o4MkfYi3Y9SwBbSkt8jg7eWO24eIg0Olaj/NHhwYz2kTseIz8jkyC', '666666', NULL, 'aktif', '5HxEB6vp14FmqOVfFTK0q59Nj3xGyjQsgnXQUAC9Nn7uHzhcvGRYMchJtXEAKk7S', '1', '2021-01-25 12:16:31', '2021-02-20 00:00:06', NULL),
-(346, 'M NAHROWI MUBAROK', 'nahrowimubarok4@mail.com', '089630778729', '$2y$10$NfiiyBDzNCRKNGbceuQPF.8bo23zA.CyunrpZMCFyCKOJMKgRqPAm', '071279', NULL, 'aktif', 'Z03Vn5KhIxv8fTb69Gjn7jhYotpXCbvRLOTe4PJqUNl2yHkU6rcKxQAmENG8BY0M', '0', '2021-01-25 12:49:39', '2021-02-20 13:25:08', NULL),
+(346, 'M NAHROWI MUBAROK', 'nahrowimubarok4@mail.com', '089630778729', '$2y$10$NfiiyBDzNCRKNGbceuQPF.8bo23zA.CyunrpZMCFyCKOJMKgRqPAm', '071279', NULL, 'aktif', 'Z03Vn5KhIxv8fTb69Gjn7jhYotpXCbvRLOTe4PJqUNl2yHkU6rcKxQAmENG8BY0M', '0', '2021-01-25 12:49:39', '2021-02-20 20:06:22', NULL),
 (347, 'indra07', 'indra.wijaya011016@gmail.com', '089699795769', '$2y$10$2iEb6.FiN7RBt28uEUxc/OHh4od8vKbsJ.NbDPPYyXk1XXLTdh8mm', '010718', NULL, 'aktif', NULL, '0', '2021-01-25 14:19:02', '2021-01-25 14:19:24', NULL),
 (348, 'Agus husen', 'agushusen1966@gmail.com', '085883995540', '$2y$10$FdhUrMyUzkl6HrVb5ow8o.PN47VnH7uimWC3aml/xEpqfaRbN5b4i', '010466', NULL, 'aktif', '34kIoSBTvtHCfAZnYurlZUtkg0EJnYBwd8KqcRhWMwomJOsxDqe6RMXFv5mbr9yi', '0', '2021-01-25 14:29:17', '2021-01-25 15:32:59', NULL),
 (349, 'Herni', 'herniaurelia@gmail.com', '081224215781', '$2y$10$hEniNt1hwwQgpLmLLNvZS.h/uGdnOCelfBu8i6hgUf.PI5UqBsNlG', '040395', NULL, 'aktif', 'QiASqjWt5dcfS9yFsH3zR3TIbBT67Z4VfLo5VebPmZkrBKDhpxlYGHRCX1Wjirdw', '1', '2021-01-25 20:13:54', '2021-01-25 20:14:07', NULL),
-(350, 'Soef', 'magribalibtida@gmail.com', '085719491417', '$2y$10$Me04BABaEVB8Cz26FAjjPOTMEAAQ0GVNYVgZ.XO.EO5rzwDDM43By', '420790', NULL, 'aktif', NULL, '0', '2021-01-26 09:27:18', '2021-02-20 15:37:42', NULL),
+(350, 'Soef', 'magribalibtida@gmail.com', '085719491417', '$2y$10$Me04BABaEVB8Cz26FAjjPOTMEAAQ0GVNYVgZ.XO.EO5rzwDDM43By', '420790', NULL, 'aktif', NULL, '0', '2021-01-26 09:27:18', '2021-02-20 19:33:41', NULL),
 (351, 'Sopian', 'amsorisopian3@gmail.com', '085763434650', '$2y$10$arZwb/1w4C.5BGo4oR/gPeHVW5efVVIL9R30K8eedpM.TPqAFMJT2', '911611', NULL, 'aktif', NULL, '0', '2021-01-26 09:33:38', '2021-02-20 06:48:00', NULL),
 (352, 'Subur wibowo ardi', 'ardisubur@gmail.com', '085691693010', '$2y$10$2G.DSNoKRMMiB92xwvcMwuAHFsFQuTIOqbL7ljjC6TEOQfmiC11Uq', '081019', NULL, 'aktif', 'keNGSBREtZ2nTHotgYY06fzDc9lGnrF125jlxLKwCwkqq4MOI9NVjiJQ38MhSAgv', '1', '2021-01-26 11:18:27', '2021-01-26 11:19:38', NULL),
 (353, 'Annissa', 'barurian63@gmail.com', '087773064978', '$2y$10$NSYZHsxT7MyHDGiSLAcBven/fadXFWHm69924KhujeDXBc/b8LOy.', '101193', NULL, 'aktif', NULL, '0', '2021-01-26 11:22:32', '2021-01-26 11:45:15', NULL),
-(354, 'Imam mudin', 'ibobbputra15@gmail.com', '085694201045', '$2y$10$10ZxEIih20qdUX.VpWER3usGaWA95TJFXGyFYFiIqTu8wQXiDm3/a', '135421', NULL, 'aktif', 'UabgFwvYp5tHTnDeiwL580ySjMrWF7Ruo1mPnqZ1BCT32AW3Ikg97YqpMhuolcPQ', '0', '2021-01-26 12:36:21', '2021-02-20 07:24:47', NULL),
+(354, 'Imam mudin', 'ibobbputra15@gmail.com', '085694201045', '$2y$10$10ZxEIih20qdUX.VpWER3usGaWA95TJFXGyFYFiIqTu8wQXiDm3/a', '135421', NULL, 'aktif', 'UabgFwvYp5tHTnDeiwL580ySjMrWF7Ruo1mPnqZ1BCT32AW3Ikg97YqpMhuolcPQ', '0', '2021-01-26 12:36:21', '2021-02-20 19:31:27', NULL),
 (355, 'Maulana', 'gusleabdurahman09@gmail.com', '+62 812-9521-8594', '$2y$10$q0QrBgKcbP2ZkF7gnHDeiu8iz/XNki66Fesn1Pu26cLdhENaTAxXi', '123457', NULL, 'aktif', 'SRHoQd2GdmszMXAai3v4ac06Q1WW2BlhKkv15TokeYJPmeHTNxUyOfZpht35wxAy', '0', '2021-01-26 15:43:08', '2021-02-20 00:00:06', NULL),
 (356, 'Hildarizki', 'hildanda0904@gmail.com', '085717237711', '$2y$10$SbkVkxXVy.IYZJ6FUNlgGOqyzbyvx2f0.4mAxr0jfVFhnMsLepPJm', '020902', NULL, 'aktif', 'Rf3G7FoJHZAlmPR51sIomVjjd43YzkczdXvKVOt4LEDXEaMylY9Te2wByuw0agJh', '1', '2021-01-26 17:48:57', '2021-02-20 00:00:06', NULL),
 (357, 'Faisal95', 'faizalfaufik658@gmail.com', '+6281223207884', '$2y$10$LgWEqEhDlrSn5edHl6vIbOh4e1UCEowa.I4Hh4vNWLGY0iie0vpPG', '300315', NULL, 'aktif', 'Jy25wLZoB8OWRdbFgbxfs4CUEQ1HmxSgVlEpraleDvVru8tAF0qimnkhNU9Wda6u', '1', '2021-01-26 18:59:19', '2021-02-20 00:00:06', NULL),
@@ -19248,7 +19329,7 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (363, 'Antok Triyanto', 'antoktriyanto0@gmail.com', '085742843544', '$2y$10$GEV0Tq9hALcyWxBFwyDA1egiNvGf50ybGhkGMN1mkuvm79NQ3Fbuy', '354313', NULL, 'aktif', NULL, '0', '2021-01-27 15:43:48', '2021-02-20 11:54:38', NULL),
 (364, 'Gelar', 'gelarakbar99@gmail.com', '089657773701', '$2y$10$fwi2RDQBUJfsP3xkefG3We5tO8IYU8fVwJcgyQKzVenn3dwegSQQu', '101212', NULL, 'aktif', 'QoPmObOykXlLjPi6gA3Rp543yZvVsdKJeGX89hUYHt4DIANuzEGxSufwBcrbWLlS', '0', '2021-01-27 15:50:10', '2021-02-20 00:00:06', NULL),
 (365, 'Mulya Wibawa', 'mulya.wibawa89@gmail.com', '081384903411', '$2y$10$JuOjJSMZqAgTRYoKahxMHepfjauz03IMhv300gv6piiTX0x7opL.6', '110189', NULL, 'aktif', NULL, '0', '2021-01-27 16:39:29', '2021-02-20 00:00:06', NULL),
-(366, 'Saipul77', 'ipung.bioner@gmail.com', '081283104999', '$2y$10$d0zlsy5M.L3w2OZME.x0eeS3TstZlqqsEEBtbYeGtyk8GdmTE4S6S', '123456', NULL, 'aktif', 'FJd3KtbnZv5PDsMHKUMcQvoxazgR9lrmuSW9jjX6NkF5reIITEVwUycRG6T71oPH', '0', '2021-01-27 17:53:43', '2021-02-20 10:25:13', NULL),
+(366, 'Saipul77', 'ipung.bioner@gmail.com', '081283104999', '$2y$10$d0zlsy5M.L3w2OZME.x0eeS3TstZlqqsEEBtbYeGtyk8GdmTE4S6S', '123456', NULL, 'aktif', 'FJd3KtbnZv5PDsMHKUMcQvoxazgR9lrmuSW9jjX6NkF5reIITEVwUycRG6T71oPH', '0', '2021-01-27 17:53:43', '2021-02-20 22:22:36', NULL),
 (367, 'Dunk', 'dadang.hilman.fauziansyah.16@gmail.com', '085723278916', '$2y$10$9/D9m6C4noIJKFoirlZyEuUOGWmmXD0eJww4K3fyN1OAkHNCBVADi', '160288', 183, 'aktif', 'JN5ChKuxqR6g1Gf0IoptdlBbsP2We98iFaSXHvnhfWMwA2NlmtFSgiRbyXZcCcj5', '1', '2021-01-27 21:50:30', '2021-02-20 00:00:06', NULL),
 (368, 'IIM ABDUL KARIM', 'karim126727@yahoo.co.id', '08119512667', '$2y$10$qHbZIs.gLpXDmHrn5PWvGOsh2xHCfsfbaTme39BGl9ltmnY/6Z0X.', '240595', 289, 'aktif', NULL, '0', '2021-01-28 11:58:12', '2021-01-28 11:58:41', NULL),
 (369, 'Zaky02', 'zakyz3690@gmail.com', '081213876841', '$2y$10$hwGeCEF.4YrsBJDOZ78e0e/unJ0FiaIs5JzkmRUlE0AvQv0CLiN6O', '234111', NULL, 'aktif', 'gbkUxV8rs6nFHbyM1ih8NmQDQHW1R5SAOlmB2vNjcqBS0YE3yAZgjWDu9fEk3oCK', '1', '2021-01-28 13:23:57', '2021-02-20 00:00:06', NULL),
@@ -19265,9 +19346,9 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (380, 'Ichwan Robby', 'ichwanrobby@rocketmail.com', '081212867299', '$2y$10$B2lJJIS0XouMkTK8/cwUhuWqRzgiS/THWgs.Aodxr0OHq9xMtZNy2', '020204', 289, 'aktif', NULL, '0', '2021-01-29 20:43:24', '2021-01-31 07:11:50', NULL),
 (381, 'Indra', 'indragun.psn@gmail.com', '08129669451', '$2y$10$QTlL.BMuVYJ6m4TD0n3IT.A4KrWuS4B2w3eU7z2nRQ2it0/fHg9oK', '071803', 69, 'aktif', NULL, '0', '2021-01-29 23:55:37', '2021-02-20 00:00:06', NULL),
 (382, 'Muhammad Deri Akbar', 'sfdrderry06@gmail.com', '081295660603', '$2y$10$N9BPRmfZ17u27Nhm9FzOD.IkEk6F9UrJGsNzpTdZf5h4POT1O8iR.', '103121', 112, 'aktif', 'd7VXB1nzOLmd726OYg6Ka2Bi5Pt0IUNgKbe3wxbGECpUIfs9r1ArsivXuaj3nlL8', '0', '2021-01-30 09:29:26', '2021-02-20 00:00:06', NULL),
-(383, 'ADITIA', 'tadit6906@gmail.com', '08567852758', '$2y$10$9v39FGh00FP45303CZeqXO1DCHQ3MnPMsDVo25za6kHB9m5KDChhW', '301201', 334, 'aktif', NULL, '0', '2021-01-31 10:26:46', '2021-02-20 00:00:06', NULL),
+(383, 'ADITIA', 'tadit6906@gmail.com', '08567852758', '$2y$10$9v39FGh00FP45303CZeqXO1DCHQ3MnPMsDVo25za6kHB9m5KDChhW', '301201', 334, 'aktif', NULL, '0', '2021-01-31 10:26:46', '2021-02-20 20:53:10', NULL),
 (384, 'Sasmita', 'sasmitabijaksana9@gmail.com', '081806252617', '$2y$10$pmw5WwoBvHcU8ifOk8Z.aOsHwDBmtHBKdTLy9e7a455rYME43TQiq', '123456', NULL, 'aktif', 'khhZVe5RsCA2nLv0ao9iolQB2GwKwbSIRJGHNaCKlSgcD8Bzjkyp83EUsYEIXf4N', '0', '2021-01-31 11:29:48', '2021-02-20 04:12:33', NULL),
-(385, 'Amin Galing', 'amingaling01@gmail.com', '081318558872', '$2y$10$ZX.mwBTsK.budh.4kSgXDO.fTFtmJ/or32ScqAOQcy7hecx3f5iKO', '090210', NULL, 'aktif', NULL, '0', '2021-01-31 11:34:30', '2021-02-20 00:00:06', NULL),
+(385, 'Amin Galing', 'amingaling01@gmail.com', '081318558872', '$2y$10$ZX.mwBTsK.budh.4kSgXDO.fTFtmJ/or32ScqAOQcy7hecx3f5iKO', '090210', NULL, 'aktif', NULL, '0', '2021-01-31 11:34:30', '2021-02-20 22:07:26', NULL),
 (386, 'Yuliana hermini', 'yuliana.arsha23@gmail.com', '081288638310', '$2y$10$ARuQLIdyUg7iavuACDs/GuAe46TBmEQv27ziOTt93MY2POEGCcwyK', '120903', 289, 'aktif', 'fFT6EhMhti2X4ybxvMWkoGV2PZ8NAn5U3LUcQzrab4NKu70fSCjOset1l9IYYdyX', '1', '2021-01-31 13:02:34', '2021-01-31 13:02:54', NULL),
 (387, 'Muhamad ukun', 'muhamadukun2@gmail.com', '081219860647', '$2y$10$VGRhiyCnLh5h1GVZkmv7xeql9/4x.8ggYmjdUzyrdKEehPdLJL9LG', '170180', NULL, 'aktif', 'MxA2veZ09qL7FXjDA3BlButziUMZqOgwYUC6r0hI17nocWenPL594GK4Oj6DNKWu', '1', '2021-01-31 15:12:13', '2021-02-20 00:00:06', NULL);
 INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_referal`, `status`, `cookies`, `remember`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -19352,7 +19433,7 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (466, 'Indira010515', 'muslihatindira@gmail.com', '087874856415', '$2y$10$IDMdNrv2gPSH3MyjA1jYC.04spC2E35zipHk77NSB2c.SUyJH4kTa', '010515', NULL, 'aktif', NULL, '0', '2021-02-10 14:23:27', '2021-02-20 00:00:06', NULL),
 (467, 'Alfi syahrin', 'alfisyahrin665@gmail.com', '082279772252', '$2y$10$K4B.XBfjeRDd9efB5QGkV.HJfmOr.Tb8mR0x7UGrWzZNByPMDAGmq', '271100', NULL, 'aktif', 'QVz6SlwNIBtnj6OAEqGeU3rLmrAU5FCdM2fPRKJD9agnvSlbwP3IGeqfZo008MYi', '1', '2021-02-10 15:24:56', '2021-02-20 15:25:39', NULL),
 (468, 'Fiqri huzaifi', 'fikri.madridista7@gmail.com', '089658230799', '$2y$10$R1sSRXA6DjC.vU.6/Y.zf.wJiv0QlBOQEa8TgEgura.kvUQgNItFK', '100319', 416, 'aktif', 'hoC2r8muqHhL6WdVG7E2aapzUx0bY4yXZPPTD9vIEexO46sq3Rod7rX3wntjvwpK', '1', '2021-02-10 16:23:53', '2021-02-10 16:30:47', NULL),
-(469, 'Sayyidah', 'aida_rafka1989@yahoo.com', '085888531930', '$2y$10$HrzEXophjddTPAwMe5cygOM0gRlD1WwsBmSALPK2N79wag06/5tKi', '272616', 436, 'aktif', '9F216iYpoLCmzQMxDPfw6eaUnsetb4HJVHh1qkoMx5GmZdhwSB8cLnuiXEp0N07O', '0', '2021-02-10 16:25:28', '2021-02-20 00:00:06', NULL),
+(469, 'Sayyidah', 'aida_rafka1989@yahoo.com', '085888531930', '$2y$10$HrzEXophjddTPAwMe5cygOM0gRlD1WwsBmSALPK2N79wag06/5tKi', '272616', 436, 'aktif', '9F216iYpoLCmzQMxDPfw6eaUnsetb4HJVHh1qkoMx5GmZdhwSB8cLnuiXEp0N07O', '0', '2021-02-10 16:25:28', '2021-02-20 19:07:11', NULL),
 (470, 'AFIF JUWAENI', 'mayorafif4@gmail.com', '087705772004', '$2y$10$Ntr.XpMOWlWwXddU81xkdOocmPnV7CBB59F8JuIEwjat6v3SFCUB2', '200477', 436, 'aktif', 'v7ERYxBPXhgf5L0wTer2FjsKHyzMqweNmGXB84j5ChlSJ28WUQOUxMIyaPzqlug3', '1', '2021-02-10 17:18:39', '2021-02-10 17:19:10', NULL),
 (471, 'Endang', 'endangdang428@gmail.com', '085781113914', '$2y$10$J7OhDbAF52dbJDL41UODi.pHZIbrIAgYheq1kxFSXXKL.wsVQMZuq', '751120', 457, 'aktif', '7GXjpWI199btcpUYFSfJwruE8vSDBPqvTfdm3nkU2D30Cqa2dXQx5hyrogPeAgMk', '1', '2021-02-10 19:32:52', '2021-02-10 19:34:07', NULL),
 (472, 'Adam Bachtiar', 'bolotkacida80@gmail.com', '085782973338', '$2y$10$tv8MFK9Zmfyn92VW8OAR7uE1L1Xuxt1MT0.TV1kLNn.4wDimsMG2e', '556677', NULL, 'aktif', 'gEOHMITiDnBeNUzWTKQZObsdQS7AFqXpCKxZly1cro9kfHrG7203ftm3X9jBCLpa', '1', '2021-02-11 00:23:07', '2021-02-20 00:00:06', NULL),
@@ -19387,7 +19468,7 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (501, 'Eri sudarmansyah', 'darmansyahery@gmail.com', '081511644819', '$2y$10$AZyP4siM53qruZUqCmbPB.OUtyotDWgz9Pny2fpCK/Ypsm2AH8YL.', '123456', NULL, 'aktif', NULL, '0', '2021-02-15 19:18:12', '2021-02-20 00:00:06', NULL),
 (502, 'Arkaan', 'barokahunggas693@gmail.com', '085693397165', '$2y$10$H.Y6e3GTaSze9iBzznhFu.fQ1JYUHRVnJPpZ9rZLxQL5j/pIAlrfy', '165165', NULL, 'aktif', 'ZHDwExngbuKU1xfJqBaS4HN5lkgY8WIsjFAdMmBlAtMfnzYe8sGqjoP6OU4N2R07', '1', '2021-02-15 22:01:11', '2021-02-15 22:02:41', NULL),
 (503, 'Tati tureni', 'tatitureni@gmail.com', '085716624267', '$2y$10$XYhqI55MLIyPg7paRbwIueHbDcwpAzBcYTybK8plFgP4hO4e4riJy', '210678', NULL, 'aktif', 'mpOC7FHG3Majw5qJEgtoMzCyBfysacYSjoTzk0uuObFDJYVIs5HqSVwUixQ7k1W3', '1', '2021-02-16 11:24:34', '2021-02-20 00:00:06', NULL),
-(504, 'hj atikah', 'atikahubaidillah@gmail.com', '08121805911', '$2y$10$6K0SLA3s5GesQr.2BqVy1eLMaSanAvhRjU6IKk6MoXMvUH5eHe5E6', '123456', NULL, 'aktif', '4dYwE6BLC3Fqpzzja8U5tWlS3Iue7AX0k11Pv8icgK4cNxuRRfrXyfeA5TM0nGgm', '0', '2021-02-16 11:41:11', '2021-02-20 00:00:06', NULL),
+(504, 'hj atikah', 'atikahubaidillah@gmail.com', '08121805911', '$2y$10$6K0SLA3s5GesQr.2BqVy1eLMaSanAvhRjU6IKk6MoXMvUH5eHe5E6', '123456', NULL, 'aktif', '4dYwE6BLC3Fqpzzja8U5tWlS3Iue7AX0k11Pv8icgK4cNxuRRfrXyfeA5TM0nGgm', '0', '2021-02-16 11:41:11', '2021-02-20 22:52:27', NULL),
 (505, 'Wiji astuti', 'wijiastutikaya@gmail.com', '82122349368', '$2y$10$GQytOLN6mCcMQ.2bYOWjb.jXgm58a5k4ke5FEz9bCqK27ip4gcwFm', '123456', 34, 'aktif', 'IGDm6h0gX3LiaurVJKRBk7p5jY2mT117WHSjkWgvADtN8l90AE8OvSbadU5oCGJQ', '1', '2021-02-16 19:32:30', '2021-02-16 19:32:59', NULL),
 (506, 'Ernawati', 'ernarahman1008@gmail.com', '081329726595', '$2y$10$kAgxb44znbrYoZFyh50zE.gwfnXWKm/sADYDa.h1xb3Nb/dLU/pfS', '101108', NULL, 'aktif', 'DdF4pU7xOkYWa8cVLZkoij6EAtC9wqvBNHesVPfcgm2gGR9AbFen3oLJl5rGhxl1', '1', '2021-02-17 19:07:47', '2021-02-20 00:00:06', NULL),
 (507, 'chandra', 'nopolef@gmail.com', '085714466555', '$2y$10$9Cxbzpz5p.o6KfMqLwoDGe4We1X9jpcRuCDm2YkDPGNsbD5B.hqKe', '040859', NULL, 'aktif', NULL, '0', '2021-02-17 21:23:29', '2021-02-17 21:23:39', NULL),
@@ -19398,7 +19479,7 @@ INSERT INTO `users` (`id`, `nama`, `email`, `no_hp`, `password`, `pin`, `id_refe
 (512, 'Caca', 'nursaadahcaca@gmail.com', '085692777998', '$2y$10$/oXB7cs9ATAnrhYWvnDWrOmbYkDfscdmO0WmVNBBNaMHA/aNr9rvy', '320117', NULL, 'aktif', 'PHsjidtkzcsc93rNgawT9lfJrC8yX07RKL8JhK1qVYuW4UUSGDZmt3i1jxa6bLvT', '1', '2021-02-19 11:22:24', '2021-02-19 17:10:16', NULL),
 (513, 'Siti manhusaniah', 'sitimanhusaniah@gmail.com', '085781183823', '$2y$10$fi/PNogPHa9M0u7qdntrz.dCOQ2e5LM2L0vbfwvwydRQiSC0Q14rK', '123456', NULL, 'aktif', NULL, '0', '2021-02-19 13:09:17', '2021-02-20 00:00:06', NULL),
 (514, 'siti kodriarul maptuhah', 'maptuhah96@gmail.com', '082125993650', '$2y$10$TW1gEJo81zgP7uQzWEmfu.zQGpSNvjWvqQ86a96OZVK/CbDPnPE/S', '123456', NULL, 'aktif', NULL, '0', '2021-02-19 13:22:57', '2021-02-20 00:00:06', NULL),
-(515, 'Fauzan', 'fauzanfarhanfauzanfarhan@gmail.com', '085694397202', '$2y$10$2UnwLht2I.i2myz7YGqAlu/TQ38cqOyWSu.tBWoCAt5zRNkuYRw.m', '123456', NULL, 'aktif', NULL, '0', '2021-02-19 17:33:55', '2021-02-20 08:11:41', NULL),
+(515, 'Fauzan', 'fauzanfarhanfauzanfarhan@gmail.com', '085694397202', '$2y$10$2UnwLht2I.i2myz7YGqAlu/TQ38cqOyWSu.tBWoCAt5zRNkuYRw.m', '123456', NULL, 'aktif', NULL, '0', '2021-02-19 17:33:55', '2021-02-20 21:18:20', NULL),
 (516, 'WIGUNA PRASETIA KURNIAWAN', 'wigunaprasetiakurniawaan@mail.com', '089611438255', '$2y$10$ipKx5KfP22Br7XCgNSMbTOBQMwm5.vLFoVkg2yBPveDVPaIBfQUlq', '131289', 492, 'aktif', 'd2jgGs4PTpaDb8iToKZxyubkCm7AKhUFtnLjwlwrSqBxzVczUt6uNdX0Z7I3fRWJ', '1', '2021-02-19 21:48:07', '2021-02-20 13:09:30', NULL),
 (517, 'Deden Sudirja', 'junaedydedensudirja@gmail.com', '087711205041', '$2y$10$prbnTygF9M8Se3/Ro3fU3.yjP9NSwFWTqZo7CJyCH2i62MwmofMP6', '162922', 492, 'aktif', 'UglDhmLyw9H0PPIJ26WvrItO3EWKDLYGkzvq3lnJbFNbaxesM5ApH1c8CGRoBhzK', '1', '2021-02-20 13:23:26', '2021-02-20 13:24:41', NULL),
 (518, 'Morry Chrismasias', 'morrychriz@gmail.com', '089529409476', '$2y$10$GzRWUu/jXv9Osx/C.4bsYOEkXu9hNMUPYDBiFFedrMdUoUBHh25We', '595959', 492, 'aktif', 'C6OV6TkVNq3PvW4ehpBDh7tvr5fx2aziHuERdj3SigswjcUfoMJNS0rI8K21AADK', '1', '2021-02-20 13:36:46', '2021-02-20 13:37:21', NULL),
@@ -19438,7 +19519,7 @@ INSERT INTO `users_bioner_stacking` (`id`, `id_user`, `profit`, `total_investmen
 (5, 5, '12.5800', '131.0000', '2021-01-14 18:16:32', '2021-02-20 00:00:06', NULL),
 (6, 6, '29.0000', '100.0000', '2021-01-14 18:25:06', '2021-02-20 00:00:05', NULL),
 (7, 7, '19.0000', '100.0000', '2021-01-14 18:42:44', '2021-02-20 00:00:05', NULL),
-(8, 8, '26.5500', '110.0000', '2021-01-14 20:54:14', '2021-02-20 00:00:06', NULL),
+(8, 8, '26.5500', '210.0000', '2021-01-14 20:54:14', '2021-02-20 20:08:01', NULL),
 (9, 9, '18.5000', '100.0000', '2021-01-15 09:24:53', '2021-02-20 00:00:05', NULL),
 (10, 10, '15.5000', '700.0000', '2021-01-15 11:32:41', '2021-02-20 00:00:05', NULL),
 (11, 11, '146.4150', '3419.5000', '2021-01-15 20:32:06', '2021-02-20 00:00:06', NULL),
@@ -19580,8 +19661,8 @@ INSERT INTO `users_bioner_stacking` (`id`, `id_user`, `profit`, `total_investmen
 (147, 147, '8.0000', '400.0000', '2021-01-18 20:31:54', '2021-02-20 00:00:06', NULL),
 (148, 148, '48.4000', '420.0000', '2021-01-18 20:48:28', '2021-02-20 00:00:06', NULL),
 (149, 149, '16.0000', '400.0000', '2021-01-18 20:53:06', '2021-02-20 00:00:05', NULL),
-(150, 150, '2.5900', '16748.5000', '2021-01-18 20:55:21', '2021-02-20 05:47:55', NULL),
-(151, 151, '9.3500', '5672.5000', '2021-01-18 20:56:55', '2021-02-20 05:46:59', NULL),
+(150, 150, '2.5900', '18748.5000', '2021-01-18 20:55:21', '2021-02-20 18:29:16', NULL),
+(151, 151, '9.3500', '3672.5000', '2021-01-18 20:56:55', '2021-02-20 18:27:57', NULL),
 (152, 152, '0.7000', '470.0000', '2021-01-18 21:08:17', '2021-02-20 10:34:44', NULL),
 (153, 153, '77.0000', '700.0000', '2021-01-18 21:12:32', '2021-02-20 00:00:06', NULL),
 (154, 154, '58.9500', '1550.0000', '2021-01-18 21:23:17', '2021-02-20 00:00:06', NULL),
@@ -19694,7 +19775,7 @@ INSERT INTO `users_bioner_stacking` (`id`, `id_user`, `profit`, `total_investmen
 (261, 261, '1.5000', '1300.0000', '2021-01-20 19:27:15', '2021-02-20 10:57:43', NULL),
 (262, 262, '5.0000', '100.0000', '2021-01-20 21:05:01', '2021-02-20 00:00:05', NULL),
 (263, 263, '8.5000', '1300.0000', '2021-01-20 21:15:30', '2021-02-20 15:11:45', NULL),
-(264, 264, '48.5000', '1300.0000', '2021-01-20 21:23:16', '2021-02-20 00:00:05', NULL),
+(264, 264, '38.5000', '1300.0000', '2021-01-20 21:23:16', '2021-02-20 19:13:14', NULL),
 (265, 265, '12.0000', '900.0000', '2021-01-21 06:09:00', '2021-02-20 00:00:06', NULL),
 (266, 266, '5.0000', '100.0000', '2021-01-21 08:29:40', '2021-02-20 00:00:05', NULL),
 (267, 267, '0.0000', '0.0000', '2021-01-21 09:36:02', '2021-01-21 09:36:02', NULL),
@@ -19761,7 +19842,7 @@ INSERT INTO `users_bioner_stacking` (`id`, `id_user`, `profit`, `total_investmen
 (328, 328, '27.0000', '200.0000', '2021-01-24 15:45:52', '2021-02-20 00:00:05', NULL),
 (329, 329, '0.0000', '0.0000', '2021-01-24 18:01:17', '2021-01-24 18:01:17', NULL),
 (330, 330, '29.5000', '1700.0000', '2021-01-24 18:04:37', '2021-02-20 00:00:05', NULL),
-(331, 331, '45.5000', '1300.0000', '2021-01-24 18:27:31', '2021-02-20 00:00:05', NULL),
+(331, 331, '45.5000', '1300.0000', '2021-01-24 18:27:31', '2021-02-20 22:37:23', NULL),
 (332, 332, '40.5000', '300.0000', '2021-01-24 18:45:45', '2021-02-20 00:00:05', NULL),
 (333, 333, '13.5000', '100.0000', '2021-01-24 19:17:52', '2021-02-20 00:00:05', NULL),
 (334, 334, '0.0000', '200.0000', '2021-01-24 19:18:25', '2021-02-20 11:45:35', NULL),
@@ -19815,7 +19896,7 @@ INSERT INTO `users_bioner_stacking` (`id`, `id_user`, `profit`, `total_investmen
 (382, 382, '10.5000', '100.0000', '2021-01-30 09:29:26', '2021-02-20 00:00:06', NULL),
 (383, 383, '10.0000', '100.0000', '2021-01-31 10:26:46', '2021-02-20 00:00:06', NULL),
 (384, 384, '20.0000', '300.0000', '2021-01-31 11:29:48', '2021-02-20 00:00:06', NULL),
-(385, 385, '10.0000', '200.0000', '2021-01-31 11:34:30', '2021-02-20 00:00:06', NULL),
+(385, 385, '0.0000', '200.0000', '2021-01-31 11:34:30', '2021-02-20 22:37:12', NULL),
 (386, 386, '0.0000', '0.0000', '2021-01-31 13:02:34', '2021-01-31 13:02:34', NULL),
 (387, 387, '32.0000', '400.0000', '2021-01-31 15:12:13', '2021-02-20 00:00:06', NULL),
 (388, 388, '6.0000', '100.0000', '2021-01-31 15:14:09', '2021-02-20 00:00:06', NULL),
@@ -20888,7 +20969,8 @@ INSERT INTO `user_banks` (`id`, `id_user`, `no_rekening`, `id_bank`, `atas_nama`
 (360, 515, '7401190701', 53, 'Arif muslim', '2021-02-19 17:35:11', '2021-02-19 17:35:11', NULL),
 (361, 516, '719301014753532', 48, 'Wiguna prasetia kurniawan', '2021-02-19 21:54:29', '2021-02-19 21:54:29', NULL),
 (362, 48, '0847344154', 50, 'Yuli priyono ', '2021-02-19 23:15:20', '2021-02-19 23:15:20', NULL),
-(363, 517, '8720611016', 53, 'Deden Sudirja', '2021-02-20 13:28:32', '2021-02-20 13:28:32', NULL);
+(363, 517, '8720611016', 53, 'Deden Sudirja', '2021-02-20 13:28:32', '2021-02-20 13:28:32', NULL),
+(364, 525, '7005374758', 53, 'Deden hidayatullah', '2021-02-20 19:42:11', '2021-02-20 19:42:11', NULL);
 
 -- --------------------------------------------------------
 
@@ -21664,16 +21746,27 @@ INSERT INTO `user_bioner_stacking_withdraw` (`id`, `id_user`, `id_user_bank`, `i
 (744, 152, NULL, NULL, 'BSW152.2002211', 'BS152.2002211', '10.0000', '0.0000', 'success', '2021-02-20 10:34:44', '2021-02-20 10:34:44', NULL),
 (745, 261, 106, NULL, 'BSW261.2002211', NULL, '200.0000', '2000000.0000', 'success', '2021-02-20 10:57:43', '2021-02-20 14:02:51', NULL),
 (746, 404, 251, NULL, 'BSW404.2002211', NULL, '40.0000', '400000.0000', 'success', '2021-02-20 11:22:03', '2021-02-20 14:04:35', NULL),
-(747, 334, 179, NULL, 'BSW334.2002211', NULL, '20.0000', '200000.0000', 'pending', '2021-02-20 11:45:35', '2021-02-20 11:45:35', NULL),
+(747, 334, 179, NULL, 'BSW334.2002211', NULL, '20.0000', '200000.0000', 'success', '2021-02-20 11:45:35', '2021-02-20 19:06:08', NULL),
 (748, 355, 196, NULL, 'BSW355.2002211', NULL, '10.0000', '100000.0000', 'success', '2021-02-20 12:08:42', '2021-02-20 14:05:12', NULL),
 (749, 165, 174, NULL, 'BSW165.2002211', NULL, '250.0000', '2500000.0000', 'success', '2021-02-20 12:15:29', '2021-02-20 14:05:51', NULL),
-(750, 263, 135, NULL, 'BSW263.2002211', NULL, '10.0000', '100000.0000', 'pending', '2021-02-20 15:11:45', '2021-02-20 15:11:45', NULL),
+(750, 263, 135, NULL, 'BSW263.2002211', NULL, '10.0000', '100000.0000', 'success', '2021-02-20 15:11:45', '2021-02-20 19:06:50', NULL),
 (751, 243, 88, NULL, 'BSW243.2002211', NULL, '60.0000', '600000.0000', 'success', '2021-02-20 15:39:46', '2021-02-20 15:44:06', NULL),
 (752, 145, NULL, NULL, 'BSW145.2002211', 'BS145.2002211', '10.0000', '0.0000', 'success', '2021-02-20 16:47:16', '2021-02-20 16:47:16', NULL),
-(753, 223, 117, NULL, 'BSW223.2002211', NULL, '10.0000', '100000.0000', 'pending', '2021-02-20 17:10:09', '2021-02-20 17:10:09', NULL),
-(754, 416, 260, NULL, 'BSW416.2002211', NULL, '20.0000', '200000.0000', 'pending', '2021-02-20 17:20:59', '2021-02-20 17:20:59', NULL),
-(755, 65, 188, NULL, 'BSW65.2002211', NULL, '50.0000', '500000.0000', 'pending', '2021-02-20 17:31:58', '2021-02-20 17:31:58', NULL),
-(756, 200, 69, NULL, 'BSW200.2002211', NULL, '20.0000', '200000.0000', 'pending', '2021-02-20 17:58:07', '2021-02-20 17:58:07', NULL);
+(753, 223, 117, NULL, 'BSW223.2002211', NULL, '10.0000', '100000.0000', 'success', '2021-02-20 17:10:09', '2021-02-20 19:09:38', NULL),
+(754, 416, 260, NULL, 'BSW416.2002211', NULL, '20.0000', '200000.0000', 'success', '2021-02-20 17:20:59', '2021-02-20 19:10:09', NULL),
+(755, 65, 188, NULL, 'BSW65.2002211', NULL, '50.0000', '500000.0000', 'success', '2021-02-20 17:31:58', '2021-02-20 19:11:32', NULL),
+(756, 200, 69, NULL, 'BSW200.2002211', NULL, '20.0000', '200000.0000', 'success', '2021-02-20 17:58:07', '2021-02-20 19:12:12', NULL),
+(757, 264, 210, NULL, 'BSW264.2002211', NULL, '10.0000', '100000.0000', 'success', '2021-02-20 18:55:25', '2021-02-20 19:13:08', NULL),
+(758, 264, 210, NULL, 'BSW264.2002212', NULL, '10.0000', '100000.0000', 'pending', '2021-02-20 18:55:48', '2021-02-20 18:55:48', '2021-02-20 19:12:25'),
+(759, 264, 210, NULL, 'BSW264.2002213', NULL, '10.0000', '100000.0000', 'pending', '2021-02-20 18:56:00', '2021-02-20 18:56:00', '2021-02-20 19:13:14'),
+(760, 385, 234, NULL, 'BSW385.2002211', NULL, '10.0000', '100000.0000', 'success', '2021-02-20 18:56:56', '2021-02-20 19:15:02', NULL),
+(761, 385, 234, NULL, 'BSW385.2002212', NULL, '10.0000', '100000.0000', 'pending', '2021-02-20 18:59:52', '2021-02-20 18:59:52', '2021-02-20 19:15:07'),
+(762, 385, 234, NULL, 'BSW385.2002213', NULL, '10.0000', '100000.0000', 'pending', '2021-02-20 19:00:32', '2021-02-20 19:00:32', '2021-02-20 19:15:12'),
+(763, 385, 234, NULL, 'BSW385.2002214', NULL, '10.0000', '100000.0000', 'pending', '2021-02-20 19:02:10', '2021-02-20 19:02:10', '2021-02-20 19:15:16'),
+(764, 385, 234, NULL, 'BSW385.2002215', NULL, '10.0000', '100000.0000', 'pending', '2021-02-20 19:03:07', '2021-02-20 19:03:07', '2021-02-20 19:15:21'),
+(765, 331, 293, NULL, 'BSW331.2002211', NULL, '40.0000', '400000.0000', 'pending', '2021-02-20 19:15:47', '2021-02-20 19:15:47', '2021-02-20 22:37:23'),
+(766, 331, 293, NULL, 'BSW331.2002212', NULL, '40.0000', '400000.0000', 'pending', '2021-02-20 19:16:27', '2021-02-20 19:16:27', '2021-02-20 22:37:18'),
+(767, 385, 234, NULL, 'BSW385.2002216', NULL, '40.0000', '400000.0000', 'pending', '2021-02-20 21:41:19', '2021-02-20 21:41:19', '2021-02-20 22:37:12');
 
 -- --------------------------------------------------------
 
@@ -21784,6 +21877,24 @@ ALTER TABLE `log_email_signup`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indexes for table `log_email_stacking`
+--
+ALTER TABLE `log_email_stacking`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `log_email_trade`
+--
+ALTER TABLE `log_email_trade`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `log_email_withdraw`
+--
+ALTER TABLE `log_email_withdraw`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
 -- Indexes for table `news`
 --
 ALTER TABLE `news`
@@ -21857,31 +21968,49 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `bioner_stacking`
 --
 ALTER TABLE `bioner_stacking`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=669;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=674;
 
 --
 -- AUTO_INCREMENT for table `bioner_stacking_logs`
 --
 ALTER TABLE `bioner_stacking_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15391;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15417;
 
 --
 -- AUTO_INCREMENT for table `bioner_trade`
 --
 ALTER TABLE `bioner_trade`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT for table `bioner_trade_logs`
 --
 ALTER TABLE `bioner_trade_logs`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1860;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1861;
 
 --
 -- AUTO_INCREMENT for table `log_email_signup`
 --
 ALTER TABLE `log_email_signup`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=532;
+
+--
+-- AUTO_INCREMENT for table `log_email_stacking`
+--
+ALTER TABLE `log_email_stacking`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `log_email_trade`
+--
+ALTER TABLE `log_email_trade`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `log_email_withdraw`
+--
+ALTER TABLE `log_email_withdraw`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `news`
@@ -21923,13 +22052,13 @@ ALTER TABLE `users_bioner_trade`
 -- AUTO_INCREMENT for table `user_banks`
 --
 ALTER TABLE `user_banks`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=364;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=365;
 
 --
 -- AUTO_INCREMENT for table `user_bioner_stacking_withdraw`
 --
 ALTER TABLE `user_bioner_stacking_withdraw`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=757;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=768;
 
 --
 -- AUTO_INCREMENT for table `user_bioner_trade_withdraw`

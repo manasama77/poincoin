@@ -80,34 +80,31 @@
                         </thead>
                         <tbody>
                             <?php
-                            if ($arr_withdraw->num_rows() == 0) {
-                                echo '<tr><td colspan="7" class="text-center">Kamu belum memiliki history withdraw</td></tr>';
-                            } else {
-                                $no = 1;
-                                foreach ($arr_withdraw->result() as $key) {
-                                    $btn = '';
-                                    if ($key->status == "pending") {
-                                        $bg_color = "secondary";
-                                        $btn = '
+                            $no = 1;
+                            foreach ($arr_withdraw->result() as $key) {
+                                $btn = '';
+                                if ($key->status == "pending") {
+                                    $bg_color = "secondary";
+                                    $btn = '
                                         <button type="button" class="btn btn-danger btn-sm" onclick="deleteData(\'' . $key->id . '\', \'' . $key->withdraw_b . '\')">
                                           <i class="fas fa-trash"></i>
                                         </button>';
-                                    } elseif ($key->status == "success") {
-                                        $bg_color = "success";
-                                    } else {
-                                        $bg_color = "danger";
-                                    }
+                                } elseif ($key->status == "success") {
+                                    $bg_color = "success";
+                                } else {
+                                    $bg_color = "danger";
+                                }
 
-                                    $rekening = "";
-                                    if ($key->id_user_bank != NULL) {
-                                        $rekening = $key->nama_bank . " " . $key->no_rekening . " " . $key->atas_nama;
-                                    } elseif ($key->id_user_wallet != NULL) {
-                                        $rekening = $key->no_wallet;
-                                    } elseif ($key->kode_invest != NULL) {
-                                        $rekening = 'Investment ' . $key->kode_invest;
-                                    }
+                                $rekening = "";
+                                if ($key->id_user_bank != NULL) {
+                                    $rekening = $key->nama_bank . " " . $key->no_rekening . " " . $key->atas_nama;
+                                } elseif ($key->id_user_wallet != NULL) {
+                                    $rekening = $key->no_wallet;
+                                } elseif ($key->kode_invest != NULL) {
+                                    $rekening = 'Investment ' . $key->kode_invest;
+                                }
 
-                                    echo '
+                                echo '
                                     <tr>
                                     <td class="text-center">' . $no . '</td>
                                     <td class="text-right">' . number_format($key->withdraw_b, 4) . '</td>
@@ -124,8 +121,7 @@
                                     </td>
                                     </tr>
                                     ';
-                                    $no++;
-                                }
+                                $no++;
                             }
                             ?>
                         </tbody>
