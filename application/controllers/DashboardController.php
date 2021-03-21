@@ -8,6 +8,7 @@ class DashboardController extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->library('TemplateAdmin', NULL, 'template');
+		$this->load->model('M_dashboard_admin');
 	}
 
 	public function index()
@@ -19,10 +20,12 @@ class DashboardController extends CI_Controller
 		$data['content'] = 'dashboard/index';
 		$data['vitamin'] = 'dashboard/index_vitamin';
 
-		$data['admin_count'] = $this->mcore->count("admins", ['deleted_at' => NULL, 'role' => 'master_admin']);
-		$data['user_count']  = $this->mcore->count("users", ['status' => 'aktif', 'deleted_at' => NULL]);
-		$data['stacking_count']  = $this->mcore->count("bioner_stacking", ['status' => 'aktif', 'deleted_at' => NULL]);
-		$data['trade_count']  = $this->mcore->count("bioner_trade", ['status' => 'aktif', 'deleted_at' => NULL]);
+		$data['admin_count']      = $this->mcore->count("admins", ['deleted_at' => NULL, 'role' => 'master_admin']);
+		$data['user_count']       = $this->mcore->count("users", ['status' => 'aktif', 'deleted_at' => NULL]);
+		$data['stacking_count']   = $this->mcore->count("bioner_stacking", ['status' => 'aktif', 'deleted_at' => NULL]);
+		$data['trade_count']      = $this->mcore->count("bioner_trade", ['status' => 'aktif', 'deleted_at' => NULL]);
+		$data['stacking_idr'] 	  = $this->M_dashboard_admin->get_stacking_idr()->row()->stacking_idr;
+		$data['trade_idr']        = $this->M_dashboard_admin->get_trade_idr()->row()->trade_count;
 		// $data['customer_count']  = $this->mcore->count("customers", ['deleted_at' => NULL]);
 		// $data['pengajuan_count'] = $this->mcore->count("pengajuan", ['deleted_at' => NULL, 'MONTH(tanggal_pengajuan)' => $cur_month]);
 

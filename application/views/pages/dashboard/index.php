@@ -50,7 +50,7 @@ if ($this->session->flashdata('first_login')) {
 					<p>Stack</p>
 				</div>
 				<div class="icon">
-					<i class="fa fa-dollar"></i>
+					<i class="fa fa-stack-exchange"></i>
 				</div>
 				<a href="<?= site_url('admin/bioner_stacking/index'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 			</div>
@@ -62,7 +62,31 @@ if ($this->session->flashdata('first_login')) {
 					<p>Trade</p>
 				</div>
 				<div class="icon">
-					<i class="fa fa-dollar"></i>
+					<i class="fa fa-stack-exchange"></i>
+				</div>
+				<a href="<?= site_url('admin/bioner_trade/index'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+			</div>
+		</div>
+		<div class="col-lg-3 col-xs-6">
+			<div class="small-box bg-primary">
+				<div class="inner">
+					<h3 style="font-size: 34px;"><?= number_format($stacking_idr, 4); ?></h3>
+					<p>Stacking IDR</p>
+				</div>
+				<div class="icon">
+					Rp.
+				</div>
+				<a href="<?= site_url('admin/bioner_trade/index'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+			</div>
+		</div>
+		<div class="col-lg-3 col-xs-6">
+			<div class="small-box bg-primary">
+				<div class="inner">
+					<h3 style="font-size: 34px;"><?= number_format($trade_idr * 600000, 0); ?></h3>
+					<p>Trade IDR</p>
+				</div>
+				<div class="icon">
+					Rp.
 				</div>
 				<a href="<?= site_url('admin/bioner_trade/index'); ?>" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
 			</div>

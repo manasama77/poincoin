@@ -106,37 +106,26 @@
         <div class="card text-white">
             <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="vertical-align: middle;">
                 <span style="font-size: 25px;">
-                    <img src="<?= base_url(); ?>public/img/doge.png" class="img-fluid" style="width: 30px;" /> Doge Wallet
+                    <img src="<?= base_url(); ?>public/img/tron logo.png" alt="TRON Logo" class="img-fluid" style="width: 30px;" /> Tronlink Wallet
                 </span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <table class="table">
                     <thead>
                         <tr>
-                            <!-- <th>#</th> -->
                             <th>No Wallet</th>
-                            <!-- <th><i class="fas fa-cogs"></i></th> -->
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         if ($arr_user_wallets->num_rows() == 0) {
-                            echo '<tr><th class="text-center" colspan="1">- Kamu belum memiliki No Doge Wallet Terdaftar -</th></tr>';
+                            echo '<tr><th class="text-center" colspan="1">- Kamu belum memiliki Tronlink Wallet Terdaftar -</th></tr>';
                         } else {
                             $no = 1;
                             foreach ($arr_user_wallets->result() as $key) {
                         ?>
                                 <tr>
-                                    <!-- <td><?= $no; ?></td> -->
                                     <td><?= $key->no_wallet; ?></td>
-                                    <!-- <td>
-                                        <button type="button" class="btn btn-info btn-sm" onclick="editDataWallet('<?= $key->id; ?>', '<?= $key->no_wallet; ?>');">
-                                            <i class="fas fa-pencil-alt"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteDataWallet('<?= $key->id; ?>', '<?= $key->no_wallet; ?>');">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </td> -->
                                 </tr>
                         <?php
                                 $no++;
@@ -175,7 +164,7 @@ if ($arr_user_banks->num_rows() == 0 || $arr_user_wallets->num_rows() == 0) {
                                 }
                                 if ($arr_user_wallets->num_rows() == 0) {
                                 ?>
-                                    <option value="doge">Doge Wallet</option>
+                                    <option value="doge">Tronlink Wallet</option>
                                 <?php
                                 }
                                 ?>
@@ -207,8 +196,8 @@ if ($arr_user_banks->num_rows() == 0 || $arr_user_wallets->num_rows() == 0) {
                         </div>
                         <div id="form_doge" style="display: none">
                             <div class="form-group">
-                                <label for="no_wallet">No Doge Wallet</label>
-                                <input type="number" class="form-control" id="no_wallet" name="no_wallet" placeholder="No Doge Wallet" required />
+                                <label for="no_wallet">Tronlink Wallet Address</label>
+                                <input type="text" class="form-control" id="no_wallet" name="no_wallet" placeholder="Tronlink Wallet Address" required />
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary btn-block">Tambah Wallet</button>

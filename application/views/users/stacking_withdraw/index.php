@@ -176,7 +176,7 @@
                             <select class="form-control" id="id_jenis" name="id_jenis" onchange="cekJenis();" required>
                                 <option value=""></option>
                                 <option value="bank">Bank</option>
-                                <option value="doge">Doge Wallet</option>
+                                <option value="doge">Tronlink Wallet</option>
                                 <option value="invest">Investment Stacking</option>
                             </select>
                         </div>

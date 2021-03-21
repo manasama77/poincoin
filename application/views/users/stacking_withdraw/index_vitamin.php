@@ -52,7 +52,7 @@
                 if (id_jenis.val() == "bank") {
                     vText = `Kamu akan melakukan penarikan sebesar<br><b>Rp.${withdraw_rp.val()}</b><br>Ke No Rekening<br><b>${id_rekening.find(':selected').text()}</b>`;
                 } else if (id_jenis.val() == "doge") {
-                    vText = `Kamu akan melakukan penarikan sebesar<br><b>Rp.${withdraw_rp.val()}</b><br>Ke No Doge Wallet<br><b>${id_wallet.find(':selected').text()}</b>`;
+                    vText = `Kamu akan melakukan penarikan sebesar<br><b>Rp.${withdraw_rp.val()}</b><br>Ke Tronlink Wallet Address<br><b>${id_wallet.find(':selected').text()}</b>`;
                 } else if (id_jenis.val() == "invest") {
                     vText = `Kamu akan melakukan investment stacking dari profit sebesar ${withdraw_b.val()} B ?`;
                     datanya = {
