@@ -94,7 +94,7 @@ define('NO_REKENING_ADMIN', '0905433867');
 define('ATAS_NAMA_NO_REKENING_ADMIN', 'a/n PT. Rahel karya emas');
 define('NAMA_BANK_ADMIN', 'BNI');
 define('NO_WALLET_ADMIN', 'DB2AYmAL6ucXvmo4hEEr1FBmQ3gB1L35Le');
-define('VERSION_APP', '1.0.3 Beta');
+define('VERSION_APP', '1.0.4 Beta');
 define('YEAR_APP', '2021');
 define('PROFIT_PER_DAY_TRADE', 3000);
 define('WA_ADMIN', '6281219869989');

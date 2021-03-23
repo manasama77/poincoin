@@ -72,7 +72,14 @@
 						var btnResetRekening = `
 						<li>
 							<a href="#" onclick="modalRekening('${res.id}')">
-								<i class="fa fa-book"></i> Reset Rekening
+								<i class="fa fa-refresh"></i> Reset Rekening
+							</a>
+						</li>`;
+
+						var btnResetWallet = `
+						<li>
+							<a href="#" onclick="modalWallet('${res.id}')">
+								<i class="fa fa-refresh"></i> Reset Wallet
 							</a>
 						</li>`;
 
@@ -94,6 +101,7 @@
 								${btnResetPassword}
 								${btnResetPin}
 								${btnResetRekening}
+								${btnResetWallet}
 								${btnDelete}
 							</ul>
 						</div>`;
@@ -307,6 +315,53 @@
 			});
 		});
 
+		$('#form_wallet').on('submit', function(e) {
+			e.preventDefault();
+
+			$.ajax({
+				url: `<?= site_url(); ?>admins/user_reset_wallet`,
+				method: 'post',
+				dataType: 'json',
+				data: {
+					id_user_wallet_edit: $('#id_user_wallet_edit').val(),
+					no_wallet_edit: $('#no_wallet_edit').val(),
+				},
+				beforeSend: function() {
+					$('#btn_save_wallet').attr('disabled', true);
+					$.blockUI();
+				}
+			}).fail(function(e) {
+				console.log(e);
+				$.unblockUI();
+				$('#btn_save_wallet').attr('disabled', false);
+			}).done(function(res) {
+				if (res.code == 200) {
+					Swal.fire({
+						position: 'top-end',
+						icon: 'success',
+						title: `Reset Wallet Berhasil`,
+						showConfirmButton: false,
+						timer: 1500
+					}).then(function() {
+						$('#id_user_wallet_edit').val(null);
+						$('#no_wallet_edit').val(null);
+						$('#modal_wallet').modal('hide');
+						table.draw();
+					});
+				} else {
+					Swal.fire({
+						position: 'top-end',
+						icon: 'error',
+						title: `Terjadi kesalahan dengan koneksi, silahkan refresh halaman`,
+						showConfirmButton: false,
+						timer: 1500
+					});
+				}
+				$('#btn_save_wallet').attr('disabled', false);
+				$.unblockUI();
+			});
+		});
+
 	});
 
 	function refreshTable() {
@@ -338,6 +393,12 @@
 		$('#atas_nama_edit').val(null);
 		$('#id_user_rekening_edit').val(id);
 		$('#modal_rekening').modal('show');
+	}
+
+	function modalWallet(id) {
+		$('#no_wallet_edit').val(null);
+		$('#id_user_wallet_edit').val(id);
+		$('#modal_wallet').modal('show');
 	}
 
 	function deleteUser(id) {

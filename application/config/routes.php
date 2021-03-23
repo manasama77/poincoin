@@ -139,6 +139,7 @@ $route['admins/user_reset_email']    = 'AdminsUserController/user_reset_email';
 $route['admins/user_reset_password'] = 'AdminsUserController/user_reset_password';
 $route['admins/user_reset_pin']      = 'AdminsUserController/user_reset_pin';
 $route['admins/user_reset_rekening'] = 'AdminsUserController/user_reset_rekening';
+$route['admins/user_reset_wallet']   = 'AdminsUserController/user_reset_wallet';
 $route['admins/user_delete']         = 'AdminsUserController/user_delete';
 
 # UTILITY

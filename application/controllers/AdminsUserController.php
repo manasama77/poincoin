@@ -151,6 +151,37 @@ class AdminsUserController extends CI_Controller
         echo json_encode(['code' => $code]);
     }
 
+    public function user_reset_wallet()
+    {
+        $id_user_wallet_edit = $this->input->post('id_user_wallet_edit');
+        $no_wallet_edit      = $this->input->post('no_wallet_edit');
+        $code    = 500;
+
+        if ($id_user_wallet_edit) {
+
+            $count_user = $this->mcore->count('user_wallets', ['id_user' => $id_user_wallet_edit]);
+
+            if ($count_user > 0) {
+                $data  = ['no_wallet' => $no_wallet_edit, 'updated_at' => date('Y-m-d H:i:s')];
+                $where = ['id_user' => $id_user_wallet_edit];
+                $exec  = $this->mcore->update('user_wallets', $data, $where);
+            } else {
+                $data  = ['id_user' => $id_user_wallet_edit, 'no_wallet' => $no_wallet_edit, 'created_at' => date('Y-m-d H:i:s'), 'updated_at' => date('Y-m-d H:i:s')];
+                $exec  = $this->mcore->store('user_wallets', $data);
+            }
+
+            if ($exec) {
+                $code       = 200;
+                $where      = ['id' => $id_user_wallet_edit];
+                $email      = $this->mcore->get('users', '*', $where)->row()->email;
+                $no_wallet  = $no_wallet_edit;
+                $this->email_reset_wallet($id_user_wallet_edit, $email, $no_wallet);
+            }
+        }
+
+        echo json_encode(['code' => $code]);
+    }
+
     public function user_delete()
     {
         $id_user = $this->input->post('id_user');
@@ -225,6 +256,29 @@ class AdminsUserController extends CI_Controller
         $data['nama_bank']   = $nama_bank;
         $data['atas_nama']   = $atas_nama;
         $template_email      = $this->load->view('email_reset_rekening', $data, TRUE);
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_signup', $data_log_email);
+    }
+
+    public function email_reset_wallet($id, $email, $no_wallet)
+    {
+        $title             = "BIONER ACCOUNT - TRONLINK ADDRESS";
+        $data['title']     = $title;
+        $data['no_wallet'] = $no_wallet;
+        $template_email    = $this->load->view('email_reset_wallet', $data, TRUE);
 
         $this->email->from('system@bioner.online', 'System Bioner');
         $this->email->to($email);

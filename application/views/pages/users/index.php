@@ -158,3 +158,27 @@
 		</div>
 	</div>
 </form>
+
+<form id="form_wallet">
+	<div class="modal fade" id="modal_wallet" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" id="myModalLabel">Reset Tronlink Wallet</h4>
+				</div>
+				<div class="modal-body">
+					<div class="form-group">
+						<label for="no_rekening_edit">No Wallet</label>
+						<input type="text" class="form-control" id="no_wallet_edit" name="no_wallet_edit" required>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<input type="hidden" id="id_user_wallet_edit">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" id="btn_save_wallet" class="btn btn-primary">Save changes</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

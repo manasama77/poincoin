@@ -134,6 +134,20 @@ class M_users_less extends CI_Model
         $this->db->order_by('user_banks.id', 'asc');
         return $this->db->get('user_banks');
     }
+
+    public function get_user_wallet_data($id_user)
+    {
+
+        $this->db->select([
+            'user_wallets.id',
+            'user_wallets.id_user',
+            'user_wallets.no_wallet',
+        ]);
+        $this->db->where('user_wallets.id_user', $id_user);
+        $this->db->where('user_wallets.deleted_at IS NULL', NULL, FALSE);
+        $this->db->order_by('user_wallets.id', 'asc');
+        return $this->db->get('user_wallets');
+    }
 }
 
 /* End of file M_users_less.php */
