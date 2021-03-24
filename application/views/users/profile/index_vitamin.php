@@ -74,7 +74,7 @@
             } else if (id_jenis.val() == 'doge') {
                 Swal.fire({
                     title: 'Apakah kamu yakin?',
-                    text: `Tambah No Doge Wallet Baru`,
+                    text: `Tambah Address Tronlink Wallet Baru`,
                     icon: 'question',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -100,14 +100,14 @@
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'Proses Tambah Doge Wallet Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
+                                    text: 'Proses Tambah Address Tronlink Wallet Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
                                     timer: 3000,
                                 });
                             } else if (res.code == 200) {
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Success...',
-                                    html: `Proses Tambah Doge Wallet Berhasil.`,
+                                    html: `Proses Tambah Address Tronlink Wallet Berhasil.`,
                                 }).then(function(result) {
                                     window.location.reload();
                                 });
@@ -171,7 +171,7 @@
 
             Swal.fire({
                 title: 'Apakah kamu yakin?',
-                text: `Update No Doge Wallet`,
+                text: `Update Address Tronlink Wallet`,
                 icon: 'question',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -197,14 +197,14 @@
                             Swal.fire({
                                 icon: 'error',
                                 title: 'Oops...',
-                                text: 'Proses Update Doge Wallet Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
+                                text: 'Proses Update Address Tronlink Wallet Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
                                 timer: 3000,
                             });
                         } else if (res.code == 200) {
                             Swal.fire({
                                 icon: 'success',
                                 title: 'Success...',
-                                html: `Proses Update Doge Wallet Berhasil.`,
+                                html: `Proses Update Address Tronlink Wallet Berhasil.`,
                             }).then(function(result) {
                                 window.location.reload();
                             });
@@ -282,7 +282,7 @@
     function deleteDataWallet(id, no_wallet) {
         Swal.fire({
             title: 'Apakah kamu yakin?',
-            text: `Delete No Doge Wallet ${no_wallet}`,
+            text: `Delete Address Tronlink Wallet ${no_wallet}`,
             icon: 'question',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -310,14 +310,14 @@
                         Swal.fire({
                             icon: 'error',
                             title: 'Oops...',
-                            text: 'Proses Delete Doge Wallet Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
+                            text: 'Proses Delete Address Tronlink Wallet Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
                             timer: 3000,
                         });
                     } else if (res.code == 200) {
                         Swal.fire({
                             icon: 'success',
                             title: 'Success...',
-                            html: `Proses Delete Doge Wallet Berhasil.`,
+                            html: `Proses Delete Address Tronlink Wallet Berhasil.`,
                         }).then(function(result) {
                             window.location.reload();
                         });
