@@ -7,44 +7,46 @@
                 <span style="font-size: 25px;"><i class="fas fa-table"></i> User Profile</span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <th style="width: 150px;">Nama</th>
-                            <th class="text-center">:</th>
-                            <td><?= $arr_users->row()->nama; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Email</th>
-                            <th class="text-center">:</th>
-                            <td><?= $arr_users->row()->email; ?></td>
-                        </tr>
-                        <tr>
-                            <th>No Handphone</th>
-                            <th class="text-center">:</th>
-                            <td><?= $arr_users->row()->no_hp; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Created At</th>
-                            <th class="text-center">:</th>
-                            <td><?= $arr_users->row()->created_at; ?></td>
-                        </tr>
-                        <tr>
-                            <th>Last Login</th>
-                            <th class="text-center">:</th>
-                            <td><?= $arr_users->row()->updated_at; ?></td>
-                        </tr>
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colspan="3">
-                                <a href="<?= site_url(); ?>change_password_user" class="btn btn-primary btn-block">
-                                    <i class="fas fa-key"></i> Change Password
-                                </a>
-                            </td>
-                        </tr>
-                    </tfoot>
-                </table>
+                <div class="table-responsive">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th style="width: 150px;">Nama</th>
+                                <th class="text-center">:</th>
+                                <td><?= $arr_users->row()->nama; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Email</th>
+                                <th class="text-center">:</th>
+                                <td><?= $arr_users->row()->email; ?></td>
+                            </tr>
+                            <tr>
+                                <th>No Handphone</th>
+                                <th class="text-center">:</th>
+                                <td><?= $arr_users->row()->no_hp; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Created At</th>
+                                <th class="text-center">:</th>
+                                <td><?= $arr_users->row()->created_at; ?></td>
+                            </tr>
+                            <tr>
+                                <th>Last Login</th>
+                                <th class="text-center">:</th>
+                                <td><?= $arr_users->row()->updated_at; ?></td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">
+                                    <a href="<?= site_url(); ?>change_password_user" class="btn btn-primary btn-block">
+                                        <i class="fas fa-key"></i> Change Password
+                                    </a>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
