@@ -143,8 +143,10 @@ $route['admins/user_reset_wallet']   = 'AdminsUserController/user_reset_wallet';
 $route['admins/user_delete']         = 'AdminsUserController/user_delete';
 
 # RATIO
-$route['admins/ratio'] = 'AdminsRatioController/index';
-$route['datatables/ratio'] = 'AdminsRatioController/datatables';
+$route['admins/ratio']        = 'AdminsRatioController/index';
+$route['admins/ratio/update'] = 'AdminsRatioController/update';
+$route['admins/ratio/destroy'] = 'AdminsRatioController/destroy';
+$route['datatables/ratio']    = 'AdminsRatioController/datatables';
 
 # UTILITY
 $route['init']               = 'InitController/init_admins';

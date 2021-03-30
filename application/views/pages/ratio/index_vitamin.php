@@ -47,19 +47,21 @@
 			}, ],
 		});
 
-		$('#form_reset').on('submit', function(e) {
+		$('#form_edit').on('submit', function(e) {
 			e.preventDefault();
 
 			$.ajax({
-				url: `<?= site_url(); ?>admins/reset`,
+				url: `<?= site_url(); ?>admins/ratio/update`,
 				method: 'post',
 				dataType: 'json',
 				data: {
-					id: $('#reset_id').val(),
-					password: $('#reset_password').val()
+					id: $('#id_edit').val(),
+					tanggal: $('#tanggal_edit').val(),
+					trx: $('#trx_edit').val(),
+					bnr: $('#bnr_edit').val(),
 				},
 				beforeSend: function() {
-					$('#reset_submit').attr('disabled', true);
+					$('#edit_submit').attr('disabled', true);
 					$.blockUI();
 				}
 			}).done(function(res) {
@@ -67,25 +69,26 @@
 					Swal.fire({
 						position: 'top-end',
 						icon: 'success',
-						title: `Reset Admin Password Berhasil`,
+						title: `Edit Ratio  Berhasil`,
 						showConfirmButton: false,
 						timer: 1500
 					});
-					$('#reset_id').val(null);
-					$('#reset_username').val(null);
-					$('#reset_username_text').val(null);
-					$('#modal-reset').modal('hide');
+					$('#id_edit').val(null);
+					$('#tanggal_edit').val(null);
+					$('#trx_edit').val(null);
+					$('#bnr_edit').val(null);
+					$('#modal-edit').modal('hide');
 					table.draw();
 				} else {
 					Swal.fire({
 						position: 'top-end',
 						icon: 'error',
-						title: `Reset Admin Password Gagal, silahkan refresh halaman`,
+						title: `Update Ratio Gagal, silahkan refresh halaman`,
 						showConfirmButton: false,
 						timer: 1500
 					});
 				}
-				$('#reset_submit').attr('disabled', false);
+				$('#edit_submit').attr('disabled', false);
 				$.unblockUI();
 			});
 		});
@@ -93,11 +96,11 @@
 	});
 
 	function deleteData(id) {
-		let c = confirm('Hapus Akun ?');
+		let c = confirm('Hapus Ratio ?');
 
 		if (c == true) {
 			$.ajax({
-					url: `<?= site_url(); ?>admins/destroy`,
+					url: `<?= site_url(); ?>admins/ratio/destroy`,
 					method: 'post',
 					data: {
 						id: id
@@ -122,7 +125,7 @@
 						Swal.fire({
 							position: 'top-end',
 							icon: 'success',
-							title: `Hapus Admin Berhasil, silahkan refresh halaman`,
+							title: `Hapus Ratio Berhasil`,
 							showConfirmButton: false,
 							timer: 1500
 						});
@@ -131,7 +134,7 @@
 						Swal.fire({
 							position: 'top-end',
 							icon: 'error',
-							title: `Hapus Admin Gagal, silahkan refresh halaman`,
+							title: `Hapus Ratio Gagal, silahkan refresh halaman`,
 							showConfirmButton: false,
 							timer: 1500
 						});
@@ -142,11 +145,12 @@
 		}
 	}
 
-	function resetPassword(id, username) {
-		$('#reset_id').val(id);
-		$('#reset_username').val(username);
-		$('#reset_username_text').val(username);
-		$('#modal-reset').modal('show');
+	function editData(id, tanggal, trx, bnr) {
+		$('#id_edit').val(id);
+		$('#tanggal_edit').val(tanggal);
+		$('#trx_edit').val(trx);
+		$('#bnr_edit').val(bnr);
+		$('#modal-edit').modal('show');
 
 	}
 </script>

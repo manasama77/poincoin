@@ -60,6 +60,26 @@ class AdminsRatioController extends CI_Controller
         }
     }
 
+    public function update()
+    {
+        $id      = $this->input->post('id');
+        $tanggal = $this->input->post('tanggal');
+        $trx     = $this->input->post('trx');
+        $bnr     = $this->input->post('bnr');
+
+        $data  = compact('tanggal', 'trx', 'bnr');
+        $where = compact('id');
+        $exec = $this->mcore->update('ratio', $data, $where);
+
+        if ($exec) {
+            $ret = ['code' => 200];
+        } else {
+            $ret = ['code' => 500];
+        }
+
+        echo json_encode($ret);
+    }
+
     public function destroy()
     {
         $cur_date = new DateTime('now');
