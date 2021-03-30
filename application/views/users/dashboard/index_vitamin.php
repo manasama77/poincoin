@@ -24,7 +24,7 @@
 
         var options = {
             width: '100%',
-            height: 400,
+            height: 600,
             bar: {
                 groupWidth: '75%'
             },
@@ -32,10 +32,9 @@
                 title: title,
                 subtitle: subtitle,
             },
-            animation: {
-                duration: 1,
-                easing: 'linear',
-                startup: true
+            bars: 'vertical',
+            vAxis: {
+                format: 'decimal'
             },
             chartArea: {
                 left: 20,

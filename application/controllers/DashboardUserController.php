@@ -131,7 +131,7 @@ class DashboardUserController extends CI_Controller
 
         if ($arr->num_rows() > 0) {
             foreach ($arr->result() as $key) {
-                $nested = [$key->tanggal, $key->trx, $key->bnr];
+                $nested = [$key->tanggal, $key->bnr, $key->trx];
                 array_push($data, $nested);
             }
         }
