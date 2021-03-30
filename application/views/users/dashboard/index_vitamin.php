@@ -1,4 +1,59 @@
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
+    // google chart
+    google.charts.load('current', {
+        'packages': ['corechart', 'bar']
+    });
+    google.setOnLoadCallback(load_chart_data);
+
+    function load_chart_data() {
+        $.ajax({
+            url: "<?= site_url(); ?>temp_chart",
+            type: "POST",
+            dataType: "json",
+            async: false
+        }).done(function(e) {
+            console.log(e);
+            drawChart(e.title, e.subtitle, e.data);
+        });
+    }
+
+    function drawChart(title, subtitle, data) {
+
+        var data = google.visualization.arrayToDataTable(data);
+
+        var options = {
+            width: '100%',
+            height: 400,
+            bar: {
+                groupWidth: '75%'
+            },
+            chart: {
+                title: title,
+                subtitle: subtitle,
+            },
+            animation: {
+                duration: 1,
+                easing: 'linear',
+                startup: true
+            },
+            chartArea: {
+                left: 20,
+                top: 20,
+                width: '50%',
+                height: '75%'
+            }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+
+
+
+
+
     let modalReferal = $('#modalReferal');
 
     $('document').ready(function() {

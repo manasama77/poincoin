@@ -40,7 +40,7 @@ $route['indodax_setup'] = 'IndodaxController/setup';
 # DASHBOARD USER
 ##############################################################################################################
 $route['dashboard_user'] = 'DashboardUserController/index';
-$route['get_market_idr'] = 'DashboardUserController/get_market_idr';
+$route['temp_chart']     = 'DashboardUserController/temp_chart';
 ##############################################################################################################
 
 ##############################################################################################################
@@ -142,12 +142,17 @@ $route['admins/user_reset_rekening'] = 'AdminsUserController/user_reset_rekening
 $route['admins/user_reset_wallet']   = 'AdminsUserController/user_reset_wallet';
 $route['admins/user_delete']         = 'AdminsUserController/user_delete';
 
+# RATIO
+$route['admins/ratio'] = 'AdminsRatioController/index';
+$route['datatables/ratio'] = 'AdminsRatioController/datatables';
+
 # UTILITY
 $route['init']               = 'InitController/init_admins';
 $route['api/get_idr_market'] = 'InitController/get_idr_market';
 
 $route['distribusi_bioner_stacking/(:any)/(:any)'] = 'InitController/distribusi_bioner_stacking/$1/$2';
 $route['distribusi_bioner_trade/(:any)/(:any)']    = 'InitController/distribusi_bioner_trade/$1/$2';
+
 
 // $route['test/(:any)/(:any)'] = 'InitController/test/$1/$2';
 $route['test'] = 'InitController/test';

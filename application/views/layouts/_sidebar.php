@@ -111,6 +111,11 @@
 					<i class="fa fa-newspaper-o"></i> <span>News Management</span>
 				</a>
 			</li>
+			<li class="">
+				<a href="<?= site_url('admins/ratio'); ?>">
+					<i class="fa fa-balance-scale"></i> <span>TRX/BNR Ratio</span>
+				</a>
+			</li>
 		</ul>
 	</section>
 </aside>

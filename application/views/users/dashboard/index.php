@@ -169,6 +169,19 @@ if ($count_wallet == 0) {
     </div>
 </div>
 
+<div class="row">
+    <div class="col-sm-12 col-md-10 offset-md-1 mt-2">
+        <div class="card text-white">
+            <div class="card-header bg-dark font-weight-bold text-center p-0">
+                <span style="font-size: 25px;">TRX / BNR Chart</span>
+            </div>
+            <div class="card-body bg-grey-1 text-dark p-0 w-100">
+                <div id="columnchart_material"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">

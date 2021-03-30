@@ -18,7 +18,7 @@ class DashboardUserController extends CI_Controller
         $data['title']          = 'Dashboard';
         $data['content']        = 'dashboard/index';
         $data['vitamin']        = 'dashboard/index_vitamin';
-        $data['arr_news']       = $this->mcore->get('news', '*', ['deleted_at'   => NULL, 'status' => 'show'], 'id', 'DESC');
+        $data['arr_news']       = $this->mcore->get('news', '*', ['deleted_at' => NULL, 'status' => 'show'], 'id', 'DESC');
         $data['count_referal']  = $this->M_dashboard->count_referal();
         $data['count_bank']     = $this->mcore->count('user_banks', ['id_user'   => $this->session->userdata(SESS . 'id')]);
         $data['count_wallet']   = $this->mcore->count('user_wallets', ['id_user' => $this->session->userdata(SESS . 'id')]);
@@ -112,6 +112,35 @@ class DashboardUserController extends CI_Controller
         );
 
         echo json_encode($output);
+    }
+
+    public function temp_chart()
+    {
+        $arr_last = $this->mcore->get('ratio', '*', ['deleted_at' => null], 'tanggal', 'desc', '1');
+        $tanggal  = $arr_last->row()->tanggal;
+        $trx      = $arr_last->row()->trx;
+        $bnr      = $arr_last->row()->bnr;
+
+        $title    = "BNR / TRX";
+        $subtitle = $tanggal . " - BNR / TRX: (" . $bnr . " : " . $trx . ")";
+
+        $arr   = $this->mcore->get('ratio', '*', ['deleted_at' => null], 'tanggal', 'asc', '7');
+
+        $data = [];
+        array_push($data, ['Date', 'BNR', 'TRX']);
+
+        if ($arr->num_rows() > 0) {
+            foreach ($arr->result() as $key) {
+                $nested = [$key->tanggal, $key->trx, $key->bnr];
+                array_push($data, $nested);
+            }
+        }
+
+        echo json_encode([
+            'title'    => $title,
+            'subtitle' => $subtitle,
+            'data'     => $data,
+        ]);
     }
 }
         
