@@ -94,7 +94,7 @@ define('NO_REKENING_ADMIN', '0954173140');
 define('ATAS_NAMA_NO_REKENING_ADMIN', 'a/n Siti Anihlah');
 define('NAMA_BANK_ADMIN', 'BCA');
 define('NO_WALLET_ADMIN', 'TTm1T7DbiTk1WJdgSwBX5tAfBgQrfe4Czp');
-define('VERSION_APP', '1.0.4 Beta');
+define('VERSION_APP', '1.0.5 Beta');
 define('YEAR_APP', '2021');
 define('PROFIT_PER_DAY_TRADE', 3000);
 define('WA_ADMIN', '6281219869989');
