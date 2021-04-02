@@ -2,7 +2,9 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 ##############################################################################################################
 # RESERVED ROUTES
-$route['default_controller']   = 'UserLoginController/index';
+// $route['default_controller']   = 'UserLoginController/index';
+$route['default_controller']   = 'LandingController/index';
+$route['guestbook/add']        = 'LandingController/guestbook_add';
 $route['404_override']         = 'My404';
 $route['translate_uri_dashes'] = FALSE;
 $route['no_js']                = 'UserLoginController/no_js';
@@ -11,8 +13,8 @@ $route['no_js']                = 'UserLoginController/no_js';
 ##############################################################################################################
 # LOGIN USER
 ##############################################################################################################
-$route['login_user']           = 'UserLoginController/index';
-$route['signup_user']          = 'UserLoginController/signup';
+$route['member/signin']         = 'UserLoginController/index';
+$route['member/signup']        = 'UserLoginController/signup';
 $route['signup_user/(:any)']   = 'UserLoginController/signup/$1';
 $route['auth_user']            = 'UserLoginController/auth';
 $route['register_user']        = 'UserLoginController/signup';

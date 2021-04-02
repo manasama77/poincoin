@@ -41,7 +41,7 @@
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                 <div class="my-5">
                     <div class="text-center">
-                        <img src="<?= base_url(); ?>public/img/logo.jpeg" alt="LOGO" class="img-fluid" style="width: 200px;">
+                        <img src="<?= base_url(); ?>public/img/logo wide 2.png" alt="LOGO" class="img-fluid" style="width: 400px; margin-bottom: 40px;">
                     </div>
                     <div class="card card-custom">
                         <div class="card-header">
@@ -103,7 +103,12 @@
                                 </div>
                                 <button type="submit" class="btn btn-lg btn-primary btn-block text-uppercase text-white btn-flat">Sign Up</button>
                                 <hr class="my-4">
-                                <a href="<?= site_url(); ?>/" class="btn btn-sm btn-warning btn-block text-uppercase btn-flat" type="submit"><span style="color: red">Already Have Account ?</span> <span style="color: black">Log In</span></a>
+                                <a href="<?= site_url(); ?>member/signin" class="btn btn-sm btn-warning btn-block text-uppercase btn-flat">
+                                    <span style="color: red">Already Have Account ?</span> <span style="color: black">Log In</span>
+                                </a>
+                                <a href="<?= site_url(); ?>" class="btn btn-sm btn-info btn-block text-uppercase btn-flat">
+                                    <span style="color: black">Back to Landing Page</span>
+                                </a>
                             </form>
                         </div>
                     </div>
