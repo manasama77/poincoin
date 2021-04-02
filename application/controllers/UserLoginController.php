@@ -34,7 +34,7 @@ class UserLoginController extends CI_Controller
             } else {
                 delete_cookie(COOK);
                 $this->session->set_flashdata('expired', 'Sesi Berakhir');
-                redirect(site_url());
+                redirect(site_url('member/signin'));
             }
         } else {
             $this->form_validation->set_rules('email', 'Email', 'callback_email_check');
@@ -46,7 +46,7 @@ class UserLoginController extends CI_Controller
                 $email = $this->input->post('email');
 
                 $where = [
-                    'email'   => $email,
+                    'email'      => $email,
                     'status'     => 'aktif',
                     'deleted_at' => NULL
                 ];
@@ -54,11 +54,11 @@ class UserLoginController extends CI_Controller
 
                 if ($arr->num_rows() == 1) {
 
-                    $id       = $arr->row()->id;
-                    $nama     = $arr->row()->nama;
+                    $id    = $arr->row()->id;
+                    $nama  = $arr->row()->nama;
                     $no_hp = $arr->row()->no_hp;
-                    $email    = $arr->row()->email;
-                    $pin    = $arr->row()->pin;
+                    $email = $arr->row()->email;
+                    $pin   = $arr->row()->pin;
                     $this->_set_session($id, $nama, $no_hp, $email, $pin);
 
                     $remember = $this->input->post('remember');
@@ -82,7 +82,7 @@ class UserLoginController extends CI_Controller
                 } else {
                     delete_cookie(COOK);
                     $this->session->set_flashdata('unknown', 'Email tidak ditemukan');
-                    redirect(site_url());
+                    redirect(site_url('member/signin'));
                 }
             }
         }
@@ -163,7 +163,7 @@ class UserLoginController extends CI_Controller
         $this->session->unset_userdata(SESS . 'no_hp');
         $this->session->unset_userdata(SESS . 'pin');
         $this->session->set_flashdata('logout', 'Logout Berhasil');
-        redirect(site_url());
+        redirect(site_url('member/signin'));
     }
 
     public function signup()
@@ -227,7 +227,7 @@ class UserLoginController extends CI_Controller
 
             if (!$arr) {
                 $this->session->set_flashdata('signup_error', 'Proses Sign Up Gagal, tidak terhubung dengan server silahkan cek koneksi kamu');
-                redirect('signup');
+                redirect('member/signup');
             } else {
                 $data = [
                     'id_user'          => $last_id,
@@ -248,7 +248,7 @@ class UserLoginController extends CI_Controller
                 $this->mcore->store('users_bioner_trade', $data);
                 $this->session->set_flashdata('signup_success', 'Proses Signup Berhasil, silahkan Login');
                 $this->signup_email($last_id, urlencode($email), $password_polos);
-                redirect('/');
+                redirect('/member/signup');
             }
         }
     }
@@ -296,10 +296,10 @@ class UserLoginController extends CI_Controller
         $arr_user_banks = $this->M_users->get_user_bank_data();
         $arr_user_wallets = $this->mcore->get('user_wallets', '*', ['id_user' => $id_user, 'deleted_at' => NULL]);
 
-        $data['arr_users']       = $arr_users;
-        $data['arr_banks']       = $arr_banks;
-        $data['arr_user_banks']       = $arr_user_banks;
-        $data['arr_user_wallets']       = $arr_user_wallets;
+        $data['arr_users']        = $arr_users;
+        $data['arr_banks']        = $arr_banks;
+        $data['arr_user_banks']   = $arr_user_banks;
+        $data['arr_user_wallets'] = $arr_user_wallets;
 
         $this->template->template($data);
     }

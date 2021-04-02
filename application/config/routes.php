@@ -13,9 +13,9 @@ $route['no_js']                = 'UserLoginController/no_js';
 ##############################################################################################################
 # LOGIN USER
 ##############################################################################################################
-$route['member/signin']         = 'UserLoginController/index';
+$route['member/signin']        = 'UserLoginController/index';
 $route['member/signup']        = 'UserLoginController/signup';
-$route['signup_user/(:any)']   = 'UserLoginController/signup/$1';
+$route['member/signup/(:any)'] = 'UserLoginController/signup/$1';
 $route['auth_user']            = 'UserLoginController/auth';
 $route['register_user']        = 'UserLoginController/signup';
 $route['logout_user']          = 'UserLoginController/logout';

@@ -60,7 +60,7 @@
                             }
                             ?>
 
-                            <form class="form-signin mt-3" action="<?= site_url(); ?>signup_user/<?= $this->uri->segment(2); ?>" method="post">
+                            <form class="form-signin mt-3" action="<?= site_url(); ?>member/signup/<?= $this->uri->segment(2); ?>" method="post">
                                 <div class="form-label-group">
                                     <input type="text" id="nama" name="nama" class="form-control btn-flat" placeholder="Nama" value="<?= set_value('nama'); ?>" required autofocus>
                                     <label for="nama">Nama</label>
