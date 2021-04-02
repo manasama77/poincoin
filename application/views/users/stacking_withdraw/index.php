@@ -146,7 +146,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-6 offset-4">
+                        <div class="col-sm-12 col-md-6 offset-4">
                             <small class="form-text text-muted">Minimal 100 BNR untuk dapat diinvestkan kembali</small>
                         </div>
                     </div>
