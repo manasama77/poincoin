@@ -11,7 +11,7 @@
                         <b class="title-special-card">Bioner Profit</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($bioner_profit, 4); ?> <small>BNR</small></p>
+                        <p class="font-weight-bold value-special-card"><?= number_format($bioner_profit, 4); ?> <small>B</small></p>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                         <b class="title-special-card">Total Investment</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>BNR</small></p>
+                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>B</small></p>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                                     Amount
                                     <small class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Rp">Rp</small>
                                 </th>
-                                <th class="text-center">Rekening / Wallet</th>
+                                <th class="text-center">Rekening</th>
                                 <th class="text-center" style="min-width: 120px;">Tanggal</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center">
@@ -142,16 +142,22 @@
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <form id="form_withdraw" class="form-horizontal">
                     <div class="form-group row justify-content-center">
-                        <label for="withdraw_b" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Withdraw Amount (BNR)</label>
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="withdraw_b" name="withdraw_b" placeholder="Total Investment" value="0" min="10" max="<?= $bioner_profit; ?>" step="10" required />
-                                <div class="input-group-append">
-                                    <span class="input-group-text input-group-sm bg-primary text-white">BNR</span>
-                                </div>
+                        <label for="withdraw_b" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Withdraw Amount (BNR)</label>
+                        <div class="col-sm-12 col-md-12 col-lg-6 input-group">
+                            <input type="number" class="form-control" id="withdraw_b" name="withdraw_b" placeholder="Total Investment" value="0" min="10" max="1000000" step="10" required />
+                            <div class="input-group-append">
+                                <span class="input-group-text bg-primary text-white">BNR</span>
                             </div>
+                            <!-- <div class="input-group-append">
+                                <button type="button" class="btn btn-info" id="upValue">
+                                    <i class="fas fa-arrow-up"></i>
+                                </button>
+                                <button type="button" class="btn btn-info" id="downValue">
+                                    <i class="fas fa-arrow-down"></i>
+                                </button>
+                            </div> -->
                         </div>
-                        <div class="col-6 offset-4">
+                        <div class="col-6 offset-3">
                             <small class="form-text text-muted">Minimal 100 BNR untuk dapat diinvestkan kembali</small>
                         </div>
                     </div>
@@ -165,7 +171,7 @@
                         </div>
                     </div> -->
                     <div class="form-group row justify-content-center">
-                        <label for="id_jenis" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Jenis Rekening</label>
+                        <label for="id_jenis" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Jenis Rekening</label>
                         <div class="col-sm-12 col-md-12 col-lg-6">
                             <select class="form-control" id="id_jenis" name="id_jenis" onchange="cekJenis();" required>
                                 <option value=""></option>
@@ -177,7 +183,7 @@
                     </div>
                     <div id="form_bank" style="display: none;">
                         <div class="form-group row justify-content-center">
-                            <label for="id_rekening" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Rekening</label>
+                            <label for="id_rekening" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Rekening</label>
                             <div class="col-sm-12 col-md-12 col-lg-6">
                                 <select class="form-control" id="id_rekening" name="id_rekening">
                                     <option></option>
@@ -197,7 +203,7 @@
                     </div>
                     <div id="form_wallet" style="display: none;">
                         <div class="form-group row justify-content-center">
-                            <label for="id_wallet" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Wallet Address</label>
+                            <label for="id_wallet" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Wallet Address</label>
                             <div class="col-sm-12 col-md-12 col-lg-6">
                                 <select class="form-control" id="id_wallet" name="id_wallet">
                                     <option></option>

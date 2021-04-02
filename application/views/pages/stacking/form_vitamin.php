@@ -11,6 +11,7 @@
         total_transfer_in_rp = $('#total_transfer_in_rp'),
         bukti_transfer = $('#bukti_transfer'),
         btn_upload_bukti_transfer = $('#btn_upload_bukti_transfer'),
+        tipe_stack = $('#tipe_stack'),
         totalInvestment = 0,
         totalTransfer = 0,
         totalTransferAlt = 0,
@@ -52,6 +53,23 @@
             });
         });
 
+        tipe_stack.on('change', function() {
+            if (tipe_stack.val() == "new") {
+                total_investment.attr('min', 100).attr('step', 100);
+            } else {
+                total_investment.attr('min', 10).attr('step', 1);
+            }
+        });
+
+        total_investment.on('change', function() {
+            let total_transfer_value = total_investment.val() * 10;
+            let profit_value = total_investment.val() * 0.5 / 100;
+            totalInvestment = total_investment.val();
+            totalTransfer = total_transfer_value;
+            total_transfer.val(total_transfer_value);
+            profit_per_day.val(profit_value);
+        });
+
         upValue.on('click', function() {
             getTotalTransfer("up");
         });
@@ -69,20 +87,15 @@
                     text: 'Silahkan pilih user telebih dahulu',
                     timer: 3000,
                 });
-            } else if (total_transfer.val() == 0 || total_transfer.val() < 0) {
+            } else if (total_investment.val() == 0 || total_investment.val() < 0) {
                 Swal.fire({
                     icon: 'warning',
                     title: 'Oops...',
-                    text: 'Nominal Transfer nol, silahkan isi nominal transfer',
+                    text: 'Total Investment nol, silahkan isi nominal',
                     timer: 3000,
                 });
             } else {
-                if (count_arr_stacking == 0) {
-                    xtransfer = parseInt(replaceComma(total_transfer.val())) - 100000;
-                    textnya = `Kamu akan melakukan investment sebesar Rp.${numberWithCommas(xtransfer)} & Biaya pembukaan awal sebesar Rp.100,000 ?`
-                } else {
-                    textnya = `Kamu akan melakukan investment sebesar Rp.${total_transfer.val()} ?`
-                }
+                textnya = `Kamu akan melakukan investment sebesar ${total_investment.val()} BNR ?`
 
                 Swal.fire({
                     title: 'Apakah kamu yakin?',
@@ -123,7 +136,7 @@
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Success...',
-                                    html: `Proses Add New Bioner Stacking Berhasil.<br>Silahkan lakukan transfer sejumlah <b>${total_transfer.val()}</b> ke no rekening dinomor <br> <b><?= NO_REKENING_ADMIN; ?></b><br><b>a/n <?= ATAS_NAMA_NO_REKENING_ADMIN; ?></b><br><b>Bank <?= NAMA_BANK_ADMIN; ?></b><br>Atau Transfer menggunakan Doge Coin ke Nomor Wallet <b><?= NO_WALLET_ADMIN; ?></b>`,
+                                    html: `Proses Add New Bioner Stacking Berhasil.<br> Silahkan informasikan user untuk melakukan transfer sejumlah <b>${total_transfer.val()} TRX</b> ke Wallet Address <b><?= NO_WALLET_ADMIN; ?></b>`,
                                 }).then(function(result) {
                                     window.location.reload();
                                 });

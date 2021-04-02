@@ -84,6 +84,43 @@ class StackingController extends CI_Controller
         echo json_encode(['code' => $code]);
     }
 
+    public function add_2()
+    {
+        $data_stacking    = [];
+        $id_user          = $this->session->userdata(SESS . 'id');
+        $total_investment = str_replace(',', '', $this->input->post('total_investment'));
+        $total_transfer   = str_replace(',', '', $this->input->post('total_transfer'));
+        $code             = 400;
+
+        if ($total_investment > 0 && $total_transfer > 0) {
+            $kode              = $this->_generate_kode_bioner_stacking($id_user);
+            $profit_perhari_b  = ($total_investment * 0.5) / 100;
+            $profit_perhari_rp = ($total_investment * 10000 * 0.5) / 100;
+            $status            = 'menunggu_transfer';
+
+            $data_stacking = [
+                'kode'              => $kode,
+                'id_user'           => $id_user,
+                'total_investment'  => $total_investment,
+                'total_transfer'    => $total_transfer,
+                'profit_perhari_b'  => $profit_perhari_b,
+                'profit_perhari_rp' => $profit_perhari_rp,
+                'status'            => $status,
+                'bukti_transfer'    => NULL,
+                'created_at'        => date('Y-m-d H:i:s'),
+                'updated_at'        => date('Y-m-d H:i:s'),
+                'deleted_at'        => NULL,
+            ];
+            $exec = $this->mcore->store('bioner_stacking', $data_stacking);
+
+            $code = 200;
+
+            $this->email_add_2($data_stacking);
+        }
+
+        echo json_encode(['code' => $code]);
+    }
+
     public function _generate_kode_bioner_stacking($id_user)
     {
         # format ID_USER.DDMMYY.##
@@ -286,7 +323,7 @@ class StackingController extends CI_Controller
         } else {
             if ($id_jenis == "bank") {
                 $id_wallet = NULL;
-            } elseif ($id_jenis == "doge") {
+            } elseif ($id_jenis == "wallet") {
                 $id_rekening = NULL;
             }
 
@@ -310,14 +347,14 @@ class StackingController extends CI_Controller
 
                 if ($exec_reduce_profit) {
                     $data_logs = [
-                        'id_user' => $id_user,
+                        'id_user'            => $id_user,
                         'id_bioner_stacking' => NULL,
-                        'type' => 'withdraw',
-                        'nominal_b' => $withdraw_b,
-                        'nominal_rp' => $withdraw_rp,
-                        'kode' => $kode_withdraw,
-                        'keterangan' => 'Withdraw sebesar ' . $withdraw_b . ' Bioner',
-                        'created_at' => date('Y-m-d H:i:s'),
+                        'type'               => 'withdraw',
+                        'nominal_b'          => $withdraw_b,
+                        'nominal_rp'         => $withdraw_rp,
+                        'kode'               => $kode_withdraw,
+                        'keterangan'         => 'Withdraw sebesar ' . $withdraw_b . ' Bioner',
+                        'created_at'         => date('Y-m-d H:i:s'),
                     ];
                     $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
 
@@ -336,7 +373,7 @@ class StackingController extends CI_Controller
 
             if ($id_jenis == "bank") {
                 $this->email_withdraw_stack_1($data_withdraw);
-            } elseif ($id_jenis == "doge") {
+            } elseif ($id_jenis == "wallet") {
                 $this->email_withdraw_stack_2($data_withdraw);
             }
         }
@@ -403,6 +440,30 @@ class StackingController extends CI_Controller
         $title          = "BIONER ADD NEW STACK - " . $data['kode'];
         $data['title']  = $title;
         $template_email = $this->load->view('email_stack_success', $data, TRUE);
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_stacking', $data_log_email);
+    }
+
+    public function email_add_2($data)
+    {
+        $id             = $this->session->userdata(SESS . 'id');
+        $email          = $this->session->userdata(SESS . 'email');
+        $title          = "BIONER ADD NEW STACK - " . $data['kode'];
+        $data['title']  = $title;
+        $template_email = $this->load->view('email_stack_success_2', $data, TRUE);
 
         $this->email->from('system@bioner.online', 'System Bioner');
         $this->email->to($email);

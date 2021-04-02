@@ -11,7 +11,7 @@
                         <b class="title-special-card">Bioner Profit</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($bioner_profit, 4); ?> <small>BNR</small></p>
+                        <p class="font-weight-bold value-special-card"><?= number_format($bioner_profit, 4); ?> <small>B</small></p>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                         <b class="title-special-card">Total Investment</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>BNR</small></p>
+                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>B</small></p>
                     </div>
                 </div>
             </div>
@@ -80,8 +80,8 @@
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
                                         <td class="text-center"><?= $key->kode; ?></td>
-                                        <td class="text-right"><?= number_format($key->total_investment, 0); ?> BNR</td>
-                                        <td class="text-right"><?= number_format($key->profit_perhari_b, 4); ?> BNR</td>
+                                        <td class="text-right"><?= number_format($key->total_investment, 0); ?> B</td>
+                                        <td class="text-right"><?= number_format($key->profit_perhari_b, 4); ?> B</td>
                                         <td class="text-center">
                                             <?php
                                             if ($key->status == "aktif") {
@@ -186,7 +186,7 @@
                         <div class="col-sm-12 col-md-12 col-lg-6 input-group">
                             <input type="number" class="form-control" id="total_investment" name="total_investment" placeholder="Total Investment" value="0" min="100" max="100000" step="100" required />
                             <div class="input-group-append">
-                                <span class="input-group-text bg-primary text-white">BNR</span>
+                                <span class="input-group-text bg-primary text-white">B</span>
                             </div>
                             <!-- <div class="input-group-append">
                                 <button type="button" class="btn btn-info" id="upValue">
@@ -214,7 +214,7 @@
                         <div class="col-sm-12 col-md-12 col-lg-6 input-group">
                             <input type="text" class="form-control" id="profit_per_day" name="profit_per_day" placeholder="Profit Per Day" value="0" readonly required />
                             <div class="input-group-append">
-                                <span class="input-group-text bg-primary text-white" id="basic-addon2">BNR</span>
+                                <span class="input-group-text bg-primary text-white" id="basic-addon2">B</span>
                             </div>
                         </div>
                     </div>
@@ -227,7 +227,7 @@
                             <li>Dengan melakukan Investment <kbd>100 Bioner (BNR)</kbd> user harus melakukan transfer ke wallet admin sebesar <kbd>1000 Tron (TRX)</kbd></li>
                             <li>Setiap hari pada pukul <kbd>00:00</kbd> Setiap Stack akan di compund sebesar <kbd>0.5%</kbd> dari nilai awal investment</li>
                             <li>Pengambilan modal stacking yang belum mencapai <kbd>1 Tahun</kbd> akan dikenakan <kbd>potongan 25% dari nilai awal investment</kbd> untuk menjaga keseimbangan sirkulasi</li>
-                            <li>Jika Bioner Profit telah mencapai nilai <kbd>100 BNR</kbd>. Nilai tersebut dapat diinvestmentkan kembali pada fitur <kbd>Withdraw</kbd></li>
+                            <li>Jika Bioner Profit telah mencapai nilai <kbd>100 B</kbd>. Nilai tersebut dapat diinvestmentkan kembali pada fitur <kbd>Withdraw</kbd></li>
                             <li>Untuk pembukaan stack baru bisa dengan melakukan transfer <kbd>Tron Coin (TRX)</kbd> ke wallet admin di <div class="input-group"><input type="text" id="wallet_admin" value="<?= NO_WALLET_ADMIN; ?>" class="form-control bg-dark text-white input-sm" readonly />
                                     <div class="input-group-append"><button type="button" class="btn btn-secondary btn-sm" onclick="copyClipboard()"><i class="fas fa-clipboard"></i></button></div>
                                 </div>
@@ -261,20 +261,20 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="id_bioner_stacking" class="font-weight-bold">Kode Bioner Stacking</label>
+                        <label for="id_bioner_stacking">Kode Bioner Stacking</label>
                         <input type="text" class="form-control" id="id_bioner_stacking" name="id_bioner_stacking" readonly required>
                     </div>
                     <div class="form-group">
-                        <label for="total_transfer_in_rp" class="font-weight-bold">Total Transfer</label>
+                        <label for="total_transfer_in_rp">Total Transfer</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="total_transfer_in_rp" name="total_transfer_in_rp" readonly required>
-                            <div class="form-group-append">
-                                <div class="input-group-text bg-danger text-white">TRX</div>
+                            <div class="form-group-prepend">
+                                <div class="input-group-text">Rp.</div>
                             </div>
+                            <input type="text" class="form-control" id="total_transfer_in_rp" name="total_transfer_in_rp" readonly required>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="bukti_transfer" class="font-weight-bold">Bukti Transfer</label>
+                        <label for="bukti_transfer">Bukti Transfer</label>
                         <input type="file" class="form-control" id="bukti_transfer" name="bukti_transfer" accept="image/*" required>
                     </div>
                 </div>

@@ -29,7 +29,7 @@
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; border: 1px solid #cccccc;">
                     <tr>
                         <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0;">
-                            <img src="<?= base_url('public/img/email_header_withdraw.png'); ?>" alt="BIONER HEADER" width="300" height="230" style="display: block;" />
+                            <img src="<?= base_url('public/img/email_header_stacking.png'); ?>" alt="BIONER HEADER" width="300" height="230" style="display: block;" />
                         </td>
                     </tr>
                     <tr>
@@ -37,29 +37,40 @@
                             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
                                 <tr>
                                     <td style="color: #153643; font-family: Arial, sans-serif; text-align: center;">
-                                        <h1 style="font-size: 24px; margin: 0;">Withdraw - <?= $kode_withdraw; ?></h1>
+                                        <h1 style="font-size: 24px; margin: 0;">Add New Stack - <?= $kode; ?></h1>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 20px 0 30px 0; text-align:center;">
                                         <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; text-align: left">
                                             <tr>
-                                                <td style="width: 190px;">Withdraw Amount BNR</td>
+                                                <td style="width: 130px;">Total Investment</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= number_format($withdraw_b, 4); ?> BNR</td>
+                                                <td><?= number_format($total_investment, 4); ?> BNR</td>
                                             </tr>
                                             <tr>
-                                                <td style="width: 190px;">TRONLINK Wallet Address</td>
+                                                <td style="width: 130px;">Total Transfer</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= $no_wallet; ?></td>
+                                                <td><?= number_format($total_transfer, 0); ?> TRX</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="width: 130px;">Profit per Day</td>
+                                                <td style="width: 10px;">:</td>
+                                                <td><?= number_format($profit_perhari_b, 4); ?> BNR</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3">
                                                     <ul>
-                                                        <li>Waktu Transfer maksimal 1x24 jam</li>
-                                                        <li>Withdraw hanya akan diproses pada hari kerja Senin ~ Sabtu Jam 08:00 s/d 21:00</li>
-                                                        <li>Withdraw pada hari Minggu atau akan diproses pada hari Senin</li>
-                                                        <li>Pastikan Address Wallet adalah Address di TRONLINK, dikarenakan jika address salah coin yang sudah di transfer akan hangus (burned)</li>
+                                                        <li>Minimal Investment adalah <kbd>100 Bioner</kbd> beserta kelipatannya</li>
+                                                        <li>Nilai Awal Investment <kbd>1 Bioner (BNR) setara 10 Tron (TRX)</kbd></li>
+                                                        <li>Dengan melakukan Investment <kbd>100 Bioner (BNR)</kbd> user harus melakukan transfer ke wallet admin sebesar <kbd>1000 Tron (TRX)</kbd></li>
+                                                        <li>Setiap hari pada pukul <kbd>00:00</kbd> Setiap Stack akan di compund sebesar <kbd>0.5%</kbd> dari nilai awal investment</li>
+                                                        <li>Pengambilan modal stacking yang belum mencapai <kbd>1 Tahun</kbd> akan dikenakan <kbd>potongan 25% dari nilai awal investment</kbd> untuk menjaga keseimbangan sirkulasi</li>
+                                                        <li>Jika Bioner Profit telah mencapai nilai <kbd>100 B</kbd>. Nilai tersebut dapat diinvestmentkan kembali pada fitur <kbd>Withdraw</kbd></li>
+                                                        <li>Untuk pembukaan stack baru bisa dengan melakukan transfer <kbd>Tron Coin (TRX)</kbd> ke wallet admin di <kbd><?= NO_WALLET_ADMIN; ?></kbd>
+                                                            </div>
+                                                        </li>
+                                                        <li>Ketentuan Nilai Awal Investment Stacking sewaktu-waktu <kbd>dapat berubah</kbd> mengikuti perubahan harga pasar dari Tron (TRX)</li>
                                                     </ul>
                                                 </td>
                                             </tr>

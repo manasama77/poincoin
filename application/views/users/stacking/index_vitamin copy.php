@@ -47,10 +47,16 @@
                     timer: 3000,
                 });
             } else {
+                if (<?= $count_arr_stacking; ?> == 0) {
+                    xtransfer = parseInt(replaceComma(total_transfer.val())) - 100000;
+                    textnya = `Kamu akan melakukan investment sebesar Rp.${numberWithCommas(xtransfer)} & Biaya pembukaan awal sebesar Rp.100,000 ?`
+                } else {
+                    textnya = `Kamu akan melakukan investment sebesar Rp.${total_transfer.val()} ?`
+                }
 
                 Swal.fire({
                     title: 'Apakah kamu yakin?',
-                    text: `Kamu akan melakukan investment sebesar ${total_investment.val()} BNR ?`,
+                    text: textnya,
                     icon: 'question',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -60,7 +66,7 @@
                 }).then((result) => {
                     if (result.isConfirmed) {
                         $.ajax({
-                            url: '<?= site_url(); ?>stacking_add_2',
+                            url: '<?= site_url(); ?>stacking_add',
                             method: 'post',
                             dataType: 'json',
                             data: {
@@ -86,16 +92,9 @@
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Success...',
-                                    html: `Proses Add New Bioner Stacking Berhasil.<br>Silahkan lakukan transfer sejumlah <b>${total_transfer.val()} TRX</b> menggunakan Tron Coin (TRX) ke Address Wallet <b><?= NO_WALLET_ADMIN; ?></b>`,
+                                    html: `Proses Add New Bioner Stacking Berhasil.<br>Silahkan lakukan transfer sejumlah <b>${total_transfer.val()}</b> ke no rekening dinomor <br> <b><?= NO_REKENING_ADMIN; ?></b><br><b>a/n <?= ATAS_NAMA_NO_REKENING_ADMIN; ?></b><br><b>Bank <?= NAMA_BANK_ADMIN; ?></b><br>Atau Transfer menggunakan Doge Coin ke Nomor Wallet <b><?= NO_WALLET_ADMIN; ?></b>`,
                                 }).then(function(result) {
                                     window.location.reload();
-                                });
-                            } else if (res.code == 400) {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Oops...',
-                                    text: 'Total Investment Nol, data tidak dapat diproses',
-                                    timer: 3000,
                                 });
                             }
                         });

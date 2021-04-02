@@ -46,7 +46,7 @@
                                             <tr>
                                                 <td style="width: 130px;">Total Investment</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= number_format($total_investment, 4); ?> B</td>
+                                                <td><?= number_format($total_investment, 4); ?> BNR</td>
                                             </tr>
                                             <tr>
                                                 <td style="width: 130px;">Total Transfer</td>
@@ -56,7 +56,7 @@
                                             <tr>
                                                 <td style="width: 130px;">Profit per Day</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= number_format($profit_perhari_b, 4); ?> B</td>
+                                                <td><?= number_format($profit_perhari_b, 4); ?> BNR</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3">

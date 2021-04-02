@@ -475,6 +475,21 @@ class UserLoginController extends CI_Controller
     {
         $this->load->view('no_js');
     }
+
+    public function check_pin()
+    {
+        $id_user = trim($this->input->post('id_user'));
+        $pin     = trim($this->input->post('pin'));
+        $count   = $this->mcore->count('users', ['id' => $id_user, 'pin' => $pin]);
+
+        if ($count == 0) {
+            $code = 404;
+        } else {
+            $code = 200;
+        }
+
+        echo json_encode(['code' => $code, 'lq' => $this->db->last_query()]);
+    }
 }
         
     /* End of file  UserLoginController.php */

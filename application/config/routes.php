@@ -25,6 +25,7 @@ $route['update_rekening']      = 'UserLoginController/update_rekening';
 $route['update_wallet']        = 'UserLoginController/update_wallet';
 $route['destroy_rekening']     = 'UserLoginController/destroy_rekening';
 $route['destroy_wallet']       = 'UserLoginController/destroy_wallet';
+$route['check_pin']            = 'UserLoginController/check_pin';
 
 $route['signup_email/(:num)/(:any)/(:any)'] = 'UserLoginController/signup_email/$1/$2/$3';
 ##############################################################################################################
@@ -48,6 +49,7 @@ $route['temp_chart']     = 'DashboardUserController/temp_chart';
 ##############################################################################################################
 $route['stacking']                       = 'StackingController/index';
 $route['stacking_add']                   = 'StackingController/add';
+$route['stacking_add_2']                 = 'StackingController/add_2';
 $route['stacking_upload_bukti_transfer'] = 'StackingController/stacking_upload_bukti_transfer';
 $route['stacking_withdraw']              = 'StackingController/withdraw';
 $route['stacking_withdraw_process']      = 'StackingController/withdraw_process';

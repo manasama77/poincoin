@@ -7,7 +7,7 @@
         id_jenis = $('#id_jenis'),
         form_bank = $('#form_bank'),
         id_rekening = $('#id_rekening'),
-        form_wallet = $('#form_wallet'),
+        form_doge = $('#form_doge'),
         id_wallet = $('#id_wallet'),
         max_withdraw = parseFloat(<?= $bioner_profit; ?>),
         withdraw_b_value = 0,
@@ -33,7 +33,7 @@
                 Swal.fire({
                     icon: 'warning',
                     title: 'Oops...',
-                    text: 'Nominal Withdraw Amount Nol, silahkan isi Withdraw Nominal tersebut',
+                    text: 'Nominal Withdraw nol, silahkan isi Withdraw (B)',
                     timer: 3000,
                 });
             } else {
@@ -41,7 +41,7 @@
                 var vText = ``;
                 var datanya = {
                     withdraw_b: withdraw_b.val(),
-                    withdraw_rp: 0,
+                    withdraw_rp: replaceComma(withdraw_rp.val()),
                     id_jenis: id_jenis.val(),
                     id_rekening: id_rekening.val(),
                     id_wallet: id_wallet.val(),
@@ -51,10 +51,10 @@
 
                 if (id_jenis.val() == "bank") {
                     vText = `Kamu akan melakukan penarikan sebesar<br><b>Rp.${withdraw_rp.val()}</b><br>Ke No Rekening<br><b>${id_rekening.find(':selected').text()}</b>`;
-                } else if (id_jenis.val() == "wallet") {
-                    vText = `Kamu akan melakukan penarikan sebesar<br><b>${withdraw_b.val()} BNR</b><br>Ke Tronlink Wallet Address<br><b>${id_wallet.find(':selected').text()}</b>`;
+                } else if (id_jenis.val() == "doge") {
+                    vText = `Kamu akan melakukan penarikan sebesar<br><b>Rp.${withdraw_rp.val()}</b><br>Ke Tronlink Wallet Address<br><b>${id_wallet.find(':selected').text()}</b>`;
                 } else if (id_jenis.val() == "invest") {
-                    vText = `Kamu akan melakukan investment stacking dari profit sebesar ${withdraw_b.val()} BNR ?`;
+                    vText = `Kamu akan melakukan investment stacking dari profit sebesar ${withdraw_b.val()} B ?`;
                     datanya = {
                         id_jenis: id_jenis.val(),
                         withdraw_b: withdraw_b.val(),
@@ -83,10 +83,11 @@
                             const pin_input = Swal.getPopup().querySelector('#pin_input').value;
                             if (!pin_input) {
                                 Swal.showValidationMessage(`Silahkan masukan PIN Transaksi`)
-                            } else {
-                                return {
-                                    pin_input: pin_input
-                                }
+                            } else if (pin_input != <?= $this->session->userdata(SESS . 'pin'); ?>) {
+                                Swal.showValidationMessage(`PIN Transaksi Salah`)
+                            }
+                            return {
+                                pin_input: pin_input
                             }
                         }
                     },
@@ -94,62 +95,45 @@
                     if (result.value) {
                         pin_input = result.value[1].pin_input;
 
-                        $.ajax({
-                            url: 'check_pin',
-                            method: 'post',
-                            dataType: 'json',
-                            data: {
-                                id_user: <?= $this->session->userdata(SESS . 'id'); ?>,
-                                pin: pin_input
-                            },
-                            beforeSend: function() {
-                                $.blockUI();
-                            }
-                        }).always(function() {
-                            $.unblockUI();
-                        }).fail(function(e) {
-                            console.log(e);
-                        }).done(function(e) {
-                            if (e.code == 404) {
-                                Swal.fire({
-                                    icon: 'error',
-                                    title: 'Oops...',
-                                    text: 'PIN Transaksi Salah',
-                                    timer: 3000,
-                                });
-                            } else if (e.code == 200) {
-                                $.ajax({
-                                    url: '<?= site_url(); ?>stacking_withdraw_process',
-                                    method: 'post',
-                                    dataType: 'json',
-                                    data: datanya,
-                                    beforeSend: function() {
-                                        $.blockUI();
-                                    }
-                                }).always(function() {
-                                    $.unblockUI();
-                                }).fail(function(res) {
-                                    console.log(res);
-                                }).done(function(res) {
-                                    if (res.code == 500) {
-                                        Swal.fire({
-                                            icon: 'error',
-                                            title: 'Oops...',
-                                            text: 'Proses Withdraw Bioner Stacking Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
-                                            timer: 3000,
-                                        });
-                                    } else if (res.code == 200) {
-                                        Swal.fire({
-                                            icon: 'success',
-                                            title: 'Success...',
-                                            html: vTextSuccess,
-                                        }).then(function(result) {
-                                            window.location.reload();
-                                        });
-                                    }
-                                });
-                            }
-                        });
+                        if (pin_input == <?= $this->session->userdata(SESS . 'pin'); ?>) {
+                            $.ajax({
+                                url: '<?= site_url(); ?>stacking_withdraw_process',
+                                method: 'post',
+                                dataType: 'json',
+                                data: datanya,
+                                beforeSend: function() {
+                                    $.blockUI();
+                                }
+                            }).always(function() {
+                                $.unblockUI();
+                            }).fail(function(res) {
+                                console.log(res);
+                            }).done(function(res) {
+                                if (res.code == 500) {
+                                    Swal.fire({
+                                        icon: 'error',
+                                        title: 'Oops...',
+                                        text: 'Proses Withdraw Bioner Stacking Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
+                                        timer: 3000,
+                                    });
+                                } else if (res.code == 200) {
+                                    Swal.fire({
+                                        icon: 'success',
+                                        title: 'Success...',
+                                        html: vTextSuccess,
+                                    }).then(function(result) {
+                                        window.location.reload();
+                                    });
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Oops...',
+                                text: 'PIN Transaksi Salah',
+                                timer: 3000,
+                            });
+                        }
                     }
                 });
 
@@ -260,56 +244,41 @@
     function cekJenis() {
         if (id_jenis.val() == 'bank') {
             form_bank.show();
-            form_wallet.hide();
+            form_doge.hide();
             form_invest.hide();
 
             id_rekening.attr('required', true);
             id_wallet.attr('required', false);
-            withdraw_b.attr('min', 10).attr('step', 10);
-        } else if (id_jenis.val() == 'wallet') {
+        } else if (id_jenis.val() == 'doge') {
             form_bank.hide();
-            form_wallet.show();
+            form_doge.show();
             form_invest.hide();
 
             id_rekening.attr('required', false);
             id_wallet.attr('required', true);
-            withdraw_b.attr('min', 10).attr('step', 10);
         } else if (id_jenis.val() == 'invest') {
-            if (<?= $bioner_profit; ?> <= 100) {
-                form_bank.hide();
-                form_wallet.hide();
-                form_invest.hide();
-
+            if (parseInt(withdraw_b.val()) < 10) {
                 Swal.fire({
                     icon: 'warning',
                     title: 'Oops...',
-                    text: 'Jumlah Profit Bioner kurang dari 100 BNR',
+                    text: 'Profit tidak mencukupi. Minimal Bioner Profit adalah 10 B',
                     timer: 3000,
-                }).then(function() {
-                    setTimeout(function() {
-                        id_jenis.val('').trigger('change');
-                        setTimeout(function() {
-                            withdraw_b.focus();
-                        }, 200);
-                    }, 200);
                 });
+                form_bank.hide();
+                form_doge.hide();
+                form_invest.hide();
             } else {
                 form_bank.hide();
-                form_wallet.hide();
+                form_doge.hide();
                 form_invest.show();
-
-                id_rekening.attr('required', false);
-                id_wallet.attr('required', false);
-                withdraw_b.attr('min', 100).attr('step', 100);
             }
+
+            id_rekening.attr('required', false);
+            id_wallet.attr('required', false);
         } else {
             form_bank.hide();
-            form_wallet.hide();
+            form_doge.hide();
             form_invest.hide();
         }
-
-        $("html, body").animate({
-            scrollTop: $(document).height()
-        }, 1000);
     }
 </script>

@@ -47,14 +47,17 @@ class StackingAdminController extends CI_Controller
     public function store()
     {
         $id_user          = $this->input->post('id_user');
-        $total_investment = str_replace(',', '', $this->input->post('total_investment'));
-        $total_transfer   = str_replace(',', '', $this->input->post('total_transfer'));
+
+        $arr_email = $this->mcore->get('users', 'email', ['id' => $id_user]);
+
+        $total_investment = $this->input->post('total_investment');
+        $total_transfer   = $this->input->post('total_transfer');
         $code             = 500;
 
         if ($total_investment > 0 && $total_transfer > 0) {
             $kode              = $this->_generate_kode_bioner_stacking($id_user);
             $profit_perhari_b  = ($total_investment * 0.5) / 100;
-            $profit_perhari_rp = ($total_investment * 10000 * 0.5) / 100;
+            $profit_perhari_rp = 0;
             $status            = 'menunggu_transfer';
 
             $data_stacking = [
@@ -73,6 +76,10 @@ class StackingAdminController extends CI_Controller
             $exec = $this->mcore->store('bioner_stacking', $data_stacking);
 
             $code = 200;
+
+            if ($arr_email->num_rows() == 1) {
+                $this->email_add_2($id_user, $arr_email->row()->email, $data_stacking);
+            }
         }
 
         echo json_encode(['code' => $code]);
@@ -375,6 +382,28 @@ class StackingAdminController extends CI_Controller
             'created_at' => date('Y-m-d H:i:s'),
         ];
         $this->mcore->store('log_email_signup', $data_log_email);
+    }
+
+    public function email_add_2($id_user, $email, $data)
+    {
+        $title          = "BIONER ADD NEW STACK - " . $data['kode'];
+        $data['title']  = $title;
+        $template_email = $this->load->view('email_stack_success_2', $data, TRUE);
+
+        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->to($email);
+        $this->email->subject($title);
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+
+        $data_log_email = [
+            'id_user'    => $id_user,
+            'log'        => $log_email,
+            'created_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->mcore->store('log_email_stacking', $data_log_email);
     }
 }
         
