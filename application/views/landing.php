@@ -78,7 +78,7 @@
                         <a class="nav-link" href="#" data-scroll-nav="5">timeline</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:;" onclick="comingSoon();">DeFi</a>
+                        <a class="nav-link" href="javascript:;" onclick="comingSoon();">Marketplace</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link font-weight-bold" href="<?= site_url(); ?>member/signin"><i class="fas fa-sign-in-alt fa-fw"></i> Sign In</a>
