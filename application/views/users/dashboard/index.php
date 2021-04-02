@@ -33,6 +33,18 @@ if ($count_wallet == 0) {
     </div>';
 }
 ?>
+<div class="row">
+    <div class="col-sm-12 col-md-10 offset-md-1 mt-2">
+        <div class="card text-white">
+            <div class="card-header bg-dark font-weight-bold text-center p-0">
+                <span style="font-size: 25px;">TRX / BNR Chart</span>
+            </div>
+            <div class="card-body bg-grey-1 text-dark p-0 w-100" style="min-height: 100px;">
+                <div id="columnchart_material"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="row">
     <div class="col-sm-12 col-md-6 offset-md-3 mt-2">
@@ -164,19 +176,6 @@ if ($count_wallet == 0) {
             </div>
             <div class="card-body bg-grey-1 text-dark p-0 w-100">
                 <iframe src="https://docs.google.com/viewer?url=https://bioner.online/public/pdf/white_paper_bioner.pdf&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12 col-md-10 offset-md-1 mt-2">
-        <div class="card text-white">
-            <div class="card-header bg-dark font-weight-bold text-center p-0">
-                <span style="font-size: 25px;">TRX / BNR Chart</span>
-            </div>
-            <div class="card-body bg-grey-1 text-dark p-0 w-100">
-                <div id="columnchart_material"></div>
             </div>
         </div>
     </div>

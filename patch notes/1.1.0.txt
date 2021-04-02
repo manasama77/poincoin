@@ -1,0 +1,50 @@
+----------------------------------------
+* Bioner Online Update Version 1.1.0 *
+----------------------------------------
+Update In General
+- New Landing Page
+- Perubahan  routes halaman signin (login) dan signup (register)
+- Metode Stacking & Withdraw
+- Update metode security PIN ketika withdraw dari session menjadi cek ke database terlebih dahulu
+
+---------------
+* MEMBER PAGE *
+---------------
+
+Landing Page
+- Halawan awal dari halaman login berubah menjadi Landing Page
+
+Member -> Stacking -> Add New Stack
+- Perubahan dasar metode add new stacking dari transfer rupiah menjadi transfer TRX
+- Minimal investment 100 BNR setara 1000 TRX
+- Penghitungan profit per day tetap sama 0.5% dari nilai investment
+- perubahan form input nilai investment dari trigger dengan button menjadi input keyboard
+
+Member -> Stacking -> Withdraw
+- Perubahan dasar metode withdraw, menghilangkan fitur withdraw transfer ke bank. Kini hanya tersedia withdraw transfer wallet atau Investment Stacking (re-Stack)
+- Nilai Minimal withdraw adalah 10 BNR
+- Nilai Maksimal withdraw adalah maksimal jumlah profit yang dimiliki per kelipatan 10
+- perubahan form input nilai withdraw dari trigger dengan button menjadi input keyboard
+
+
+---------------
+* ADMIN PAGE *
+---------------
+
+Admin -> Stacking -> Add Bioner Stacking
+- Perubahan dasar metode add new stacking dari transfer rupiah menjadi transfer TRX
+- Penambahan Tipe Stack (New & Special)
+- Tipe Stack New, sama dengan kondisi ketika user menambahkan invest stack baru
+- Tipe Stack Special, digunakan untuk kondisi koreksi dari sistem sebelumnya untuk nominal investment yang tidak berkelipatan 100
+
+
+----------
+* NOTES *
+----------
+- Jika member / admin menemukan Bug, Error atau Typo silahkan segera kirimkan pesan ke saya di telegram https://t.me/joinchat/F1BZEgpkNl4xYzQ1
+- Tata cara mengirimkan report Bug & Error harus disertakan dengan kejadian secara detail, kalau bisa dengan screenshot / gambar / video
+- Perbaikan Bug & Error akan dilakukan diantara Jam 00:00 ~ 06:00 WIB
+- Perbaikan Typo bisa segera diproses
+
+Contoh Report Bug / Error:
+"Mimin IT mau report Error, tidak bisa klik tombol Withdraw pada halaman Stacking, email saya adam.pm77@gmail.com .Mohon di cek ya min"
