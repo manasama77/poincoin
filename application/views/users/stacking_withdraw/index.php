@@ -66,10 +66,6 @@
                                     Amount
                                     <small class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Bioner">BNR</small>
                                 </th>
-                                <th class="text-right" style="min-width: 120px;">
-                                    Amount
-                                    <small class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Rp">Rp</small>
-                                </th>
                                 <th class="text-center">Rekening / Wallet</th>
                                 <th class="text-center" style="min-width: 120px;">Tanggal</th>
                                 <th class="text-center">Status</th>
@@ -108,7 +104,6 @@
                                     <tr>
                                     <td class="text-center">' . $no . '</td>
                                     <td class="text-right">' . number_format($key->withdraw_b, 4) . '</td>
-                                    <td class="text-right">' . number_format($key->withdraw_rp, 0) . '</td>
                                     <td class="text-center">' . $rekening . '</td>
                                     <td class="text-center">' . $key->created_at . '</td>
                                     <td class="text-center">
@@ -145,7 +140,7 @@
                         <label for="withdraw_b" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Withdraw Amount (BNR)</label>
                         <div class="col-sm-12 col-md-12 col-lg-6">
                             <div class="input-group">
-                                <input type="number" class="form-control" id="withdraw_b" name="withdraw_b" placeholder="Total Investment" value="0" min="10" max="<?= $bioner_profit; ?>" step="10" required />
+                                <input type="number" class="form-control" id="withdraw_b" name="withdraw_b" placeholder="Jumlah BNR" value="0" min="10" max="<?= $bioner_profit; ?>" step="10" required />
                                 <div class="input-group-append">
                                     <span class="input-group-text input-group-sm bg-primary text-white">BNR</span>
                                 </div>
