@@ -535,7 +535,7 @@
                                 <a href="#timeline">Timeline</a>
                             </li> -->
                             <li>
-                                <a href="javascript:;" onclick="comingSoon();">DeFi</a>
+                                <a href="javascript:;" onclick="comingSoon();">Marketplace</a>
                             </li>
                         </ul>
                     </div>
