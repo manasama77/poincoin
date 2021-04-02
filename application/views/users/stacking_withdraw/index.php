@@ -104,7 +104,7 @@
                                     <tr>
                                     <td class="text-center">' . $no . '</td>
                                     <td class="text-right">' . number_format($key->withdraw_b, 4) . '</td>
-                                    <td class="text-center">' . $rekening . '</td>
+                                    <td class="text-center"><small>' . $rekening . '</small></td>
                                     <td class="text-center">' . $key->created_at . '</td>
                                     <td class="text-center">
                                     <span class="badge badge-' . $bg_color . '">
