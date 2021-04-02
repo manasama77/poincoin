@@ -74,9 +74,9 @@
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#" data-scroll-nav="4">our teams</a>
                     </li> -->
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#" data-scroll-nav="5">timeline</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link" href="javascript:;" onclick="comingSoon();">DeFi</a>
                     </li>
@@ -279,7 +279,7 @@
     <!-- team member end -->
 
     <!-- timeline start -->
-    <section id="timeline" class="timeline section-padding" data-scroll-index="5">
+    <!-- <section id="timeline" class="timeline section-padding" data-scroll-index="5">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -349,7 +349,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- timeline end -->
 
     <!-- as-seen section start -->
@@ -531,9 +531,9 @@
                             <!-- <li>
                                 <a href="#team">Our Teams</a>
                             </li> -->
-                            <li>
+                            <!-- <li>
                                 <a href="#timeline">Timeline</a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="javascript:;" onclick="comingSoon();">DeFi</a>
                             </li>
