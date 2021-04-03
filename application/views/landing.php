@@ -365,7 +365,7 @@
             <div class="row">
                 <div class="owl-carousel as-seen-carousel">
                     <div class="as-seen-item">
-                        <a href="https://github.com/Bioner-Token/trc20-smart-contract" target="_blank">
+                        <a href="https://github.com/Bioner-Token" target="_blank">
                             <img src="<?= base_url(); ?>public/img/github_PNG15.png" alt="GITHUB" class="img-fluid mx-auto d-block">
                         </a>
                     </div>
@@ -545,7 +545,7 @@
                         <h3>Social Pages</h3>
                         <ul>
                             <li>
-                                <a href="https://github.com/Bioner-Token/trc20-smart-contract" target="_blank">Github</a>
+                                <a href="https://github.com/Bioner-Token" target="_blank">Github</a>
                             </li>
                             <li>
                                 <a href="https://web.facebook.com/bionercoin" target="_blank">Facebook</a>
