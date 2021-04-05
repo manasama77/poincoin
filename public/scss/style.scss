@@ -594,6 +594,8 @@ ul {
     padding: 30px;
     border-radius: 10px;
     box-shadow: var(--shadow-black-100);
+    text-align: center;
+    transition: all 0.5s ease;
 
     h3 {
         font-size: 18px;
@@ -610,6 +612,11 @@ ul {
         color: var(--black-400);
         text-transform: capitalize;
     }
+}
+
+.team-item:hover {
+    box-shadow: var(--shadow-black-300);
+    transition: all 0.5s ease;
 }
 
 

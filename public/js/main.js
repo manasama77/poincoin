@@ -34,8 +34,9 @@ $(document).ready(function () {
 
     // owl carousel
     $('.team-carousel').owlCarousel({
-        loop: true,
-        margin: 0,
+        loop: false,
+        margin: 300,
+        padding: 300,
         autoplay: false,
         autoplayHoverPause: true,
         responsiveClass: true,
@@ -47,7 +48,7 @@ $(document).ready(function () {
                 items: 2,
             },
             1000: {
-                items: 4,
+                items: 2,
             }
         }
     });

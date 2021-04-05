@@ -71,9 +71,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-scroll-nav="3">stacking</a>
                     </li>
-                    <!-- <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="#" data-scroll-nav="4">our teams</a>
-                    </li> -->
+                    </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#" data-scroll-nav="5">timeline</a>
                     </li> -->
@@ -236,7 +236,7 @@
 
 
     <!-- team member start -->
-    <!-- <section id="team" class="team section-padding" data-scroll-index="4">
+    <section id="team" class="team section-padding" data-scroll-index="4">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -247,35 +247,22 @@
             </div>
             <div class="row">
                 <div class="owl-carousel team-carousel">
-                    <div class="team-item">
-                        <img src="<?= base_url(); ?>public/img/team/1.jpg" alt="team">
-                        <h3>Lorem.</h3>
-                        <span>Lorem, ipsum.</span>
+                    <div class="team-item text-center">
+                        <div class="text-center">
+                            <img src="<?= base_url(); ?>public/img/team/1.png" alt="h. alif" class="img-thumbnail">
+                        </div>
+                        <h3>H. Alif</h3>
+                        <span>Founder</span>
                     </div>
-                    <div class="team-item">
-                        <img src="<?= base_url(); ?>public/img/team/2.jpg" alt="team">
-                        <h3>Lorem.</h3>
-                        <span>Lorem, ipsum.</span>
-                    </div>
-                    <div class="team-item">
-                        <img src="<?= base_url(); ?>public/img/team/3.jpg" alt="team">
-                        <h3>Lorem.</h3>
-                        <span>Lorem, ipsum.</span>
-                    </div>
-                    <div class="team-item">
-                        <img src="<?= base_url(); ?>public/img/team/4.jpg" alt="team">
-                        <h3>Lorem.</h3>
-                        <span>Lorem, ipsum.</span>
-                    </div>
-                    <div class="team-item">
-                        <img src="<?= base_url(); ?>public/img/team/5.jpg" alt="team">
-                        <h3>Lorem.</h3>
-                        <span>Lorem, ipsum.</span>
+                    <div class="team-item text-center">
+                        <img src="<?= base_url(); ?>public/img/team/2.png" alt="h. abdul" class="img-thumbnail">
+                        <h3>H. Abdul</h3>
+                        <span>CEO</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
     <!-- team member end -->
 
     <!-- timeline start -->
@@ -528,9 +515,9 @@
                             <li>
                                 <a href="#stacking">Stacking</a>
                             </li>
-                            <!-- <li>
+                            <li>
                                 <a href="#team">Our Teams</a>
-                            </li> -->
+                            </li>
                             <!-- <li>
                                 <a href="#timeline">Timeline</a>
                             </li> -->
