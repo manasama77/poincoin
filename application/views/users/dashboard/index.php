@@ -87,7 +87,7 @@ if ($count_wallet == 0) {
                     <div class="input-group-prepend">
                         <span class="input-group-text">Referral Link:</span>
                     </div>
-                    <input type="text" class="ml-2 form-control-plaintext text-white" id="link_referral" value="<?= site_url(); ?>signup_user/<?= $this->session->userdata(SESS . 'id'); ?>" readonly>
+                    <input type="text" class="ml-2 form-control-plaintext text-white" id="link_referral" value="<?= site_url(); ?>member/signup/<?= $this->session->userdata(SESS . 'id'); ?>" readonly>
                     <div class="input-group-append">
                         <button type="button" class="btn btn-secondary" onclick="copyClipboard()">
                             <i class="fas fa-clipboard"></i> Copy

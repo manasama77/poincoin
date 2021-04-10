@@ -90,7 +90,7 @@
                                     <label for="re_pin">PIN Transaksi Confirmation</label>
                                 </div>
                                 <div class="form-label-group">
-                                    <input type="text" id="id_referal" name="id_referal" class="form-control btn-flat" placeholder="Referal" value="<?= ($this->uri->segment(2)) ? $this->uri->segment(2) : set_value('id_referal'); ?>" <?= ($this->uri->segment(2)) ? 'readonly' : ''; ?>>
+                                    <input type="text" id="id_referal" name="id_referal" class="form-control btn-flat" placeholder="Referal" value="<?= ($this->uri->segment(3)) ? $this->uri->segment(3) : set_value('id_referal'); ?>" <?= ($this->uri->segment(2)) ? 'readonly' : ''; ?>>
                                     <label for="id_referal">Referal</label>
                                 </div>
                                 <div class="form-label-group">

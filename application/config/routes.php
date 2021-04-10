@@ -29,7 +29,7 @@ $route['destroy_rekening']     = 'UserLoginController/destroy_rekening';
 $route['destroy_wallet']       = 'UserLoginController/destroy_wallet';
 $route['check_pin']            = 'UserLoginController/check_pin';
 
-$route['signup_email/(:num)/(:any)/(:any)'] = 'UserLoginController/signup_email/$1/$2/$3';
+$route['member/signup/(:num)/(:any)/(:any)'] = 'UserLoginController/signup_email/$1/$2/$3';
 ##############################################################################################################
 
 ##############################################################################################################
