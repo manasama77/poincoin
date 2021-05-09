@@ -207,6 +207,10 @@ class StackingController extends CI_Controller
         $data['arr_rekening'] = $this->M_stacking->get_user_rekeing();
         $data['arr_wallet']   = $this->mcore->get('user_wallets', '*', ['id_user' => $id_user, 'deleted_at' => NULL]);
 
+        $arr_ratio         = $this->mcore->get('ratio', '*', ['deleted_at' => null], 'id', 'desc', 1);
+        $data['ratio_bnr'] = $arr_ratio->row()->bnr;
+        $data['ratio_trx'] = $arr_ratio->row()->trx;
+
         $this->template->template($data);
     }
 

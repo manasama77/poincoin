@@ -188,14 +188,6 @@
                             <div class="input-group-append">
                                 <span class="input-group-text bg-primary text-white">BNR</span>
                             </div>
-                            <!-- <div class="input-group-append">
-                                <button type="button" class="btn btn-info" id="upValue">
-                                    <i class="fas fa-arrow-up"></i>
-                                </button>
-                                <button type="button" class="btn btn-info" id="downValue">
-                                    <i class="fas fa-arrow-down"></i>
-                                </button>
-                            </div> -->
                         </div>
                     </div>
 

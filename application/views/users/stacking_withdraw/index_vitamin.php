@@ -8,6 +8,8 @@
         form_bank = $('#form_bank'),
         id_rekening = $('#id_rekening'),
         form_wallet = $('#form_wallet'),
+        form_admin = $('#form_admin'),
+        jumlah_trx = $('#jumlah_trx'),
         id_wallet = $('#id_wallet'),
         max_withdraw = parseFloat(<?= $bioner_profit; ?>),
         withdraw_b_value = 0,
@@ -156,6 +158,15 @@
             }
         });
 
+        withdraw_b.on('change', function(e) {
+            e.preventDefault();
+
+            let ratio_trx = <?= $ratio_trx; ?>;
+            let get_trx = ratio_trx * withdraw_b.val();
+
+            jumlah_trx.val(get_trx);
+        });
+
     });
 
     function getTotalTransfer(tipe) {
@@ -262,23 +273,38 @@
             form_bank.show();
             form_wallet.hide();
             form_invest.hide();
+            form_admin.hide();
 
             id_rekening.attr('required', true);
             id_wallet.attr('required', false);
+            jumlah_trx.attr('required', false);
             withdraw_b.attr('min', 10).attr('step', 10);
         } else if (id_jenis.val() == 'wallet') {
             form_bank.hide();
             form_wallet.show();
             form_invest.hide();
+            form_admin.hide();
 
             id_rekening.attr('required', false);
             id_wallet.attr('required', true);
+            jumlah_trx.attr('required', false);
+            withdraw_b.attr('min', 10).attr('step', 10);
+        } else if (id_jenis.val() == 'admin') {
+            form_bank.hide();
+            form_wallet.hide();
+            form_invest.hide();
+            form_admin.show();
+
+            id_rekening.attr('required', false);
+            id_wallet.attr('required', false);
+            jumlah_trx.attr('required', true);
             withdraw_b.attr('min', 10).attr('step', 10);
         } else if (id_jenis.val() == 'invest') {
             if (<?= $bioner_profit; ?> <= 100) {
                 form_bank.hide();
                 form_wallet.hide();
                 form_invest.hide();
+                form_admin.hide();
 
                 Swal.fire({
                     icon: 'warning',
@@ -297,15 +323,18 @@
                 form_bank.hide();
                 form_wallet.hide();
                 form_invest.show();
+                form_admin.hide();
 
                 id_rekening.attr('required', false);
                 id_wallet.attr('required', false);
+                jumlah_trx.attr('required', false);
                 withdraw_b.attr('min', 100).attr('step', 100);
             }
         } else {
             form_bank.hide();
             form_wallet.hide();
             form_invest.hide();
+            form_admin.hide();
         }
 
         $("html, body").animate({

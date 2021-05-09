@@ -211,16 +211,18 @@ class UserLoginController extends CI_Controller
             $pin            = trim($this->input->post('pin'));
 
             $object = [
-                'nama'       => $nama,
-                'email'      => $email,
-                'no_hp'      => $no_hp,
-                'password'   => $password,
-                'id_referal' => ($id_referal != "") ? $id_referal : NULL,
-                'status'     => 'aktif',
-                'pin'        => $pin,
-                'created_at' => date('Y-m-d H:i:s'),
-                'updated_at' => date('Y-m-d H:i:s'),
-                'deleted_at' => NULL,
+                'nama'            => $nama,
+                'email'           => $email,
+                'no_hp'           => $no_hp,
+                'password'        => $password,
+                'id_referal'      => ($id_referal != "") ? $id_referal : NULL,
+                'status'          => 'aktif',
+                'pin'             => $pin,
+                'profit_stacking' => 'ya',
+                'profit_trade'    => 'ya',
+                'created_at'      => date('Y-m-d H:i:s'),
+                'updated_at'      => date('Y-m-d H:i:s'),
+                'deleted_at'      => NULL,
             ];
             $arr = $this->mcore->store('users', $object);
             $last_id = $this->db->insert_id();

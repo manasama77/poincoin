@@ -138,39 +138,44 @@ class M_trade extends CI_Model
 
     public function distribusi_bioner_trade()
     {
-        $this->db->where('status', 'aktif');
-        $this->db->where('deleted_at', NULL);
+        $this->db->join('users', 'users.id = bioner_trade.id_user', 'left');
+        $this->db->where('bioner_trade.status', 'aktif');
+        $this->db->where('bioner_trade.deleted_at', NULL);
         $arr_bioner_trade = $this->db->get('bioner_trade');
 
         if ($arr_bioner_trade->num_rows() > 0) {
             foreach ($arr_bioner_trade->result() as $key) {
                 $id               = $key->id;
                 $id_user          = $key->id_user;
-                $kode          = $key->kode;
+                $kode             = $key->kode;
+                $profit_trade     = $key->profit_trade;
                 $profit_perhari_b = PROFIT_PER_DAY_TRADE;
 
-                $this->db->set('balance_saldo', 'balance_saldo + ' . $profit_perhari_b, FALSE);
-                $this->db->set('updated_at', date('Y-m-d H:i:s'));
-                $this->db->where('id_user', $id_user);
-                $exec_users_bioner_trade = $this->db->update('users_bioner_trade');
+                if ($profit_trade == 'ya') {
 
-                $this->db->set('updated_at', date('Y-m-d H:i:s'));
-                $this->db->where('id', $id);
-                $exec_bioner_trade = $this->db->update('bioner_trade');
+                    $this->db->set('balance_saldo', 'balance_saldo + ' . $profit_perhari_b, FALSE);
+                    $this->db->set('updated_at', date('Y-m-d H:i:s'));
+                    $this->db->where('id_user', $id_user);
+                    $exec_users_bioner_trade = $this->db->update('users_bioner_trade');
 
-                $this->db->set([
-                    'id_user'            => $id_user,
-                    'id_bioner_trade' => $id,
-                    'type'               => 'profit',
-                    'kode'         => $kode,
-                    'keterangan'         => 'Distribusi Profit Sebesar Rp.' . $profit_perhari_b,
-                    'created_at'         => date('Y-m-d H:i:s'),
-                ]);
-                $exec_bioner_trade_logs = $this->db->insert('bioner_trade_logs');
+                    $this->db->set('updated_at', date('Y-m-d H:i:s'));
+                    $this->db->where('id', $id);
+                    $exec_bioner_trade = $this->db->update('bioner_trade');
 
-                $this->db->set('updated_at', date('Y-m-d H:i:s'));
-                $this->db->where('id', $id_user);
-                $exec_users = $this->db->update('users');
+                    $this->db->set([
+                        'id_user'         => $id_user,
+                        'id_bioner_trade' => $id,
+                        'type'            => 'profit',
+                        'kode'            => $kode,
+                        'keterangan'      => 'Distribusi Profit Sebesar Rp.' . $profit_perhari_b,
+                        'created_at'      => date('Y-m-d H:i:s'),
+                    ]);
+                    $exec_bioner_trade_logs = $this->db->insert('bioner_trade_logs');
+
+                    $this->db->set('updated_at', date('Y-m-d H:i:s'));
+                    $this->db->where('id', $id_user);
+                    $exec_users = $this->db->update('users');
+                }
             }
 
             $this->trigger_ask_bioner_trade();
@@ -185,10 +190,10 @@ class M_trade extends CI_Model
 
         if ($arr_bioner_trade->num_rows() > 0) {
             foreach ($arr_bioner_trade->result() as $key) {
-                $id               = $key->id;
-                $id_user          = $key->id_user;
-                $balance_saldo          = $key->balance_saldo;
-                $trigger_ask = 'tidak';
+                $id            = $key->id;
+                $id_user       = $key->id_user;
+                $balance_saldo = $key->balance_saldo;
+                $trigger_ask   = 'tidak';
 
                 if (($balance_saldo % 750000) == 0) {
                     $trigger_ask = 'ya';

@@ -137,14 +137,16 @@ $route['admins/news/change_status'] = 'AdminsNewsController/change_status';
 $route['datatables/news']           = 'AdminsNewsController/datatables';
 
 # USERS
-$route['admins/user_management']     = 'AdminsUserController/index';
-$route['admins/user_datatables']     = 'AdminsUserController/datatables';
-$route['admins/user_reset_email']    = 'AdminsUserController/user_reset_email';
-$route['admins/user_reset_password'] = 'AdminsUserController/user_reset_password';
-$route['admins/user_reset_pin']      = 'AdminsUserController/user_reset_pin';
-$route['admins/user_reset_rekening'] = 'AdminsUserController/user_reset_rekening';
-$route['admins/user_reset_wallet']   = 'AdminsUserController/user_reset_wallet';
-$route['admins/user_delete']         = 'AdminsUserController/user_delete';
+$route['admins/user_management']             = 'AdminsUserController/index';
+$route['admins/user_datatables']             = 'AdminsUserController/datatables';
+$route['admins/user_reset_email']            = 'AdminsUserController/user_reset_email';
+$route['admins/user_reset_password']         = 'AdminsUserController/user_reset_password';
+$route['admins/user_reset_pin']              = 'AdminsUserController/user_reset_pin';
+$route['admins/user_reset_rekening']         = 'AdminsUserController/user_reset_rekening';
+$route['admins/user_reset_wallet']           = 'AdminsUserController/user_reset_wallet';
+$route['admins/user_delete']                 = 'AdminsUserController/user_delete';
+$route['admins/user_profit_stacking_update'] = 'AdminsUserController/user_profit_stacking_update';
+$route['admins/user_profit_trade_update']    = 'AdminsUserController/user_profit_trade_update';
 
 # RATIO
 $route['admins/ratio']        = 'AdminsRatioController/index';

@@ -46,6 +46,12 @@
 					"data": "trade_saldo",
 				},
 				{
+					"data": "profit_stacking",
+				},
+				{
+					"data": "profit_trade",
+				},
+				{
 					"data": null,
 					"render": function(res) {
 						var btnResetEmail = `
@@ -54,6 +60,40 @@
 								<i class="fa fa-envelope"></i> Reset Email
 							</a>
 						</li>`;
+
+						if (res.profit_stacking == 'ya') {
+
+							var btnStacking = `
+							<li>
+								<a href="#" onclick="updateStack('${res.id}', '${res.email}', 'tidak')">
+									<i class="fa fa-times"></i> Stop Stacking
+								</a>
+							</li>`;
+						} else {
+							var btnStacking = `
+							<li>
+								<a href="#" onclick="updateStack('${res.id}', '${res.email}', 'ya')">
+									<i class="fa fa-times"></i> Start Stacking
+								</a>
+							</li>`;
+						}
+
+						if (res.profit_trade == 'ya') {
+
+							var btnTrade = `
+							<li>
+								<a href="#" onclick="updateTrade('${res.id}', '${res.email}', 'tidak')">
+									<i class="fa fa-times"></i> Stop Trade
+								</a>
+							</li>`;
+						} else {
+							var btnTrade = `
+							<li>
+								<a href="#" onclick="updateTrade('${res.id}', '${res.email}', 'ya')">
+									<i class="fa fa-times"></i> Start Trade
+								</a>
+							</li>`;
+						}
 
 						var btnResetPassword = `
 						<li>
@@ -97,6 +137,8 @@
 								<span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+								${btnStacking}
+								${btnTrade}
 								${btnResetEmail}
 								${btnResetPassword}
 								${btnResetPin}
@@ -436,6 +478,100 @@
 							icon: 'success',
 							title: 'Success...',
 							text: 'Delete User Berhasil.',
+						});
+					}
+					table.draw();
+				});
+			}
+		});
+	}
+
+	function updateStack(id_user, email, status) {
+		var title = 'Stop Profit Stacking ?';
+		if (status == 'ya') {
+			var title = `Lanjut Profit Stacking email ${email} ?`;
+		}
+		Swal.fire({
+			icon: 'question',
+			title: title,
+			showConfirmButton: true,
+			showCancelButton: true,
+		}).then(function(e) {
+			if (e.isConfirmed) {
+				$.ajax({
+					url: `<?= site_url(); ?>admins/user_profit_stacking_update`,
+					method: 'post',
+					dataType: 'json',
+					data: {
+						id_user: id_user,
+						status: status
+					},
+					beforeSend: function() {
+						$.blockUI();
+					}
+				}).always(function() {
+					$.unblockUI();
+				}).fail(function(e) {
+					console.log(e);
+				}).done(function(e) {
+					if (e.code == 500) {
+						Swal.fire({
+							icon: 'error',
+							title: 'Oops...',
+							text: 'Proses Update Profit Stacking Gagal, Tidak Terhubung Dengan Database',
+						});
+					} else if (e.code == 200) {
+						Swal.fire({
+							icon: 'success',
+							title: 'Success...',
+							text: 'Update Profit Stacking Berhasil.',
+						});
+					}
+					table.draw();
+				});
+			}
+		});
+	}
+
+	function updateTrade(id_user, email, status) {
+		var title = 'Stop Profit Trade ?';
+		if (status == 'ya') {
+			var title = `Lanjut Profit Trade email ${email} ?`;
+		}
+		Swal.fire({
+			icon: 'question',
+			title: title,
+			showConfirmButton: true,
+			showCancelButton: true,
+		}).then(function(e) {
+			if (e.isConfirmed) {
+				$.ajax({
+					url: `<?= site_url(); ?>admins/user_profit_trade_update`,
+					method: 'post',
+					dataType: 'json',
+					data: {
+						id_user: id_user,
+						status: status
+					},
+					beforeSend: function() {
+						$.blockUI();
+					}
+				}).always(function() {
+					$.unblockUI();
+				}).fail(function(e) {
+					console.log(e);
+				}).done(function(e) {
+					if (e.code == 500) {
+						Swal.fire({
+							icon: 'error',
+							title: 'Oops...',
+							text: 'Proses Update Profit Trade Gagal, Tidak Terhubung Dengan Database',
+						});
+					} else if (e.code == 200) {
+						Swal.fire({
+							icon: 'success',
+							title: 'Success...',
+							text: 'Update Profit Trade Berhasil.',
 						});
 					}
 					table.draw();

@@ -24,7 +24,7 @@ class AdminsUserController extends CI_Controller
     public function datatables()
     {
         $list = $this->mless->get_datatables();
-        $lq = $this->db->last_query();
+        $lq   = $this->db->last_query();
         $data = array();
         $no   = $_POST['start'];
         foreach ($list as $field) {
@@ -37,6 +37,8 @@ class AdminsUserController extends CI_Controller
             $row['no_hp']           = $field->no_hp;
             $row['no_rekening']     = $field->no_rekening;
             $row['no_wallet']       = $field->no_wallet;
+            $row['profit_stacking'] = $field->profit_stacking;
+            $row['profit_trade']    = $field->profit_trade;
             $row['stacking_invest'] = number_format($field->stacking_invest, 4);
             $row['stacking_profit'] = number_format($field->stacking_profit, 4);
             $row['trade_saldo']     = number_format($field->trade_saldo, 0);
@@ -316,6 +318,42 @@ class AdminsUserController extends CI_Controller
             'created_at' => date('Y-m-d H:i:s'),
         ];
         $this->mcore->store('log_email_signup', $data_log_email);
+    }
+
+    public function user_profit_stacking_update()
+    {
+        $id_user = $this->input->post('id_user');
+        $status  = $this->input->post('status');
+
+        $table  = 'users';
+        $object = ['profit_stacking' => $status];
+        $where  = ['id' => $id_user];
+        $exec   = $this->mcore->update($table, $object, $where);
+
+        $code = 500;
+        if ($exec) {
+            $code = 200;
+        }
+
+        echo json_encode(['code' => $code]);
+    }
+
+    public function user_profit_trade_update()
+    {
+        $id_user = $this->input->post('id_user');
+        $status  = $this->input->post('status');
+
+        $table  = 'users';
+        $object = ['profit_trade' => $status];
+        $where  = ['id' => $id_user];
+        $exec   = $this->mcore->update($table, $object, $where);
+
+        $code = 500;
+        if ($exec) {
+            $code = 200;
+        }
+
+        echo json_encode(['code' => $code]);
     }
 }
         

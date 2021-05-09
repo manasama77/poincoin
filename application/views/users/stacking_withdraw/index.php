@@ -150,22 +150,14 @@
                             <small class="form-text text-muted">Minimal 100 BNR untuk dapat diinvestkan kembali</small>
                         </div>
                     </div>
-                    <!-- <div class="form-group row justify-content-center">
-                        <label for="withdraw_rp" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Withdraw Amount (Rp)</label>
-                        <div class="col-sm-12 col-md-12 col-lg-6 input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon2">Rp.</span>
-                            </div>
-                            <input type="text" class="form-control" id="withdraw_rp" name="withdraw_rp" value="0" readonly required>
-                        </div>
-                    </div> -->
                     <div class="form-group row justify-content-center">
-                        <label for="id_jenis" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Jenis Rekening</label>
+                        <label for="id_jenis" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Jenis Withdraw</label>
                         <div class="col-sm-12 col-md-12 col-lg-6">
-                            <select class="form-control" id="id_jenis" name="id_jenis" onchange="cekJenis();" required>
-                                <option value=""></option>
+                            <select class="form-control" id="id_jenis" name="id_jenis" onchange="cekJenis();" placeholder="Jenis Withdraw" required>
+                                <option value="">-Pilih Jenis Withdraw-</option>
                                 <!-- <option value="bank">Bank</option> -->
                                 <option value="wallet">Tronlink Wallet</option>
+                                <option value="admin">Withdraw to Admin</option>
                                 <option value="invest">Investment Stacking</option>
                             </select>
                         </div>
@@ -202,6 +194,32 @@
                                     }
                                     ?>
                                 </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Withdraw</button>
+                    </div>
+                    <div id="form_admin" style="display: none;">
+                        <div class="form-group row justify-content-center">
+                            <label for="jumlah_trx" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Get TRX</label>
+                            <div class="col-sm-12 col-md-12 col-lg-6">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="jumlah_trx" name="jumlah_trx" placeholder="Jumlah TRX" readonly>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text input-group-sm bg-danger text-white">TRX</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center">
+                            <label for="ratio_bnr" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Ratio BNR:TRX</label>
+                            <div class="col-sm-12 col-md-12 col-lg-3 offset-lg-3">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="ratio_bnr" name="ratio_bnr" placeholder="BNR" value="<?= $ratio_bnr; ?>" readonly>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text input-group-sm bg-primary text-white">:</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="ratio_trx" name="ratio_trx" placeholder="TRX" value="<?= $ratio_trx; ?>" readonly>
+                                </div>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Withdraw</button>

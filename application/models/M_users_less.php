@@ -13,10 +13,12 @@ class M_users_less extends CI_Model
         'users.no_hp',
         'no_rekening',
         'user_wallets.no_wallet',
+        'user_wallets.profit_stacking',
+        'user_wallets.profit_trade',
         'users_bioner_stacking.total_investment',
         'users_bioner_stacking.profit',
         'trade_hi',
-        'trade_hi',
+        'trade_saldo',
     );
     var $column_search = array(
         'users.nama',
@@ -44,6 +46,8 @@ class M_users_less extends CI_Model
                 'users.nama',
                 'users.email',
                 'users.no_hp',
+                'users.profit_stacking',
+                'users.profit_trade',
                 "CONCAT(param_banks.nama_bank, ' - ', user_banks.no_rekening, ' - ', user_banks.atas_nama) AS no_rekening",
                 'user_wallets.no_wallet',
                 'users_bioner_stacking.total_investment as stacking_invest',

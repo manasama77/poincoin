@@ -16,9 +16,6 @@
 						<button type="button" id="refresh_table" class="btn btn-info btn-sm" onclick="refreshTable();" title="Refresh Data">
 							<i class="fa fa-refresh"></i>
 						</button>
-						<!-- <a href="<?= site_url(); ?>customers/add" class="btn btn-success btn-sm" title="Tambah Data">
-							<i class="fa fa-plus"></i>
-						</a> -->
 					</div>
 				</div>
 				<div class="box-body">
@@ -36,6 +33,8 @@
 									<th style="width: 100px;">Stacking Profit</th>
 									<th style="width: 100px;">Trade HI</th>
 									<th style="width: 100px;">Trade Saldo</th>
+									<th style="width: 100px;">Profit Stacking</th>
+									<th style="width: 100px;">Profit Trade</th>
 									<th class="text-center" style="width: 500px !important;"><i class="fa fa-cogs"></i></th>
 								</tr>
 							</thead>

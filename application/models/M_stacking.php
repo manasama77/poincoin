@@ -159,41 +159,47 @@ class M_stacking extends CI_Model
 
     public function distribusi_bioner_stacking()
     {
-        $this->db->where('status', 'aktif');
-        $this->db->where('deleted_at', NULL);
+        $this->db->join('users', 'users.id = bioner_stacking.id_user', 'left');
+        $this->db->where('bioner_stacking.status', 'aktif');
+        $this->db->where('bioner_stacking.deleted_at', NULL);
         $arr_bioner_stacking = $this->db->get('bioner_stacking');
 
         if ($arr_bioner_stacking->num_rows() > 0) {
+
             foreach ($arr_bioner_stacking->result() as $key) {
                 $id               = $key->id;
                 $id_user          = $key->id_user;
                 $kode             = $key->kode;
+                $profit_stacking  = $key->profit_stacking;
                 $profit_perhari_b = $key->profit_perhari_b;
 
-                $this->db->set('profit', 'profit + ' . $profit_perhari_b, FALSE);
-                $this->db->set('updated_at', date('Y-m-d H:i:s'));
-                $this->db->where('id_user', $id_user);
-                $exec_users_bioner_stacking = $this->db->update('users_bioner_stacking');
+                if ($profit_stacking == 'ya') {
 
-                $this->db->set('updated_at', date('Y-m-d H:i:s'));
-                $this->db->where('id', $id);
-                $exec_bioner_stacking = $this->db->update('bioner_stacking');
+                    $this->db->set('profit', 'profit + ' . $profit_perhari_b, FALSE);
+                    $this->db->set('updated_at', date('Y-m-d H:i:s'));
+                    $this->db->where('id_user', $id_user);
+                    $exec_users_bioner_stacking = $this->db->update('users_bioner_stacking');
 
-                $this->db->set([
-                    'id_user'            => $id_user,
-                    'id_bioner_stacking' => $id,
-                    'type'               => 'profit',
-                    'nominal_b'          => $profit_perhari_b,
-                    'nominal_rp'         => $profit_perhari_b * 10000,
-                    'kode'               => $kode,
-                    'keterangan'         => 'Distribusi Profit Sebesar ' . $profit_perhari_b . ' Bioner',
-                    'created_at'         => date('Y-m-d H:i:s'),
-                ]);
-                $exec_bioner_stacking_logs = $this->db->insert('bioner_stacking_logs');
+                    $this->db->set('updated_at', date('Y-m-d H:i:s'));
+                    $this->db->where('id', $id);
+                    $exec_bioner_stacking = $this->db->update('bioner_stacking');
 
-                $this->db->set('updated_at', date('Y-m-d H:i:s'));
-                $this->db->where('id', $id_user);
-                $exec_users = $this->db->update('users');
+                    $this->db->set([
+                        'id_user'            => $id_user,
+                        'id_bioner_stacking' => $id,
+                        'type'               => 'profit',
+                        'nominal_b'          => $profit_perhari_b,
+                        'nominal_rp'         => $profit_perhari_b * 10000,
+                        'kode'               => $kode,
+                        'keterangan'         => 'Distribusi Profit Sebesar ' . $profit_perhari_b . ' Bioner',
+                        'created_at'         => date('Y-m-d H:i:s'),
+                    ]);
+                    $exec_bioner_stacking_logs = $this->db->insert('bioner_stacking_logs');
+
+                    $this->db->set('updated_at', date('Y-m-d H:i:s'));
+                    $this->db->where('id', $id_user);
+                    $exec_users = $this->db->update('users');
+                }
             }
         }
     }
