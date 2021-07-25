@@ -71,9 +71,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-scroll-nav="3">stacking</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="#" data-scroll-nav="4">our teams</a>
-                    </li>
+                    </li> -->
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="#" data-scroll-nav="5">timeline</a>
                     </li> -->
@@ -236,7 +236,7 @@
 
 
     <!-- team member start -->
-    <section id="team" class="team section-padding" data-scroll-index="4">
+    <!-- <section id="team" class="team section-padding" data-scroll-index="4">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
@@ -262,7 +262,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <!-- team member end -->
 
     <!-- timeline start -->
