@@ -1,21 +1,14 @@
 ###################
-IKS APP
+Bioner APP
 ###################
 
-Applikasi untuk Ikhtiar Kredit Syariah
+Applikasi untuk Bioner
 
 *******************
 Release Information
 *******************
 
 Under Development
-
-**************************
-Changelog and New Features
-**************************
-
-You can find a list of all changes for each release in the `user
-guide change log <https://github.com/manasama77/iks/blob/master/changelog.rst>`_.
 
 *******************
 Server Requirements
