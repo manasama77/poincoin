@@ -13,7 +13,7 @@
 		table = $('#datatables').DataTable({
 			"dom": 'Bfrtip',
 			"columnDefs": [{
-				"targets": [7],
+				"targets": [6],
 				"orderable": false,
 			}, ],
 			buttons: [{

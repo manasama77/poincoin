@@ -19,5 +19,10 @@
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"
 	},
-	"require-dev": {}
+	"require-dev": {},
+	"config": {
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	}
 }

@@ -1,13 +1,25 @@
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap.min.css">
 
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap.min.js"></script> -->
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.11.5/b-2.2.2/b-colvis-2.2.2/b-html5-2.2.2/b-print-2.2.2/fh-3.2.2/r-2.2.9/sc-2.0.5/sb-1.3.2/sp-2.0.0/datatables.min.css" />
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/jszip-2.5.0/dt-1.11.5/b-2.2.2/b-colvis-2.2.2/b-html5-2.2.2/b-print-2.2.2/fh-3.2.2/r-2.2.9/sc-2.0.5/sb-1.3.2/sp-2.0.0/datatables.min.js"></script>
+
 <script>
 	$(document).ready(function() {
 
 		table = $('#datatables').DataTable({
+			"dom": 'Blfrtip',
+			lengthMenu: [
+				[10, 25, 50, -1],
+				['10 rows', '25 rows', '50 rows', 'Show all']
+			],
 			"destroy": true,
-			"responsive": true,
+			"responsive": false,
 			"processing": true,
 			"serverSide": true,
 			"order": [],
@@ -149,13 +161,17 @@
 						</div>`;
 						return htmlnya;
 					}
-				}
+				},
 			],
-			"columnDefs": [{
-				"targets": [10],
-				"orderable": false,
-				"className": "text-center"
-			}],
+			buttons: [{
+				extend: 'excelHtml5',
+				exportOptions: {
+					modifier: {
+						page: 'all',
+						search: 'none'
+					}
+				},
+			}]
 		});
 
 		$('#form_email').on('submit', function(e) {

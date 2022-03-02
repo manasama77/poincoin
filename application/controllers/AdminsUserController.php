@@ -39,8 +39,8 @@ class AdminsUserController extends CI_Controller
             $row['no_wallet']       = $field->no_wallet;
             $row['profit_stacking'] = $field->profit_stacking;
             $row['profit_trade']    = $field->profit_trade;
-            $row['stacking_invest'] = number_format($field->stacking_invest, 4);
-            $row['stacking_profit'] = number_format($field->stacking_profit, 4);
+            $row['stacking_invest'] = number_format($field->stacking_invest, 4, '.', ',');
+            $row['stacking_profit'] = number_format($field->stacking_profit, 4, '.', ',');
             $row['trade_saldo']     = number_format($field->trade_saldo, 0);
             $row['trade_hi']        = number_format($field->trade_hi, 0);
             $data[]                 = $row;
