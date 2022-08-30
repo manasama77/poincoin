@@ -404,8 +404,8 @@
                             <i class="fas fa-envelope"></i>
                             <h4>Write to us at</h4>
                             <p>
-                                <a href="mailto:admin@Poincoin.online">
-                                    admin@Poincoin.online
+                                <a href="mailto:admin@k-rbu.com">
+                                    admin@k-rbu.com
                                 </a>
                             </p>
                         </div>
