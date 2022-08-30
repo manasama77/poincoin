@@ -441,7 +441,7 @@ class StackingController extends CI_Controller
     {
         $id             = $this->session->userdata(SESS . 'id');
         $email          = $this->session->userdata(SESS . 'email');
-        $title          = "BIONER ADD NEW STACK - " . $data['kode'];
+        $title          = "POINCOIN ADD NEW STACK - " . $data['kode'];
         $data['title']  = $title;
         $template_email = $this->load->view('email_stack_success', $data, TRUE);
 
@@ -465,7 +465,7 @@ class StackingController extends CI_Controller
     {
         $id             = $this->session->userdata(SESS . 'id');
         $email          = $this->session->userdata(SESS . 'email');
-        $title          = "BIONER ADD NEW STACK - " . $data['kode'];
+        $title          = "POINCOIN ADD NEW STACK - " . $data['kode'];
         $data['title']  = $title;
         $template_email = $this->load->view('email_stack_success_2', $data, TRUE);
 
@@ -494,7 +494,7 @@ class StackingController extends CI_Controller
         $no_rekening = $arr_bank->row()->no_rekening;
         $nama_bank   = $arr_bank->row()->nama_bank;
         $atas_nama   = $arr_bank->row()->atas_nama;
-        $title       = "BIONER WITHDRAW STACK - " . $data['kode_withdraw'];
+        $title       = "POINCOIN WITHDRAW STACK - " . $data['kode_withdraw'];
 
         $data['title']       = $title;
         $data['no_rekening'] = $no_rekening;
@@ -526,7 +526,7 @@ class StackingController extends CI_Controller
         $arr_bank = $this->mcore->get('user_wallets', '*', ['id_user' => $id]);
 
         $no_wallet         = $arr_bank->row()->no_wallet;
-        $title             = "BIONER WITHDRAW STACK - " . $data['kode_withdraw'];
+        $title             = "POINCOIN WITHDRAW STACK - " . $data['kode_withdraw'];
         $data['title']     = $title;
         $data['no_wallet'] = $no_wallet;
         $template_email    = $this->load->view('email_withdraw_stack_2', $data, TRUE);
@@ -554,7 +554,7 @@ class StackingController extends CI_Controller
         $email    = $this->session->userdata(SESS . 'email');
         $arr_bank = $this->M_users->get_user_bank_data();
 
-        $title          = "BIONER WITHDRAW STACK - " . $data['kode_withdraw'];
+        $title          = "POINCOIN WITHDRAW STACK - " . $data['kode_withdraw'];
         $data['title']  = $title;
         $template_email = $this->load->view('email_withdraw_stack_3', $data, TRUE);
 
