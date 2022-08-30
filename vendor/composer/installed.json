@@ -1,0 +1,511 @@
+{
+    "packages": [
+        {
+            "name": "almasaeed2010/adminlte",
+            "version": "v2.4.3",
+            "version_normalized": "2.4.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ColorlibHQ/AdminLTE.git",
+                "reference": "b3acb63ac56b13eb45b36e628b384a9a2507b50e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/b3acb63ac56b13eb45b36e628b384a9a2507b50e",
+                "reference": "b3acb63ac56b13eb45b36e628b384a9a2507b50e",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "1.*"
+            },
+            "time": "2018-02-04T12:54:57+00:00",
+            "type": "template",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Abdullah Almsaeed",
+                    "email": "abdullah@almsaeedstudio.com"
+                }
+            ],
+            "description": "AdminLTE - admin control panel and dashboard that's based on Bootstrap 3",
+            "homepage": "https://adminlte.io/",
+            "keywords": [
+                "JS",
+                "admin",
+                "back-end",
+                "css",
+                "less",
+                "responsive",
+                "template",
+                "theme",
+                "web"
+            ],
+            "support": {
+                "issues": "https://github.com/almasaeed2010/AdminLTE/issues",
+                "source": "https://github.com/ColorlibHQ/AdminLTE/tree/v2.4.3"
+            },
+            "install-path": "../almasaeed2010/adminlte"
+        },
+        {
+            "name": "chriskacerguis/codeigniter-restserver",
+            "version": "3.1.4",
+            "version_normalized": "3.1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chriskacerguis/codeigniter-restserver.git",
+                "reference": "f386f4e0013daadaa213681a0a41af69aa81d9de"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chriskacerguis/codeigniter-restserver/zipball/f386f4e0013daadaa213681a0a41af69aa81d9de",
+                "reference": "f386f4e0013daadaa213681a0a41af69aa81d9de",
+                "shasum": ""
+            },
+            "time": "2022-02-24T18:02:52+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "chriskacerguis\\RestServer\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chris Kacerguis",
+                    "email": "chriskacerguis@gmail.com"
+                }
+            ],
+            "description": "CI Rest Server",
+            "support": {
+                "issues": "https://github.com/chriskacerguis/codeigniter-restserver/issues",
+                "source": "https://github.com/chriskacerguis/codeigniter-restserver/tree/3.1.4"
+            },
+            "install-path": "../chriskacerguis/codeigniter-restserver"
+        },
+        {
+            "name": "components/jquery",
+            "version": "3.6.0",
+            "version_normalized": "3.6.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jquery.git",
+                "reference": "6cf38ee1fd04b6adf8e7dda161283aa35be818c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jquery/zipball/6cf38ee1fd04b6adf8e7dda161283aa35be818c3",
+                "reference": "6cf38ee1fd04b6adf8e7dda161283aa35be818c3",
+                "shasum": ""
+            },
+            "time": "2021-03-20T19:13:42+00:00",
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "jquery.js"
+                    ],
+                    "files": [
+                        "jquery.min.js",
+                        "jquery.min.map",
+                        "jquery.slim.js",
+                        "jquery.slim.min.js",
+                        "jquery.slim.min.map"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "JS Foundation and other contributors"
+                }
+            ],
+            "description": "jQuery JavaScript Library",
+            "homepage": "http://jquery.com",
+            "support": {
+                "forum": "http://forum.jquery.com",
+                "irc": "irc://irc.freenode.org/jquery",
+                "issues": "https://github.com/jquery/jquery/issues",
+                "source": "https://github.com/jquery/jquery",
+                "wiki": "http://docs.jquery.com/"
+            },
+            "install-path": "../components/jquery"
+        },
+        {
+            "name": "components/jqueryui",
+            "version": "1.12.1",
+            "version_normalized": "1.12.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jqueryui.git",
+                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jqueryui/zipball/44ecf3794cc56b65954cc19737234a3119d036cc",
+                "reference": "44ecf3794cc56b65954cc19737234a3119d036cc",
+                "shasum": ""
+            },
+            "require": {
+                "components/jquery": ">=1.6"
+            },
+            "time": "2016-09-16T05:47:55+00:00",
+            "type": "component",
+            "extra": {
+                "component": {
+                    "name": "jquery-ui",
+                    "scripts": [
+                        "jquery-ui.js"
+                    ],
+                    "files": [
+                        "ui/**",
+                        "themes/**",
+                        "jquery-ui.min.js"
+                    ],
+                    "shim": {
+                        "deps": [
+                            "jquery"
+                        ],
+                        "exports": "jQuery"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "jQuery UI Team",
+                    "homepage": "http://jqueryui.com/about"
+                },
+                {
+                    "name": "Joern Zaefferer",
+                    "email": "joern.zaefferer@gmail.com",
+                    "homepage": "http://bassistance.de"
+                },
+                {
+                    "name": "Scott Gonzalez",
+                    "email": "scott.gonzalez@gmail.com",
+                    "homepage": "http://scottgonzalez.com"
+                },
+                {
+                    "name": "Kris Borchers",
+                    "email": "kris.borchers@gmail.com",
+                    "homepage": "http://krisborchers.com"
+                },
+                {
+                    "name": "Mike Sherov",
+                    "email": "mike.sherov@gmail.com",
+                    "homepage": "http://mike.sherov.com"
+                },
+                {
+                    "name": "TJ VanToll",
+                    "email": "tj.vantoll@gmail.com",
+                    "homepage": "http://tjvantoll.com"
+                },
+                {
+                    "name": "Corey Frang",
+                    "email": "gnarf37@gmail.com",
+                    "homepage": "http://gnarf.net"
+                },
+                {
+                    "name": "Felix Nagel",
+                    "email": "info@felixnagel.com",
+                    "homepage": "http://www.felixnagel.com"
+                }
+            ],
+            "description": "jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. Whether you're building highly interactive web applications or you just need to add a date picker to a form control, jQuery UI is the perfect choice.",
+            "support": {
+                "issues": "https://github.com/components/jqueryui/issues",
+                "source": "https://github.com/components/jqueryui/tree/master"
+            },
+            "install-path": "../components/jqueryui"
+        },
+        {
+            "name": "composer/installers",
+            "version": "v1.12.0",
+            "version_normalized": "1.12.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/installers/zipball/d20a64ed3c94748397ff5973488761b22f6d3f19",
+                "reference": "d20a64ed3c94748397ff5973488761b22f6d3f19",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0 || ^2.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.6.* || ^2.0",
+                "composer/semver": "^1 || ^3",
+                "phpstan/phpstan": "^0.12.55",
+                "phpstan/phpstan-phpunit": "^0.12.16",
+                "symfony/phpunit-bridge": "^4.2 || ^5",
+                "symfony/process": "^2.3"
+            },
+            "time": "2021-09-13T08:19:44+00:00",
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-main": "1.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "MantisBT",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Starbug",
+                "Thelia",
+                "Whmcs",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "known",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "miaoxing",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "pantheon",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "processwire",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "sylius",
+                "symfony",
+                "tastyigniter",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "support": {
+                "issues": "https://github.com/composer/installers/issues",
+                "source": "https://github.com/composer/installers/tree/v1.12.0"
+            },
+            "funding": [
+                {
+                    "url": "https://packagist.com",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/composer",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/composer/composer",
+                    "type": "tidelift"
+                }
+            ],
+            "install-path": "./installers"
+        },
+        {
+            "name": "fortawesome/font-awesome",
+            "version": "5.15.4",
+            "version_normalized": "5.15.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FortAwesome/Font-Awesome.git",
+                "reference": "7d3d774145ac38663f6d1effc6def0334b68ab7e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FortAwesome/Font-Awesome/zipball/7d3d774145ac38663f6d1effc6def0334b68ab7e",
+                "reference": "7d3d774145ac38663f6d1effc6def0334b68ab7e",
+                "shasum": ""
+            },
+            "time": "2021-08-04T19:09:22+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC-BY-4.0",
+                "OFL-1.1",
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Travis Chase",
+                    "homepage": "http://twitter.com/supercodepoet"
+                },
+                {
+                    "name": "Dave Gandy",
+                    "homepage": "http://twitter.com/davegandy"
+                },
+                {
+                    "name": "Rob Madole",
+                    "homepage": "http://twitter.com/robmadole"
+                },
+                {
+                    "name": "Jory Raphael",
+                    "homepage": "http://twitter.com/sensibleworld"
+                },
+                {
+                    "name": "Geremia Taglialatela",
+                    "homepage": "http://twitter.com/gtagliala"
+                },
+                {
+                    "name": "Brian Talbot",
+                    "homepage": "http://twitter.com/talbs"
+                },
+                {
+                    "name": "Mike Wilkerson",
+                    "homepage": "http://twitter.com/mw77"
+                }
+            ],
+            "description": "The iconic font, CSS, and SVG framework",
+            "homepage": "https://fontawesome.com",
+            "keywords": [
+                "FontAwesome",
+                "awesome",
+                "bootstrap",
+                "font",
+                "icon",
+                "svg"
+            ],
+            "support": {
+                "docs": "http://fontawesome.com/how-to-use",
+                "email": "hello@fontawesome.com",
+                "issues": "https://github.com/FortAwesome/Font-Awesome/issues",
+                "source": "https://github.com/FortAwesome/Font-Awesome"
+            },
+            "install-path": "../fortawesome/font-awesome"
+        },
+        {
+            "name": "select2/select2",
+            "version": "4.0.13",
+            "version_normalized": "4.0.13.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/select2/select2.git",
+                "reference": "45f2b83ceed5231afa7b3d5b12b58ad335edd82e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/select2/select2/zipball/45f2b83ceed5231afa7b3d5b12b58ad335edd82e",
+                "reference": "45f2b83ceed5231afa7b3d5b12b58ad335edd82e",
+                "shasum": ""
+            },
+            "time": "2020-01-28T05:01:22+00:00",
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "dist/js/select2.js"
+                    ],
+                    "styles": [
+                        "dist/css/select2.css"
+                    ],
+                    "files": [
+                        "dist/js/select2.js",
+                        "dist/js/i18n/*.js",
+                        "dist/css/select2.css"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Select2 is a jQuery based replacement for select boxes.",
+            "homepage": "https://select2.org/",
+            "support": {
+                "issues": "https://github.com/select2/select2/issues",
+                "source": "https://github.com/select2/select2/tree/4.0.13"
+            },
+            "install-path": "../select2/select2"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
