@@ -494,6 +494,22 @@ class UserLoginController extends CI_Controller
 
         echo json_encode(['code' => $code, 'lq' => $this->db->last_query()]);
     }
+
+    public function test_email()
+    {
+        $email = "adam.pm77@gmail.com";
+
+        $data['title']          = "POINCOIN SIGNUP INFORMATION";
+        $template_email = $this->load->view('email_test', $data, TRUE);
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
+        $this->email->to($email);
+        $this->email->subject('Poincoin Signup Detail');
+        $this->email->message($template_email);
+        $this->email->set_mailtype('html');
+        $this->email->send();
+        $log_email = $this->email->print_debugger();
+        echo $log_email;
+    }
 }
         
     /* End of file  UserLoginController.php */

@@ -29,7 +29,7 @@
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; border: 1px solid #cccccc;">
                     <tr>
                         <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0;">
-                            <img src="<?= base_url('public/img/email_header_withdraw.png'); ?>" alt="POINCOIN HEADER" width="300" height="230" style="display: block;" />
+                            <img src="<?= base_url('public/img/email_header_signup.png'); ?>" alt="POINCOIN HEADER" width="300" height="230" style="display: block;" />
                         </td>
                     </tr>
                     <tr>
@@ -37,32 +37,7 @@
                             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
                                 <tr>
                                     <td style="color: #153643; font-family: Arial, sans-serif; text-align: center;">
-                                        <h1 style="font-size: 24px; margin: 0;">Withdraw - <?= $kode_withdraw; ?></h1>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 20px 0 30px 0; text-align:center;">
-                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; text-align: left">
-                                            <tr>
-                                                <td style="width: 170px;">Withdraw Amount (Rp)</td>
-                                                <td style="width: 10px;">:</td>
-                                                <td>Rp.<?= number_format($withdraw_rp, 0); ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td style="width: 170px;">Rekening</td>
-                                                <td style="width: 10px;">:</td>
-                                                <td><?= $no_rekening; ?> <?= $nama_bank; ?> a/n <?= $atas_nama; ?></td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3">
-                                                    <ul>
-                                                        <li>Waktu Transfer maksimal 1x24 jam</li>
-                                                        <li>Withdraw hanya akan diproses pada hari kerja Senin ~ Sabtu Jam 08:00 s/d 21:00</li>
-                                                        <li>Withdraw pada hari Minggu atau akan diproses pada hari Senin</li>
-                                                    </ul>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <h1 style="font-size: 24px; margin: 0;">Registrasi Berhasil</h1>
                                     </td>
                                 </tr>
                             </table>

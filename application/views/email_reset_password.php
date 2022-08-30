@@ -56,12 +56,12 @@
                             <table border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;">
                                 <tr>
                                     <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; padding-top: 0px; padding-bottom: 10px; width: 35px;">
-                                        <a href="https://www.bioner-online.com" target="_blank" style="vertical-align: middle;">
+                                        <a href="https://poincoin.k-rbu.com/" target="_blank" style="vertical-align: middle;">
                                             <img src="<?= base_url('public/img/globe.png'); ?>" style="width: 30px;">
                                         </a>
                                     </td>
                                     <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; padding-top: 0px; padding-bottom: 10px; vertical-align: middle;  text-align: left;">
-                                        <a href="https://www.bioner-online.com" target="_blank" style="vertical-align: middle; color:white;">
+                                        <a href="https://poincoin.k-rbu.com/" target="_blank" style="vertical-align: middle; color:white;">
                                             https://k-rbu.com
                                         </a>
                                     </td>

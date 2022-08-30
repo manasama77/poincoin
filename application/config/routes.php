@@ -164,5 +164,5 @@ $route['distribusi_bioner_trade/(:any)/(:any)']    = 'InitController/distribusi_
 
 // $route['test/(:any)/(:any)'] = 'InitController/test/$1/$2';
 $route['test'] = 'InitController/test';
-$route['email_signup_test'] = 'EmailController/signup';
+$route['email_test'] = 'UserLoginController/test_email';
 ##############################################################################################################
