@@ -16,6 +16,8 @@ class UserLoginController extends CI_Controller
 
     public function index()
     {
+        // echo password_hash("adam" . UYAH, PASSWORD_BCRYPT);
+        // exit;
         $cookies = get_cookie(COOK);
 
         if ($cookies != NULL) {

@@ -53,22 +53,22 @@ header("Expires: 0"); // Proxies.
 
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark">
+            <div class="bg-poincoin2">
                 <ul class="list-group flataja">
-                    <li class="list-group-item bg-dark flataja p-2 pr-3 text-right">
+                    <li class="list-group-item bg-poincoin2 flataja p-2 pr-3 text-right">
                         <a href="<?= site_url(); ?>profile" class="text-white font-weight-bold">Profile</a>
                     </li>
-                    <li class="list-group-item bg-dark flataja p-2 pr-3 text-right">
+                    <li class="list-group-item bg-poincoin2 flataja p-2 pr-3 text-right">
                         <a href="<?= site_url(); ?>change_password_user" class="text-white font-weight-bold">Change Password</a>
                     </li>
-                    <li class="list-group-item bg-dark flataja p-2 pr-3 text-right">
+                    <li class="list-group-item bg-poincoin2 flataja p-2 pr-3 text-right">
                         <a href="<?= site_url(); ?>logout_user" class="text-white font-weight-bold">Logout</a>
                     </li>
                 </ul>
             </div>
         </div>
 
-        <nav class="navbar navbar-dark bg-dark text-white">
+        <nav class="navbar navbar-dark bg-poincoin1 text-white">
             <div class="d-flex flex-wrap w-100 justify-content-between">
                 <div class="p-0" style="margin-top: 5px;">
                     <a data-fancybox="pp" href="<?= base_url(); ?>public/img/avatars/avatar_default.png" style="margin-right: 10px;">
@@ -89,9 +89,9 @@ header("Expires: 0"); // Proxies.
         </nav>
     </div>
 
-    <nav class="navbar fixed-bottom navbar-light bg-dark text-white pt-0 pb-0 justify-content-between">
+    <nav class="navbar fixed-bottom navbar-light bg-poincoin1 text-white pt-0 pb-0 justify-content-between">
         <div>
-            <i class="fas fa-copyright"></i> <?= YEAR_APP; ?> Bioner
+            <i class="fas fa-copyright"></i> <?= YEAR_APP; ?> Poincoin
         </div>
         <div>
             Version <?= VERSION_APP; ?>
@@ -106,12 +106,12 @@ header("Expires: 0"); // Proxies.
         </ul>
     </nav> -->
 
-    <div class="card mt pt-2 bg-dark w-100 flataja" style="border: 0px !important;">
+    <div class="card mt pt-2 bg-poincoin1 w-100 flataja" style="border: 0px !important;">
         <div class="card-body p-2">
             <div class="d-flex justify-content-between align-items-center">
                 <div class="p-1 text-center">
                     <a href="<?= site_url(); ?>dashboard_user">
-                        <img src="<?= base_url(); ?>public/img/home.png" alt="dashboard" class="img-fluid img-thumbnail" style="width: 80px;">
+                        <img src="<?= base_url(); ?>public/img/home.png" alt="dashboard" style="width: 80px;">
                     </a>
                 </div>
                 <div class="p-1 text-center">
@@ -120,27 +120,9 @@ header("Expires: 0"); // Proxies.
                     </a>
                 </div>
                 <div class="p-1 text-center">
-                    <a href="<?= site_url(); ?>trade">
-                        <!-- <a href="javascript:;" onclick="comingSoon('Bioner Trade');"> -->
-                        <img src="<?= base_url(); ?>public/img/bioner_trading.png" alt="bt" class="img-fluid" style="width: 80px;">
-                    </a>
-                </div>
-                <div class="p-1 text-center">
-                    <!-- <a href="<?= site_url(); ?>bioner_mining"> -->
-                    <a href="javascript:;" onclick="comingSoon('Bioner Mining');">
-                        <img src="<?= base_url(); ?>public/img/bioner_mining.png" alt="bm" class="img-fluid" style="width: 80px;">
-                    </a>
-                </div>
-                <div class="p-1 text-center">
                     <!-- <a href="<?= site_url(); ?>bioner_marketplace"> -->
-                    <a href="javascript:;" onclick="comingSoon('Bioner Marketplace');">
+                    <a href="javascript:;" onclick="comingSoon('Poincoin Marketplace');">
                         <img src="<?= base_url(); ?>public/img/bioner_marketplace.png" alt="bc" class="img-fluid" style="width: 80px;">
-                    </a>
-                </div>
-                <div class="p-1 text-center">
-                    <!-- <a href="<?= site_url(); ?>bioner_exchange"> -->
-                    <a href="javascript:;" onclick="comingSoon('Bioner Exchange');">
-                        <img src="<?= base_url(); ?>public/img/bioner_exchange.png" alt="bc" class="img-fluid" style="width: 80px;">
                     </a>
                 </div>
             </div>

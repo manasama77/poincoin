@@ -10,7 +10,7 @@
 			<li class="treeview">
 				<a href="#">
 					<i class="fa fa-archive"></i>
-					<span>Bioner Stacking</span>
+					<span>Poincoin Stacking</span>
 					<span class="pull-right-container">
 						<i class="fa fa-angle-left pull-right"></i>
 					</span>
@@ -18,12 +18,12 @@
 				<ul class="treeview-menu">
 					<li>
 						<a href="<?= site_url(); ?>admin/bioner_stacking/add">
-							<i class="fa fa-plus"></i> Add Bioner Stacking
+							<i class="fa fa-plus"></i> Add Poincoin Stacking
 						</a>
 					</li>
 					<li>
 						<a href="<?= site_url(); ?>admin/bioner_stacking/index">
-							<i class="fa fa-circle-o"></i> List Bioner Stacking
+							<i class="fa fa-circle-o"></i> List Poincoin Stacking
 						</a>
 					</li>
 					<li>
@@ -41,7 +41,7 @@
 			<li class="treeview">
 				<a href="#">
 					<i class="fa fa-archive"></i>
-					<span>Bioner Trade</span>
+					<span>Poincoin Trade</span>
 					<span class="pull-right-container">
 						<i class="fa fa-angle-left pull-right"></i>
 					</span>
@@ -49,12 +49,12 @@
 				<ul class="treeview-menu">
 					<li>
 						<a href="<?= site_url(); ?>admin/bioner_trade/add">
-							<i class="fa fa-plus"></i> Add Bioner Trade
+							<i class="fa fa-plus"></i> Add Poincoin Trade
 						</a>
 					</li>
 					<li>
 						<a href="<?= site_url(); ?>admin/bioner_trade/index">
-							<i class="fa fa-circle-o"></i> List Bioner Trade
+							<i class="fa fa-circle-o"></i> List Poincoin Trade
 						</a>
 					</li>
 					<li>
@@ -113,7 +113,7 @@
 			</li>
 			<li class="">
 				<a href="<?= site_url('admins/ratio'); ?>">
-					<i class="fa fa-balance-scale"></i> <span>TRX/BNR Ratio</span>
+					<i class="fa fa-balance-scale"></i> <span>TRX/PC Ratio</span>
 				</a>
 			</li>
 		</ul>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>BIONER Official Website - Build Your Digital Asset</title>
+    <title><?= $page_title; ?></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- owl carousel css -->
@@ -47,7 +47,7 @@
             <!-- Brand -->
             <a class="navbar-brand" href="<?= site_url(); ?>">
                 <div class="navbar-brand-img">
-                    <img src="<?= base_url(); ?>public/img/logo wide 2.png" alt="Bioner Logo">
+                    <img src="<?= base_url(); ?>public/img/logo wide 2.png" alt="Poincoin Logo">
                 </div>
             </a>
 
@@ -63,7 +63,7 @@
                         <a class="nav-link active" href="#" data-scroll-nav="0">home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" data-scroll-nav="1">what is Bioner?</a>
+                        <a class="nav-link" href="#" data-scroll-nav="1">what is Poincoin?</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-scroll-nav="2">profile</a>
@@ -101,13 +101,13 @@
                 <div class="col-md-7">
                     <div class="home-text">
                         <h1>The Derivates Liquidity Protocol</h1>
-                        <p>The Bioner token is DeFi who use decentralization blockchain method. Enabling anyone,
+                        <p>The Poincoin token is DeFi who use decentralization blockchain method. Enabling anyone,
                             anywhere to join a pool of
                             liquidity to build your asset or trading an asset.</p>
                         <div class="home-btn">
                             <a href="<?= site_url(); ?>member/signup" class="btn btn-1"><i class="fas fa-file-signature fa-fw"></i> Join Now</a>
                             <a href="<?= site_url(); ?>member/signin" class="btn btn-1"><i class="fas fa-sign-in-alt fa-fw"></i> Sign In</a>
-                            <a href="<?= base_url(); ?>public/pdf/white_paper_bioner.pdf" target="_blank" class="btn btn-1"><i class="fas fa-newspaper fa-fw"></i> White
+                            <a href="<?= base_url(); ?>public/pdf/white_paper_Poincoin.pdf" target="_blank" class="btn btn-1"><i class="fas fa-newspaper fa-fw"></i> White
                                 Paper</a>
                             <!-- <button type="button" class="btn btn-1 video-play-btn">
                                 <i class="fas fa-play"></i>
@@ -118,7 +118,7 @@
                 <div class="col-md-5 text-center">
                     <div class="home-img">
                         <div class="circle"></div>
-                        <img src="<?= base_url(); ?>public/img/app-screenshots/1.png" alt="bioner apps">
+                        <img src="<?= base_url(); ?>public/img/app-screenshots/1.png" alt="Poincoin apps">
                     </div>
                 </div>
             </div>
@@ -132,25 +132,25 @@
             <div class="row">
                 <div class="col-md-5 col-lg-6 d-flex align-items-center justify-content-center">
                     <div class="about-us-img">
-                        <img src="<?= base_url(); ?>public/img/app-screenshots/2.png" alt="bnr x trx" />
+                        <img src="<?= base_url(); ?>public/img/app-screenshots/2.png" alt="PC x trx" />
                     </div>
                 </div>
                 <div class="col-md-7 col-lg-6">
                     <div class="section-title">
-                        <h2>what is <span>bioner ?</span></h2>
-                        <h1>bioner is an asset published on a decentralized
+                        <h2>what is <span>Poincoin ?</span></h2>
+                        <h1>Poincoin is an asset published on a decentralized
                             protocol built on top of the Tron blockchain</h1>
                     </div>
                     <div class="about-us-text">
-                        <p>Bioner (BNR) token are part of crypto coin who issued on Tron (TRX) Network, Bioner token
-                            secured and locked by Smart Contract. Allows users to perform direct conversion between BNR
+                        <p>Poincoin (PC) token are part of crypto coin who issued on Tron (TRX) Network, Poincoin token
+                            secured and locked by Smart Contract. Allows users to perform direct conversion between PC
                             to another tokens or other
                             crypto coins in smart
-                            contracts. Bioner token use liquidity pool method, it allow anyone participate as investor
-                            to join as part of Bioner
-                            family, stacking their asset to ensure grow up of BNR. Investor who risk their stack asset
-                            on BNR will get fees based on
-                            their proportion percentage shares on liquidity pool for every transaction on BNR token.
+                            contracts. Poincoin token use liquidity pool method, it allow anyone participate as investor
+                            to join as part of Poincoin
+                            family, stacking their asset to ensure grow up of PC. Investor who risk their stack asset
+                            on PC will get fees based on
+                            their proportion percentage shares on liquidity pool for every transaction on PC token.
                             Also you can join as short term
                             trader or long term trader.
                         </p>
@@ -167,20 +167,20 @@
             <div class="row">
                 <div class="col-md-7 col-lg-6">
                     <div class="section-title">
-                        <h2>Bioner <span>Profile</span></h2>
-                        <h1>Bioner Token (BNR) Built on Tron Blockchain</h1>
+                        <h2>Poincoin <span>Profile</span></h2>
+                        <h1>Poincoin Token (PC) Built on Tron Blockchain</h1>
                     </div>
                     <div class="profile-text">
-                        <p>Bioner is the IDR-pegged stablecoin issued by Bioner on the TRON network. The token will be
+                        <p>Poincoin is the IDR-pegged stablecoin issued by Poincoin on the TRON network. The token will be
                             able to complete issuance, holding and transfer via smart contract on TRON, with a
                             completely free and transparent process, and instant delivery, it will also be able to write
-                            programs that are highly expansible based on smart contract. TRC20 based Bioner enables
+                            programs that are highly expansible based on smart contract. TRC20 based Poincoin enables
                             interoperability with TRON-based protocols and Decentralised Applications (DApps) while
                             allowing users to transact and exchange fiat pegged currencies across the TRON Network.
                         </p>
-                        <button type="button" class="btn btn-primary" onclick="showModalTokenDetail();">Bioner Token
+                        <button type="button" class="btn btn-primary" onclick="showModalTokenDetail();">Poincoin Token
                             Detail</button>
-                        <a href="https://bioner.online/public/pdf/white_paper_bioner.pdf" target="_blank" class="btn btn-info">Whitepaper</a>
+                        <a href="https://Poincoin.online/public/pdf/white_paper_Poincoin.pdf" target="_blank" class="btn btn-info">Whitepaper</a>
                     </div>
                 </div>
                 <div class="col-md-5 col-lg-6 d-flex align-items-center justify-content-center">
@@ -199,31 +199,31 @@
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="section-title">
-                        <h2>Bioner <span>stacking</span></h2>
+                        <h2>Poincoin <span>stacking</span></h2>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-5 col-lg-6 d-flex align-items-center justify-content-center">
                     <div class="stacking-img">
-                        <img src="<?= base_url(); ?>public/img/app-screenshots/3.png" alt="bnr x trx stacking" />
+                        <img src="<?= base_url(); ?>public/img/app-screenshots/3.png" alt="PC x trx stacking" />
                         <!-- <a href='https://www.freepik.com/photos/phone'>Phone photo created by drobotdean - www.freepik.com</a> -->
                     </div>
                 </div>
                 <div class="col-md-7 col-lg-6">
                     <div class="stacking-text">
                         <h2>Stacking <span>Reward</span></h2>
-                        <p>The primary function of BNR is to protect the integrity of Bioner mechanisms by locking
-                            value within the Bioner ecosystem through staking. <br>
-                            However, in providing network security, BNR holders and delegators are exposed to the risks
+                        <p>The primary function of PC is to protect the integrity of Poincoin mechanisms by locking
+                            value within the Poincoin ecosystem through staking. <br>
+                            However, in providing network security, PC holders and delegators are exposed to the risks
                             of maintaining a long-term position on a fluctuating asset. Staking rewards therefore
-                            provide the incentives to keep long-term interest in BNR ownership.
-                            In the Bioner protocol, staking rewards are first distributed to validators who take a
+                            provide the incentives to keep long-term interest in PC ownership.
+                            In the Poincoin protocol, staking rewards are first distributed to validators who take a
                             commission for providing their operations, and then are withdrawn individually by
                             delegators.<br>
                             Rewards from stake are determined largely by the relative size of node, and are structured
-                            in such a way that rewards increase as nodes increases. BNR ownership is thus an investment
-                            in the long term growth of Bioner.<br>
+                            in such a way that rewards increase as nodes increases. PC ownership is thus an investment
+                            in the long term growth of Poincoin.<br>
                             Staking rewards come from three sources: Energy (compute fees), Taxes, and Voting Validator
                             Rewards.
                         </p>
@@ -282,26 +282,26 @@
                     <div class="timeline-item">
                         <div class="step">Q4 2020</div>
                         <p>
-                            <span class="text-danger">BIONER PHASE 1</span>
+                            <span class="text-danger">Poincoin PHASE 1</span>
                             Product Dev<br>
-                            Deploy BIONER Token<br>
+                            Deploy Poincoin Token<br>
                         </p>
                     </div>
                     <div class="timeline-item">
                         <div class="step">Q1 2020</div>
                         <p>
-                            Released BIONER Webbased<br>
+                            Released Poincoin Webbased<br>
                             Registered KEMENKUMHAM<br>
-                            Deploy BIONER Mobile Apps<br>
-                            Deploy BIONER Dapps<br>
-                            Registered BIONER Merchant<br>
-                            Registered BIONER Supplyer<br>
+                            Deploy Poincoin Mobile Apps<br>
+                            Deploy Poincoin Dapps<br>
+                            Registered Poincoin Merchant<br>
+                            Registered Poincoin Supplyer<br>
                         </p>
                     </div>
                     <div class="timeline-item">
                         <div class="step">Q2 2020</div>
                         <p>
-                            <span class="text-danger">BIONER PHASE 2</span>
+                            <span class="text-danger">Poincoin PHASE 2</span>
                             Licensed KEMENKUMHAM<br>
                             Registered ISO 9001<br>
                             Registered ISO 27001<br>
@@ -316,21 +316,21 @@
                             Licensed ISO 27001<br>
                             Licensed BAPPEBTI<br>
                             Licensed OJK<br>
-                            Released BIONER Token<br>
-                            Released BIONER Project<br>
-                            Trial BIONER Mobile Apps<br>
-                            Registered BIONER Token to Global Exchange<br>
-                            Registered BIONER Token to CMC<br>
+                            Released Poincoin Token<br>
+                            Released Poincoin Project<br>
+                            Trial Poincoin Mobile Apps<br>
+                            Registered Poincoin Token to Global Exchange<br>
+                            Registered Poincoin Token to CMC<br>
                         </p>
                     </div>
                     <div class="timeline-item">
                         <div class="step">Q4 2021</div>
                         <p>
-                            Released BIONER Token in Global Exchange<br>
-                            Released BIONER Token in CMC<br>
-                            Released BIONER Mobile Apss<br>
-                            GRAND LAUNCHING BIONER<br>
-                            Started BIONER Blockchain Project<br>
+                            Released Poincoin Token in Global Exchange<br>
+                            Released Poincoin Token in CMC<br>
+                            Released Poincoin Mobile Apss<br>
+                            GRAND LAUNCHING Poincoin<br>
+                            Started Poincoin Blockchain Project<br>
                         </p>
                     </div>
                 </div>
@@ -352,7 +352,7 @@
             <div class="row">
                 <div class="owl-carousel as-seen-carousel">
                     <div class="as-seen-item">
-                        <a href="https://github.com/Bioner-Token" target="_blank">
+                        <a href="https://github.com/Poincoin-Token" target="_blank">
                             <img src="<?= base_url(); ?>public/img/github_PNG15.png" alt="GITHUB" class="img-fluid mx-auto d-block">
                         </a>
                     </div>
@@ -395,7 +395,7 @@
                             <i class="fas fa-location-arrow"></i>
                             <h4>Company Location</h4>
                             <p>
-                                <a href="https://www.google.com/search?q=bioner&safe=strict&rlz=1C1CHZN_enID906ID906&ei=pFZnYKiWB56H4-EPq--9iAc&oq=bioner&gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEMkDEAoyBQgAEJIDMgUIABCSAzICCAAyAggAMgIIADIECAAQCjICCAAyBAgAEAoyAggAOgcIABBHELADUKYXWLsYYN0ZaAFwAXgAgAGrAYgBrgOSAQMwLjOYAQCgAQGqAQdnd3Mtd2l6yAEIwAEB&sclient=gws-wiz&ved=2ahUKEwjE44CRjeDvAhU4yDgGHdPdAdQQvS4wAHoECAQQLg&uact=5&tbs=lf:1,lf_ui:2&tbm=lcl&rflfq=1&num=10&rldimm=147105881091625054&lqi=CgZiaW9uZXJaEAoGYmlvbmVyIgZiaW9uZXKSARBjb21tdW5pdHlfY2VudGVyqgEOEAEqCiIGYmlvbmVyKAA&rlst=f#rlfi=hd:;si:147105881091625054,l,CgZiaW9uZXJaEAoGYmlvbmVyIgZiaW9uZXKSARBjb21tdW5pdHlfY2VudGVyqgEOEAEqCiIGYmlvbmVyKAA;mv:[[52.0709155,-118.1531556],[-33.7945478,133.42145739999998]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:2">
+                                <a href="https://www.google.com/search?q=Poincoin&safe=strict&rlz=1C1CHZN_enID906ID906&ei=pFZnYKiWB56H4-EPq--9iAc&oq=Poincoin&gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEMkDEAoyBQgAEJIDMgUIABCSAzICCAAyAggAMgIIADIECAAQCjICCAAyBAgAEAoyAggAOgcIABBHELADUKYXWLsYYN0ZaAFwAXgAgAGrAYgBrgOSAQMwLjOYAQCgAQGqAQdnd3Mtd2l6yAEIwAEB&sclient=gws-wiz&ved=2ahUKEwjE44CRjeDvAhU4yDgGHdPdAdQQvS4wAHoECAQQLg&uact=5&tbs=lf:1,lf_ui:2&tbm=lcl&rflfq=1&num=10&rldimm=147105881091625054&lqi=CgZiaW9uZXJaEAoGYmlvbmVyIgZiaW9uZXKSARBjb21tdW5pdHlfY2VudGVyqgEOEAEqCiIGYmlvbmVyKAA&rlst=f#rlfi=hd:;si:147105881091625054,l,CgZiaW9uZXJaEAoGYmlvbmVyIgZiaW9uZXKSARBjb21tdW5pdHlfY2VudGVyqgEOEAEqCiIGYmlvbmVyKAA;mv:[[52.0709155,-118.1531556],[-33.7945478,133.42145739999998]];tbs:lrf:!1m4!1u3!2m2!3m1!1e1!1m4!1u2!2m2!2m1!1e1!2m1!1e2!2m1!1e3!3sIAE,lf:1,lf_ui:2">
                                     Jl. Pasir Kuda Raya Blok Jabaru 2 No.175, RT.04/RW.04, Pasirkuda, West Bogor, Bogor City, West Java 16119
                                 </a>
                             </p>
@@ -404,8 +404,8 @@
                             <i class="fas fa-envelope"></i>
                             <h4>Write to us at</h4>
                             <p>
-                                <a href="mailto:admin@bioner.online">
-                                    admin@bioner.online
+                                <a href="mailto:admin@Poincoin.online">
+                                    admin@Poincoin.online
                                 </a>
                             </p>
                         </div>
@@ -476,7 +476,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="footer-col">
                         <h3>About us</h3>
-                        <p>Bioner Is An Asset Published On A Decentralized Protocol Built On Top Of The Tron Blockchain
+                        <p>Poincoin Is An Asset Published On A Decentralized Protocol Built On Top Of The Tron Blockchain
                         </p>
                     </div>
                 </div>
@@ -485,10 +485,10 @@
                         <h3>Apps</h3>
                         <ul>
                             <li>
-                                <a href="<?= site_url(); ?>member/signin">Sign in Bioner</a>
+                                <a href="<?= site_url(); ?>member/signin">Sign in Poincoin</a>
                             </li>
                             <li>
-                                <a href="<?= site_url(); ?>member/signup">Sign up Bioner</a>
+                                <a href="<?= site_url(); ?>member/signup">Sign up Poincoin</a>
                             </li>
                             <li>
                                 <a href="https://tronscan.io/#/token20/TU9PmX8ivxMScQSWq67xHMHL8KBUTSyFwV" target="_blank">Tronlink</a>
@@ -507,7 +507,7 @@
                                 <a href="#home">Home</a>
                             </li>
                             <li>
-                                <a href="#about-us">What is Bioner?</a>
+                                <a href="#about-us">What is Poincoin?</a>
                             </li>
                             <li>
                                 <a href="#profile">Profile</a>
@@ -532,10 +532,10 @@
                         <h3>Social Pages</h3>
                         <ul>
                             <li>
-                                <a href="https://github.com/Bioner-Token" target="_blank">Github</a>
+                                <a href="https://github.com/Poincoin-Token" target="_blank">Github</a>
                             </li>
                             <li>
-                                <a href="https://web.facebook.com/bionercoin" target="_blank">Facebook</a>
+                                <a href="https://web.facebook.com/Poincoincoin" target="_blank">Facebook</a>
                             </li>
                             <li>
                                 <a href="https://t.me/joinchat/1cIjWvGCyjI0ODdl" target="_blank">Telegram</a>
@@ -550,7 +550,7 @@
                     <div class="float-right d-none d-sm-block">
                         version <?= VERSION_APP; ?>
                     </div>
-                    <strong>Copyright &copy; 2021 <a href=" <?= site_url(); ?>" class="footer_link">Bioner Online</a></strong>
+                    <strong>Copyright &copy; 2021 <a href=" <?= site_url(); ?>" class="footer_link">Poincoin Online</a></strong>
                     </p>
                 </div>
             </div>
@@ -576,12 +576,12 @@
     </div>
     <!-- video popup end -->
 
-    <!-- bioner token detail start -->
-    <div class="modal fade" id="bioner_token_detail" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Poincoin token detail start -->
+    <div class="modal fade" id="poincoin_token_detail" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Bioner Token Detail</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle">Poincoin Token Detail</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -593,12 +593,12 @@
                                 <tr>
                                     <th>Token Name</th>
                                     <th>:</th>
-                                    <th>Bioner</th>
+                                    <th>Poincoin</th>
                                 </tr>
                                 <tr>
                                     <th>Ticker Name</th>
                                     <th>:</th>
-                                    <th>BNR</th>
+                                    <th>PC</th>
                                 </tr>
                                 <tr>
                                     <th>Mainnet</th>
@@ -613,12 +613,12 @@
                                 <tr>
                                     <th>Total Supply</th>
                                     <th>:</th>
-                                    <th>100,000,000 BNR</th>
+                                    <th>100,000,000 PC</th>
                                 </tr>
                                 <tr>
                                     <th>Circulating Supply</th>
                                     <th>:</th>
-                                    <th>100,000,000 BNR</th>
+                                    <th>100,000,000 PC</th>
                                 </tr>
                                 <tr>
                                     <th>Reputation</th>
@@ -662,8 +662,8 @@
                                     <th>Official Website</th>
                                     <th>:</th>
                                     <th>
-                                        <a href="https://bioner.online">
-                                            https://bioner.online
+                                        <a href="https://Poincoin.online">
+                                            https://Poincoin.online
                                         </a>
                                     </th>
                                 </tr>
@@ -671,8 +671,8 @@
                                     <th>White Paper</th>
                                     <th>:</th>
                                     <th>
-                                        <a href="https://bioner.online/public/pdf/white_paper_bioner.pdf" target="_blank">
-                                            https://bioner.online/public/pdf/white_paper_bioner.pdf
+                                        <a href="https://Poincoin.online/public/pdf/white_paper_Poincoin.pdf" target="_blank">
+                                            https://Poincoin.online/public/pdf/white_paper_Poincoin.pdf
                                         </a>
                                     </th>
                                 </tr>
@@ -680,7 +680,7 @@
                                     <th>Social Profiles</th>
                                     <th>:</th>
                                     <th>
-                                        <a href="https://web.facebook.com/bionercoin" target="_blank">
+                                        <a href="https://web.facebook.com/Poincoincoin" target="_blank">
                                             <i class="fab fa-facebook fa-2x"></i>
                                         </a>
                                         <a href="https://t.me/joinchat/1cIjWvGCyjI0ODdl" target="_blank">
@@ -698,7 +698,7 @@
             </div>
         </div>
     </div>
-    <!-- bioner token detail end -->
+    <!-- Poincoin token detail end -->
 
     <input type="hidden" id="site_url" value="<?= site_url(); ?>" />
 

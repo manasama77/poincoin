@@ -33,23 +33,11 @@ if ($count_wallet == 0) {
     </div>';
 }
 ?>
-<div class="row">
-    <div class="col-sm-12 col-md-10 offset-md-1 mt-2">
-        <div class="card text-white">
-            <div class="card-header bg-dark font-weight-bold text-center p-0">
-                <span style="font-size: 25px;">TRX / BNR Chart</span>
-            </div>
-            <div class="card-body bg-grey-1 text-dark p-0 w-100" style="min-height: 100px;">
-                <div id="columnchart_material"></div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <div class="row">
     <div class="col-sm-12 col-md-6 offset-md-3 mt-2">
         <div class="card text-white">
-            <div class="card-header bg-dark font-weight-bold f-news text-center p-2" style="padding-top: 4px !important;">
+            <div class="card-header bg-poincoin1 text-dark font-weight-bold f-news text-center p-2" style="padding-top: 4px !important;">
                 <span style="font-size: 25px;"><i class="fas fa-users"></i> Referral</span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-0 w-100">
@@ -82,7 +70,7 @@ if ($count_wallet == 0) {
                     ?>
                 </ul>
             </div>
-            <div class="card-footer bg-dark font-weight-bold f-news text-center p-2">
+            <div class="card-footer bg-poincoin1 font-weight-bold f-news text-center p-2">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text">Referral Link:</span>
@@ -102,7 +90,7 @@ if ($count_wallet == 0) {
 <div class="row">
     <div class="col-sm-12 col-md-6 offset-md-3 mt-2">
         <div class="card text-white">
-            <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
+            <div class="card-header bg-poincoin1 font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
                 <span style="font-size: 25px;">NEWS</span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-0 w-100">
@@ -133,49 +121,6 @@ if ($count_wallet == 0) {
                     }
                     ?>
                 </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- <div class="row">
-    <div class="col-sm-12 col-md-12 offset-md-12 mt-2">
-        <div class="card text-white">
-            <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
-                <span style="font-size: 20px;">IDR Markets <small id="update_timestamp"></small></span>
-            </div>
-            <div class="card-body bg-grey-1 text-dark p-2 w-100">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-striped table-hover" id="table_idr">
-                        <thead class="bg-dark text-white">
-                            <tr>
-                                <th>#</th>
-                                <th style="width: 100px;">Market</th>
-                                <th>Asset Name</th>
-                                <th>Last Price</th>
-                                <th>Buy</th>
-                                <th>Sell</th>
-                                <th>High 24h</th>
-                                <th>Low 24h</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
-<div class="row">
-    <div class="col-sm-12 col-md-10 offset-md-1 mt-2">
-        <div class="card text-white">
-            <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
-                <span style="font-size: 25px;">WHITE PAPER BIONER</span>
-            </div>
-            <div class="card-body bg-grey-1 text-dark p-0 w-100">
-                <iframe src="https://docs.google.com/viewer?url=https://bioner.online/public/pdf/white_paper_bioner.pdf&embedded=true" style="width:100%; height:500px;" frameborder="0"></iframe>
             </div>
         </div>
     </div>

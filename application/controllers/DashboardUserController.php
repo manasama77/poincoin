@@ -121,13 +121,13 @@ class DashboardUserController extends CI_Controller
         $trx      = $arr_last->row()->trx;
         $bnr      = $arr_last->row()->bnr;
 
-        $title    = "BNR / TRX";
-        $subtitle = $tanggal . " - BNR / TRX: (" . $bnr . " : " . $trx . ")";
+        $title    = "PC / TRX";
+        $subtitle = $tanggal . " - PC / TRX: (" . $bnr . " : " . $trx . ")";
 
         $arr   = $this->mcore->get('ratio', '*', ['deleted_at' => null], 'tanggal', 'asc', '7');
 
         $data = [];
-        array_push($data, ['Date', 'BNR', 'TRX']);
+        array_push($data, ['Date', 'PC', 'TRX']);
 
         if ($arr->num_rows() > 0) {
             foreach ($arr->result() as $key) {

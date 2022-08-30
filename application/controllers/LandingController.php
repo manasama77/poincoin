@@ -16,7 +16,9 @@ class LandingController extends CI_Controller
 
     public function index()
     {
-        $data = [];
+        $data = [
+            'page_title' => 'Poin Coin Official Website'
+        ];
         $this->load->view('landing', $data, FALSE);
     }
 

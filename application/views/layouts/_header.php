@@ -3,7 +3,7 @@
 			<span class="logo-mini">
 				<img src="<?= base_url(); ?>public/img/logo.png" style="width: 30px;" />
 			</span>
-			<span class="logo-lg"><b>BIONER</b>APP</span>
+			<span class="logo-lg"><b>POINCOIN</b>APP</span>
 		</a>
 
 		<nav class="navbar navbar-static-top" role="navigation">

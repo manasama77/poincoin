@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800;900&display=swap");
 /* global css */
 :root {
-  --main-color: #5770fe;
+  --main-color: #f9a006;
   --secondary-color: #cdd5ff;
   --color-1: #e91e63;
   --color-2: #f5ae10;
@@ -815,10 +815,10 @@ ul {
 
 /* responsive */
 @media (max-width: 991px) {
-  .navbar.navbar-shrink .navbar-toggler, .navbar.navbar-shrink .navbar-nav {
+  .navbar.navbar-shrink .navbar-toggler,
+.navbar.navbar-shrink .navbar-nav {
     background-color: var(--main-color);
   }
-
   .navbar-toggler {
     background-color: var(--dark-to-main-color);
     box-shadow: var(--shadow-black-300);
@@ -828,45 +828,38 @@ ul {
     font-size: 17px;
     color: #fff;
   }
-
   .navbar-nav {
     background-color: var(--dark-to-main-color);
     box-shadow: var(--shadow-black-300);
   }
-
   .navbar .nav-item {
     margin: 0px;
     padding: 5px 15px;
   }
-
   .home-img .circle {
     height: 320px;
     width: 320px;
   }
-
   .home-img .circle::before {
     left: 18px;
     top: 18px;
     transform-origin: 142px 142px;
   }
-
   .home-text h1 {
     font-size: 40px;
   }
-
-  .how-it-works-item, .app-download-item, .pricing-plan {
+  .how-it-works-item,
+.app-download-item,
+.pricing-plan {
     margin-bottom: 30px;
   }
-
   .how-it-works-item.line-right::before {
     content: none;
   }
-
   .how-it-works-item {
     box-shadow: var(--shadow-black-100);
     border-radius: 10px;
   }
-
   .footer-col {
     margin-bottom: 30px;
   }
@@ -875,19 +868,15 @@ ul {
   .home-text {
     margin-bottom: 80px;
   }
-
   .fun-facts-img {
     margin-bottom: 30px;
   }
-
   .contact-form {
     margin-top: 20px;
   }
-
   .section-title h2 {
     font-size: 35px;
   }
-
   .fun-facts .section-title h2 {
     text-align: center;
   }
@@ -899,19 +888,15 @@ ul {
   .home-text p {
     font-size: 16px;
   }
-
   .section-title h2 {
     font-size: 30px;
   }
-
   .home-btn .btn.btn-1 {
     margin-bottom: 20px;
   }
-
   .home-img {
     margin-top: -50px;
   }
-
   .stacking-img {
     margin-bottom: 10px;
   }

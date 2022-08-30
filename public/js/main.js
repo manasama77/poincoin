@@ -190,7 +190,7 @@ $(document).ready(function () {
 });
 
 function showModalTokenDetail() {
-    $('#bioner_token_detail').modal('show');
+    $('#poincoin_token_detail').modal('show');
 }
 
 function toggleTheme() {

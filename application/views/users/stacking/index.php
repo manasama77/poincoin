@@ -1,17 +1,17 @@
-<h1 class="text-dark text-center pt-3 pb-2">Bioner Stacking</h1>
+<h1 class="text-dark text-center pt-3 pb-2">Poincoin Stacking</h1>
 
 <div class="row justify-content-center">
 
     <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
-        <div class="card card-gradient mt-2 mb-2">
+        <div class="card card-gradient-pc mt-2 mb-2">
             <div class="card-body p-2 text-center">
                 <div class="d-flex justify-content-between">
                     <div class="p-1">
                         <i class="fas fa-hand-holding-usd fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">Bioner Profit</b>
+                        <b class="title-special-card">Poincoin Profit</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($bioner_profit, 4); ?> <small>BNR</small></p>
+                        <p class="font-weight-bold value-special-card"><?= number_format($bioner_profit, 4); ?> <small>PC</small></p>
                     </div>
                 </div>
             </div>
@@ -19,7 +19,7 @@
     </div>
 
     <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
-        <div class="card card-gradient mt-2 mb-2">
+        <div class="card card-gradient-pc mt-2 mb-2">
             <div class="card-body p-2 text-center">
                 <div class="d-flex justify-content-between">
                     <div class="p-1">
@@ -27,7 +27,7 @@
                         <b class="title-special-card">Total Investment</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>BNR</small></p>
+                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>PC</small></p>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
 
 
     <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
-        <div class="card card-gradient mt-2 mb-2 pointer" onclick="window.open('<?= site_url(); ?>stacking_withdraw', '_self')">
+        <div class="card card-gradient-pc mt-2 mb-2 pointer" onclick="window.open('<?= site_url(); ?>stacking_withdraw', '_self')">
             <div class="card-body p-2 text-center">
                 <div class="d-flex justify-content-center">
                     <div class="p-1">
@@ -53,8 +53,8 @@
 <div class="row">
     <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
         <div class="card text-white">
-            <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
-                <span style="font-size: 25px;"><i class="fas fa-table"></i> List Bioner Stacking</span>
+            <div class="card-header bg-poincoin1 font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
+                <span style="font-size: 25px;"><i class="fas fa-table"></i> List Poincoin Stacking</span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <div class="table-responsive">
@@ -80,8 +80,8 @@
                                     <tr>
                                         <td class="text-center"><?= $no; ?></td>
                                         <td class="text-center"><?= $key->kode; ?></td>
-                                        <td class="text-right"><?= number_format($key->total_investment, 0); ?> BNR</td>
-                                        <td class="text-right"><?= number_format($key->profit_perhari_b, 4); ?> BNR</td>
+                                        <td class="text-right"><?= number_format($key->total_investment, 0); ?> PC</td>
+                                        <td class="text-right"><?= number_format($key->profit_perhari_b, 4); ?> PC</td>
                                         <td class="text-center">
                                             <?php
                                             if ($key->status == "aktif") {
@@ -121,8 +121,8 @@
 <div class="row">
     <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
         <div class="card text-white">
-            <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
-                <span style="font-size: 25px;"><i class="fas fa-table"></i> Logs Bioner Stacking</span>
+            <div class="card-header bg-poincoin1 font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
+                <span style="font-size: 25px;"><i class="fas fa-table"></i> Logs Poincoin Stacking</span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <div class="table-responsive">
@@ -175,7 +175,7 @@
 <div class="row">
     <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
         <div class="card text-white">
-            <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
+            <div class="card-header bg-poincoin1 font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
                 <span style="font-size: 25px;"><i class="fas fa-plus"></i> Add New Stack</span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
@@ -186,7 +186,7 @@
                         <div class="col-sm-12 col-md-12 col-lg-6 input-group">
                             <input type="number" class="form-control" id="total_investment" name="total_investment" placeholder="Total Investment" value="0" min="100" max="100000" step="100" required />
                             <div class="input-group-append">
-                                <span class="input-group-text bg-primary text-white">BNR</span>
+                                <span class="input-group-text bg-primary text-white">PC</span>
                             </div>
                         </div>
                     </div>
@@ -206,7 +206,7 @@
                         <div class="col-sm-12 col-md-12 col-lg-6 input-group">
                             <input type="text" class="form-control" id="profit_per_day" name="profit_per_day" placeholder="Profit Per Day" value="0" readonly required />
                             <div class="input-group-append">
-                                <span class="input-group-text bg-primary text-white" id="basic-addon2">BNR</span>
+                                <span class="input-group-text bg-primary text-white" id="basic-addon2">PC</span>
                             </div>
                         </div>
                     </div>
@@ -214,12 +214,12 @@
 
                     <div class="alert alert-info" role="alert">
                         <ul>
-                            <li>Minimal Investment adalah <kbd>100 Bioner</kbd> beserta kelipatannya</li>
-                            <li>Nilai Awal Investment <kbd>1 Bioner (BNR) setara 10 Tron (TRX)</kbd></li>
-                            <li>Dengan melakukan Investment <kbd>100 Bioner (BNR)</kbd> user harus melakukan transfer ke wallet admin sebesar <kbd>1000 Tron (TRX)</kbd></li>
+                            <li>Minimal Investment adalah <kbd>100 Poincoin</kbd> beserta kelipatannya</li>
+                            <li>Nilai Awal Investment <kbd>1 Poincoin (PC) setara 10 Tron (TRX)</kbd></li>
+                            <li>Dengan melakukan Investment <kbd>100 Poincoin (PC)</kbd> user harus melakukan transfer ke wallet admin sebesar <kbd>1000 Tron (TRX)</kbd></li>
                             <li>Setiap hari pada pukul <kbd>00:00</kbd> Setiap Stack akan di compund sebesar <kbd>0.5%</kbd> dari nilai awal investment</li>
                             <li>Pengambilan modal stacking yang belum mencapai <kbd>1 Tahun</kbd> akan dikenakan <kbd>potongan 25% dari nilai awal investment</kbd> untuk menjaga keseimbangan sirkulasi</li>
-                            <li>Jika Bioner Profit telah mencapai nilai <kbd>100 BNR</kbd>. Nilai tersebut dapat diinvestmentkan kembali pada fitur <kbd>Withdraw</kbd></li>
+                            <li>Jika Poincoin Profit telah mencapai nilai <kbd>100 PC</kbd>. Nilai tersebut dapat diinvestmentkan kembali pada fitur <kbd>Withdraw</kbd></li>
                             <li>Untuk pembukaan stack baru bisa dengan melakukan transfer <kbd>Tron Coin (TRX)</kbd> ke wallet admin di <div class="input-group"><input type="text" id="wallet_admin" value="<?= NO_WALLET_ADMIN; ?>" class="form-control bg-dark text-white input-sm" readonly />
                                     <div class="input-group-append"><button type="button" class="btn btn-secondary btn-sm" onclick="copyClipboard()"><i class="fas fa-clipboard"></i></button></div>
                                 </div>
@@ -253,7 +253,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="id_bioner_stacking" class="font-weight-bold">Kode Bioner Stacking</label>
+                        <label for="id_bioner_stacking" class="font-weight-bold">Kode Poincoin Stacking</label>
                         <input type="text" class="form-control" id="id_bioner_stacking" name="id_bioner_stacking" readonly required>
                     </div>
                     <div class="form-group">
