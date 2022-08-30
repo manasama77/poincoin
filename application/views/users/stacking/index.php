@@ -1,4 +1,4 @@
-<h1 class="text-dark text-center pt-3 pb-2">Poincoin Stacking</h1>
+<h1 class="text-dark text-center pt-3 pb-2">Poincoin Networking</h1>
 
 <div class="row justify-content-center">
 
@@ -23,11 +23,11 @@
             <div class="card-body p-2 text-center">
                 <div class="d-flex justify-content-between">
                     <div class="p-1">
-                        <i class="fas fa-coins fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">Total Investment</b>
+                        <i class="fas fa-users fa-gradient fa-2x"></i><br />
+                        <b class="title-special-card">Jumlah member</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>PC</small></p>
+                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>Member</small></p>
                     </div>
                 </div>
             </div>
@@ -50,129 +50,7 @@
 
 </div>
 
-<div class="row">
-    <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
-        <div class="card text-white">
-            <div class="card-header bg-poincoin1 font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
-                <span style="font-size: 25px;"><i class="fas fa-table"></i> List Poincoin Stacking</span>
-            </div>
-            <div class="card-body bg-grey-1 text-dark p-2 w-100">
-                <div class="table-responsive">
-                    <table class="table table-bordered w-100 datatables">
-                        <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th class="text-center">Code</th>
-                                <th class="text-right">Investment</th>
-                                <th class="text-right" style="min-width: 100px;">Profit Per Day</th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center" style="min-width: 120px;">Created</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if ($arr_stacking->num_rows() > 0) {
-                            ?>
-                                <?php
-                                $no = 1;
-                                foreach ($arr_stacking->result() as $key) {
-                                ?>
-                                    <tr>
-                                        <td class="text-center"><?= $no; ?></td>
-                                        <td class="text-center"><?= $key->kode; ?></td>
-                                        <td class="text-right"><?= number_format($key->total_investment, 0); ?> PC</td>
-                                        <td class="text-right"><?= number_format($key->profit_perhari_b, 4); ?> PC</td>
-                                        <td class="text-center">
-                                            <?php
-                                            if ($key->status == "aktif") {
-                                                echo '<span class="badge badge-success flataja">Aktif</span>';
-                                            } elseif ($key->status == "menunggu_transfer") {
-                                                echo '<span class="badge badge-warning flataja">Menunggu Transfer</span><br><button type="button" class="btn btn-info btn-sm flataja" onclick="konfirmasiTransfer(\'' . $key->kode . '\', \'' . number_format($key->total_transfer, 0) . '\')">Konfirmasi Transfer</button>';
-                                            } elseif ($key->status == "menunggu_verifikasi") {
-                                                echo '<span class="badge badge-info flataja">Menunggu Verifikasi</span>';
-                                            } elseif ($key->status == "tidak_aktif") {
-                                                echo '<span class="badge badge-danger flataja">Tidak Aktif</span>';
-                                            }
-                                            ?>
-                                        </td>
-                                        <td class="text-center">
-                                            <?php
-                                            $created_obj = new DateTime($key->created_at);
-                                            $created_obj->createFromFormat('Y-m-d H:i:s', $key->created_at);
-                                            echo $created_obj->format('d-M-Y H:i');
-                                            ?>
-                                        </td>
-                                    </tr>
-                                <?php
-                                    $no++;
-                                }
-                                ?>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
-        <div class="card text-white">
-            <div class="card-header bg-poincoin1 font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
-                <span style="font-size: 25px;"><i class="fas fa-table"></i> Logs Poincoin Stacking</span>
-            </div>
-            <div class="card-body bg-grey-1 text-dark p-2 w-100">
-                <div class="table-responsive">
-                    <table class="table table-bordered datatables w-100">
-                        <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th class="text-center">Kode</th>
-                                <th class="text-left">Tipe</th>
-                                <th class="text-left" style="min-width: 100px;">Keterangan</th>
-                                <th class="text-center" style="min-width: 120px;">Created</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            if ($arr_logs->num_rows() > 0) {
-                            ?>
-                                <?php
-                                $no = 1;
-                                foreach ($arr_logs->result() as $key) {
-                                ?>
-                                    <tr>
-                                        <td class="text-center"><?= $no; ?></td>
-                                        <td class="text-center"><?= $key->kode; ?></td>
-                                        <td class="text-left"><?= strtoupper($key->type) ?></td>
-                                        <td class="text-left"><?= $key->keterangan; ?></td>
-                                        <td class="text-center">
-                                            <?php
-                                            $created_obj = new DateTime($key->created_at);
-                                            $created_obj->createFromFormat('Y-m-d H:i:s', $key->created_at);
-                                            echo $created_obj->format('d-M-Y H:i');
-                                            ?>
-                                        </td>
-                                    </tr>
-                                <?php
-                                    $no++;
-                                }
-                                ?>
-                            <?php
-                            }
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
+<!-- <div class="row">
     <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
         <div class="card text-white">
             <div class="card-header bg-poincoin1 font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
@@ -239,7 +117,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <form id="form_bukti_transfer" enctype="multipart/form-data">
     <div class="modal fade" id="modal_bukti_transfer" tabindex="-1" role="dialog" aria-labelledby="modal_bukti_transfer_label" aria-hidden="true">

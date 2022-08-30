@@ -16,22 +16,6 @@ if ($count_bank == 0) {
         </div>
     </div>';
 }
-
-if ($count_wallet == 0) {
-    echo '
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>Kamu belum mendaftarkan No Wallet</strong>
-        <br>
-        <a href="' . site_url('profile') . '" class="btn btn-primary">
-            Daftarkan No Wallet
-        </a>
-        <div class="pull-right">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    </div>';
-}
 ?>
 
 <div class="row">

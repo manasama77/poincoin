@@ -117,8 +117,10 @@ class StackingAdminController extends CI_Controller
                             $count_stack = $this->mcore->count('bioner_stacking', $where_stack);
 
                             if ($count_stack == 1) {
-                                $nominal_b_bonus  = ($total_investment * PERSENTASE_REF) / 100;
-                                $nominal_rp_bonus = $nominal_b_bonus * 10000;
+                                // $nominal_b_bonus  = ($total_investment * PERSENTASE_REF) / 100;
+                                $nominal_b_bonus  = 0;
+                                // $nominal_rp_bonus = $nominal_b_bonus * 10000;
+                                $nominal_rp_bonus = 0;
                                 $data_referral = [
                                     'id_user'            => $id_referal,
                                     'id_bioner_stacking' => NULL,
