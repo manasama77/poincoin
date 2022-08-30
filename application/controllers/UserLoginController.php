@@ -499,6 +499,7 @@ class UserLoginController extends CI_Controller
     {
         $email = "adam.pm77@gmail.com";
 
+        $data = [];
         $data['title']          = "POINCOIN SIGNUP INFORMATION";
         $template_email = $this->load->view('email_test', $data, TRUE);
         $this->email->from('noreply@k-rbu.com', 'System Poincoin');
