@@ -1,6 +1,6 @@
 <?php
 $config['protocol']     = 'smtp';
-$config['smtp_host']    = 'ssl://mail.poincoin.k-rbu.com';
+$config['smtp_host']    = 'mail.poincoin.k-rbu.com';
 // $config['smtp_port']    = '587';
 $config['smtp_port']    = '2079';
 $config['smtp_timeout'] = '30';
