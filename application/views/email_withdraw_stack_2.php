@@ -80,7 +80,7 @@
                                     </td>
                                     <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; padding-top: 0px; padding-bottom: 10px; vertical-align: middle;  text-align: left;">
                                         <a href="https://www.bioner-online.com" target="_blank" style="vertical-align: middle; color:white;">
-                                            https://bioner.online
+                                            https://poincoin.k-rbu.com
                                         </a>
                                     </td>
                                 </tr>

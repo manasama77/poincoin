@@ -42,7 +42,7 @@
                                 </tr>
                                 <tr>
                                     <td style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 20px 0 30px 0; text-align:center;">
-                                        <h4>Your Account & Data has been deleted by admin from our system, you can't login again to https://bioner.online</h4>
+                                        <h4>Your Account & Data has been deleted by admin from our system, you can't login again to https://k-rbu.com</h4>
                                     </td>
                                 </tr>
                             </table>
@@ -59,7 +59,7 @@
                                     </td>
                                     <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; padding-top: 0px; padding-bottom: 10px; vertical-align: middle;  text-align: left;">
                                         <a href="https://www.bioner-online.com" target="_blank" style="vertical-align: middle; color:white;">
-                                            https://bioner.online
+                                            https://k-rbu.com
                                         </a>
                                     </td>
                                 </tr>

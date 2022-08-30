@@ -378,7 +378,7 @@ class TradeController extends CI_Controller
 
         $template_email = $this->load->view('email_trade_success', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -414,7 +414,7 @@ class TradeController extends CI_Controller
         $template_email        = $this->load->view('email_withdraw_trade_1', $data, TRUE);
 
 
-        $this->email->from('system@bioner.online', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -440,7 +440,7 @@ class TradeController extends CI_Controller
 
         $template_email = $this->load->view('email_trade_success_2', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);

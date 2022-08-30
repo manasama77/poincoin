@@ -458,7 +458,7 @@ class UserLoginController extends CI_Controller
 
         if ($data['arr']->num_rows() == 1) {
             $template_email = $this->load->view('email_signup', $data, TRUE);
-            $this->email->from('system@bioner.online', 'System Poincoin');
+            $this->email->from('noreply@k-rbu.com', 'System Poincoin');
             $this->email->to($email);
             $this->email->subject('Poincoin Signup Detail');
             $this->email->message($template_email);

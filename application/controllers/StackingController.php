@@ -445,7 +445,7 @@ class StackingController extends CI_Controller
         $data['title']  = $title;
         $template_email = $this->load->view('email_stack_success', $data, TRUE);
 
-        $this->email->from('noreply@poincoin.k-rbu.com', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -469,7 +469,7 @@ class StackingController extends CI_Controller
         $data['title']  = $title;
         $template_email = $this->load->view('email_stack_success_2', $data, TRUE);
 
-        $this->email->from('noreply@poincoin.k-rbu.com', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -503,7 +503,7 @@ class StackingController extends CI_Controller
         $template_email      = $this->load->view('email_withdraw_stack_1', $data, TRUE);
 
 
-        $this->email->from('noreply@poincoin.k-rbu.com', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -532,7 +532,7 @@ class StackingController extends CI_Controller
         $template_email    = $this->load->view('email_withdraw_stack_2', $data, TRUE);
 
 
-        $this->email->from('noreply@poincoin.k-rbu.com', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -559,7 +559,7 @@ class StackingController extends CI_Controller
         $template_email = $this->load->view('email_withdraw_stack_3', $data, TRUE);
 
 
-        $this->email->from('noreply@poincoin.k-rbu.com', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);

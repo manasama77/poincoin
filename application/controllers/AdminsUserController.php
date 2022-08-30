@@ -211,7 +211,7 @@ class AdminsUserController extends CI_Controller
         $data['password'] = $password;
         $template_email   = $this->load->view('email_reset_password', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -234,7 +234,7 @@ class AdminsUserController extends CI_Controller
         $data['pin']    = $pin;
         $template_email = $this->load->view('email_reset_pin', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -259,7 +259,7 @@ class AdminsUserController extends CI_Controller
         $data['atas_nama']   = $atas_nama;
         $template_email      = $this->load->view('email_reset_rekening', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -282,7 +282,7 @@ class AdminsUserController extends CI_Controller
         $data['no_wallet'] = $no_wallet;
         $template_email    = $this->load->view('email_reset_wallet', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -304,7 +304,7 @@ class AdminsUserController extends CI_Controller
         $data['title']       = $title;
         $template_email      = $this->load->view('email_delete_user', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);

@@ -368,7 +368,7 @@ class StackingAdminController extends CI_Controller
         $data['title']       = $title;
         $template_email      = $this->load->view('email_withdraw_verifikasi', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -390,7 +390,7 @@ class StackingAdminController extends CI_Controller
         $data['title']  = $title;
         $template_email = $this->load->view('email_stack_success_2', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Poincoin');
+        $this->email->from('noreply@k-rbu.com', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
