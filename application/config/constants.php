@@ -90,6 +90,7 @@ define('SESS_ADMIN', 'BIOROBOSESSADM');
 define('COOK', 'BIOROBOCOOK');
 define('COOK_ADMIN', 'BIOROBOCOOKADM');
 define('UYAH', 'limaratusribu');
+define('PERSENTASE_REF', 25);
 // define('NO_REKENING_ADMIN', '0954173140');
 define('NO_REKENING_ADMIN', '-');
 // define('ATAS_NAMA_NO_REKENING_ADMIN', 'a/n Siti Anihlah');

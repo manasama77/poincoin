@@ -14,7 +14,7 @@ class StackingAdminController extends CI_Controller
 
     public function index()
     {
-        $data['title']   = 'List Bioner Stacking';
+        $data['title']   = 'List Poincoin Stacking';
         $data['content'] = 'stacking/index';
         $data['vitamin'] = 'stacking/index_vitamin';
 
@@ -34,7 +34,7 @@ class StackingAdminController extends CI_Controller
 
     public function add()
     {
-        $data['title']   = 'Add Bioner Stacking';
+        $data['title']   = 'Add Poincoin Stacking';
         $data['content'] = 'stacking/form';
         $data['vitamin'] = 'stacking/form_vitamin';
 
@@ -117,7 +117,7 @@ class StackingAdminController extends CI_Controller
                             $count_stack = $this->mcore->count('bioner_stacking', $where_stack);
 
                             if ($count_stack == 1) {
-                                $nominal_b_bonus  = ($total_investment * 10) / 100;
+                                $nominal_b_bonus  = ($total_investment * PERSENTASE_REF) / 100;
                                 $nominal_rp_bonus = $nominal_b_bonus * 10000;
                                 $data_referral = [
                                     'id_user'            => $id_referal,
@@ -126,7 +126,7 @@ class StackingAdminController extends CI_Controller
                                     'nominal_b'          => $nominal_b_bonus,
                                     'nominal_rp'         => $nominal_rp_bonus,
                                     'kode'               => $kode,
-                                    'keterangan'         => 'Bonus Referral sebesar ' . $nominal_b_bonus . ' Bioner dari user ' . $nama,
+                                    'keterangan'         => 'Bonus Referral sebesar ' . $nominal_b_bonus . ' Poincoin dari user ' . $nama,
                                     'created_at'         => date('Y-m-d H:i:s'),
                                 ];
                                 $exec_referral = $this->mcore->store('bioner_stacking_logs', $data_referral);
@@ -153,7 +153,7 @@ class StackingAdminController extends CI_Controller
                         'nominal_b'          => $total_investment,
                         'nominal_rp'         => $total_investment * 10000,
                         'kode'               => $kode,
-                        'keterangan'         => 'Investment sebesar ' . $total_investment . ' Bioner',
+                        'keterangan'         => 'Investment sebesar ' . $total_investment . ' Poincoin',
                         'created_at'         => date('Y-m-d H:i:s'),
                     ];
                     $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
@@ -259,7 +259,7 @@ class StackingAdminController extends CI_Controller
 
     public function withdraw_pending()
     {
-        $data['title']   = 'List Bioner Stacking Withdraw - Pending';
+        $data['title']   = 'List Poincoin Stacking Withdraw - Pending';
         $data['content'] = 'stacking_withdraw_pending/index';
         $data['vitamin'] = 'stacking_withdraw_pending/index_vitamin';
 
@@ -320,7 +320,7 @@ class StackingAdminController extends CI_Controller
                         'nominal_b' => $withdraw_b,
                         'nominal_rp' => $withdraw_rp,
                         'kode' => $kode_withdraw,
-                        'keterangan' => 'Return Withdraw sebesar ' . $withdraw_b . ' Bioner to Profit - By Admin',
+                        'keterangan' => 'Return Withdraw sebesar ' . $withdraw_b . ' Poincoin to Profit - By Admin',
                         'created_at' => date('Y-m-d H:i:s'),
                     ];
                     $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
@@ -344,7 +344,7 @@ class StackingAdminController extends CI_Controller
 
     public function withdraw_success()
     {
-        $data['title']   = 'List Bioner Stacking Withdraw - Success';
+        $data['title']   = 'List Poincoin Stacking Withdraw - Success';
         $data['content'] = 'stacking_withdraw_success/index';
         $data['vitamin'] = 'stacking_withdraw_success/index_vitamin';
 
@@ -368,7 +368,7 @@ class StackingAdminController extends CI_Controller
         $data['title']       = $title;
         $template_email      = $this->load->view('email_withdraw_verifikasi', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -390,7 +390,7 @@ class StackingAdminController extends CI_Controller
         $data['title']  = $title;
         $template_email = $this->load->view('email_stack_success_2', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);

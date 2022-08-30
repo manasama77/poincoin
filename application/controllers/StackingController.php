@@ -17,7 +17,7 @@ class StackingController extends CI_Controller
     {
         $id_user = $this->session->userdata(SESS . 'id');
 
-        $data['title']   = 'Bioner Stacking';
+        $data['title']   = 'Poincoin Stacking';
         $data['content'] = 'stacking/index';
         $data['vitamin'] = 'stacking/index_vitamin';
 
@@ -179,7 +179,7 @@ class StackingController extends CI_Controller
         $id_user = $this->session->userdata(SESS . 'id');
         $pin     = $this->session->userdata(SESS . 'pin');
 
-        $data['title']   = 'Bioner Stacking Withdraw';
+        $data['title']   = 'Poincoin Stacking Withdraw';
         $data['content'] = 'stacking_withdraw/index';
         $data['vitamin'] = 'stacking_withdraw/index_vitamin';
 
@@ -260,7 +260,7 @@ class StackingController extends CI_Controller
                         'nominal_b'          => $total_investment,
                         'nominal_rp'         => $total_investment * 15000,
                         'kode'               => $kode,
-                        'keterangan'         => 'Investment sebesar ' . $total_investment . ' Bioner dari Profit',
+                        'keterangan'         => 'Investment sebesar ' . $total_investment . ' Poincoin dari Profit',
                         'created_at'         => date('Y-m-d H:i:s')
                     ];
                     $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
@@ -295,7 +295,7 @@ class StackingController extends CI_Controller
                                         'nominal_b'          => $withdraw_b,
                                         'nominal_rp'         => $withdraw_rp,
                                         'kode'               => $kode_withdraw,
-                                        'keterangan'         => 'Withdraw sebesar ' . $withdraw_b . ' Bioner Untuk Investment ' . $kode,
+                                        'keterangan'         => 'Withdraw sebesar ' . $withdraw_b . ' Poincoin Untuk Investment ' . $kode,
                                         'created_at'         => date('Y-m-d H:i:s'),
                                     ];
                                     $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
@@ -357,7 +357,7 @@ class StackingController extends CI_Controller
                         'nominal_b'          => $withdraw_b,
                         'nominal_rp'         => $withdraw_rp,
                         'kode'               => $kode_withdraw,
-                        'keterangan'         => 'Withdraw sebesar ' . $withdraw_b . ' Bioner',
+                        'keterangan'         => 'Withdraw sebesar ' . $withdraw_b . ' Poincoin',
                         'created_at'         => date('Y-m-d H:i:s'),
                     ];
                     $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
@@ -415,7 +415,7 @@ class StackingController extends CI_Controller
                         'nominal_b' => $withdraw_b,
                         'nominal_rp' => $withdraw_rp,
                         'kode' => $kode_withdraw,
-                        'keterangan' => 'Return Withdraw sebesar ' . $withdraw_b . ' Bioner to Profit',
+                        'keterangan' => 'Return Withdraw sebesar ' . $withdraw_b . ' Poincoin to Profit',
                         'created_at' => date('Y-m-d H:i:s'),
                     ];
                     $exec_logs = $this->mcore->store('bioner_stacking_logs', $data_logs);
@@ -445,7 +445,7 @@ class StackingController extends CI_Controller
         $data['title']  = $title;
         $template_email = $this->load->view('email_stack_success', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -469,7 +469,7 @@ class StackingController extends CI_Controller
         $data['title']  = $title;
         $template_email = $this->load->view('email_stack_success_2', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -503,7 +503,7 @@ class StackingController extends CI_Controller
         $template_email      = $this->load->view('email_withdraw_stack_1', $data, TRUE);
 
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -532,7 +532,7 @@ class StackingController extends CI_Controller
         $template_email    = $this->load->view('email_withdraw_stack_2', $data, TRUE);
 
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -559,7 +559,7 @@ class StackingController extends CI_Controller
         $template_email = $this->load->view('email_withdraw_stack_3', $data, TRUE);
 
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
