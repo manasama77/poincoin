@@ -413,8 +413,8 @@
                             <i class="fas fa-phone"></i>
                             <h4>Call us on</h4>
                             <p>
-                                <a href="https://wa.me/<?= WA_ADMIN; ?>">
-                                    <?= WA_ADMIN2; ?>
+                                <a href="https://wa.me/<?= WA_ADMIN2; ?>">
+                                    <?= WA_ADMIN; ?>
                                 </a>
                             </p>
                         </div>
