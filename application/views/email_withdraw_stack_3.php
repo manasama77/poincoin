@@ -29,7 +29,7 @@
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; border: 1px solid #cccccc;">
                     <tr>
                         <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0;">
-                            <img src="<?= base_url('public/img/email_header_withdraw.png'); ?>" alt="BIONER HEADER" width="300" height="230" style="display: block;" />
+                            <img src="<?= base_url('public/img/email_header_withdraw.png'); ?>" alt="POINCOIN HEADER" width="300" height="230" style="display: block;" />
                         </td>
                     </tr>
                     <tr>
@@ -42,7 +42,7 @@
                                 </tr>
                                 <tr>
                                     <td style="color: #153643; font-family: Arial, sans-serif; font-size: 16px; line-height: 24px; padding: 20px 0 30px 0; text-align:center;">
-                                        <p>Withdraw sebesar <?= $withdraw_b; ?> Bioner Untuk Investment <?= $kode_invest; ?> Berhasil</p>
+                                        <p>Withdraw sebesar <?= $withdraw_b; ?> Poincoin Untuk Investment <?= $kode_invest; ?> Berhasil</p>
                                     </td>
                                 </tr>
                             </table>
@@ -71,7 +71,7 @@
                                     </td>
                                     <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; padding-top: 0px; padding-bottom: 0px; vertical-align: middle;  text-align: left;">
                                         <a href="https://wa.me/6281219869989" target="_blank" style="vertical-align: middle; color:white;">
-                                            Admin Bioner - 081219869989
+                                            Admin Poincoin - 081219869989
                                         </a>
                                     </td>
                                 </tr>

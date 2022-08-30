@@ -24,14 +24,14 @@ class AdminsRatioController extends CI_Controller
         );
         $this->form_validation->set_rules(
             'bnr',
-            'BNR',
+            'PC',
             'required'
         );
 
         $this->form_validation->set_error_delimiters('<span class="help-block text-red">', '</span>');
 
         if ($this->form_validation->run() === FALSE) {
-            $data['title']   = 'TRX BNR Ratio Management';
+            $data['title']   = 'TRX PC Ratio Management';
             $data['content'] = 'ratio/index';
             $data['vitamin'] = 'ratio/index_vitamin';
             $this->template->template($data);

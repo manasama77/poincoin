@@ -29,7 +29,7 @@
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; border: 1px solid #cccccc;">
                     <tr>
                         <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0;">
-                            <img src="<?= base_url('public/img/email_header_stacking.png'); ?>" alt="BIONER HEADER" width="300" height="230" style="display: block;" />
+                            <img src="<?= base_url('public/img/email_header_stacking.png'); ?>" alt="POINCOIN HEADER" width="300" height="230" style="display: block;" />
                         </td>
                     </tr>
                     <tr>
@@ -46,7 +46,7 @@
                                             <tr>
                                                 <td style="width: 130px;">Total Investment</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= number_format($total_investment, 4); ?> BNR</td>
+                                                <td><?= number_format($total_investment, 4); ?> PC</td>
                                             </tr>
                                             <tr>
                                                 <td style="width: 130px;">Total Transfer</td>
@@ -56,17 +56,17 @@
                                             <tr>
                                                 <td style="width: 130px;">Profit per Day</td>
                                                 <td style="width: 10px;">:</td>
-                                                <td><?= number_format($profit_perhari_b, 4); ?> BNR</td>
+                                                <td><?= number_format($profit_perhari_b, 4); ?> PC</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3">
                                                     <ul>
-                                                        <li>Minimal Investment adalah <kbd>100 Bioner</kbd> beserta kelipatannya</li>
-                                                        <li>Nilai Awal Investment <kbd>1 Bioner (BNR) setara 10 Tron (TRX)</kbd></li>
-                                                        <li>Dengan melakukan Investment <kbd>100 Bioner (BNR)</kbd> user harus melakukan transfer ke wallet admin sebesar <kbd>1000 Tron (TRX)</kbd></li>
+                                                        <li>Minimal Investment adalah <kbd>100 Poincoin</kbd> beserta kelipatannya</li>
+                                                        <li>Nilai Awal Investment <kbd>1 Poincoin (PC) setara 10 Tron (TRX)</kbd></li>
+                                                        <li>Dengan melakukan Investment <kbd>100 Poincoin (PC)</kbd> user harus melakukan transfer ke wallet admin sebesar <kbd>1000 Tron (TRX)</kbd></li>
                                                         <li>Setiap hari pada pukul <kbd>00:00</kbd> Setiap Stack akan di compund sebesar <kbd>0.5%</kbd> dari nilai awal investment</li>
                                                         <li>Pengambilan modal stacking yang belum mencapai <kbd>1 Tahun</kbd> akan dikenakan <kbd>potongan 25% dari nilai awal investment</kbd> untuk menjaga keseimbangan sirkulasi</li>
-                                                        <li>Jika Bioner Profit telah mencapai nilai <kbd>100 B</kbd>. Nilai tersebut dapat diinvestmentkan kembali pada fitur <kbd>Withdraw</kbd></li>
+                                                        <li>Jika Poincoin Profit telah mencapai nilai <kbd>100 B</kbd>. Nilai tersebut dapat diinvestmentkan kembali pada fitur <kbd>Withdraw</kbd></li>
                                                         <li>Untuk pembukaan stack baru bisa dengan melakukan transfer <kbd>Tron Coin (TRX)</kbd> ke wallet admin di <kbd><?= NO_WALLET_ADMIN; ?></kbd>
                                                             </div>
                                                         </li>
@@ -103,7 +103,7 @@
                                     </td>
                                     <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; padding-top: 0px; padding-bottom: 0px; vertical-align: middle;  text-align: left;">
                                         <a href="https://wa.me/6281219869989" target="_blank" style="vertical-align: middle; color:white;">
-                                            Admin Bioner - 081219869989
+                                            Admin Poincoin - 081219869989
                                         </a>
                                     </td>
                                 </tr>

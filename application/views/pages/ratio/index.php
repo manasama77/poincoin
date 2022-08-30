@@ -17,7 +17,7 @@
 								<tr>
 									<th>Tanggal</th>
 									<th>TRX</th>
-									<th>BNR</th>
+									<th>PC</th>
 									<th class="text-center" style="min-width: 200px;"><i class="fa fa-cogs"></i></th>
 								</tr>
 							</thead>
@@ -52,7 +52,7 @@
 						</div>
 
 						<div class="form-group">
-							<label for="bnr" class="col-sm-5 control-label">Bioner (BNR)</label>
+							<label for="bnr" class="col-sm-5 control-label">Poincoin (PC)</label>
 							<div class="col-sm-12 col-md-4 col-lg-4">
 								<input type="number" class="form-control" id="bnr" name="bnr" placeholder="VALUE" min="1" max="10" value="<?= set_value('bnr'); ?>" required>
 								<?= form_error('bnr'); ?>
@@ -75,7 +75,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title" id="myModalLabel">Edit TRX/BNR</h4>
+					<h4 class="modal-title" id="myModalLabel">Edit TRX/PC</h4>
 				</div>
 				<div class="modal-body">
 					<div class="row">
@@ -97,7 +97,7 @@
 							</div>
 
 							<div class="form-group">
-								<label for="bnr_edit" class="col-sm-3 control-label">Bioner (BNR)</label>
+								<label for="bnr_edit" class="col-sm-3 control-label">Poincoin (PC)</label>
 								<div class="col-sm-12 col-md-4 col-lg-4">
 									<input type="number" class="form-control" id="bnr_edit" name="bnr_edit" placeholder="VALUE" min="1" max="10" value="<?= set_value('bnr_edit'); ?>" required>
 									<?= form_error('bnr_edit'); ?>

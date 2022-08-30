@@ -1,4 +1,4 @@
-<h1 class="text-dark text-center pt-3 pb-2">Bioner Stacking - Withdraw</h1>
+<h1 class="text-dark text-center pt-3 pb-2">Poincoin Stacking - Withdraw</h1>
 
 <div class="row justify-content-center">
 
@@ -8,10 +8,10 @@
                 <div class="d-flex justify-content-between">
                     <div class="p-1">
                         <i class="fas fa-hand-holding-usd fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">Bioner Profit</b>
+                        <b class="title-special-card">Poincoin Profit</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($bioner_profit, 4); ?> <small>BNR</small></p>
+                        <p class="font-weight-bold value-special-card"><?= number_format($bioner_profit, 4); ?> <small>PC</small></p>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                         <b class="title-special-card">Total Investment</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>BNR</small></p>
+                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>PC</small></p>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="p-1">
                         <i class="fas fa-money-bill-wave-alt fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">List Bioner Stacking</b>
+                        <b class="title-special-card">List Poincoin Stacking</b>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                                 <th class="text-center">#</th>
                                 <th class="text-right" style="min-width: 120px;">
                                     Amount
-                                    <small class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Bioner">BNR</small>
+                                    <small class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Poincoin">PC</small>
                                 </th>
                                 <th class="text-center">Rekening / Wallet</th>
                                 <th class="text-center" style="min-width: 120px;">Tanggal</th>
@@ -137,17 +137,17 @@
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <form id="form_withdraw" class="form-horizontal">
                     <div class="form-group row justify-content-center">
-                        <label for="withdraw_b" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Withdraw Amount (BNR)</label>
+                        <label for="withdraw_b" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Withdraw Amount (PC)</label>
                         <div class="col-sm-12 col-md-12 col-lg-6">
                             <div class="input-group">
-                                <input type="number" class="form-control" id="withdraw_b" name="withdraw_b" placeholder="Jumlah BNR" value="0" min="10" max="<?= $bioner_profit; ?>" step="10" required />
+                                <input type="number" class="form-control" id="withdraw_b" name="withdraw_b" placeholder="Jumlah PC" value="0" min="10" max="<?= $bioner_profit; ?>" step="10" required />
                                 <div class="input-group-append">
-                                    <span class="input-group-text input-group-sm bg-primary text-white">BNR</span>
+                                    <span class="input-group-text input-group-sm bg-primary text-white">PC</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-12 col-md-6 offset-md-4">
-                            <small class="form-text text-muted">Minimal 100 BNR untuk dapat diinvestkan kembali</small>
+                            <small class="form-text text-muted">Minimal 100 PC untuk dapat diinvestkan kembali</small>
                         </div>
                     </div>
                     <div class="form-group row justify-content-center">
@@ -211,10 +211,10 @@
                             </div>
                         </div>
                         <div class="form-group row justify-content-center">
-                            <label for="ratio_bnr" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Ratio BNR:TRX</label>
+                            <label for="ratio_bnr" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Ratio PC:TRX</label>
                             <div class="col-sm-12 col-md-12 col-lg-3 offset-lg-3">
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="ratio_bnr" name="ratio_bnr" placeholder="BNR" value="<?= $ratio_bnr; ?>" readonly>
+                                    <input type="text" class="form-control" id="ratio_bnr" name="ratio_bnr" placeholder="PC" value="<?= $ratio_bnr; ?>" readonly>
                                     <div class="input-group-append">
                                         <span class="input-group-text input-group-sm bg-primary text-white">:</span>
                                     </div>

@@ -191,7 +191,7 @@ class M_stacking extends CI_Model
                         'nominal_b'          => $profit_perhari_b,
                         'nominal_rp'         => $profit_perhari_b * 10000,
                         'kode'               => $kode,
-                        'keterangan'         => 'Distribusi Profit Sebesar ' . $profit_perhari_b . ' Bioner',
+                        'keterangan'         => 'Distribusi Profit Sebesar ' . $profit_perhari_b . ' Poincoin',
                         'created_at'         => date('Y-m-d H:i:s'),
                     ]);
                     $exec_bioner_stacking_logs = $this->db->insert('bioner_stacking_logs');

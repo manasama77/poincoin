@@ -17,7 +17,7 @@ class TradeController extends CI_Controller
     {
         $id_user = $this->session->userdata(SESS . 'id');
 
-        $data['title']   = 'Bioner Trade';
+        $data['title']   = 'Poincoin Trade';
         $data['content'] = 'trade/index';
         $data['vitamin'] = 'trade/index_vitamin';
 
@@ -110,7 +110,7 @@ class TradeController extends CI_Controller
     {
         $id_user = $this->session->userdata(SESS . 'id');
 
-        $data['title']   = 'Bioner Trade Withdraw';
+        $data['title']   = 'Poincoin Trade Withdraw';
         $data['content'] = 'trade_withdraw/index';
         $data['vitamin'] = 'trade_withdraw/index_vitamin';
 
@@ -181,7 +181,7 @@ class TradeController extends CI_Controller
                             'id_bioner_trade' => $id_bioner_trade,
                             'type'            => 'investment',
                             'kode'            => $kode,
-                            'keterangan'      => 'Pembukaan Bioner Trade ' . $kode . ' sebanyak 1 Lot dari Profit',
+                            'keterangan'      => 'Pembukaan Poincoin Trade ' . $kode . ' sebanyak 1 Lot dari Profit',
                             'created_at'      => date('Y-m-d H:i:s')
                         ];
                         $exec_logs = $this->mcore->store('bioner_trade_logs', $data_logs);
@@ -372,13 +372,13 @@ class TradeController extends CI_Controller
     {
         $id            = $this->session->userdata(SESS . 'id');
         $email         = $this->session->userdata(SESS . 'email');
-        $title         = "BIONER ADD NEW TRADE - " . $kode;
+        $title         = "POINCOIN ADD NEW TRADE - " . $kode;
         $data['title'] = $title;
         $data['kode']  = $kode;
 
         $template_email = $this->load->view('email_trade_success', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -403,7 +403,7 @@ class TradeController extends CI_Controller
         $no_rekening = $arr_bank->row()->no_rekening;
         $nama_bank   = $arr_bank->row()->nama_bank;
         $atas_nama   = $arr_bank->row()->atas_nama;
-        $title       = "BIONER WITHDRAW TRADE - " . $kode_withdraw;
+        $title       = "POINCOIN WITHDRAW TRADE - " . $kode_withdraw;
 
         $data['title']         = $title;
         $data['kode_withdraw'] = $kode_withdraw;
@@ -414,7 +414,7 @@ class TradeController extends CI_Controller
         $template_email        = $this->load->view('email_withdraw_trade_1', $data, TRUE);
 
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -434,13 +434,13 @@ class TradeController extends CI_Controller
     {
         $id            = $this->session->userdata(SESS . 'id');
         $email         = $this->session->userdata(SESS . 'email');
-        $title         = "BIONER ADD NEW TRADE - " . $kode;
+        $title         = "POINCOIN ADD NEW TRADE - " . $kode;
         $data['title'] = $title;
         $data['kode']  = $kode;
 
         $template_email = $this->load->view('email_trade_success_2', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);

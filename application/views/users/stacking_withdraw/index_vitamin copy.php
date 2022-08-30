@@ -47,7 +47,7 @@
                     id_wallet: id_wallet.val(),
                 }
 
-                var vTextSuccess = `Proses Withdraw Bioner Stacking Berhasil.<br>Silahkan tunggu admin melakukan process transfer.`;
+                var vTextSuccess = `Proses Withdraw Poincoin Stacking Berhasil.<br>Silahkan tunggu admin melakukan process transfer.`;
 
                 if (id_jenis.val() == "bank") {
                     vText = `Kamu akan melakukan penarikan sebesar<br><b>Rp.${withdraw_rp.val()}</b><br>Ke No Rekening<br><b>${id_rekening.find(':selected').text()}</b>`;
@@ -60,7 +60,7 @@
                         withdraw_b: withdraw_b.val(),
                         withdraw_rp: 0,
                     }
-                    vTextSuccess = `Proses Withdraw Bioner Stacking menjadi Investment Berhasil.`;
+                    vTextSuccess = `Proses Withdraw Poincoin Stacking menjadi Investment Berhasil.`;
                 }
 
                 Swal.mixin({
@@ -113,7 +113,7 @@
                                     Swal.fire({
                                         icon: 'error',
                                         title: 'Oops...',
-                                        text: 'Proses Withdraw Bioner Stacking Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
+                                        text: 'Proses Withdraw Poincoin Stacking Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
                                         timer: 3000,
                                     });
                                 } else if (res.code == 200) {
@@ -195,7 +195,7 @@
     function deleteData(id, amount_b) {
         Swal.fire({
             title: 'Apakah kamu yakin?',
-            text: `Batalkan Withdraw sebesar ${amount_b} Bioner`,
+            text: `Batalkan Withdraw sebesar ${amount_b} Poincoin`,
             icon: 'question',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -224,14 +224,14 @@
                         Swal.fire({
                             icon: 'error',
                             title: 'Oops...',
-                            text: 'Proses Batalkan Withdraw Bioner Stacking Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
+                            text: 'Proses Batalkan Withdraw Poincoin Stacking Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
                             timer: 3000,
                         });
                     } else if (res.code == 200) {
                         Swal.fire({
                             icon: 'success',
                             title: 'Success...',
-                            html: `Proses Batalkan Withdraw Bioner Stacking Berhasil.`,
+                            html: `Proses Batalkan Withdraw Poincoin Stacking Berhasil.`,
                         }).then(function(result) {
                             window.location.reload();
                         });
@@ -261,7 +261,7 @@
                 Swal.fire({
                     icon: 'warning',
                     title: 'Oops...',
-                    text: 'Profit tidak mencukupi. Minimal Bioner Profit adalah 10 B',
+                    text: 'Profit tidak mencukupi. Minimal Poincoin Profit adalah 10 B',
                     timer: 3000,
                 });
                 form_bank.hide();

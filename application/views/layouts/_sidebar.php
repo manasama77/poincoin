@@ -38,7 +38,7 @@
 					</li>
 				</ul>
 			</li>
-			<li class="treeview">
+			<!-- <li class="treeview">
 				<a href="#">
 					<i class="fa fa-archive"></i>
 					<span>Poincoin Trade</span>
@@ -65,33 +65,6 @@
 					<li>
 						<a href="<?= site_url(); ?>admin/bioner_trade_withdraw/success">
 							<i class="fa fa-circle-o"></i> List Withdraw Success
-						</a>
-					</li>
-				</ul>
-			</li>
-			<!-- <li class="header">Pengajuan</li>
-			<li class="treeview">
-				<a href="#">
-					<i class="fa fa-archive"></i>
-					<span>Pengajuan</span>
-					<span class="pull-right-container">
-						<i class="fa fa-angle-left pull-right"></i>
-					</span>
-				</a>
-				<ul class="treeview-menu">
-					<li>
-						<a href="<?= site_url(); ?>pengajuan">
-							<i class="fa fa-circle-o"></i> List Pengajuan
-						</a>
-					</li>
-					<li>
-						<a href="<?= site_url(); ?>pengajuan/create">
-							<i class="fa fa-plus"></i> Add Pengajuan
-						</a>
-					</li>
-					<li>
-						<a href="<?= site_url('verifikasi_pengajuan'); ?>">
-							<i class="fa fa-check"></i> <span>Verifikasi Pengajuan</span>
 						</a>
 					</li>
 				</ul>

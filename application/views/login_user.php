@@ -29,7 +29,7 @@
     <meta name="msapplication-TileImage" content="<?= base_url(); ?>public/img/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <title>Login - Bioner</title>
+    <title>Login - Poincoin</title>
 </head>
 
 <body>

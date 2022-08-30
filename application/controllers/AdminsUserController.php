@@ -206,12 +206,12 @@ class AdminsUserController extends CI_Controller
 
     public function email_reset_pass($id, $email, $password)
     {
-        $title            = "BIONER ACCOUNT - RESET PASSWORD";
+        $title            = "POINCOIN ACCOUNT - RESET PASSWORD";
         $data['title']    = $title;
         $data['password'] = $password;
         $template_email   = $this->load->view('email_reset_password', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -229,12 +229,12 @@ class AdminsUserController extends CI_Controller
 
     public function email_reset_pin($id, $email, $pin)
     {
-        $title          = "BIONER ACCOUNT - RESET PIN TRANSACTION";
+        $title          = "POINCOIN ACCOUNT - RESET PIN TRANSACTION";
         $data['title']  = $title;
         $data['pin']    = $pin;
         $template_email = $this->load->view('email_reset_pin', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -252,14 +252,14 @@ class AdminsUserController extends CI_Controller
 
     public function email_reset_rekening($id, $email, $no_rekening, $nama_bank, $atas_nama)
     {
-        $title               = "BIONER ACCOUNT - ACCOUNT NUMBER";
+        $title               = "POINCOIN ACCOUNT - ACCOUNT NUMBER";
         $data['title']       = $title;
         $data['no_rekening'] = $no_rekening;
         $data['nama_bank']   = $nama_bank;
         $data['atas_nama']   = $atas_nama;
         $template_email      = $this->load->view('email_reset_rekening', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -277,12 +277,12 @@ class AdminsUserController extends CI_Controller
 
     public function email_reset_wallet($id, $email, $no_wallet)
     {
-        $title             = "BIONER ACCOUNT - TRONLINK ADDRESS";
+        $title             = "POINCOIN ACCOUNT - TRONLINK ADDRESS";
         $data['title']     = $title;
         $data['no_wallet'] = $no_wallet;
         $template_email    = $this->load->view('email_reset_wallet', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);
@@ -300,11 +300,11 @@ class AdminsUserController extends CI_Controller
 
     public function email_delete_user($id, $email)
     {
-        $title               = "BIONER ACCOUNT - ACCOUNT DELETED";
+        $title               = "POINCOIN ACCOUNT - ACCOUNT DELETED";
         $data['title']       = $title;
         $template_email      = $this->load->view('email_delete_user', $data, TRUE);
 
-        $this->email->from('system@bioner.online', 'System Bioner');
+        $this->email->from('system@bioner.online', 'System Poincoin');
         $this->email->to($email);
         $this->email->subject($title);
         $this->email->message($template_email);

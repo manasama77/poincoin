@@ -40,7 +40,7 @@
                 hi: null,
             }
 
-            var vTextSuccess = `Proses Withdraw Bioner Trade Berhasil.<br>Silahkan tunggu Admin melakukan process transfer.`;
+            var vTextSuccess = `Proses Withdraw Poincoin Trade Berhasil.<br>Silahkan tunggu Admin melakukan process transfer.`;
 
             if (id_jenis.val() == "bank") {
                 vText = `Kamu akan melakukan penarikan sebesar<br><b>Rp.${numberWithCommas(withdraw_rp.val())}</b><br>Ke No Rekening<br><b>${id_rekening.find(':selected').text()}</b>`;
@@ -115,7 +115,7 @@
                                     Swal.fire({
                                         icon: 'error',
                                         title: 'Oops...',
-                                        text: 'Proses Withdraw Bioner Trade Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
+                                        text: 'Proses Withdraw Poincoin Trade Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
                                         timer: 3000,
                                     });
                                 } else if (res.code == 200) {
@@ -197,14 +197,14 @@
                         Swal.fire({
                             icon: 'error',
                             title: 'Oops...',
-                            text: 'Proses Batalkan Withdraw Bioner Trade Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
+                            text: 'Proses Batalkan Withdraw Poincoin Trade Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
                             timer: 3000,
                         });
                     } else if (res.code == 200) {
                         Swal.fire({
                             icon: 'success',
                             title: 'Success...',
-                            html: `Proses Batalkan Withdraw Bioner Trade Berhasil.`,
+                            html: `Proses Batalkan Withdraw Poincoin Trade Berhasil.`,
                         }).then(function(result) {
                             window.location.reload();
                         });

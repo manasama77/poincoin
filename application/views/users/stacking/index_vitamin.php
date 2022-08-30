@@ -50,7 +50,7 @@
 
                 Swal.fire({
                     title: 'Apakah kamu yakin?',
-                    text: `Kamu akan melakukan investment sebesar ${total_investment.val()} BNR ?`,
+                    text: `Kamu akan melakukan investment sebesar ${total_investment.val()} PC ?`,
                     icon: 'question',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
@@ -79,14 +79,14 @@
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'Proses Add New Bioner Stacking Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
+                                    text: 'Proses Add New Poincoin Stacking Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
                                     timer: 3000,
                                 });
                             } else if (res.code == 200) {
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Success...',
-                                    html: `Proses Add New Bioner Stacking Berhasil.<br>Silahkan lakukan transfer sejumlah <b>${total_transfer.val()} TRX</b> menggunakan Tron Coin (TRX) ke Address Wallet <b><?= NO_WALLET_ADMIN; ?></b>`,
+                                    html: `Proses Add New Poincoin Stacking Berhasil.<br>Silahkan lakukan transfer sejumlah <b>${total_transfer.val()} TRX</b> menggunakan Tron Coin (TRX) ke Address Wallet <b><?= NO_WALLET_ADMIN; ?></b>`,
                                 }).then(function(result) {
                                     window.location.reload();
                                 });

@@ -47,7 +47,7 @@
                             <div class="col-sm-12 col-md-12 col-lg-2">
                                 <div class="input-group">
                                     <input type="number" class="form-control" id="total_investment" name="total_investment" placeholder="Total Investment" value="0" min="100" max="100000" step="100" required />
-                                    <span class="input-group-addon bg-blue text-white">BNR</span>
+                                    <span class="input-group-addon bg-blue text-white">PC</span>
                                 </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                             <div class="col-sm-12 col-md-12 col-lg-2">
                                 <div class="input-group">
                                     <input type="text" class="form-control" id="profit_per_day" name="profit_per_day" placeholder="Profit Per Day" value="0" readonly required />
-                                    <span class="input-group-addon bg-blue text-white">BNR</span>
+                                    <span class="input-group-addon bg-blue text-white">PC</span>
                                 </div>
                             </div>
                         </div>

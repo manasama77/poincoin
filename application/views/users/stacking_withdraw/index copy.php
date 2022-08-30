@@ -1,4 +1,4 @@
-<h1 class="text-dark text-center pt-3 pb-2">Bioner Stacking - Withdraw</h1>
+<h1 class="text-dark text-center pt-3 pb-2">Poincoin Stacking - Withdraw</h1>
 
 <div class="row justify-content-center">
 
@@ -8,7 +8,7 @@
                 <div class="d-flex justify-content-between">
                     <div class="p-1">
                         <i class="fas fa-hand-holding-usd fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">Bioner Profit</b>
+                        <b class="title-special-card">Poincoin Profit</b>
                     </div>
                     <div class="p-1" style="margin-top: 10px;">
                         <p class="font-weight-bold value-special-card"><?= number_format($bioner_profit, 4); ?> <small>B</small></p>
@@ -41,7 +41,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="p-1">
                         <i class="fas fa-money-bill-wave-alt fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">List Bioner Stacking</b>
+                        <b class="title-special-card">List Poincoin Stacking</b>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                                 <th class="text-center">#</th>
                                 <th class="text-right" style="min-width: 120px;">
                                     Amount
-                                    <small class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Bioner">BNR</small>
+                                    <small class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Poincoin">PC</small>
                                 </th>
                                 <th class="text-right" style="min-width: 120px;">
                                     Amount
@@ -142,11 +142,11 @@
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
                 <form id="form_withdraw" class="form-horizontal">
                     <div class="form-group row justify-content-center">
-                        <label for="withdraw_b" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Withdraw Amount (BNR)</label>
+                        <label for="withdraw_b" class="col-sm-12 col-md-12 col-lg-3 col-form-label font-weight-bold text-center">Withdraw Amount (PC)</label>
                         <div class="col-sm-12 col-md-12 col-lg-6 input-group">
                             <input type="number" class="form-control" id="withdraw_b" name="withdraw_b" placeholder="Total Investment" value="0" min="10" max="1000000" step="10" required />
                             <div class="input-group-append">
-                                <span class="input-group-text bg-primary text-white">BNR</span>
+                                <span class="input-group-text bg-primary text-white">PC</span>
                             </div>
                             <!-- <div class="input-group-append">
                                 <button type="button" class="btn btn-info" id="upValue">
@@ -158,7 +158,7 @@
                             </div> -->
                         </div>
                         <div class="col-6 offset-3">
-                            <small class="form-text text-muted">Minimal 100 BNR untuk dapat diinvestkan kembali</small>
+                            <small class="form-text text-muted">Minimal 100 PC untuk dapat diinvestkan kembali</small>
                         </div>
                     </div>
                     <!-- <div class="form-group row justify-content-center">

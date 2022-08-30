@@ -29,7 +29,7 @@
 
     <link rel="stylesheet" href="<?= base_url(); ?>public/css/login.css">
 
-    <title>Sign Up - Bioner</title>
+    <title>Sign Up - Poincoin</title>
 </head>
 
 <body>

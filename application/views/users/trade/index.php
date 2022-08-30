@@ -219,7 +219,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="id_bioner_trade">Kode Bioner Trade</label>
+                        <label for="id_bioner_trade">Kode Poincoin Trade</label>
                         <input type="text" class="form-control" id="id_bioner_trade" name="id_bioner_trade" readonly required>
                     </div>
                     <div class="form-group">

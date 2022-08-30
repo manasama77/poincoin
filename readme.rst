@@ -1,8 +1,8 @@
 ###################
-Bioner APP
+Poincoin APP
 ###################
 
-Applikasi untuk Bioner
+Applikasi untuk Poincoin
 
 *******************
 Release Information

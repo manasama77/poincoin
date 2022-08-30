@@ -85,14 +85,14 @@
                                 Swal.fire({
                                     icon: 'error',
                                     title: 'Oops...',
-                                    text: 'Proses Add New Bioner Stacking Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
+                                    text: 'Proses Add New Poincoin Stacking Gagal, Tidak terhubung dengan database, silahkan cek koneksi kamu.',
                                     timer: 3000,
                                 });
                             } else if (res.code == 200) {
                                 Swal.fire({
                                     icon: 'success',
                                     title: 'Success...',
-                                    html: `Proses Add New Bioner Stacking Berhasil.<br>Silahkan lakukan transfer sejumlah <b>${total_transfer.val()}</b> ke no rekening dinomor <br> <b><?= NO_REKENING_ADMIN; ?></b><br><b>a/n <?= ATAS_NAMA_NO_REKENING_ADMIN; ?></b><br><b>Bank <?= NAMA_BANK_ADMIN; ?></b><br>Atau Transfer menggunakan Doge Coin ke Nomor Wallet <b><?= NO_WALLET_ADMIN; ?></b>`,
+                                    html: `Proses Add New Poincoin Stacking Berhasil.<br>Silahkan lakukan transfer sejumlah <b>${total_transfer.val()}</b> ke no rekening dinomor <br> <b><?= NO_REKENING_ADMIN; ?></b><br><b>a/n <?= ATAS_NAMA_NO_REKENING_ADMIN; ?></b><br><b>Bank <?= NAMA_BANK_ADMIN; ?></b><br>Atau Transfer menggunakan Doge Coin ke Nomor Wallet <b><?= NO_WALLET_ADMIN; ?></b>`,
                                 }).then(function(result) {
                                     window.location.reload();
                                 });

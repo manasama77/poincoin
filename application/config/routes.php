@@ -47,7 +47,7 @@ $route['temp_chart']     = 'DashboardUserController/temp_chart';
 ##############################################################################################################
 
 ##############################################################################################################
-# BIONER STACKING USER
+# POINCOIN STACKING USER
 ##############################################################################################################
 $route['stacking']                       = 'StackingController/index';
 $route['stacking_add']                   = 'StackingController/add';
@@ -59,7 +59,7 @@ $route['stacking_withdraw_delete']       = 'StackingController/withdraw_delete';
 ##############################################################################################################
 
 ##############################################################################################################
-# BIONER TRADE USER
+# POINCOIN TRADE USER
 ##############################################################################################################
 $route['trade']                       = 'TradeController/index';
 $route['trade_add']                   = 'TradeController/add';
@@ -70,7 +70,7 @@ $route['trade_withdraw_delete']       = 'TradeController/withdraw_delete';
 ##############################################################################################################
 
 ##############################################################################################################
-# BIONER EXCHANGE USER
+# POINCOIN EXCHANGE USER
 ##############################################################################################################
 $route['exchange'] = 'ExchangeController/index';
 ##############################################################################################################
@@ -95,7 +95,7 @@ $route['dashboard'] = 'DashboardController/index';
 
 
 ##############################################################################################################
-# BIONER STACKING ADMIN
+# POINCOIN STACKING ADMIN
 $route['admin/bioner_stacking/index']               = 'StackingAdminController/index';
 $route['admin/bioner_stacking/add']                 = 'StackingAdminController/add';
 $route['admin/bioner_stacking/count']               = 'StackingAdminController/count';
@@ -109,7 +109,7 @@ $route['admin/bioner_stacking_withdraw/success']    = 'StackingAdminController/w
 ##############################################################################################################
 
 ##############################################################################################################
-# BIONER TRADE ADMIN
+# POINCOIN TRADE ADMIN
 $route['admin/bioner_trade/index']               = 'TradeAdminController/index';
 $route['admin/bioner_trade/add']                 = 'TradeAdminController/add';
 $route['admin/bioner_trade/store']               = 'TradeAdminController/store';

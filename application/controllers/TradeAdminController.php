@@ -14,7 +14,7 @@ class TradeAdminController extends CI_Controller
 
     public function index()
     {
-        $data['title']   = 'List Bioner Trade';
+        $data['title']   = 'List Poincoin Trade';
         $data['content'] = 'trade/index';
         $data['vitamin'] = 'trade/index_vitamin';
 
@@ -25,7 +25,7 @@ class TradeAdminController extends CI_Controller
 
     public function add()
     {
-        $data['title']   = 'Add Bioner Trade';
+        $data['title']   = 'Add Poincoin Trade';
         $data['content'] = 'trade/form';
         $data['vitamin'] = 'trade/form_vitamin';
 
@@ -88,7 +88,7 @@ class TradeAdminController extends CI_Controller
                     'id_bioner_trade' => $id,
                     'type' => 'investment',
                     'kode' => $kode,
-                    'keterangan' => 'Pembukaan Bioner Trade ' . $kode . ' sebanyak 1 Lot',
+                    'keterangan' => 'Pembukaan Poincoin Trade ' . $kode . ' sebanyak 1 Lot',
                     'created_at' => date('Y-m-d H:i:s'),
                 ];
                 $exec_logs = $this->mcore->store('bioner_trade_logs', $data_logs);
@@ -145,7 +145,7 @@ class TradeAdminController extends CI_Controller
 
     public function withdraw_pending()
     {
-        $data['title']   = 'List Bioner Trade Withdraw - Pending';
+        $data['title']   = 'List Poincoin Trade Withdraw - Pending';
         $data['content'] = 'trade_withdraw_pending/index';
         $data['vitamin'] = 'trade_withdraw_pending/index_vitamin';
 
@@ -230,7 +230,7 @@ class TradeAdminController extends CI_Controller
 
     public function withdraw_success()
     {
-        $data['title']   = 'List Bioner Trade Withdraw - Success';
+        $data['title']   = 'List Poincoin Trade Withdraw - Success';
         $data['content'] = 'trade_withdraw_success/index';
         $data['vitamin'] = 'trade_withdraw_success/index_vitamin';
 

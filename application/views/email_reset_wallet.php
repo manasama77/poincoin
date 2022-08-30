@@ -29,7 +29,7 @@
                 <table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse; border: 1px solid #cccccc;">
                     <tr>
                         <td align="center" bgcolor="#70bbd9" style="padding: 40px 0 30px 0;">
-                            <img src="<?= base_url('public/img/email_header_account.png'); ?>" alt="BIONER HEADER" width="300" height="230" style="display: block;" />
+                            <img src="<?= base_url('public/img/email_header_account.png'); ?>" alt="POINCOIN HEADER" width="300" height="230" style="display: block;" />
                         </td>
                     </tr>
                     <tr>
@@ -73,7 +73,7 @@
                                     </td>
                                     <td style="color: #ffffff; font-family: Arial, sans-serif; font-size: 14px; padding-top: 0px; padding-bottom: 0px; vertical-align: middle;  text-align: left;">
                                         <a href="https://wa.me/6281219869989" target="_blank" style="vertical-align: middle; color:white;">
-                                            Admin Bioner - 081219869989
+                                            Admin Poincoin - 081219869989
                                         </a>
                                     </td>
                                 </tr>

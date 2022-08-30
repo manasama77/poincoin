@@ -1,4 +1,4 @@
-<h1 class="text-dark text-center pt-3 pb-2">Bioner Trade - Withdraw</h1>
+<h1 class="text-dark text-center pt-3 pb-2">Poincoin Trade - Withdraw</h1>
 
 <div class="row justify-content-center">
 
@@ -41,7 +41,7 @@
                 <div class="d-flex justify-content-center">
                     <div class="p-1">
                         <i class="fas fa-money-bill-wave-alt fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">List Bioner Trade</b>
+                        <b class="title-special-card">List Poincoin Trade</b>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
                                 <th class="text-center">#</th>
                                 <th class="text-right" style="min-width: 120px;">
                                     Amount
-                                    <small class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Bioner">Rp</small>
+                                    <small class="badge badge-info" data-toggle="tooltip" data-placement="top" title="Poincoin">Rp</small>
                                 </th>
                                 <th class="text-center">Rekening</th>
                                 <th class="text-center" style="min-width: 120px;">Tanggal</th>

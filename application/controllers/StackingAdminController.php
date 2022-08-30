@@ -364,7 +364,7 @@ class StackingAdminController extends CI_Controller
 
     public function email_withdraw_verifikasi($id, $email, $kode)
     {
-        $title               = "BIONER ACCOUNT - WITHDRAW " . $kode . " COMPLETE";
+        $title               = "POINCOIN ACCOUNT - WITHDRAW " . $kode . " COMPLETE";
         $data['title']       = $title;
         $template_email      = $this->load->view('email_withdraw_verifikasi', $data, TRUE);
 
@@ -386,7 +386,7 @@ class StackingAdminController extends CI_Controller
 
     public function email_add_2($id_user, $email, $data)
     {
-        $title          = "BIONER ADD NEW STACK - " . $data['kode'];
+        $title          = "POINCOIN ADD NEW STACK - " . $data['kode'];
         $data['title']  = $title;
         $template_email = $this->load->view('email_stack_success_2', $data, TRUE);
 
