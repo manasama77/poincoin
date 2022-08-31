@@ -4,7 +4,7 @@ header("Pragma: no-cache"); // HTTP 1.0.
 header("Expires: 0"); // Proxies.
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="en" translate="no">
 
 <head>
     <!-- Required meta tags -->

@@ -1,9 +1,9 @@
-<h1 class="text-dark text-center pt-3 pb-2">Poincoin Stacking - Withdraw</h1>
+<h1 class="text-dark text-center pt-3 pb-2">Poincoin Network - Withdraw</h1>
 
 <div class="row justify-content-center">
 
     <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
-        <div class="card card-gradient mt-2 mb-2">
+        <div class="card card-gradient-pc mt-2 mb-2">
             <div class="card-body p-2 text-center">
                 <div class="d-flex justify-content-between">
                     <div class="p-1">
@@ -19,29 +19,12 @@
     </div>
 
     <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
-        <div class="card card-gradient mt-2 mb-2">
-            <div class="card-body p-2 text-center">
-                <div class="d-flex justify-content-between">
-                    <div class="p-1">
-                        <i class="fas fa-coins fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">Total Investment</b>
-                    </div>
-                    <div class="p-1" style="margin-top: 10px;">
-                        <p class="font-weight-bold value-special-card"><?= number_format($total_investment, 0); ?> <small>PC</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="col-sm-12 col-md-4 col-lg-4 mt-1 mb-1 text-center">
-        <div class="card card-gradient mt-2 mb-2 pointer" onclick="window.open('<?= site_url(); ?>stacking', '_self')">
+        <div class="card card-gradient-pc mt-2 mb-2 pointer" onclick="window.open('<?= site_url(); ?>stacking', '_self')">
             <div class="card-body p-2 text-center">
                 <div class="d-flex justify-content-center">
                     <div class="p-1">
                         <i class="fas fa-money-bill-wave-alt fa-gradient fa-2x"></i><br />
-                        <b class="title-special-card">List Poincoin Stacking</b>
+                        <b class="title-special-card">List Poincoin Network</b>
                     </div>
                 </div>
             </div>
@@ -53,7 +36,7 @@
 <div class="row">
     <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
         <div class="card text-white">
-            <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
+            <div class="card-header bg-poincoin1 font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
                 <span style="font-size: 25px;"><i class="fas fa-money-bill-wave-alt"></i> List Withdraw</span>
             </div>
             <div class="card-body bg-grey-1 text-dark p-2 w-100">
@@ -123,111 +106,6 @@
 
                     </table>
                 </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-12 col-md-8 offset-md-2 mt-2">
-        <div class="card text-white">
-            <div class="card-header bg-dark font-weight-bold f-news text-center p-0" style="padding-top: 4px !important;">
-                <span style="font-size: 25px;"><i class="fas fa-money-bill-wave-alt"></i> Withdraw</span>
-            </div>
-            <div class="card-body bg-grey-1 text-dark p-2 w-100">
-                <form id="form_withdraw" class="form-horizontal">
-                    <div class="form-group row justify-content-center">
-                        <label for="withdraw_b" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Withdraw Amount (PC)</label>
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <div class="input-group">
-                                <input type="number" class="form-control" id="withdraw_b" name="withdraw_b" placeholder="Jumlah PC" value="0" min="10" max="<?= $bioner_profit; ?>" step="10" required />
-                                <div class="input-group-append">
-                                    <span class="input-group-text input-group-sm bg-primary text-white">PC</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-12 col-md-6 offset-md-4">
-                            <small class="form-text text-muted">Minimal 100 PC untuk dapat diinvestkan kembali</small>
-                        </div>
-                    </div>
-                    <div class="form-group row justify-content-center">
-                        <label for="id_jenis" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Jenis Withdraw</label>
-                        <div class="col-sm-12 col-md-12 col-lg-6">
-                            <select class="form-control" id="id_jenis" name="id_jenis" onchange="cekJenis();" placeholder="Jenis Withdraw" required>
-                                <option value="">-Pilih Jenis Withdraw-</option>
-                                <!-- <option value="bank">Bank</option> -->
-                                <option value="wallet">Tronlink Wallet</option>
-                                <option value="admin">Withdraw to Admin</option>
-                                <option value="invest">Investment Stacking</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div id="form_bank" style="display: none;">
-                        <div class="form-group row justify-content-center">
-                            <label for="id_rekening" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Rekening</label>
-                            <div class="col-sm-12 col-md-12 col-lg-6">
-                                <select class="form-control" id="id_rekening" name="id_rekening">
-                                    <option></option>
-                                    <?php
-                                    foreach ($arr_rekening->result() as $key) {
-                                        echo '<option value="' . $key->id . '">
-                                        ' . $key->no_rekening . ' - 
-                                        ' . $key->nama_bank . ' - 
-                                        ' . $key->atas_nama . '
-                                        </option>';
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Withdraw</button>
-                    </div>
-                    <div id="form_wallet" style="display: none;">
-                        <div class="form-group row justify-content-center">
-                            <label for="id_wallet" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Wallet Address</label>
-                            <div class="col-sm-12 col-md-12 col-lg-6">
-                                <select class="form-control" id="id_wallet" name="id_wallet">
-                                    <option></option>
-                                    <?php
-                                    foreach ($arr_wallet->result() as $key) {
-                                        echo '<option value="' . $key->id . '">' . $key->no_wallet . '</option>';
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Withdraw</button>
-                    </div>
-                    <div id="form_admin" style="display: none;">
-                        <div class="form-group row justify-content-center">
-                            <label for="jumlah_trx" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Get TRX</label>
-                            <div class="col-sm-12 col-md-12 col-lg-6">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="jumlah_trx" name="jumlah_trx" placeholder="Jumlah TRX" readonly>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text input-group-sm bg-danger text-white">TRX</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group row justify-content-center">
-                            <label for="ratio_bnr" class="col-sm-12 col-md-12 col-lg-4 col-form-label font-weight-bold text-center">Ratio PC:TRX</label>
-                            <div class="col-sm-12 col-md-12 col-lg-3 offset-lg-3">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" id="ratio_bnr" name="ratio_bnr" placeholder="PC" value="<?= $ratio_bnr; ?>" readonly>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text input-group-sm bg-primary text-white">:</span>
-                                    </div>
-                                    <input type="text" class="form-control" id="ratio_trx" name="ratio_trx" placeholder="TRX" value="<?= $ratio_trx; ?>" readonly>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-block">Withdraw</button>
-                    </div>
-                    <div id="form_invest" style="display: none;">
-                        <button type="submit" class="btn btn-primary btn-block">Invest</button>
-                    </div>
-                </form>
             </div>
         </div>
     </div>

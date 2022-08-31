@@ -183,7 +183,7 @@ class StackingController extends CI_Controller
         $id_user = $this->session->userdata(SESS . 'id');
         $pin     = $this->session->userdata(SESS . 'pin');
 
-        $data['title']   = 'Poincoin Stacking Withdraw';
+        $data['title']   = 'Poincoin Network Withdraw';
         $data['content'] = 'stacking_withdraw/index';
         $data['vitamin'] = 'stacking_withdraw/index_vitamin';
 
