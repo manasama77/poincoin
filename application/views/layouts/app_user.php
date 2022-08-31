@@ -116,7 +116,7 @@ header("Expires: 0"); // Proxies.
                 </div>
                 <div class="p-1 text-center">
                     <a href="<?= site_url(); ?>stacking">
-                        <img src="<?= base_url(); ?>public/img/bioner_stacking.png" alt="bc" class="img-fluid" style="width: 80px;">
+                        <img src="<?= base_url(); ?>public/img/bioner_stacking1.png" alt="bc" class="img-fluid" style="width: 80px;">
                     </a>
                 </div>
                 <div class="p-1 text-center">
