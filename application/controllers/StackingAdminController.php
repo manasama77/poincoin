@@ -56,7 +56,8 @@ class StackingAdminController extends CI_Controller
 
         if ($total_investment > 0 && $total_transfer > 0) {
             $kode              = $this->_generate_kode_bioner_stacking($id_user);
-            $profit_perhari_b  = ($total_investment * 0.5) / 100;
+            // $profit_perhari_b  = ($total_investment * 0.5) / 100;
+            $profit_perhari_b  = 0;
             $profit_perhari_rp = 0;
             $status            = 'menunggu_transfer';
 

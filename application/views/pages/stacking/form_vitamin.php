@@ -63,7 +63,8 @@
 
         total_investment.on('change', function() {
             let total_transfer_value = total_investment.val() * 10;
-            let profit_value = total_investment.val() * 0.5 / 100;
+            // let profit_value = total_investment.val() * 0.5 / 100;
+            let profit_value = 0;
             totalInvestment = total_investment.val();
             totalTransfer = total_transfer_value;
             total_transfer.val(total_transfer_value);

@@ -46,7 +46,7 @@
                             </label>
                             <div class="col-sm-12 col-md-12 col-lg-2">
                                 <div class="input-group">
-                                    <input type="number" class="form-control" id="total_investment" name="total_investment" placeholder="Total Investment" value="0" min="1" max="1000000" step="1" required />
+                                    <input type="number" class="form-control" id="total_investment" name="total_investment" placeholder="Total Investment" value="0" min="100" max="100000" step="100" required />
                                     <span class="input-group-addon bg-blue text-white">PC</span>
                                 </div>
                             </div>
