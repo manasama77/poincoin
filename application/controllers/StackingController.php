@@ -212,8 +212,17 @@ class StackingController extends CI_Controller
         $data['arr_wallet']   = $this->mcore->get('user_wallets', '*', ['id_user' => $id_user, 'deleted_at' => NULL]);
 
         $arr_ratio         = $this->mcore->get('ratio', '*', ['deleted_at' => null], 'id', 'desc', 1);
-        $data['ratio_bnr'] = $arr_ratio->row()->bnr;
-        $data['ratio_trx'] = $arr_ratio->row()->trx;
+
+        $ratio_bnr = 0;
+        $ratio_trx = 0;
+
+        if ($arr_ratio->num_rows() > 0) {
+            $ratio_bnr = $arr_ratio->row()->bnr;
+            $ratio_trx = $arr_ratio->row()->trx;
+        }
+
+        $data['ratio_bnr'] = $ratio_bnr;
+        $data['ratio_trx'] = $ratio_trx;
 
         $this->template->template($data);
     }
